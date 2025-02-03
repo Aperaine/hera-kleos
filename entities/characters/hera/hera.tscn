@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://keoqw036preq"]
+
+[ext_resource type="Script" path="res://entities/characters/hera/hera.gd" id="1_kh3xf"]
+[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="2_r8vmq"]
+
+[node name="Hera" type="Node2D"]
+script = ExtResource("1_kh3xf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r8vmq")
