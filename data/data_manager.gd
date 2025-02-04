@@ -54,30 +54,29 @@ func load_game():
 		return
 	
 	var json_text = file.get_as_text()
-	var parse_result = JSON.parse_string(json_text)
+	var data = JSON.parse_string(json_text)
 
-	if not parse_result.has("result"):
+	# Ensure parsing was successful (Godot 4's JSON.parse_string() returns directly)
+	if typeof(data) != TYPE_DICTIONARY:
 		printerr("Failed to parse save file JSON. Raw text:", json_text)
 		return
 	
-	var data = parse_result["result"]
-
+	# Update game stats
 	game_stats.play_time = data.get("play_time", 0.0)
 	game_stats.deaths = data.get("deaths", 0)
 	progress.unlocked_levels = data.get("unlocked_levels", [1])
 	
+	# Convert string dictionary keys back to integers
 	var loaded_unlocked = data.get("unlocked_abilities", {})
 	var new_unlocked = {}
 	for key in loaded_unlocked.keys():
-		var int_key = int(key)
-		new_unlocked[int_key] = loaded_unlocked[key]
+		new_unlocked[int(key)] = loaded_unlocked[key]
 	progress.unlocked_abilities = new_unlocked
 	
 	var loaded_selected = data.get("selected_abilities", {})
 	var new_selected = {}
 	for key in loaded_selected.keys():
-		var int_key = int(key)
-		new_selected[int_key] = loaded_selected[key]
+		new_selected[int(key)] = loaded_selected[key]
 	progress.selected_abilities = new_selected
 
 func save_game():
