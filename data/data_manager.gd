@@ -9,6 +9,11 @@ var selected_weapons = { Enums.Characters.HERACLE: null, Enums.Characters.HERA: 
 var play_time = 0.0
 var deaths = 0
 
+func _ready():
+	reset_game()
+	load_game()
+	output_data()
+
 # Load game progress
 func load_game():
 	if FileAccess.file_exists(SAVE_PATH):
@@ -21,6 +26,8 @@ func load_game():
 			selected_weapons = data.get("selected_weapons", selected_weapons)
 			play_time = data.get("play_time", 0.0)
 			deaths = data.get("deaths", 0)
+	else:
+		save_game()
 	
 # Save game progress
 func save_game():
@@ -34,6 +41,13 @@ func save_game():
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
+
+# Reset the game progress
+func reset_game():
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(SAVE_PATH)
+	load_game()
+	print("Game data has been reset!")
 
 # Unlock an ability
 func unlock_ability(character: int, ability: int):
@@ -60,3 +74,17 @@ func record_death():
 func update_play_time(delta: float):
 	play_time += delta
 	save_game()
+
+func output_data():
+	print("--------DATA--------")
+	print("unlocked_levels:")
+	print(unlocked_levels)
+	print("\nunlocked_abilities: ")
+	print(unlocked_abilities)
+	print("\nselected_weapons: ")
+	print(selected_weapons)
+	print("\nplay_time: ")
+	print(play_time)
+	print("\ndeaths: ")
+	print(deaths)
+	print("--------------------")

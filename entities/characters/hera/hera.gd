@@ -6,8 +6,9 @@ var current_ability: int = 0
 
 func _ready():
 	# Ensure DataManager is properly set up as an autoload
-	if DataManager:
-		DataManager.unlock_ability(Enums.Characters.HERA, Enums.HeraAbility.STATE_WEAPON)
+	# if DataManager:
+	#	DataManager.unlock_ability(Enums.Characters.HERA, Enums.HeraAbility.STATE_WEAPON)
+	pass
 
 func _input(event):
 	if event.is_action_pressed("hera-activate"):
