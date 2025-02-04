@@ -1,90 +1,196 @@
 extends Node
 
-
 const SAVE_PATH = "user://save_data.json"
 
-var unlocked_levels = [1]
-var unlocked_abilities = { Enums.Characters.HERACLE: [], Enums.Characters.HERA: [] }
-var selected_weapons = { Enums.Characters.HERACLE: null, Enums.Characters.HERA: null }
-var play_time = 0.0
-var deaths = 0
+# Enums
+enum HeraAbility {
+	STATE_WEAPON,
+	STATE_SHIELD,
+	STATE_PLATFORM,
+}
+
+enum HeracleAbility {
+	CLUB,
+	SWORD,
+	BOW,
+}
+
+enum Characters {
+	HERA,
+	HERACLE,
+}
+
+# Game Data
+var game_stats = {
+	"play_time": 0.0,
+	"deaths": 0,
+}
+
+var progress = {
+	"unlocked_levels": [1],
+	"unlocked_abilities": {
+		Characters.HERA: [],
+		Characters.HERACLE: [],
+	},
+	"selected_abilities": {
+		Characters.HERA: null,
+		Characters.HERACLE: null,
+	}
+}
 
 func _ready():
-	reset_game()
 	load_game()
 	output_data()
 
-# Load game progress
+
 func load_game():
-	if FileAccess.file_exists(SAVE_PATH):
-		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-		var data = JSON.parse_string(file.get_as_text())
-
-		if data:
-			unlocked_levels = data.get("unlocked_levels", unlocked_levels)
-			unlocked_abilities = data.get("unlocked_abilities", unlocked_abilities)
-			selected_weapons = data.get("selected_weapons", selected_weapons)
-			play_time = data.get("play_time", 0.0)
-			deaths = data.get("deaths", 0)
-	else:
+	if not FileAccess.file_exists(SAVE_PATH):
 		save_game()
+		return
 	
-# Save game progress
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if file == null:
+		printerr("Failed to open save file for reading.")
+		return
+	
+	var json_text = file.get_as_text()
+	var parse_result = JSON.parse_string(json_text)
+
+	if not parse_result.has("result"):
+		printerr("Failed to parse save file JSON. Raw text:", json_text)
+		return
+	
+	var data = parse_result["result"]
+
+	game_stats.play_time = data.get("play_time", 0.0)
+	game_stats.deaths = data.get("deaths", 0)
+	progress.unlocked_levels = data.get("unlocked_levels", [1])
+	
+	var loaded_unlocked = data.get("unlocked_abilities", {})
+	var new_unlocked = {}
+	for key in loaded_unlocked.keys():
+		var int_key = int(key)
+		new_unlocked[int_key] = loaded_unlocked[key]
+	progress.unlocked_abilities = new_unlocked
+	
+	var loaded_selected = data.get("selected_abilities", {})
+	var new_selected = {}
+	for key in loaded_selected.keys():
+		var int_key = int(key)
+		new_selected[int_key] = loaded_selected[key]
+	progress.selected_abilities = new_selected
+
 func save_game():
-	var data = {
-		"unlocked_levels": unlocked_levels,
-		"unlocked_abilities": unlocked_abilities,
-		"selected_weapons": selected_weapons,
-		"play_time": play_time,
-		"deaths": deaths
-	}
-
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	file.store_string(JSON.stringify(data))
+	if file == null:
+		printerr("Failed to open save file for writing.")
+		return
+	
+	var save_data = {
+		"play_time": game_stats.play_time,
+		"deaths": game_stats.deaths,
+		"unlocked_levels": progress.unlocked_levels,
+		"unlocked_abilities": progress.unlocked_abilities,
+		"selected_abilities": progress.selected_abilities,
+	}
+	
+	file.store_string(JSON.stringify(save_data))
 
-# Reset the game progress
 func reset_game():
 	if FileAccess.file_exists(SAVE_PATH):
-		DirAccess.remove_absolute(SAVE_PATH)
-	load_game()
-	print("Game data has been reset!")
+		var err = DirAccess.remove_absolute(SAVE_PATH)
+		if err != OK:
+			printerr("Failed to delete save file.")
+			return
+	
+	game_stats.play_time = 0.0
+	game_stats.deaths = 0
+	progress.unlocked_levels = [1]
+	progress.unlocked_abilities = {
+		Characters.HERA: [],
+		Characters.HERACLE: []
+	}
+	progress.selected_abilities = {
+		Characters.HERA: null,
+		Characters.HERACLE: null
+	}
+	
+	save_game()
+	print("Game data has been successfully reset.")
 
-# Unlock an ability
 func unlock_ability(character: int, ability: int):
-	if ability not in unlocked_abilities[character]:
-		unlocked_abilities[character].append(ability)
+	if not progress.unlocked_abilities.has(character):
+		progress.unlocked_abilities[character] = []
+	
+	if ability not in progress.unlocked_abilities[character]:
+		progress.unlocked_abilities[character].append(ability)
 		save_game()
-
-# Change selected weapon
-func select_weapon(character: int, weapon: int):
-	selected_weapons[character] = weapon
-	save_game()
-
-# Unlock a new level
+		print("Ability ", ability, " was successfully added for character ", character)
+	else:
+		print("Ability ", ability, " is already unlocked for character ", character)
+		
+func switch_ability(character: int):
+	if not progress.unlocked_abilities.has(character):
+		print("Error: No unlocked abilities for character: ", character)
+		return
+	
+	var unlocked = progress.unlocked_abilities[character]
+	
+	if unlocked.is_empty():
+		print("No unlocked abilities for character: ", character)
+		return
+	
+	if progress.selected_abilities[character] == null or progress.selected_abilities[character] not in unlocked:
+		progress.selected_abilities[character] = unlocked[0]
+	else:
+		var current_index = unlocked.find(progress.selected_abilities[character])
+		if current_index == -1:
+			progress.selected_abilities[character] = unlocked[0]
+		else:
+			var next_index = (current_index + 1) % unlocked.size()
+			progress.selected_abilities[character] = unlocked[next_index]
+	
+	print(str(character) + " switched ability to " + str(progress.selected_abilities[character]))
+	
 func unlock_level(level: int):
-	if level not in unlocked_levels:
-		unlocked_levels.append(level)
+	if level not in progress.unlocked_levels:
+		progress.unlocked_levels.append(level)
 		save_game()
+		print("Level " + str(level) + " is unlocked.")
 
-# Track deaths and playtime
-func record_death():
-	deaths += 1
+func record_death(deaths: int):
+	game_stats.deaths += deaths
 	save_game()
+	print("Died " + str(deaths) + " times this level.")
+	print("Died " + str(game_stats.deaths) + " times in general.")
 
-func update_play_time(delta: float):
-	play_time += delta
+func record_time(delta: float):
+	game_stats.play_time += delta
 	save_game()
+	print("Played for " + str(delta) + " this level.")
+	print("Played for " + str(game_stats.play_time) + " in general.")
 
 func output_data():
-	print("--------DATA--------")
-	print("unlocked_levels:")
-	print(unlocked_levels)
-	print("\nunlocked_abilities: ")
-	print(unlocked_abilities)
-	print("\nselected_weapons: ")
-	print(selected_weapons)
-	print("\nplay_time: ")
-	print(play_time)
-	print("\ndeaths: ")
-	print(deaths)
-	print("--------------------")
+	print("""
+--------DATA--------
+unlocked_levels:
+{levels}
+
+unlocked_abilities:
+{abilities}
+
+selected_abilities:
+{weapons}
+
+play_time:
+{time}
+
+deaths:
+{deaths}
+--------------------""".format({
+		"levels": progress.unlocked_levels,
+		"abilities": progress.unlocked_abilities,
+		"weapons": progress.selected_abilities,
+		"time": game_stats.play_time,
+		"deaths": game_stats.deaths
+	}))
