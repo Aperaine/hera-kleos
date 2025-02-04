@@ -22,6 +22,7 @@ DataManager="*res://data/data_manager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/resizable=false
 
 [input]
 
@@ -35,6 +36,23 @@ hera-toggle={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(576, 36),"global_position":Vector2(595, 127),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+heracle-right={
+"deadzone": 0.5,
+"events": []
+}
+heracle-left={
+"deadzone": 0.5,
+"events": []
+}
+
+[layer_names]
+
+2d_physics/layer_3="Environment"
+2d_physics/layer_4="Damage"
+2d_physics/layer_5="Obstacle Heracle"
+2d_physics/layer_6="Obstacle Hera"
+2d_physics/layer_7="Heracle"
+2d_physics/layer_8="Hera"
 
 [rendering]
 
