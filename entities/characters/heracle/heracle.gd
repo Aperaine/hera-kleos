@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+# hello world
+
 # This code is for you to edit Jafar, please feel free to edit everything here.
 # Task:
 # - Create a movable Hercules Character
