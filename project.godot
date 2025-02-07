@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DataManager="*res://data/data_manager.gd"
+SceneManager="*res://data/scene_manager.gd"
 
 [display]
 
@@ -48,12 +49,14 @@ heracle-left={
 
 [layer_names]
 
+2d_physics/layer_1="Floor"
 2d_physics/layer_3="Environment"
 2d_physics/layer_4="Damage"
 2d_physics/layer_5="Obstacle Heracle"
 2d_physics/layer_6="Obstacle Hera"
 2d_physics/layer_7="Heracle"
 2d_physics/layer_8="Hera"
+2d_physics/layer_12="Gate"
 
 [rendering]
 

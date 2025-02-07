@@ -1,81 +1,56 @@
 extends CharacterBody2D
 
-# hello world
-
-# This code is for you to edit Jafar, please feel free to edit everything here.
-# Task:
-# - Create a movable Hercules Character
-# - Find a way to organize the hitboxes in the game (players, gates, enemies or whatever we'll need)
-# - Create basic Hitbox for the scenery/gate/gate.tscn
-# - Make a function to 'enter the gate', which only has to print "entering gate" when the player's 
-#	hitbox is hitting the gate's hitbox and a certain button is pushed.
-
 const SPEED := 550.0
 const JUMP_VELOCITY := -2000.0
-const ACCELERATION := 50.0
+const ACCELERATION := 25.0
 const FRICTION := 70.0
-const GRAVITY := 120.0
-const JUMP_LIMIT = 2
-var jump_count = 1
+const GRAVITY := 200.0
+const JUMP_LIMIT := 1  # Set to 1 for single jump
+var jump_count := 0  # Start at 0 to allow the first jump only
 
+# Player movement input (Left / Right)
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO
 	input_dir.x = Input.get_axis("ui_left", "ui_right")
 	input_dir = input_dir.normalized()
 	return input_dir
 
+# Accelerate player movement in the input direction
 func accelerate(direction):
-	velocity = velocity.move_toward(SPEED * direction, ACCELERATION)
+	velocity = velocity.move_toward(Vector2(SPEED * direction.x, velocity.y), ACCELERATION)
 
+# Apply friction to slow down the player when no input is given
 func friction():
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 
+# Handles the movement of the player (with collision)
 func player_movement():
-	move_and_slide()
+	move_and_slide()  # No need to specify the up vector anymore
 
+# Jump logic: Only allow jumping if on the floor and under the jump limit
 func jump():
-	if Input.is_action_just_pressed("ui_up"):
-		if jump_count < JUMP_LIMIT:
-			velocity.y = JUMP_VELOCITY
-			jump_count += 1
-	else:
-		velocity.y += GRAVITY
-	
-	if is_on_floor():
-		jump_count = 1
+	# Check if jump button is pressed and jump limit hasn't been reached
+	if Input.is_action_just_pressed("ui_up") and jump_count < JUMP_LIMIT:
+		velocity.y = JUMP_VELOCITY  # Apply jump velocity
+		jump_count += 1  # Increment jump count when jumping
 
+	# Apply gravity when in the air
+	if not is_on_floor():
+		velocity.y += GRAVITY
+
+	# Reset jump count when on the floor
+	if is_on_floor():
+		jump_count = 0  # Reset jump count to allow jumping again
+
+# Main physics process where movement and jumps are updated
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = input()
 	
+	# Handle player movement: accelerate if input is given, apply friction if not
 	if input_dir != Vector2.ZERO:
 		accelerate(input_dir)
 	else:
 		friction()
 	
-	player_movement()
-	jump()
-	
-	#
-	#
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction := Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-#
-	#move_and_slide()
-	#
-	#for index in get_slide_collision_count():
-		#var collision = get_slide_collision(index)
-		#
-	
+	player_movement()  # Move the player with collision handling
+	jump()  # Handle jumping

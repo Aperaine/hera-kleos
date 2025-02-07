@@ -18,6 +18,10 @@ func _input(event):
 	if event.is_action_pressed("hera-activate"):
 		if DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_PLATFORM:
 			hera_platform()
+		if DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_SHIELD:
+			SceneManager.change_scene(SceneManager.ROOMS.level1)
+		if DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_WEAPON:
+			SceneManager.change_scene(SceneManager.ROOMS.castle)
 	if event.is_action_pressed("hera-toggle"):
 		DataManager.switch_ability(DataManager.Characters.HERA)
 

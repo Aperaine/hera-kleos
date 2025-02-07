@@ -6,6 +6,8 @@
 size = Vector2(128, 192)
 
 [node name="Heracle" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 2193
 script = ExtResource("1_5gu3k")
 metadata/_edit_group_ = true
 
