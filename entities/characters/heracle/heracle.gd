@@ -8,6 +8,9 @@ const GRAVITY := 200.0
 const JUMP_LIMIT := 1  # Set to 1 for single jump
 var jump_count := 0  # Start at 0 to allow the first jump only
 
+func _ready() -> void:
+	add_to_group("Heracle")
+
 # Player movement input (Left / Right)
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO

@@ -23,4 +23,10 @@ limit_top = 0
 limit_bottom = 0
 
 [node name="Gate" parent="." instance=ExtResource("4_i18ad")]
-position = Vector2(544, 912)
+position = Vector2(488, 936)
+unlocked = true
+
+[node name="Gate2" parent="." instance=ExtResource("4_i18ad")]
+position = Vector2(720, 936)
+room = 2
+unlocked = true
