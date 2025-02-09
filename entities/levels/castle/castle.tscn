@@ -13,7 +13,7 @@
 position = Vector2(192, 1032)
 
 [node name="Hera" parent="." instance=ExtResource("2_fonep")]
-position = Vector2(920, 632)
+position = Vector2(-160, 744)
 
 [node name="Heracle" parent="." instance=ExtResource("3_pg7en")]
 position = Vector2(184, 912)
@@ -24,9 +24,7 @@ limit_bottom = 0
 
 [node name="Gate" parent="." instance=ExtResource("4_i18ad")]
 position = Vector2(488, 936)
-unlocked = true
 
 [node name="Gate2" parent="." instance=ExtResource("4_i18ad")]
 position = Vector2(720, 936)
 room = 2
-unlocked = true

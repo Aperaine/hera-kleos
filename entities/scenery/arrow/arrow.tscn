@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwdaob1y46ufi"]
+
+[ext_resource type="Script" path="res://entities/scenery/arrow/arrow.gd" id="1_k0pbe"]
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_k0pbe")

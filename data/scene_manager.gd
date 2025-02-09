@@ -21,5 +21,7 @@ const ROOM_PATHS = {
 }
 
 func change_scene(room: ROOMS):
+	DataManager.save_game()
 	get_tree().change_scene_to_file(ROOM_PATHS[room])
+	DataManager.load_game()
 	print("Changed to room: " + str(room))

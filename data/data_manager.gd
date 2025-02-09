@@ -4,9 +4,10 @@ const SAVE_PATH = "user://save_data.json"
 
 # Enums
 enum HeraAbility {
+	STATE_PLATFORM,
 	STATE_WEAPON,
 	STATE_SHIELD,
-	STATE_PLATFORM,
+	STATE_LEVELIO,
 }
 
 enum HeracleAbility {
@@ -27,7 +28,7 @@ var game_stats = {
 }
 
 var progress = {
-	"unlocked_levels": [1],
+	"unlocked_levels": [SceneManager.ROOMS.castle],
 	"unlocked_abilities": {
 		Characters.HERA: [],
 		Characters.HERACLE: [],
@@ -38,9 +39,20 @@ var progress = {
 	}
 }
 
+func debug():
+	DataManager.reset_game()
+	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_WEAPON)
+	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_SHIELD)
+	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_PLATFORM)
+	DataManager.progress.selected_abilities[DataManager.Characters.HERA] = DataManager.HeraAbility.STATE_PLATFORM
+	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.CLUB)
+	DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] = DataManager.HeracleAbility.CLUB
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _ready():
 	load_game()
 	output_data()
+	debug()
 
 
 func load_game():
