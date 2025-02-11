@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
+@export var arrow_scene: PackedScene
+var arrow_speed = 500
+var shoot_direction = Vector2.ZERO
+
 const SPEED := 550.0
 const JUMP_VELOCITY := -2000.0
 const ACCELERATION := 25.0
 const FRICTION := 70.0
 const GRAVITY := 200.0
-const JUMP_LIMIT := 1  # Set to 1 for single jump
-var jump_count := 0  # Start at 0 to allow the first jump only
+const JUMP_LIMIT := 1 
+var jump_count := 0
 
 func _ready() -> void:
 	pass
@@ -57,3 +61,11 @@ func _physics_process(delta: float) -> void:
 	
 	player_movement()  # Move the player with collision handling
 	jump()  # Handle jumping
+		
+	if Input.is_action_just_pressed("shoot"):
+		shoot_arrow()
+
+func shoot_arrow():
+	var arrow = arrow_scene.instantiate()
+	arrow.position = position
+	get_parent().add_child(arrow)
