@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+# don't touch these lines
 @export var arrow_scene: PackedScene
 var arrow_speed = 500
 var shoot_direction = Vector2.ZERO
+# up to here
 
-const SPEED := 550.0
+@export var SPEED := 550.0
 const JUMP_VELOCITY := -2000.0
 const ACCELERATION := 25.0
 const FRICTION := 70.0
@@ -65,7 +67,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot_arrow()
 
+# don't touch these lines
 func shoot_arrow():
 	var arrow = arrow_scene.instantiate()
 	add_child(arrow)
 	arrow.launch(Vector2(500 , -5000))
+# up to here
