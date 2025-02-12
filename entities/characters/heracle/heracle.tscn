@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://be83omqxhq1ex"]
 
 [ext_resource type="Script" path="res://entities/characters/heracle/heracle.gd" id="1_5gu3k"]
-[ext_resource type="PackedScene" uid="uid://dx2muom2lmctp" path="res://entities/scenery/arrow/arrow.tscn" id="2_x1sro"]
+[ext_resource type="PackedScene" uid="uid://bbfw0f3qy1we6" path="res://entities/scenery/arrow/arrow.tscn" id="2_x1sro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwid3"]
 size = Vector2(128, 192)

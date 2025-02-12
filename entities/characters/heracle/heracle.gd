@@ -67,5 +67,5 @@ func _physics_process(delta: float) -> void:
 
 func shoot_arrow():
 	var arrow = arrow_scene.instantiate()
-	arrow.position = position
-	get_parent().add_child(arrow)
+	add_child(arrow)
+	arrow.launch(Vector2(500 , -5000))

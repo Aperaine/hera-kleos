@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx2muom2lmctp"]
+[gd_scene load_steps=3 format=3 uid="uid://bbfw0f3qy1we6"]
 
 [ext_resource type="Script" path="res://entities/scenery/arrow/arrow.gd" id="1_k0pbe"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_hfnli"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7i8v"]
+size = Vector2(42, 10)
 
-[node name="Arrow" type="Node2D"]
+[node name="Arrow" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_k0pbe")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("SegmentShape2D_hfnli")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_w7i8v")
