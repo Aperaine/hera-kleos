@@ -2,7 +2,48 @@ extends Node
 
 const SAVE_PATH = "user://save_data.json"
 
-# Enums
+enum ROOMS {
+	tutorial,
+	castle,
+	level1,
+	level2,
+	level3,
+	level4,
+	level5,
+}
+
+const ROOM_PATHS = {
+	ROOMS.tutorial: "res://entities/levels/tutorial/tutorial.tscn",
+	ROOMS.castle: "res://entities/levels/castle/castle.tscn",
+	ROOMS.level1: "res://entities/levels/level1 - lion/level1.tscn",
+	ROOMS.level2: "res://entities/levels/level2 - hydra/level2.tscn",
+	ROOMS.level3: "res://entities/levels/level3 - hind/level3.tscn",
+	ROOMS.level4: "res://entities/levels/level4 - boar/level4.tscn",
+	ROOMS.level5: "res://entities/levels/level5 - stables/level5.tscn",
+}
+
+var game_stats = {
+	"play_time": 0.0,
+	"deaths": 0,
+}
+
+var progress = {
+	"unlocked_levels": [ROOMS.castle],
+	"unlocked_abilities": {
+		Characters.HERA: [],
+		Characters.HERACLE: [],
+	},
+	"selected_abilities": {
+		Characters.HERA: null,
+		Characters.HERACLE: null,
+	}
+}
+
+enum Characters {
+	HERA,
+	HERACLE,
+}
+
 enum HeraAbility {
 	STATE_PLATFORM,
 	STATE_WEAPON,
@@ -16,44 +57,27 @@ enum HeracleAbility {
 	BOW,
 }
 
-enum Characters {
-	HERA,
-	HERACLE,
-}
-
-# Game Data
-var game_stats = {
-	"play_time": 0.0,
-	"deaths": 0,
-}
-
-var progress = {
-	"unlocked_levels": [SceneManager.ROOMS.castle],
-	"unlocked_abilities": {
-		Characters.HERA: [],
-		Characters.HERACLE: [],
-	},
-	"selected_abilities": {
-		Characters.HERA: null,
-		Characters.HERACLE: null,
-	}
-}
-
 func debug():
 	DataManager.reset_game()
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_WEAPON)
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_SHIELD)
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_PLATFORM)
 	DataManager.progress.selected_abilities[DataManager.Characters.HERA] = DataManager.HeraAbility.STATE_PLATFORM
-	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.CLUB)
-	DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] = DataManager.HeracleAbility.CLUB
+	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.BOW)
+	DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] = DataManager.HeracleAbility.BOW
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	DataManager.unlock_level(DataManager.ROOMS.castle)
+	
 
 func _ready():
 	load_game()
 	output_data()
 	debug()
 
+func change_scene(room: ROOMS):
+	save_game()
+	get_tree().change_scene_to_file(ROOM_PATHS[room])
+	print("Changed to room: " + str(room))
 
 func load_game():
 	if not FileAccess.file_exists(SAVE_PATH):

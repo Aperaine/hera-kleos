@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 DataManager="*res://data/data_manager.gd"
-SceneManager="*res://data/scene_manager.gd"
 
 [display]
 
