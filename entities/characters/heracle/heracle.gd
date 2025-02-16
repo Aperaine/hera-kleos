@@ -17,6 +17,12 @@ func input() -> Vector2:
 	input_dir.y = Input.get_axis("ui_up", "ui_down")
 	return input_dir
 
+func _input(event):
+	if event.is_action_pressed("heracle-toggle"):
+		DataManager.switch_ability(DataManager.Characters.HERACLE)
+		if DataManager.progress["selected_abilities"][DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
+			DataManager.ram["hera_active"] = true
+
 func move_character(direction):
 	if direction.x != 0:
 		velocity.x = SPEED * direction.x
@@ -56,21 +62,18 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Handle shooting
-	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
+	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:# and DataManager.ram["hera_active"] == true:
 		shoot_arrow()
 
 func shoot_arrow():
+	if DataManager.ram["arrows"] <= 0:
+		return  # Don't shoot if no arrows left
+		
 	var arrow = arrow_scene.instantiate()
+	DataManager.ram["arrows"] -= 1
 	get_tree().current_scene.add_child(arrow)
 	arrow.global_position = global_position
 	
 	var shoot_dir = get_shoot_direction()
 	var is_hera_arrow = (DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_WEAPON)
-	
-	# Add debug print
-	print("Shooting arrow:")
-	print("Direction: ", shoot_dir)
-	print("Is Hera arrow: ", is_hera_arrow)
-	print("Current ability: ", DataManager.progress.selected_abilities[DataManager.Characters.HERA])
-	
 	arrow.initialize(shoot_dir, is_hera_arrow)

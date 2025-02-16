@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://5gp1o4puf13w"]
+[gd_scene load_steps=6 format=3 uid="uid://5gp1o4puf13w"]
 
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="2_fonep"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_pg7en"]
 [ext_resource type="PackedScene" uid="uid://5i7i8hwawflb" path="res://entities/scenery/gate/gate.tscn" id="4_i18ad"]
+[ext_resource type="PackedScene" uid="uid://bieyihosrtu7" path="res://entities/scenery/obstacle_hera/obstacle_hera.tscn" id="5_kxmie"]
 [ext_resource type="PackedScene" uid="uid://bkc8q56u2p6vh" path="res://entities/scenery/floor/floor.tscn" id="5_pc35t"]
 
 [node name="Castle" type="Node2D"]
@@ -28,3 +29,6 @@ position = Vector2(488, 936)
 [node name="Gate2" parent="." instance=ExtResource("4_i18ad")]
 position = Vector2(720, 936)
 room = 2
+
+[node name="ObstacleHera" parent="." instance=ExtResource("5_kxmie")]
+position = Vector2(-384, 944)

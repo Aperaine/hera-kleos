@@ -1,16 +1,16 @@
 # hera.gd
 extends Node2D
 
-var hera_active: bool = true
 var touching_heracle: bool = false
 var collision_platform: CollisionShape2D
 var collision_hummingbird: CollisionShape2D
 var area_hummingbird: Area2D
 var ability: DataManager.HeraAbility
 var static_body: StaticBody2D
+var hera_bow: bool = false
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 	static_body = $StaticBody2D
 	static_body.collision_layer = 8
@@ -30,17 +30,17 @@ func _input(event):
 			DataManager.HeraAbility.STATE_WEAPON:
 				hera_weapon()
 	if event.is_action_pressed("hera-toggle"):
-		hera_active = true
+		DataManager.ram["hera_active"] = true
 		DataManager.switch_ability(DataManager.Characters.HERA)
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 
 # Platform
 func hera_platform():
-	hera_active = false
+	DataManager.ram["hera_active"] = false
 	static_body.collision_layer = 1
 	await get_tree().create_timer(1).timeout
 	static_body.collision_layer = 8
-	hera_active = true
+	DataManager.ram["hera_active"] = true
 
 # Shield
 func hera_sheild():
@@ -48,16 +48,24 @@ func hera_sheild():
 
 # Weapon
 func hera_weapon():
-	if touching_heracle:
-		hera_active = false
-		if DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.CLUB:
-			print("Hera Enters the Club")
+	var heracle_ability = DataManager.progress["selected_abilities"][DataManager.Characters.HERACLE]
+	match heracle_ability:
+		DataManager.HeracleAbility.CLUB:
+			if touching_heracle:
+				DataManager.ram["hera_active"] = false
+				print("Hera Enters the Club")
+		DataManager.HeracleAbility.SWORD:
+			if touching_heracle:
+				DataManager.ram["hera_active"] = false
+				print("Hera Enters the Sword")
+		DataManager.HeracleAbility.BOW:
+			hera_bow = true
 
 # Other
 func collision_manager():
 	collision_platform.disabled = true
 	collision_hummingbird.disabled = true
-	if hera_active:
+	if DataManager.ram["hera_active"]:
 		collision_hummingbird.disabled = false
 	else:
 		match ability:
@@ -70,11 +78,13 @@ func collision_manager():
 			DataManager.HeraAbility.STATE_LEVELIO:
 				pass
 
-func _physics_process(_delta: float) -> void:
-	collision_manager()
-	if hera_active:
+func movement():
+	if DataManager.ram["hera_active"]:
 		position += (get_global_mouse_position() - position) / 5
 
+func _physics_process(_delta: float) -> void:
+	collision_manager()
+	movement()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Heracle":

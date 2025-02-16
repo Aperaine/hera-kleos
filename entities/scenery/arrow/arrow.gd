@@ -9,28 +9,27 @@ var is_hera_controlled = false
 
 func _ready():
 	add_to_group("arrows")
-	# Ensure the VisibleOnScreenNotifier2D signal is connected
+	$VisibleOnScreenNotifier2D.screen_exited.connect(self_destruction)
 	rotation = velocity.angle()
 
 func initialize(direction: Vector2, hera_arrow: bool = false):
 	is_hera_controlled = hera_arrow
-	if !is_hera_controlled:
+	if not is_hera_controlled:
 		velocity = direction.normalized() * ARROW_SPEED
 	rotation = velocity.angle()
 
 func _physics_process(delta):
 	if is_hera_controlled:
-		# Continuously update direction to follow mouse
 		var target_pos = get_global_mouse_position()
 		velocity = (target_pos - global_position).normalized() * ARROW_SPEED
 		rotation = velocity.angle()
 	else:
-		# Heracle's arrows with gravity
 		velocity.y += ARROW_GRAVITY * delta
 		velocity.y = min(velocity.y, MAX_FALL_SPEED)
 		rotation = velocity.angle()
 	
 	position += velocity * delta
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()  # Clean up arrow when it leaves the screen
+func self_destruction():
+	DataManager.ram["arrows"] += 1
+	queue_free()

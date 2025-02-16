@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bieyihosrtu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3imuq"]
+size = Vector2(82, 106)
+
+[node name="ObstacleHera" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_3imuq")

@@ -39,6 +39,11 @@ var progress = {
 	}
 }
 
+var ram = {
+	"arrows": 3,
+	"hera_active": true,
+}
+
 enum Characters {
 	HERA,
 	HERACLE,
@@ -64,9 +69,11 @@ func debug():
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_PLATFORM)
 	DataManager.progress.selected_abilities[DataManager.Characters.HERA] = DataManager.HeraAbility.STATE_PLATFORM
 	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.BOW)
+	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.SWORD)
+	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.CLUB)
 	DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] = DataManager.HeracleAbility.BOW
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	DataManager.unlock_level(DataManager.ROOMS.castle)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 
 func _ready():

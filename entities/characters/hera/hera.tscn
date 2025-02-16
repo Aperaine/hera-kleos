@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://keoqw036preq"]
+[gd_scene load_steps=5 format=3 uid="uid://keoqw036preq"]
 
 [ext_resource type="Script" path="res://entities/characters/hera/hera.gd" id="1_kh3xf"]
+[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="2_27ccv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp308"]
 size = Vector2(83, 20)
@@ -10,7 +11,6 @@ radius = 54.231
 
 [node name="Hera" type="Node2D"]
 script = ExtResource("1_kh3xf")
-metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 128
@@ -18,6 +18,11 @@ collision_mask = 96
 
 [node name="collision_platform" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_wp308")
+
+[node name="sprite_platform" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(9.53674e-07, 0.5)
+scale = Vector2(0.65625, 0.164062)
+texture = ExtResource("2_27ccv")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 128

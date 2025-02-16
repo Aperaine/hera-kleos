@@ -10,7 +10,6 @@ var area2d_node: Area2D
 func _ready():
 	add_to_group("gates")
 	area2d_node = $Area2D
-	print("Gate at position ", global_position, " initialized with target room: ", DataManager.ROOMS.keys()[room])
 
 func _process(_delta):
 	var was_in_area = player_in_area
