@@ -50,13 +50,14 @@ enum Characters {
 }
 
 enum HeraAbility {
+	STATE_EMPTY,
 	STATE_PLATFORM,
 	STATE_WEAPON,
-	STATE_SHIELD,
 	STATE_LEVELIO,
 }
 
 enum HeracleAbility {
+	EMPTY,
 	CLUB,
 	SWORD,
 	BOW,
@@ -74,12 +75,12 @@ func debug():
 	DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] = DataManager.HeracleAbility.BOW
 	DataManager.unlock_level(DataManager.ROOMS.castle)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
 
 func _ready():
 	load_game()
 	output_data()
-	debug()
+	#debug()
 
 func change_scene(room: ROOMS):
 	save_game()
