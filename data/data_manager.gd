@@ -40,7 +40,7 @@ var progress = {
 }
 
 var ram = {
-	"arrows": 3,
+	"arrows": 9999999,
 	"hera_active": true,
 }
 
@@ -50,7 +50,7 @@ enum Characters {
 }
 
 enum HeraAbility {
-	STATE_EMPTY,
+	STATE_SHIELD,
 	STATE_PLATFORM,
 	STATE_WEAPON,
 	STATE_LEVELIO,
