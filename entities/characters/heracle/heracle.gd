@@ -1,109 +1,107 @@
 extends CharacterBody2D
 
 @export var arrow_scene: PackedScene = preload("res://entities/scenery/arrow/arrow.tscn")
-@export var SPEED := 550.0
+@export var SPEED: float = 550.0
 
-@onready var label: Label = $"../Label"
 @onready var timer: Timer = $Timer
 @onready var coyote: Timer = $Coyote
-@onready var label_2: Label = $"../Label2"
+@onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
 
-const JUMP_VELOCITY := -2000.0
-const FRICTION := 70.0
-const GRAVITY := 200.0
-const MAX_GRAVITY := 3000.0
-const JUMP_LIMIT := 1
+const JUMP_VELOCITY: float = -2000.0
+const FRICTION: float = 70.0
+const GRAVITY: float = 200.0
+const MAX_GRAVITY: float = 3000.0
+const JUMP_LIMIT: int = 1
 
-var coyote_flag := 0
-var jump_buffer := 0
-var jump_count := 0
-var last_direction = Vector2.RIGHT
+var coyote_flag: int = 0
+var jump_buffer: int = 0
+var jump_count: int = 0
+var last_direction: Vector2 = Vector2.RIGHT
 
-func input() -> Vector2:
-	var input_dir = Vector2.ZERO
-	input_dir.x = Input.get_axis("heracle-left", "heracle-right")
-	input_dir.y = Input.get_axis("ui_up", "ui_down")
-	return input_dir
-
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("heracle-toggle"):
 		DataManager.switch_ability(DataManager.Characters.HERACLE)
 		if DataManager.progress["selected_abilities"][DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
 			DataManager.ram["hera_active"] = true
 
-func move_character(direction):
+func _physics_process(delta: float) -> void:
+	var input_dir: Vector2 = get_input_direction()
+	move_character(input_dir)
+	apply_gravity()
+	handle_jump()
+	move_and_slide()
+	update_animation()
+
+	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
+		shoot_arrow()
+
+func get_input_direction() -> Vector2:
+	return Vector2(Input.get_axis("heracle-left", "heracle-right"), Input.get_axis("ui_up", "ui_down"))
+
+func move_character(direction: Vector2) -> void:
 	if direction.x != 0:
 		velocity.x = SPEED * direction.x
-		last_direction.x = direction.x  # Update last direction
+		last_direction.x = direction.x
+		sprite.flip_h = direction.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
-func apply_gravity():
+func apply_gravity() -> void:
 	if not is_on_floor() and velocity.y < MAX_GRAVITY:
 		velocity.y += GRAVITY
 
-func jump():
+func handle_jump() -> void:
 	if (Input.is_action_just_pressed("heracle-jump") and jump_count < JUMP_LIMIT) or (jump_buffer == 1 and is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 		jump_count = 1
-	
-	#coyote jump
+
 	if not is_on_floor() and jump_count == 0 and coyote_flag == 0:
 		coyote_flag = 1
 		coyote.start()
-	#jump buffering
+
 	if Input.is_action_just_pressed("heracle-jump") and jump_count > 0:
 		jump_buffer = 1
 		timer.start()
-		
+
 	if Input.is_action_just_released("heracle-jump"):
 		jump_buffer = 0
-	
+
 	if is_on_floor() and velocity.y >= 0:
 		coyote_flag = 0
 		jump_count = 0
-		
+
+func update_animation() -> void:
+	if not is_on_floor():
+		if abs(velocity.x) > 0:
+			animation.play("RunJump")
+		else:
+			animation.play("IdleJump")
+	else:
+		if abs(velocity.x) > 0:
+			animation.play("Run")
+		else:
+			animation.play("Idle")
+
 func _on_timer_timeout() -> void:
 	jump_buffer = 0
-	
+
 func _on_coyote_timeout() -> void:
 	jump_count = 1
 
 func get_shoot_direction() -> Vector2:
-	# Get input direction for shooting
-	var shoot_dir = Vector2.ZERO
-	shoot_dir.x = Input.get_axis("ui_left", "ui_right")
-	shoot_dir.y = Input.get_axis("ui_up", "ui_down")
-	
-	# If no direction pressed, use last movement direction
-	if shoot_dir == Vector2.ZERO:
-		shoot_dir = last_direction
-	
-	return shoot_dir.normalized()
+	var shoot_dir: Vector2 = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
+	return shoot_dir if shoot_dir != Vector2.ZERO else last_direction.normalized()
 
-func _physics_process(delta):
-	var input_dir = input()
-	move_character(input_dir)
-	apply_gravity()
-	jump()
-	move_and_slide()
-	#print(jump_count)
-	label.text = str(jump_count)
-	label_2.text = str(coyote_flag)
-	
-	# Handle shooting
-	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:# and DataManager.ram["hera_active"] == true:
-		shoot_arrow()
-
-func shoot_arrow():
+func shoot_arrow() -> void:
 	if DataManager.ram["arrows"] <= 0:
-		return  # Don't shoot if no arrows left
-		
+		return
+
 	var arrow = arrow_scene.instantiate()
 	DataManager.ram["arrows"] -= 1
 	get_tree().current_scene.add_child(arrow)
 	arrow.global_position = global_position
-	
-	var shoot_dir = get_shoot_direction()
-	var is_hera_arrow = (DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_WEAPON)
+
+	var shoot_dir: Vector2 = get_shoot_direction()
+	var is_hera_arrow: bool = (DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_WEAPON)
 	arrow.initialize(shoot_dir, is_hera_arrow)

@@ -11,7 +11,8 @@ var hera_bow: bool = false
 
 func _ready():
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
+	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
+		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 	static_body = $StaticBody2D
 	static_body.collision_layer = 8
 	collision_platform = $StaticBody2D/collision_platform
@@ -25,8 +26,6 @@ func _input(event):
 		match ability:
 			DataManager.HeraAbility.STATE_PLATFORM:
 				hera_platform()
-			DataManager.HeraAbility.STATE_SHIELD:
-				hera_sheild()
 			DataManager.HeraAbility.STATE_WEAPON:
 				hera_weapon()
 	if event.is_action_pressed("hera-toggle"):
@@ -41,10 +40,6 @@ func hera_platform():
 	await get_tree().create_timer(1).timeout
 	static_body.collision_layer = 8
 	DataManager.ram["hera_active"] = true
-
-# Shield
-func hera_sheild():
-	pass
 
 # Weapon
 func hera_weapon():
@@ -72,8 +67,6 @@ func collision_manager():
 			DataManager.HeraAbility.STATE_PLATFORM:
 				collision_platform.disabled = false
 			DataManager.HeraAbility.STATE_WEAPON:
-				pass
-			DataManager.HeraAbility.STATE_SHIELD:
 				pass
 			DataManager.HeraAbility.STATE_LEVELIO:
 				pass

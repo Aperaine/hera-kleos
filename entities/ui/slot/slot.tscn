@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw7ncwcpgjdb3"]
+
+[ext_resource type="Script" path="res://entities/ui/slot/slot.gd" id="1_n5dgo"]
+
+[node name="Slot" type="Container"]
+offset_right = 130.0
+offset_bottom = 77.0
+script = ExtResource("1_n5dgo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "🎮"
+
+[node name="Delete" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "🗑️"
+
+[node name="Death" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "💀"
+
+[node name="Time" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Xh"
+
+[connection signal="pressed" from="HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/Delete" to="." method="_on_delete_pressed"]

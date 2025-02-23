@@ -3,55 +3,59 @@
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="2_fonep"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_pg7en"]
 [ext_resource type="PackedScene" uid="uid://5i7i8hwawflb" path="res://entities/scenery/gate/gate.tscn" id="4_i18ad"]
-[ext_resource type="PackedScene" uid="uid://bieyihosrtu7" path="res://entities/scenery/obstacle_hera/obstacle_hera.tscn" id="5_kxmie"]
+[ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_2a5iv"]
 [ext_resource type="PackedScene" uid="uid://bkc8q56u2p6vh" path="res://entities/scenery/floor/floor.tscn" id="5_pc35t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xmbnn"]
 
 [node name="Castle" type="Node2D"]
 
-[node name="Background" type="Parallax2D" parent="."]
+[node name="Main" type="CanvasGroup" parent="."]
 
-[node name="Floor" parent="Background" instance=ExtResource("5_pc35t")]
+[node name="Background" type="Parallax2D" parent="Main"]
+
+[node name="Floor" parent="Main/Background" instance=ExtResource("5_pc35t")]
 position = Vector2(192, 1032)
 
-[node name="Hera" parent="." instance=ExtResource("2_fonep")]
+[node name="Hera" parent="Main" instance=ExtResource("2_fonep")]
 position = Vector2(-160, 744)
 
-[node name="Heracle" parent="." instance=ExtResource("3_pg7en")]
+[node name="Heracle" parent="Main" instance=ExtResource("3_pg7en")]
 position = Vector2(184, 912)
 
-[node name="Camera" type="Camera2D" parent="Heracle"]
+[node name="Camera" type="Camera2D" parent="Main/Heracle"]
 limit_top = 0
 limit_bottom = 0
 position_smoothing_enabled = true
 
-[node name="Gate" parent="." instance=ExtResource("4_i18ad")]
+[node name="Gate" parent="Main" instance=ExtResource("4_i18ad")]
 position = Vector2(488, 936)
-
-[node name="Gate2" parent="." instance=ExtResource("4_i18ad")]
-position = Vector2(720, 936)
 room = 2
 
-[node name="ObstacleHera" parent="." instance=ExtResource("5_kxmie")]
-position = Vector2(-384, 944)
+[node name="Gate2" parent="Main" instance=ExtResource("4_i18ad")]
+position = Vector2(720, 936)
+room = 3
 
-[node name="Label" type="Label" parent="."]
-offset_left = 65.0
-offset_top = 618.0
-offset_right = 282.0
-offset_bottom = 741.0
-text = "hello"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 150.0
-offset_top = 620.0
-offset_right = 195.0
-offset_bottom = 643.0
-text = "world"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="idk what is this Jafar" type="CanvasGroup" parent="."]
 position = Vector2(216, 1136)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Label" type="Label" parent="idk what is this Jafar"]
+offset_left = -151.0
+offset_top = -518.0
+offset_right = 66.0
+offset_bottom = -395.0
+text = "hello"
+
+[node name="Label2" type="Label" parent="idk what is this Jafar"]
+offset_left = -66.0
+offset_top = -516.0
+offset_right = -21.0
+offset_bottom = -493.0
+text = "world"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="idk what is this Jafar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="idk what is this Jafar/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_xmbnn")
+
+[node name="Menu" parent="." instance=ExtResource("5_2a5iv")]

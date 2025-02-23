@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var room: DataManager.ROOMS = DataManager.ROOMS.castle
+@export var room: DataManager.ROOMS
 @export var mark: Texture2D
 
 var player_in_area = false

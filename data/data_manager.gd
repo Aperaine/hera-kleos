@@ -1,9 +1,22 @@
 extends Node
 
-const SAVE_PATH = "user://save_data.json"
+const SLOT_PATHS = {
+	SLOTS.SLOT1: "user://save_data1.json",
+	SLOTS.SLOT2: "user://save_data2.json",
+	SLOTS.SLOT3: "user://save_data3.json",
+	SLOTS.SLOT4: "user://save_data4.json",
+}
+
+enum SLOTS {
+	SLOT1,
+	SLOT2,
+	SLOT3,
+	SLOT4,
+}
 
 enum ROOMS {
 	tutorial,
+	home,
 	castle,
 	level1,
 	level2,
@@ -14,6 +27,7 @@ enum ROOMS {
 
 const ROOM_PATHS = {
 	ROOMS.tutorial: "res://entities/levels/tutorial/tutorial.tscn",
+	ROOMS.home: "res://entities/levels/home/home.tscn",
 	ROOMS.castle: "res://entities/levels/castle/castle.tscn",
 	ROOMS.level1: "res://entities/levels/level1 - lion/level1.tscn",
 	ROOMS.level2: "res://entities/levels/level2 - hydra/level2.tscn",
@@ -30,17 +44,18 @@ var game_stats = {
 var progress = {
 	"unlocked_levels": [ROOMS.castle],
 	"unlocked_abilities": {
-		Characters.HERA: [],
-		Characters.HERACLE: [],
+		Characters.HERA: [HeraAbility.STATE_EMPTY],
+		Characters.HERACLE: [HeracleAbility.EMPTY],
 	},
 	"selected_abilities": {
-		Characters.HERA: null,
-		Characters.HERACLE: null,
+		Characters.HERA: HeraAbility.STATE_EMPTY,
+		Characters.HERACLE: HeracleAbility.EMPTY,
 	}
 }
 
 var ram = {
-	"arrows": 9999999,
+	"slot": SLOTS.SLOT1,
+	"arrows": 3,
 	"hera_active": true,
 }
 
@@ -50,7 +65,7 @@ enum Characters {
 }
 
 enum HeraAbility {
-	STATE_SHIELD,
+	STATE_EMPTY,
 	STATE_PLATFORM,
 	STATE_WEAPON,
 	STATE_LEVELIO,
@@ -66,7 +81,6 @@ enum HeracleAbility {
 func debug():
 	DataManager.reset_game()
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_WEAPON)
-	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_SHIELD)
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_PLATFORM)
 	DataManager.progress.selected_abilities[DataManager.Characters.HERA] = DataManager.HeraAbility.STATE_PLATFORM
 	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.BOW)
@@ -76,11 +90,12 @@ func debug():
 	DataManager.unlock_level(DataManager.ROOMS.castle)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-
 func _ready():
+	Engine.max_fps = 60
+	reset_game()
 	load_game()
 	output_data()
-	#debug()
+	debug()
 
 func change_scene(room: ROOMS):
 	save_game()
@@ -88,11 +103,11 @@ func change_scene(room: ROOMS):
 	print("Changed to room: " + str(room))
 
 func load_game():
-	if not FileAccess.file_exists(SAVE_PATH):
+	if not FileAccess.file_exists(SLOT_PATHS[ram["slot"]]):
 		save_game()
 		return
 	
-	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var file = FileAccess.open(SLOT_PATHS[ram["slot"]], FileAccess.READ)
 	if file == null:
 		printerr("Failed to open save file for reading.")
 		return
@@ -100,7 +115,6 @@ func load_game():
 	var json_text = file.get_as_text()
 	var data = JSON.parse_string(json_text)
 
-	# Ensure parsing was successful (Godot 4's JSON.parse_string() returns directly)
 	if typeof(data) != TYPE_DICTIONARY:
 		printerr("Failed to parse save file JSON. Raw text:", json_text)
 		return
@@ -124,7 +138,7 @@ func load_game():
 	progress.selected_abilities = new_selected
 
 func save_game():
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var file = FileAccess.open(SLOT_PATHS[ram["slot"]], FileAccess.WRITE)
 	if file == null:
 		printerr("Failed to open save file for writing.")
 		return
@@ -140,22 +154,22 @@ func save_game():
 	file.store_string(JSON.stringify(save_data))
 
 func reset_game():
-	if FileAccess.file_exists(SAVE_PATH):
-		var err = DirAccess.remove_absolute(SAVE_PATH)
+	if FileAccess.file_exists(SLOT_PATHS[ram["slot"]]):
+		var err = DirAccess.remove_absolute(SLOT_PATHS[ram["slot"]])
 		if err != OK:
 			printerr("Failed to delete save file.")
 			return
 	
 	game_stats.play_time = 0.0
 	game_stats.deaths = 0
-	progress.unlocked_levels = [1]
+	progress.unlocked_levels = [DataManager.ROOMS.castle]
 	progress.unlocked_abilities = {
-		Characters.HERA: [],
-		Characters.HERACLE: []
+		Characters.HERA: [DataManager.HeraAbility.STATE_EMPTY],
+		Characters.HERACLE: [DataManager.HeracleAbility.EMPTY],
 	}
 	progress.selected_abilities = {
-		Characters.HERA: null,
-		Characters.HERACLE: null
+		Characters.HERA: DataManager.HeraAbility.STATE_EMPTY,
+		Characters.HERACLE: DataManager.HeracleAbility.EMPTY,
 	}
 	
 	save_game()
