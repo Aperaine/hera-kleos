@@ -3,13 +3,18 @@ extends CharacterBody2D
 @export var arrow_scene: PackedScene = preload("res://entities/scenery/arrow/arrow.tscn")
 @export var SPEED := 550.0
 
+@onready var label: Label = $"../Label"
 @onready var timer: Timer = $Timer
+@onready var coyote: Timer = $Coyote
+@onready var label_2: Label = $"../Label2"
 
 const JUMP_VELOCITY := -2000.0
 const FRICTION := 70.0
 const GRAVITY := 200.0
+const MAX_GRAVITY := 3000.0
 const JUMP_LIMIT := 1
 
+var coyote_flag := 0
 var jump_buffer := 0
 var jump_count := 0
 var last_direction = Vector2.RIGHT
@@ -34,14 +39,18 @@ func move_character(direction):
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
 func apply_gravity():
-	if not is_on_floor():
+	if not is_on_floor() and velocity.y < MAX_GRAVITY:
 		velocity.y += GRAVITY
 
 func jump():
 	if (Input.is_action_just_pressed("heracle-jump") and jump_count < JUMP_LIMIT) or (jump_buffer == 1 and is_on_floor()):
 		velocity.y = JUMP_VELOCITY
-		jump_count += 1
-		
+		jump_count = 1
+	
+	#coyote jump
+	if not is_on_floor() and jump_count == 0 and coyote_flag == 0:
+		coyote_flag = 1
+		coyote.start()
 	#jump buffering
 	if Input.is_action_just_pressed("heracle-jump") and jump_count > 0:
 		jump_buffer = 1
@@ -51,10 +60,14 @@ func jump():
 		jump_buffer = 0
 	
 	if is_on_floor() and velocity.y >= 0:
+		coyote_flag = 0
 		jump_count = 0
 		
 func _on_timer_timeout() -> void:
 	jump_buffer = 0
+	
+func _on_coyote_timeout() -> void:
+	jump_count = 1
 
 func get_shoot_direction() -> Vector2:
 	# Get input direction for shooting
@@ -74,6 +87,9 @@ func _physics_process(delta):
 	apply_gravity()
 	jump()
 	move_and_slide()
+	#print(jump_count)
+	label.text = str(jump_count)
+	label_2.text = str(coyote_flag)
 	
 	# Handle shooting
 	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:# and DataManager.ram["hera_active"] == true:
