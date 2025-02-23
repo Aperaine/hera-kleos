@@ -221,11 +221,48 @@ func record_death(deaths: int):
 	print("Died " + str(deaths) + " times this level.")
 	print("Died " + str(game_stats.deaths) + " times in general.")
 
-func record_time(delta: float):
-	game_stats.play_time += delta
+func record_time(time: float):
+	game_stats.play_time += time
 	save_game()
-	print("Played for " + str(delta) + " this level.")
+	print("Played for " + str(time) + " this level.")
 	print("Played for " + str(game_stats.play_time) + " in general.")
+
+func convert_time(time):
+	var sec = fmod(time, 60)
+	var min = time / 60
+	print(min)
+	print(sec)
+
+func get_game_stats(slot: SLOTS) -> Dictionary:
+	if not SLOT_PATHS.has(slot):
+		printerr("Invalid slot.")
+		return {}
+
+	if not FileAccess.file_exists(SLOT_PATHS[slot]):
+		return {
+			"play_time": 0.0,
+			"deaths": 0,
+		}
+
+	var file = FileAccess.open(SLOT_PATHS[slot], FileAccess.READ)
+	if file == null:
+		printerr("Failed to open save file for reading.")
+		return {}
+
+	var json_text = file.get_as_text()
+	var data = JSON.parse_string(json_text)
+
+	if typeof(data) != TYPE_DICTIONARY:
+		printerr("Failed to parse save file JSON. Raw text:", json_text)
+		return {}
+
+	return {
+		"play_time": data.get("play_time", 0.0),
+		"deaths": data.get("deaths", 0),
+	}
+
+func restart_level():
+	get_tree().reload_current_scene()
 
 func output_data():
 	print("""

@@ -17,3 +17,18 @@ offset_left = -65.0
 offset_top = 56.0
 offset_right = 64.0
 offset_bottom = 133.0
+slot_num = 1
+
+[node name="Slot3" parent="." instance=ExtResource("1_8ypcq")]
+offset_left = -64.0
+offset_top = 152.0
+offset_right = 65.0
+offset_bottom = 229.0
+slot_num = 2
+
+[node name="Slot4" parent="." instance=ExtResource("1_8ypcq")]
+offset_left = -64.0
+offset_top = 248.0
+offset_right = 65.0
+offset_bottom = 325.0
+slot_num = 3
