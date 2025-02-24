@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://5gp1o4puf13w"]
+[gd_scene load_steps=11 format=3 uid="uid://5gp1o4puf13w"]
 
+[ext_resource type="Texture2D" uid="uid://dqio2v64h3gor" path="res://assets/scenery/castle/castle_lake.PNG" id="1_57rxq"]
+[ext_resource type="Texture2D" uid="uid://j7kti3p1rhk2" path="res://assets/scenery/castle/catle_columns_back.PNG" id="2_1tlrf"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="2_fonep"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_pg7en"]
+[ext_resource type="Texture2D" uid="uid://ds8dd2paw2ops" path="res://assets/scenery/castle/catle_columns_middle.PNG" id="3_t2cbn"]
 [ext_resource type="PackedScene" uid="uid://5i7i8hwawflb" path="res://entities/scenery/gate/gate.tscn" id="4_i18ad"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_2a5iv"]
 [ext_resource type="PackedScene" uid="uid://bkc8q56u2p6vh" path="res://entities/scenery/floor/floor.tscn" id="5_pc35t"]
@@ -11,24 +14,50 @@
 
 [node name="Castle" type="Node2D"]
 
+[node name="Background" type="CanvasGroup" parent="."]
+
+[node name="Lake" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Lake"]
+position = Vector2(552.642, 681.203)
+scale = Vector2(0.287944, 0.287944)
+texture = ExtResource("1_57rxq")
+
+[node name="Column_B" type="Parallax2D" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Column_B"]
+position = Vector2(805.132, 584.062)
+scale = Vector2(0.343372, 0.342467)
+texture = ExtResource("2_1tlrf")
+
+[node name="Column_M" type="Parallax2D" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Column_M"]
+position = Vector2(656, 608.031)
+scale = Vector2(0.339131, 0.339131)
+texture = ExtResource("3_t2cbn")
+
+[node name="Floot" type="Parallax2D" parent="Background"]
+
+[node name="Floor" parent="Background/Floot" instance=ExtResource("5_pc35t")]
+position = Vector2(968, 904)
+
+[node name="Final Floor" type="StaticBody2D" parent="Background/Floot"]
+position = Vector2(960, 960)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Floot/Final Floor"]
+shape = SubResource("WorldBoundaryShape2D_xmbnn")
+metadata/_edit_group_ = true
+
 [node name="Main" type="CanvasGroup" parent="."]
 
-[node name="Final Floor" type="StaticBody2D" parent="Main"]
-position = Vector2(216, 1136)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Main/Final Floor"]
-shape = SubResource("WorldBoundaryShape2D_xmbnn")
-
-[node name="Background" type="Parallax2D" parent="Main"]
-
-[node name="Floor" parent="Main/Background" instance=ExtResource("5_pc35t")]
-position = Vector2(192, 1032)
-
 [node name="Hera" parent="Main" instance=ExtResource("2_fonep")]
-position = Vector2(-160, 744)
+position = Vector2(1544, -240)
 
 [node name="Heracle" parent="Main" instance=ExtResource("3_pg7en")]
-position = Vector2(184, 912)
+position = Vector2(976, -160)
 
 [node name="Camera" type="Camera2D" parent="Main/Heracle"]
 limit_top = 0
@@ -36,14 +65,20 @@ limit_bottom = 0
 position_smoothing_enabled = true
 
 [node name="Gate" parent="Main" instance=ExtResource("4_i18ad")]
-position = Vector2(488, 936)
+position = Vector2(1237.13, 816.062)
 room = 2
 
 [node name="Gate2" parent="Main" instance=ExtResource("4_i18ad")]
-position = Vector2(720, 936)
+position = Vector2(1557.13, 816.062)
 room = 3
 
-[node name="Menu" parent="." instance=ExtResource("5_2a5iv")]
+[node name="Foreground" type="CanvasGroup" parent="."]
 
-[node name="Timer" parent="." instance=ExtResource("6_5uvbe")]
-position = Vector2(0, 696)
+[node name="UI" type="Parallax2D" parent="Foreground"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Menu" parent="Foreground/UI" instance=ExtResource("5_2a5iv")]
+position = Vector2(40, 936)
+
+[node name="Timer" parent="Foreground/UI" instance=ExtResource("6_5uvbe")]
+position = Vector2(0, 552.031)

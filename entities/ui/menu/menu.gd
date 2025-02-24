@@ -1,21 +1,30 @@
 extends Node2D
 
+var menu_hidden = true
+@export var button_menu: Button
+@export var button_continue: Button
+@export var button_castle: Button
+@export var button_home: Button
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	button_menu = $UI/Other/Menu
+	button_continue = $UI/Other/Continue
+	button_castle = $UI/Other/Castle
+	button_home = $UI/Other/Home
+	update_buttons_visibility()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func update_buttons_visibility() -> void:
+	button_continue.visible = not menu_hidden
+	button_castle.visible = not menu_hidden
+	button_home.visible = not menu_hidden
 
 func _on_menu_pressed() -> void:
-	pass # Replace with function body.
+	menu_hidden = !menu_hidden
+	update_buttons_visibility()
 
 func _on_continue_pressed() -> void:
-	pass # Replace with function body.-
+	menu_hidden = !menu_hidden
+	update_buttons_visibility()
 
 func _on_castle_pressed() -> void:
 	DataManager.save_game()

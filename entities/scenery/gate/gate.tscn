@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5i7i8hwawflb"]
 
 [ext_resource type="Script" path="res://entities/scenery/gate/gate.gd" id="1_iw1ko"]
-[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="2_j3qx4"]
+[ext_resource type="Texture2D" uid="uid://bt3ebkw3h0ojb" path="res://assets/scenery/castle/castle_gate.PNG" id="2_rqlr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m67g0"]
 size = Vector2(106, 138)
@@ -13,13 +13,14 @@ script = ExtResource("1_iw1ko")
 collision_layer = 2048
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_m67g0")
-
 [node name="Gate" type="Sprite2D" parent="Area2D"]
-scale = Vector2(1, 1.125)
-texture = ExtResource("2_j3qx4")
+position = Vector2(3.8147e-06, -96)
+scale = Vector2(0.153026, 0.172155)
+texture = ExtResource("2_rqlr5")
 
 [node name="Mark" type="Sprite2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m67g0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

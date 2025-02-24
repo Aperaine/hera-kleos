@@ -1,45 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpkrji6xdmocs"]
+[gd_scene load_steps=3 format=3 uid="uid://bpkrji6xdmocs"]
 
 [ext_resource type="Script" path="res://entities/ui/menu/menu.gd" id="1_twhg7"]
+[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="2_tnaks"]
 
 [node name="Menu" type="Node2D"]
+position = Vector2(32, 32)
 script = ExtResource("1_twhg7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="HBoxContainer" parent="."]
+offset_right = 1752.0
+offset_bottom = 128.0
+theme_override_constants/separation = 40
 
-[node name="Menu" type="Button" parent="CanvasLayer"]
-offset_left = 1712.0
-offset_top = 40.0
-offset_right = 1884.0
-offset_bottom = 185.0
+[node name="Heracle" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeracleEmpty" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeracleClub" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeracleSword" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeracleBow" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="Hera" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeraEmpty" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeraPlatform" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeraWeapon" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="HeraLevelio" type="TextureRect" parent="UI"]
+layout_mode = 2
+texture = ExtResource("2_tnaks")
+stretch_mode = 2
+
+[node name="Other" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+theme_override_constants/separation = -330
+
+[node name="Menu" type="Button" parent="UI/Other"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "***"
 
-[node name="Continue" type="Button" parent="CanvasLayer"]
-offset_left = 1760.0
-offset_top = 560.0
-offset_right = 1878.0
-offset_bottom = 705.0
+[node name="Continue" type="Button" parent="UI/Other"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "▶️"
 
-[node name="Castle" type="Button" parent="CanvasLayer"]
-offset_left = 1760.0
-offset_top = 384.0
-offset_right = 1878.0
-offset_bottom = 529.0
+[node name="Castle" type="Button" parent="UI/Other"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "🏰"
 
-[node name="Home" type="Button" parent="CanvasLayer"]
-offset_left = 1760.0
-offset_top = 216.0
-offset_right = 1878.0
-offset_bottom = 361.0
+[node name="Home" type="Button" parent="UI/Other"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "🏠"
 
-[connection signal="pressed" from="CanvasLayer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="CanvasLayer/Castle" to="." method="_on_castle_pressed"]
-[connection signal="pressed" from="CanvasLayer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="UI/Other/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/Other/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/Other/Castle" to="." method="_on_castle_pressed"]
+[connection signal="pressed" from="UI/Other/Home" to="." method="_on_home_pressed"]
