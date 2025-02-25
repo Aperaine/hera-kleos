@@ -39,6 +39,7 @@ const ROOM_PATHS = {
 var game_stats = {
 	"play_time": 0.0,
 	"deaths": 0,
+	"name": "",
 }
 
 var progress = {
@@ -79,7 +80,11 @@ enum HeracleAbility {
 }
 
 func debug():
-	DataManager.reset_game()
+	DataManager.delete_slot(SLOTS.SLOT1)
+	DataManager.delete_slot(SLOTS.SLOT2)
+	DataManager.delete_slot(SLOTS.SLOT3)
+	DataManager.delete_slot(SLOTS.SLOT4)
+	DataManager.game_stats["name"] = "AJU"
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_WEAPON)
 	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_PLATFORM)
 	DataManager.progress.selected_abilities[DataManager.Characters.HERA] = DataManager.HeraAbility.STATE_PLATFORM
@@ -92,9 +97,6 @@ func debug():
 
 func _ready():
 	Engine.max_fps = 60
-	reset_game()
-	load_game()
-	output_data()
 	debug()
 
 func change_scene(room: ROOMS):
@@ -104,6 +106,7 @@ func change_scene(room: ROOMS):
 
 func load_game():
 	if not FileAccess.file_exists(SLOT_PATHS[ram["slot"]]):
+		reset_game()
 		save_game()
 		return
 	
@@ -114,28 +117,42 @@ func load_game():
 	
 	var json_text = file.get_as_text()
 	var data = JSON.parse_string(json_text)
-
+	
 	if typeof(data) != TYPE_DICTIONARY:
-		printerr("Failed to parse save file JSON. Raw text:", json_text)
+		printerr("Failed to parse save file JSON.")
 		return
 	
-	# Update game stats
+	# Load game stats
 	game_stats.play_time = data.get("play_time", 0.0)
 	game_stats.deaths = data.get("deaths", 0)
-	progress.unlocked_levels = data.get("unlocked_levels", [1])
+	game_stats.name = data.get("name", "")
 	
-	# Convert string dictionary keys back to integers
+	# Load progress
+	progress.unlocked_levels = data.get("unlocked_levels", [ROOMS.castle])
+	
+	# Load abilities with proper type conversion
 	var loaded_unlocked = data.get("unlocked_abilities", {})
-	var new_unlocked = {}
-	for key in loaded_unlocked.keys():
-		new_unlocked[int(key)] = loaded_unlocked[key]
-	progress.unlocked_abilities = new_unlocked
+	progress.unlocked_abilities = {
+		Characters.HERA: [HeraAbility.STATE_EMPTY],
+		Characters.HERACLE: [HeracleAbility.EMPTY],
+	}
 	
+	for key in loaded_unlocked.keys():
+		var char_key = int(key)
+		progress.unlocked_abilities[char_key] = []
+		for ability in loaded_unlocked[key]:
+			progress.unlocked_abilities[char_key].append(int(ability))
+	
+	# Load selected abilities
 	var loaded_selected = data.get("selected_abilities", {})
-	var new_selected = {}
+	progress.selected_abilities = {
+		Characters.HERA: HeraAbility.STATE_EMPTY,
+		Characters.HERACLE: HeracleAbility.EMPTY,
+	}
+	
 	for key in loaded_selected.keys():
-		new_selected[int(key)] = loaded_selected[key]
-	progress.selected_abilities = new_selected
+		var char_key = int(key)
+		progress.selected_abilities[char_key] = int(loaded_selected[key])
 
 func save_game():
 	var file = FileAccess.open(SLOT_PATHS[ram["slot"]], FileAccess.WRITE)
@@ -146,6 +163,7 @@ func save_game():
 	var save_data = {
 		"play_time": game_stats.play_time,
 		"deaths": game_stats.deaths,
+		"name": game_stats.name,
 		"unlocked_levels": progress.unlocked_levels,
 		"unlocked_abilities": progress.unlocked_abilities,
 		"selected_abilities": progress.selected_abilities,
@@ -185,7 +203,7 @@ func unlock_ability(character: int, ability: int):
 		print("Ability ", ability, " was successfully added for character ", character)
 	else:
 		print("Ability ", ability, " is already unlocked for character ", character)
-		
+
 func switch_ability(character: int):
 	if not progress.unlocked_abilities.has(character):
 		print("Error: No unlocked abilities for character: ", character)
@@ -208,7 +226,7 @@ func switch_ability(character: int):
 			progress.selected_abilities[character] = unlocked[next_index]
 	
 	print(str(character) + " switched ability to " + str(progress.selected_abilities[character]))
-	
+
 func unlock_level(level: int):
 	if level not in progress.unlocked_levels:
 		progress.unlocked_levels.append(level)
@@ -260,6 +278,41 @@ func get_game_stats(slot: SLOTS) -> Dictionary:
 		"play_time": data.get("play_time", 0.0),
 		"deaths": data.get("deaths", 0),
 	}
+
+func slot_exists(slot: SLOTS) -> bool:
+	if not SLOT_PATHS.has(slot):
+		printerr("Invalid slot.")
+		return false
+	return FileAccess.file_exists(SLOT_PATHS[slot])
+
+func delete_slot(slot: SLOTS):
+	if not SLOT_PATHS.has(slot):
+		printerr("Invalid slot.")
+		return
+	
+	if not slot_exists(slot):
+		print("Slot does not exist, nothing to delete.")
+		return
+	
+	var err = DirAccess.remove_absolute(SLOT_PATHS[slot])
+	if err != OK:
+		printerr("Failed to delete save file for slot ", slot)
+	else:
+		print("Successfully deleted save file for slot ", slot)
+
+func get_slot_name(slot: SLOTS) -> String:
+	if not SLOT_PATHS.has(slot):
+		return ""
+	
+	if not FileAccess.file_exists(SLOT_PATHS[slot]):
+		return ""
+	
+	var file = FileAccess.open(SLOT_PATHS[slot], FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text())
+	
+	#var json_text = file.get_as_text()
+	#var data2 = JSON.parse_string(json_text)
+	return data.get("name", "")
 
 func restart_level():
 	get_tree().reload_current_scene()
