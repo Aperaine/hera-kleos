@@ -27,8 +27,16 @@ func _process(_delta):
 		print("Player exited gate for room: ", DataManager.ROOMS.keys()[room])
 		can_transition = true
 
+
 	if player_in_area and Input.is_action_just_pressed("ui_down") and can_transition:
-		if room in DataManager.progress.unlocked_levels:
+		print("Unlocked levels: ", DataManager.progress["unlocked_levels"])
+		print("Current room enum value: ", room)
+
+		var room_unlocked = false
+		for room_num in DataManager.progress["unlocked_levels"]:
+			if room_num == room:
+				room_unlocked = true
+		if room_unlocked:
 			can_transition = false
 			print("Transitioning to room: ", DataManager.ROOMS.keys()[room])
 			DataManager.change_scene(room)

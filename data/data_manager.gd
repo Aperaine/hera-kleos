@@ -1,17 +1,17 @@
 extends Node
 
-const SLOT_PATHS = {
-	SLOTS.SLOT1: "user://save_data1.json",
-	SLOTS.SLOT2: "user://save_data2.json",
-	SLOTS.SLOT3: "user://save_data3.json",
-	SLOTS.SLOT4: "user://save_data4.json",
-}
-
 enum SLOTS {
 	SLOT1,
 	SLOT2,
 	SLOT3,
 	SLOT4,
+}
+
+const SLOT_PATHS = {
+	SLOTS.SLOT1: "user://save_data1.json",
+	SLOTS.SLOT2: "user://save_data2.json",
+	SLOTS.SLOT3: "user://save_data3.json",
+	SLOTS.SLOT4: "user://save_data4.json",
 }
 
 enum ROOMS {
@@ -80,20 +80,21 @@ enum HeracleAbility {
 }
 
 func debug():
-	DataManager.delete_slot(SLOTS.SLOT1)
-	DataManager.delete_slot(SLOTS.SLOT2)
-	DataManager.delete_slot(SLOTS.SLOT3)
-	DataManager.delete_slot(SLOTS.SLOT4)
-	DataManager.game_stats["name"] = "AJU"
-	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_WEAPON)
-	DataManager.unlock_ability(DataManager.Characters.HERA, DataManager.HeraAbility.STATE_PLATFORM)
-	DataManager.progress.selected_abilities[DataManager.Characters.HERA] = DataManager.HeraAbility.STATE_PLATFORM
-	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.BOW)
-	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.SWORD)
-	DataManager.unlock_ability(DataManager.Characters.HERACLE, DataManager.HeracleAbility.CLUB)
-	DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] = DataManager.HeracleAbility.BOW
-	DataManager.unlock_level(DataManager.ROOMS.castle)
+	self.delete_slot(SLOTS.SLOT1)
+	self.delete_slot(SLOTS.SLOT2)
+	self.delete_slot(SLOTS.SLOT3)
+	self.delete_slot(SLOTS.SLOT4)
+	self.game_stats["name"] = "AJU Testing Lands"
+	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_WEAPON)
+	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
+	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_PLATFORM
+	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
+	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.SWORD)
+	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.CLUB)
+	self.progress.selected_abilities[self.Characters.HERACLE] = self.HeracleAbility.BOW
+	self.unlock_level(self.ROOMS.castle)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	output_data()
 
 func _ready():
 	Engine.max_fps = 60
@@ -180,16 +181,15 @@ func reset_game():
 	
 	game_stats.play_time = 0.0
 	game_stats.deaths = 0
-	progress.unlocked_levels = [DataManager.ROOMS.castle]
+	progress.unlocked_levels = [self.ROOMS.castle]
 	progress.unlocked_abilities = {
-		Characters.HERA: [DataManager.HeraAbility.STATE_EMPTY],
-		Characters.HERACLE: [DataManager.HeracleAbility.EMPTY],
+		Characters.HERA: [self.HeraAbility.STATE_EMPTY],
+		Characters.HERACLE: [self.HeracleAbility.EMPTY],
 	}
 	progress.selected_abilities = {
-		Characters.HERA: DataManager.HeraAbility.STATE_EMPTY,
-		Characters.HERACLE: DataManager.HeracleAbility.EMPTY,
+		Characters.HERA: self.HeraAbility.STATE_EMPTY,
+		Characters.HERACLE: self.HeracleAbility.EMPTY,
 	}
-	
 	save_game()
 	print("Game data has been successfully reset.")
 
