@@ -29,7 +29,7 @@ const ROOM_PATHS = {
 	ROOMS.tutorial: "res://entities/levels/tutorial/tutorial.tscn",
 	ROOMS.home: "res://entities/levels/home/home.tscn",
 	ROOMS.castle: "res://entities/levels/castle/castle.tscn",
-	ROOMS.level1: "res://entities/levels/level1 - lion/level1.tscn",
+	ROOMS.level1: "res://entities/levels/level1 - lion/level1.0.tscn",
 	ROOMS.level2: "res://entities/levels/level2 - hydra/level2.tscn",
 	ROOMS.level3: "res://entities/levels/level3 - hind/level3.tscn",
 	ROOMS.level4: "res://entities/levels/level4 - boar/level4.tscn",
@@ -247,8 +247,8 @@ func record_time(time: float):
 
 func convert_time(time):
 	var sec = fmod(time, 60)
-	var min = time / 60
-	print(min)
+	var minimum = time / 60
+	print(minimum)
 	print(sec)
 
 func get_game_stats(slot: SLOTS) -> Dictionary:

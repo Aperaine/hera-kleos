@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://crrutmxfjrwdl"]
+
+[ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_ox5k8"]
+[ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_7qvbd"]
+[ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_gv865"]
+[ext_resource type="PackedScene" uid="uid://d23gaoq4dfvey" path="res://entities/characters/lion/lion.tscn" id="4_7kodv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvwup"]
+size = Vector2(1920, 178)
+
+[node name="Level1_boss" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Setting" type="CanvasGroup" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Setting"]
+
+[node name="FloorSprite" type="Sprite2D" parent="Setting/Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Setting/Floor"]
+position = Vector2(0, 451)
+shape = SubResource("RectangleShape2D_wvwup")
+
+[node name="Characters" type="CanvasGroup" parent="."]
+
+[node name="Heracle" parent="Characters" instance=ExtResource("2_7qvbd")]
+position = Vector2(-862, 246)
+
+[node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
+position = Vector2(-751, 99)
+
+[node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
+position = Vector2(376, 283)
+
+[node name="Menu" parent="." instance=ExtResource("1_ox5k8")]
+position = Vector2(-928, 374)

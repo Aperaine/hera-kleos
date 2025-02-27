@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d23gaoq4dfvey"]
+
+[ext_resource type="Script" path="res://entities/characters/lion/lion.gd" id="1_4wnfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtxux"]
+size = Vector2(429, 241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxtwf"]
+size = Vector2(196.5, 178.5)
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4efft"]
+graph_offset = Vector2(53.1451, -3.87752)
+
+[node name="Lion" type="Node2D"]
+script = ExtResource("1_4wnfw")
+
+[node name="Damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2(8, -64)
+shape = SubResource("RectangleShape2D_dtxux")
+
+[node name="Attack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(-208, -184)
+shape = SubResource("RectangleShape2D_qxtwf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_4efft")
+anim_player = NodePath("../AnimationPlayer")
