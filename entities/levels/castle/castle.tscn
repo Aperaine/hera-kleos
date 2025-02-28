@@ -1,76 +1,149 @@
-[gd_scene load_steps=11 format=3 uid="uid://5gp1o4puf13w"]
+[gd_scene load_steps=15 format=3 uid="uid://5gp1o4puf13w"]
 
-[ext_resource type="Texture2D" uid="uid://dqio2v64h3gor" path="res://assets/scenery/castle/castle_lake.PNG" id="1_57rxq"]
-[ext_resource type="Texture2D" uid="uid://j7kti3p1rhk2" path="res://assets/scenery/castle/catle_columns_back.PNG" id="2_1tlrf"]
+[ext_resource type="Texture2D" uid="uid://o3ijp34nf626" path="res://assets/scenery/castle/ocean.PNG" id="1_5vv2g"]
+[ext_resource type="Texture2D" uid="uid://cx214mslkrk06" path="res://assets/scenery/castle/column_background 20.54.14.PNG" id="1_ahmhb"]
+[ext_resource type="Texture2D" uid="uid://4kxebuhrsj7e" path="res://assets/scenery/castle/mountain_right.PNG" id="1_mnupi"]
+[ext_resource type="Texture2D" uid="uid://b4na5kwtglgvq" path="res://assets/scenery/castle/column_foreground.PNG" id="2_1qxjs"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="2_fonep"]
+[ext_resource type="Texture2D" uid="uid://wmpnvlfb7yov" path="res://assets/scenery/castle/mountain_left.PNG" id="2_w64k5"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_pg7en"]
-[ext_resource type="Texture2D" uid="uid://ds8dd2paw2ops" path="res://assets/scenery/castle/catle_columns_middle.PNG" id="3_t2cbn"]
 [ext_resource type="PackedScene" uid="uid://5i7i8hwawflb" path="res://entities/scenery/gate/gate.tscn" id="4_i18ad"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_2a5iv"]
-[ext_resource type="PackedScene" uid="uid://bkc8q56u2p6vh" path="res://entities/scenery/floor/floor.tscn" id="5_pc35t"]
+[ext_resource type="Texture2D" uid="uid://kqd4u6ko12pl" path="res://assets/scenery/castle/castle_floak.PNG" id="6_2dgh0"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_5uvbe"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xmbnn"]
+[ext_resource type="Texture2D" uid="uid://b66237tlyiirx" path="res://assets/scenery/castle/floor.PNG" id="10_tojyt"]
+[ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="13_v87kl"]
+[ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="14_yvooc"]
 
 [node name="Castle" type="Node2D"]
 
 [node name="Background" type="CanvasGroup" parent="."]
 
 [node name="Lake" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(0.1, 0.1)
+scroll_scale = Vector2(0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/Lake"]
-position = Vector2(552.642, 681.203)
-scale = Vector2(0.287944, 0.287944)
-texture = ExtResource("1_57rxq")
+[node name="ColorRect" type="ColorRect" parent="Background/Lake"]
+offset_left = -235.0
+offset_top = -95.0
+offset_right = 1965.0
+offset_bottom = 1152.0
+color = Color(0.431399, 0.641977, 0.735622, 1)
+
+[node name="MountainRight" type="Sprite2D" parent="Background/Lake"]
+position = Vector2(1584, 504)
+scale = Vector2(0.712766, 0.712766)
+texture = ExtResource("1_mnupi")
+
+[node name="MountainLeft" type="Sprite2D" parent="Background/Lake"]
+position = Vector2(352, 480)
+scale = Vector2(0.632635, 0.63913)
+texture = ExtResource("2_w64k5")
+
+[node name="Ocean" type="Sprite2D" parent="Background/Lake"]
+position = Vector2(960, 856)
+scale = Vector2(0.508292, 0.508293)
+texture = ExtResource("1_5vv2g")
 
 [node name="Column_B" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.9, 0.9)
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/Column_B"]
-position = Vector2(805.132, 584.062)
-scale = Vector2(0.343372, 0.342467)
-texture = ExtResource("2_1tlrf")
+[node name="Floor" type="TextureRect" parent="Background/Column_B"]
+texture_repeat = 2
+layout_direction = 2
+offset_left = -1299.0
+offset_top = 748.0
+offset_right = 12016.0
+offset_bottom = 1400.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_tojyt")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="Column_B" type="TextureRect" parent="Background/Column_B"]
+texture_repeat = 2
+layout_direction = 2
+offset_left = -1299.0
+offset_top = 165.0
+offset_right = 12016.0
+offset_bottom = 1970.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ahmhb")
+expand_mode = 2
+stretch_mode = 1
 
 [node name="Column_M" type="Parallax2D" parent="Background"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/Column_M"]
-position = Vector2(656, 608.031)
-scale = Vector2(0.339131, 0.339131)
-texture = ExtResource("3_t2cbn")
+[node name="CastleFloak" type="Sprite2D" parent="Background/Column_M"]
+position = Vector2(1741, 512)
+scale = Vector2(0.360448, 0.360448)
+texture = ExtResource("6_2dgh0")
 
-[node name="Floot" type="Parallax2D" parent="Background"]
+[node name="Column_M" type="TextureRect" parent="Background/Column_M"]
+texture_repeat = 2
+layout_direction = 2
+offset_left = -1299.0
+offset_top = 165.0
+offset_right = 12016.0
+offset_bottom = 1970.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_1qxjs")
+expand_mode = 2
+stretch_mode = 1
 
-[node name="Floor" parent="Background/Floot" instance=ExtResource("5_pc35t")]
-position = Vector2(968, 904)
+[node name="ColorRect" type="ColorRect" parent="Background/Column_M"]
+offset_left = -1299.0
+offset_right = 4027.0
+offset_bottom = 233.0
+color = Color(0.760784, 0.756863, 0.760784, 1)
 
-[node name="Final Floor" type="StaticBody2D" parent="Background/Floot"]
-position = Vector2(960, 960)
-metadata/_edit_group_ = true
+[node name="CastleVase" type="Sprite2D" parent="Background/Column_M"]
+position = Vector2(1369, 785)
+scale = Vector2(0.199708, 0.199708)
+texture = ExtResource("13_v87kl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Floot/Final Floor"]
-shape = SubResource("WorldBoundaryShape2D_xmbnn")
-metadata/_edit_group_ = true
+[node name="Floor" type="Parallax2D" parent="Background"]
 
 [node name="Main" type="CanvasGroup" parent="."]
 
-[node name="Hera" parent="Main" instance=ExtResource("2_fonep")]
-position = Vector2(1544, -240)
+[node name="King" parent="Main" instance=ExtResource("14_yvooc")]
+position = Vector2(299, 748)
+
+[node name="Gates" type="Parallax2D" parent="Main"]
+
+[node name="Gate1" parent="Main/Gates" instance=ExtResource("4_i18ad")]
+position = Vector2(1632, 810)
+room = 3
+
+[node name="Gate2" parent="Main/Gates" instance=ExtResource("4_i18ad")]
+position = Vector2(1998, 814)
+room = 4
+
+[node name="Gate3" parent="Main/Gates" instance=ExtResource("4_i18ad")]
+position = Vector2(2356, 810)
+room = 5
+
+[node name="Gate4" parent="Main/Gates" instance=ExtResource("4_i18ad")]
+position = Vector2(2720, 810)
+room = 6
+
+[node name="Gate5" parent="Main/Gates" instance=ExtResource("4_i18ad")]
+position = Vector2(3071, 810)
+room = 7
 
 [node name="Heracle" parent="Main" instance=ExtResource("3_pg7en")]
-position = Vector2(976, -160)
+position = Vector2(832, 723)
 
 [node name="Camera" type="Camera2D" parent="Main/Heracle"]
+limit_left = 0
 limit_top = 0
+limit_right = 3500
 limit_bottom = 0
 position_smoothing_enabled = true
 
-[node name="Gate" parent="Main" instance=ExtResource("4_i18ad")]
-position = Vector2(1237.13, 816.062)
-room = 2
+[node name="Hera" parent="Main" instance=ExtResource("2_fonep")]
+position = Vector2(648, 627)
 
-[node name="Gate2" parent="Main" instance=ExtResource("4_i18ad")]
-position = Vector2(1557.13, 816.062)
-room = 1
+[node name="CanvasGroup" type="CanvasGroup" parent="Main"]
 
 [node name="Foreground" type="CanvasGroup" parent="."]
 
@@ -78,7 +151,7 @@ room = 1
 scroll_scale = Vector2(0, 0)
 
 [node name="Menu" parent="Foreground/UI" instance=ExtResource("5_2a5iv")]
-position = Vector2(40, 936)
+position = Vector2(32, 908)
 
 [node name="Timer" parent="Foreground/UI" instance=ExtResource("6_5uvbe")]
 position = Vector2(0, 552.031)

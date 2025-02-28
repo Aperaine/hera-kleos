@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	handle_jump()
 	move_and_slide()
 	update_animation()
-
 	# Arrow shooting
 	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
 		shoot_arrow()

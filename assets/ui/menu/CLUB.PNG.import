@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds8dd2paw2ops"
-path="res://.godot/imported/catle_columns_middle.PNG-3122a2318988d082cd4dc33a444eb750.ctex"
+uid="uid://dlq6fbjnqc2me"
+path="res://.godot/imported/CLUB.PNG-c8168c8636de18231eac9f2e974f3d53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/catle_columns_middle.PNG"
-dest_files=["res://.godot/imported/catle_columns_middle.PNG-3122a2318988d082cd4dc33a444eb750.ctex"]
+source_file="res://assets/ui/menu/CLUB.PNG"
+dest_files=["res://.godot/imported/CLUB.PNG-c8168c8636de18231eac9f2e974f3d53.ctex"]
 
 [params]
 

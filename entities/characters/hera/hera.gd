@@ -8,6 +8,8 @@ var area_hummingbird: Area2D
 var ability: DataManager.HeraAbility
 var static_body: StaticBody2D
 var hera_bow: bool = false
+var animation_free: bool = true
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -37,7 +39,7 @@ func _input(event):
 func hera_platform():
 	DataManager.ram["hera_active"] = false
 	static_body.collision_layer = 1
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	static_body.collision_layer = 8
 	DataManager.ram["hera_active"] = true
 
@@ -62,14 +64,22 @@ func collision_manager():
 	collision_hummingbird.disabled = true
 	if DataManager.ram["hera_active"]:
 		collision_hummingbird.disabled = false
+		play_animations("idle")
+		animation_free = true
 	else:
 		match ability:
 			DataManager.HeraAbility.STATE_PLATFORM:
 				collision_platform.disabled = false
+				play_animations("platform")
+				animation_free = false
 			DataManager.HeraAbility.STATE_WEAPON:
 				pass
 			DataManager.HeraAbility.STATE_LEVELIO:
 				pass
+
+func play_animations(animation_name):
+	if animation_free:
+		animation.play(animation_name)
 
 func movement():
 	if DataManager.ram["hera_active"]:

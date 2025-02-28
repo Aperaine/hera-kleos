@@ -1,16 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpkrji6xdmocs"]
+[gd_scene load_steps=8 format=3 uid="uid://bpkrji6xdmocs"]
 
 [ext_resource type="Script" path="res://entities/ui/menu/menu.gd" id="1_twhg7"]
 [ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="2_tnaks"]
+[ext_resource type="Texture2D" uid="uid://bo3subv8wanci" path="res://assets/ui/menu/EMPTY.PNG" id="3_6q7wb"]
+[ext_resource type="Texture2D" uid="uid://dlq6fbjnqc2me" path="res://assets/ui/menu/CLUB.PNG" id="4_glrbk"]
+[ext_resource type="Texture2D" uid="uid://bekki51i0w3rl" path="res://assets/ui/menu/SWORD.PNG" id="5_pdts2"]
+[ext_resource type="Texture2D" uid="uid://bjun0xxmoppxo" path="res://assets/ui/menu/BOW.PNG" id="6_t1fqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8h0y"]
+size = Vector2(1920, 205)
 
 [node name="Menu" type="Node2D"]
 position = Vector2(32, 32)
 script = ExtResource("1_twhg7")
 
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(928, 70.5)
+shape = SubResource("RectangleShape2D_g8h0y")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 1888.0
+offset_bottom = 173.0
+color = Color(0.584314, 0.478431, 0.431373, 1)
+
 [node name="UI" type="HBoxContainer" parent="."]
 offset_right = 1752.0
 offset_bottom = 128.0
-theme_override_constants/separation = 40
+theme_override_constants/separation = 35
 
 [node name="Heracle" type="TextureRect" parent="UI"]
 layout_mode = 2
@@ -18,24 +38,32 @@ texture = ExtResource("2_tnaks")
 stretch_mode = 2
 
 [node name="HeracleEmpty" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
-texture = ExtResource("2_tnaks")
-stretch_mode = 2
+texture = ExtResource("3_6q7wb")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="HeracleClub" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-texture = ExtResource("2_tnaks")
-stretch_mode = 2
+texture = ExtResource("4_glrbk")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="HeracleSword" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-texture = ExtResource("2_tnaks")
-stretch_mode = 2
+texture = ExtResource("5_pdts2")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="HeracleBow" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-texture = ExtResource("2_tnaks")
-stretch_mode = 2
+texture = ExtResource("6_t1fqt")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Hera" type="TextureRect" parent="UI"]
 layout_mode = 2

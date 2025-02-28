@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gvjmmcevipb"
-path="res://.godot/imported/castle_floor.PNG-c8a18895373cb9df6e090ab0eca49c40.ctex"
+uid="uid://b4na5kwtglgvq"
+path="res://.godot/imported/column_foreground.PNG-f5a1174137d2392b8d1e882a5476e61a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/castle_floor.PNG"
-dest_files=["res://.godot/imported/castle_floor.PNG-c8a18895373cb9df6e090ab0eca49c40.ctex"]
+source_file="res://assets/scenery/castle/column_foreground.PNG"
+dest_files=["res://.godot/imported/column_foreground.PNG-f5a1174137d2392b8d1e882a5476e61a.ctex"]
 
 [params]
 

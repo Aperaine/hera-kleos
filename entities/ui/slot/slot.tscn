@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw7ncwcpgjdb3"]
+[gd_scene load_steps=3 format=3 uid="uid://dw7ncwcpgjdb3"]
 
 [ext_resource type="Script" path="res://entities/ui/slot/slot.gd" id="1_n5dgo"]
+[ext_resource type="FontFile" uid="uid://b7rhygd3lisof" path="res://assets/ui/fonts/Monomakh-Regular.ttf" id="2_k88pe"]
 
 [node name="Slot" type="Container"]
 offset_right = 130.0
@@ -20,19 +21,25 @@ offset_left = 4.0
 offset_top = 8.0
 offset_right = 132.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_k88pe")
+theme_override_font_sizes/font_size = 50
 placeholder_text = "AJU"
 max_length = 50
 
 [node name="Add" type="Button" parent="Display/New"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 19.0
-offset_right = 122.0
-offset_bottom = 50.0
+offset_left = 152.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("2_k88pe")
+theme_override_font_sizes/font_size = 30
 text = "+"
 
 [node name="Name" type="Label" parent="Display"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k88pe")
+theme_override_font_sizes/font_size = 50
 text = "ALU"
 
 [node name="Play" type="Button" parent="Display"]
@@ -52,6 +59,7 @@ text = "💀"
 
 [node name="Time" type="Label" parent="Display"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k88pe")
 theme_override_font_sizes/font_size = 50
 text = "Xh"
 

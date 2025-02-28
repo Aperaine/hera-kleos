@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j7kti3p1rhk2"
-path="res://.godot/imported/catle_columns_back.PNG-0cc4b3123121e4e06c3a391e8a3e2528.ctex"
+uid="uid://o3ijp34nf626"
+path="res://.godot/imported/ocean.PNG-f3182deeaa2d746aa7a7392fdef74ec3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/catle_columns_back.PNG"
-dest_files=["res://.godot/imported/catle_columns_back.PNG-0cc4b3123121e4e06c3a391e8a3e2528.ctex"]
+source_file="res://assets/scenery/castle/ocean.PNG"
+dest_files=["res://.godot/imported/ocean.PNG-f3182deeaa2d746aa7a7392fdef74ec3.ctex"]
 
 [params]
 
