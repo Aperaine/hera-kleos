@@ -1,4 +1,3 @@
-# hera.gd
 extends Node2D
 
 var touching_heracle: bool = false
@@ -10,9 +9,11 @@ var static_body: StaticBody2D
 var hera_bow: bool = false
 var animation_free: bool = true
 @onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
+var able_to_move = true
 
 func _ready():
-	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 	static_body = $StaticBody2D
@@ -82,7 +83,14 @@ func play_animations(animation_name):
 		animation.play(animation_name)
 
 func movement():
-	if DataManager.ram["hera_active"]:
+	var mouse_pos = get_global_mouse_position()
+	var hera_pos = position
+	if animation_free:
+		if mouse_pos.x < hera_pos.x:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
+	if DataManager.ram["hera_active"] and able_to_move:
 		position += (get_global_mouse_position() - position) / 5
 
 func _physics_process(_delta: float) -> void:
@@ -92,6 +100,9 @@ func _physics_process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Heracle":
 		touching_heracle = true
+	
+	if body.name == "Obstacle Hera":
+		print("Hera cannot enter this area!")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":

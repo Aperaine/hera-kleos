@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdhy4hf7wm88a"
-path="res://.godot/imported/column_foreground.PNG-f5a1174137d2392b8d1e882a5476e61a.ctex"
+uid="uid://bpv8l1opprtag"
+path="res://.godot/imported/HOME.PNG-1c1f1e188f8a04a6df9cede48edf9e20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/column_foreground.PNG"
-dest_files=["res://.godot/imported/column_foreground.PNG-f5a1174137d2392b8d1e882a5476e61a.ctex"]
+source_file="res://assets/ui/menu/HOME.PNG"
+dest_files=["res://.godot/imported/HOME.PNG-1c1f1e188f8a04a6df9cede48edf9e20.ctex"]
 
 [params]
 

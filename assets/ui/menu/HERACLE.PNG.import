@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdhy4hf7wm88a"
-path="res://.godot/imported/column_foreground.PNG-f5a1174137d2392b8d1e882a5476e61a.ctex"
+uid="uid://dtc4xwcps5atp"
+path="res://.godot/imported/HERACLE.PNG-00e85108d2e23a2f8102e44791953111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/column_foreground.PNG"
-dest_files=["res://.godot/imported/column_foreground.PNG-f5a1174137d2392b8d1e882a5476e61a.ctex"]
+source_file="res://assets/ui/menu/HERACLE.PNG"
+dest_files=["res://.godot/imported/HERACLE.PNG-00e85108d2e23a2f8102e44791953111.ctex"]
 
 [params]
 
