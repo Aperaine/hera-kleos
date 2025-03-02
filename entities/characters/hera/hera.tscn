@@ -348,7 +348,6 @@ position = Vector2(6.25, 14)
 shape = SubResource("RectangleShape2D_wp308")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 128
 collision_mask = 96
 
@@ -360,5 +359,4 @@ libraries = {
 "": SubResource("AnimationLibrary_ualr6")
 }
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="RayCast2D" type="RayCast2D" parent="."]

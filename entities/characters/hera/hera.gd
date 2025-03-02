@@ -3,8 +3,8 @@ extends Node2D
 var touching_heracle: bool = false
 var collision_platform: CollisionShape2D
 var collision_hummingbird: CollisionShape2D
-var area_hummingbird: Area2D
 var ability: DataManager.HeraAbility
+var area2d_node: Area2D
 var static_body: StaticBody2D
 var hera_bow: bool = false
 var animation_free: bool = true
@@ -17,12 +17,10 @@ func _ready():
 	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 	static_body = $StaticBody2D
+	area2d_node = $Area2D
 	static_body.collision_layer = 8
 	collision_platform = $StaticBody2D/collision_platform
 	collision_hummingbird = $Area2D/collision_hummingbird
-	area_hummingbird = $Area2D
-	area_hummingbird.monitoring = true
-	area_hummingbird.collision_layer = 8
 
 func _input(event):
 	if event.is_action_pressed("hera-activate"):
@@ -67,6 +65,7 @@ func collision_manager():
 		collision_hummingbird.disabled = false
 		play_animations("idle")
 		animation_free = true
+		
 	else:
 		match ability:
 			DataManager.HeraAbility.STATE_PLATFORM:
@@ -93,16 +92,23 @@ func movement():
 	if DataManager.ram["hera_active"] and able_to_move:
 		position += (get_global_mouse_position() - position) / 5
 
+func collision_check():
+	for body in area2d_node.get_overlapping_bodies():
+		if body.name == "Heracle":
+			touching_heracle = true
+			print("touching Heracle")
+		else:
+			touching_heracle = false
+		if body.name == "Obstacle Hera":
+			able_to_move = false
+		else:
+			able_to_move = true
+
 func _physics_process(_delta: float) -> void:
 	collision_manager()
-	movement()
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Heracle":
-		touching_heracle = true
-	
-	if body.name == "Obstacle Hera":
-		print("Hera cannot enter this area!")
+	collision_check()
+	if able_to_move:
+		movement()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":

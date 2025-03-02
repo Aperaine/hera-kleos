@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=5 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_nx8qt"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_leplu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5dco"]
+size = Vector2(186, 202)
 
 [node name="Level1" type="Node2D"]
 
@@ -16,3 +19,10 @@ position = Vector2(-840, 192)
 
 [node name="Hera" parent="." instance=ExtResource("3_leplu")]
 position = Vector2(-840, 24)
+
+[node name="Obstacle Hera" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle Hera"]
+shape = SubResource("RectangleShape2D_m5dco")
