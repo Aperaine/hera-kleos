@@ -358,5 +358,3 @@ shape = SubResource("CircleShape2D_ajiuq")
 libraries = {
 "": SubResource("AnimationLibrary_ualr6")
 }
-
-[node name="RayCast2D" type="RayCast2D" parent="."]

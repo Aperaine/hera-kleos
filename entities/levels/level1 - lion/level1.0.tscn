@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_leplu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5dco"]
-size = Vector2(186, 202)
+size = Vector2(37, 202)
 
 [node name="Level1" type="Node2D"]
 
@@ -25,4 +25,5 @@ collision_layer = 32
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle Hera"]
+position = Vector2(-74.5, 0)
 shape = SubResource("RectangleShape2D_m5dco")
