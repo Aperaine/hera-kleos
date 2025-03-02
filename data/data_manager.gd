@@ -87,6 +87,7 @@ func debug():
 	self.game_stats["name"] = "AJU Testing Lands"
 	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_WEAPON)
 	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
+	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_LEVELIO)
 	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_PLATFORM
 	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
 	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.SWORD)

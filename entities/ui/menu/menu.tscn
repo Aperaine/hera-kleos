@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpkrji6xdmocs"]
+[gd_scene load_steps=13 format=3 uid="uid://bpkrji6xdmocs"]
 
 [ext_resource type="Script" path="res://entities/ui/menu/menu.gd" id="1_twhg7"]
 [ext_resource type="Texture2D" uid="uid://dtc4xwcps5atp" path="res://assets/ui/menu/HERACLE.PNG" id="2_8e5it"]
@@ -13,8 +13,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8h0y"]
 size = Vector2(1920, 205)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj3i3"]
+size = Vector2(310, 1365)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voog5"]
+size = Vector2(2554.5, 297)
+
 [node name="Menu" type="Node2D"]
-position = Vector2(32, 32)
+position = Vector2(32, 907)
 script = ExtResource("1_twhg7")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -30,10 +36,58 @@ offset_right = 1888.0
 offset_bottom = 173.0
 color = Color(0.124995, 0.0643471, 0.0570807, 1)
 
+[node name="Edges" type="StaticBody2D" parent="."]
+collision_layer = 48
+
+[node name="Left" type="CollisionShape2D" parent="Edges"]
+position = Vector2(-187, -509.5)
+shape = SubResource("RectangleShape2D_rj3i3")
+
+[node name="Right" type="CollisionShape2D" parent="Edges"]
+position = Vector2(2043, -509)
+shape = SubResource("RectangleShape2D_rj3i3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edges"]
+position = Vector2(928, -1059)
+shape = SubResource("RectangleShape2D_voog5")
+
+[node name="Other" type="VBoxContainer" parent="."]
+offset_left = 1700.0
+offset_top = -529.0
+offset_right = 1845.0
+offset_bottom = -34.0
+theme_override_constants/separation = 25
+metadata/_edit_group_ = true
+
+[node name="Home" type="Button" parent="Other"]
+custom_minimum_size = Vector2(145, 145)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+icon = ExtResource("8_vf5gm")
+flat = true
+expand_icon = true
+
+[node name="Castle" type="Button" parent="Other"]
+custom_minimum_size = Vector2(145, 145)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+icon = ExtResource("7_wuk3m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Continue" type="Button" parent="Other"]
+custom_minimum_size = Vector2(145, 145)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+icon = ExtResource("7_dj3t6")
+flat = true
+expand_icon = true
+
 [node name="UI" type="HBoxContainer" parent="."]
-offset_right = 1850.0
-offset_bottom = 140.0
-theme_override_constants/separation = 30
+offset_right = 1856.0
+offset_bottom = 145.0
+theme_override_constants/separation = 25
 
 [node name="Heracle" type="TextureRect" parent="UI"]
 custom_minimum_size = Vector2(140, 140)
@@ -105,11 +159,7 @@ texture = ExtResource("6_t1fqt")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Other" type="VBoxContainer" parent="UI"]
-layout_mode = 2
-theme_override_constants/separation = -290
-
-[node name="Menu" type="Button" parent="UI/Other"]
+[node name="Menu" type="Button" parent="UI"]
 custom_minimum_size = Vector2(145, 145)
 layout_mode = 2
 icon = ExtResource("8_vf5gm")
@@ -117,32 +167,91 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Continue" type="Button" parent="UI/Other"]
-custom_minimum_size = Vector2(145, 145)
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-icon = ExtResource("7_dj3t6")
-flat = true
-expand_icon = true
+[node name="UI2" type="HBoxContainer" parent="."]
+offset_right = 1856.0
+offset_bottom = 145.0
+theme_override_constants/separation = 25
 
-[node name="Castle" type="Button" parent="UI/Other"]
+[node name="Heracle" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("2_8e5it")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleEmpty" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("3_6q7wb")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleClub" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("4_glrbk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleSword" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("5_pdts2")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleBow" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("6_t1fqt")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Hera" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("7_dj3t6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraEmpty" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("3_6q7wb")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraPlatform" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("4_glrbk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraWeapon" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("5_pdts2")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraLevelio" type="TextureRect" parent="UI2"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("6_t1fqt")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Menu" type="Button" parent="UI2"]
 custom_minimum_size = Vector2(145, 145)
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
-icon = ExtResource("7_wuk3m")
+icon = ExtResource("8_vf5gm")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Home" type="Button" parent="UI/Other"]
-custom_minimum_size = Vector2(145, 145)
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-icon = ExtResource("8_vf5gm")
-flat = true
-expand_icon = true
-
-[connection signal="pressed" from="UI/Other/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="UI/Other/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="UI/Other/Castle" to="." method="_on_castle_pressed"]
-[connection signal="pressed" from="UI/Other/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Other/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Other/Castle" to="." method="_on_castle_pressed"]
+[connection signal="pressed" from="Other/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI2/Menu" to="." method="_on_menu_pressed"]
