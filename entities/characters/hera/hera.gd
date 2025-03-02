@@ -99,6 +99,8 @@ func movement():
 		if not able_to_move:
 			DataManager.restart_level()
 		else:
+			#sprite.velocity.x = Input.get_last_mouse_velocity()
+			pass
 			position += (hera_mouse_pos - position) / 10
 	
 	prev_mouse_pos = hera_mouse_pos
