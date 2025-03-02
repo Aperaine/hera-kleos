@@ -36,16 +36,6 @@ func _ready() -> void:
 	hera_abilities2[DataManager.HeraAbility.STATE_PLATFORM] = $UI2/HeraPlatform
 	hera_abilities2[DataManager.HeraAbility.STATE_WEAPON] = $UI2/HeraWeapon
 	hera_abilities2[DataManager.HeraAbility.STATE_LEVELIO] = $UI2/HeraLevelio
-	
-	heracle_abilities2[DataManager.HeracleAbility.EMPTY] = $UI/HeracleEmpty
-	heracle_abilities2[DataManager.HeracleAbility.CLUB] = $UI/HeracleClub
-	heracle_abilities2[DataManager.HeracleAbility.SWORD] = $UI/HeracleSword
-	heracle_abilities2[DataManager.HeracleAbility.BOW] = $UI/HeracleBow
-	
-	hera_abilities2[DataManager.HeraAbility.STATE_EMPTY] = $UI/HeraEmpty
-	hera_abilities2[DataManager.HeraAbility.STATE_PLATFORM] = $UI/HeraPlatform
-	hera_abilities2[DataManager.HeraAbility.STATE_WEAPON] = $UI/HeraWeapon
-	hera_abilities2[DataManager.HeraAbility.STATE_LEVELIO] = $UI/HeraLevelio
 
 func _physics_process(delta: float) -> void:
 	# Hera: Make chosen ability visible
