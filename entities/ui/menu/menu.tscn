@@ -11,31 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://bpv8l1opprtag" path="res://assets/ui/menu/HOME.PNG" id="8_vf5gm"]
 [ext_resource type="Texture2D" uid="uid://7373r7poxo2e" path="res://assets/ui/menu/SELECTED.PNG" id="10_3jtvm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8h0y"]
-size = Vector2(1920, 205)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rj3i3"]
 size = Vector2(310, 1365)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_voog5"]
 size = Vector2(2554.5, 297)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8h0y"]
+size = Vector2(1920, 205)
+
 [node name="Menu" type="Node2D"]
 position = Vector2(32, 907)
 script = ExtResource("1_twhg7")
-
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(928, 70.5)
-shape = SubResource("RectangleShape2D_g8h0y")
-
-[node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 1888.0
-offset_bottom = 173.0
-color = Color(0.124995, 0.0643471, 0.0570807, 1)
 
 [node name="Edges" type="StaticBody2D" parent="."]
 collision_layer = 48
@@ -51,6 +38,19 @@ shape = SubResource("RectangleShape2D_rj3i3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Edges"]
 position = Vector2(928, -1059)
 shape = SubResource("RectangleShape2D_voog5")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(928, 70.5)
+shape = SubResource("RectangleShape2D_g8h0y")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -52.0
+offset_top = -32.0
+offset_right = 1915.0
+offset_bottom = 173.0
+color = Color(0.124995, 0.0643471, 0.0570807, 1)
 
 [node name="Other" type="VBoxContainer" parent="."]
 offset_left = 1700.0

@@ -9,20 +9,83 @@ size = Vector2(189, 202)
 
 [node name="Level1" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Annotations" type="Node2D" parent="."]
 
-[node name="Menu" parent="." instance=ExtResource("1_arrdw")]
-position = Vector2(-928, 368)
+[node name="Screen 1" type="ColorRect" parent="Annotations"]
+offset_left = -384.0
+offset_top = -32.0
+offset_right = 1959.0
+offset_bottom = 961.0
+color = Color(0.0765313, 0.139427, 0.320158, 1)
 
-[node name="Heracle" parent="." instance=ExtResource("2_nx8qt")]
-position = Vector2(-840, 192)
+[node name="Screen 2" type="ColorRect" parent="Annotations"]
+offset_left = 2077.0
+offset_top = -34.0
+offset_right = 4066.0
+offset_bottom = 959.0
+color = Color(0.163978, 0.0779435, 0.134212, 1)
 
-[node name="Hera" parent="." instance=ExtResource("3_leplu")]
-position = Vector2(-840, 24)
+[node name="Label" type="Label" parent="Annotations"]
+offset_left = 146.0
+offset_top = 88.0
+offset_right = 698.0
+offset_bottom = 527.0
+text = "Notice that there are three staticbody2d objects, with each being a collider for different type of entity: Hera, Heracle, or both. If you want to add a new collider, just create the shape and add inside of one of the staticbody2d's. I will do the savepoints and everything very soon so hera doesn't \"instantly die\" by flying into the mouse everytime she dies.
+So far, the color-coding as follows:
+Obstacle Hera: Yellow
+Obstacle Heracle: Blue
+Obstacle Both: Purple
+The creation of simple obstacle was a little too hard, so I think just killing off Hera every time isn't a too bad of an idea? But if you'd like a challenge, you can try making it work haha.
+I will soon create a smart camera which will follow when the Heracle will finish the screen; the camera will move to picked locations when needed like in celeste platforming. (static but moves when the screen is done,)"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="Obstacle Hera" type="StaticBody2D" parent="."]
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
+position = Vector2(516, 732)
+
+[node name="Camera2D" type="Camera2D" parent="Characters/Heracle"]
+position = Vector2(-2, -2)
+limit_top = 0
+limit_bottom = 0
+
+[node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
+position = Vector2(145, 490)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-18, 59)
+collision_layer = 33
+collision_mask = 192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
+position = Vector2(1396, 688)
+shape = SubResource("RectangleShape2D_m5dco")
+debug_color = Color(0.461412, 0.488625, 0.878846, 0.42)
+
+[node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(-129, -15)
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(1061, 764)
+shape = SubResource("RectangleShape2D_m5dco")
+
+[node name="Obstacle Hera" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(71, -90)
 collision_layer = 32
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle Hera"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(873, 565)
 shape = SubResource("RectangleShape2D_m5dco")
+debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
+
+[node name="Foreground" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(103, -54)
+
+[node name="Menu" parent="Foreground" instance=ExtResource("1_arrdw")]
+position = Vector2(-70, 967)

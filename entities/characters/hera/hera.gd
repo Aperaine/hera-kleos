@@ -115,7 +115,7 @@ func collision_check():
 			touching_heracle = true
 			print("touching Heracle")
 		
-		if body.name == "Obstacle Hera":
+		if body.name == "Obstacle Hera" or body.name == "Obstacle Both":
 			able_to_move = false
 			print("Obstacle detected!")
 			
