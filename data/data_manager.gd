@@ -85,13 +85,13 @@ func debug():
 	self.delete_slot(SLOTS.SLOT3)
 	self.delete_slot(SLOTS.SLOT4)
 	self.game_stats["name"] = "AJU Testing Lands"
-	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_WEAPON)
 	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
+	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_WEAPON)
 	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_LEVELIO)
 	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_PLATFORM
-	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
-	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.SWORD)
 	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.CLUB)
+	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.SWORD)
+	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
 	self.progress.selected_abilities[self.Characters.HERACLE] = self.HeracleAbility.BOW
 	self.unlock_level(self.ROOMS.castle)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

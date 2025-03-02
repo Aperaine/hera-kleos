@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpkrji6xdmocs"]
+[gd_scene load_steps=14 format=3 uid="uid://bpkrji6xdmocs"]
 
 [ext_resource type="Script" path="res://entities/ui/menu/menu.gd" id="1_twhg7"]
 [ext_resource type="Texture2D" uid="uid://dtc4xwcps5atp" path="res://assets/ui/menu/HERACLE.PNG" id="2_8e5it"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1nbe5mo43af2" path="res://assets/ui/menu/HERA.PNG" id="7_dj3t6"]
 [ext_resource type="Texture2D" uid="uid://bn8b2k110o4ro" path="res://assets/ui/menu/CASTLE.PNG" id="7_wuk3m"]
 [ext_resource type="Texture2D" uid="uid://bpv8l1opprtag" path="res://assets/ui/menu/HOME.PNG" id="8_vf5gm"]
+[ext_resource type="Texture2D" uid="uid://7373r7poxo2e" path="res://assets/ui/menu/SELECTED.PNG" id="10_3jtvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8h0y"]
 size = Vector2(1920, 205)
@@ -82,89 +83,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("7_dj3t6")
 flat = true
-expand_icon = true
-
-[node name="UI" type="HBoxContainer" parent="."]
-offset_right = 1856.0
-offset_bottom = 145.0
-theme_override_constants/separation = 25
-
-[node name="Heracle" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(140, 140)
-layout_mode = 2
-texture = ExtResource("2_8e5it")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeracleEmpty" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(140, 140)
-layout_mode = 2
-texture = ExtResource("3_6q7wb")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeracleClub" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("4_glrbk")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeracleSword" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("5_pdts2")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeracleBow" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("6_t1fqt")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Hera" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(140, 140)
-layout_mode = 2
-texture = ExtResource("7_dj3t6")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeraEmpty" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(140, 140)
-layout_mode = 2
-texture = ExtResource("3_6q7wb")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeraPlatform" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("4_glrbk")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeraWeapon" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("5_pdts2")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="HeraLevelio" type="TextureRect" parent="UI"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-texture = ExtResource("6_t1fqt")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Menu" type="Button" parent="UI"]
-custom_minimum_size = Vector2(145, 145)
-layout_mode = 2
-icon = ExtResource("8_vf5gm")
-flat = true
-icon_alignment = 1
 expand_icon = true
 
 [node name="UI2" type="HBoxContainer" parent="."]
@@ -250,8 +168,91 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="UI" type="HBoxContainer" parent="."]
+offset_right = 1856.0
+offset_bottom = 145.0
+theme_override_constants/separation = 25
+
+[node name="Heracle" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("2_8e5it")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleEmpty" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleClub" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleSword" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeracleBow" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Hera" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("7_dj3t6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraEmpty" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraPlatform" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraWeapon" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HeraLevelio" type="TextureRect" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("10_3jtvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Menu" type="Button" parent="UI"]
+custom_minimum_size = Vector2(145, 145)
+layout_mode = 2
+icon = ExtResource("8_vf5gm")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="Other/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Other/Castle" to="." method="_on_castle_pressed"]
 [connection signal="pressed" from="Other/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="UI/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="UI2/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/Menu" to="." method="_on_menu_pressed"]
