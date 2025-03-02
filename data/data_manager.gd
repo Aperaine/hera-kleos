@@ -94,6 +94,7 @@ func debug():
 	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
 	self.progress.selected_abilities[self.Characters.HERACLE] = self.HeracleAbility.BOW
 	self.unlock_level(self.ROOMS.castle)
+	self.unlock_level(self.ROOMS.level1)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	output_data()
 

@@ -6,29 +6,35 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Slot" parent="." instance=ExtResource("1_8ypcq")]
-offset_left = -65.0
-offset_top = -44.0
-offset_right = 64.0
-offset_bottom = 33.0
+[node name="Slots" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Slot2" parent="." instance=ExtResource("1_8ypcq")]
-offset_left = -65.0
-offset_top = 56.0
-offset_right = 64.0
-offset_bottom = 133.0
+[node name="Slot" parent="Slots" instance=ExtResource("1_8ypcq")]
+offset_left = -256.0
+offset_top = -192.0
+offset_right = -127.0
+offset_bottom = -115.0
+
+[node name="Slot2" parent="Slots" instance=ExtResource("1_8ypcq")]
+offset_left = -256.0
+offset_top = -92.0
+offset_right = -127.0
+offset_bottom = -15.0
 slot_num = 1
 
-[node name="Slot3" parent="." instance=ExtResource("1_8ypcq")]
-offset_left = -64.0
-offset_top = 152.0
-offset_right = 65.0
-offset_bottom = 229.0
+[node name="Slot3" parent="Slots" instance=ExtResource("1_8ypcq")]
+offset_left = -255.0
+offset_top = 4.0
+offset_right = -126.0
+offset_bottom = 81.0
 slot_num = 2
 
-[node name="Slot4" parent="." instance=ExtResource("1_8ypcq")]
-offset_left = -64.0
-offset_top = 248.0
-offset_right = 65.0
-offset_bottom = 325.0
+[node name="Slot4" parent="Slots" instance=ExtResource("1_8ypcq")]
+offset_left = -255.0
+offset_top = 100.0
+offset_right = -126.0
+offset_bottom = 177.0
 slot_num = 3
