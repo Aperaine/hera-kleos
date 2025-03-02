@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_5uvbe"]
 [ext_resource type="Texture2D" uid="uid://b66237tlyiirx" path="res://assets/scenery/castle/floor.PNG" id="10_tojyt"]
 [ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="13_v87kl"]
-[ext_resource type="PackedScene" uid="uid://bieyihosrtu7" path="res://entities/scenery/obstacle_hera/obstacle_hera.tscn" id="14_5qvi2"]
 [ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="14_yvooc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8adyy"]
+size = Vector2(189, 202)
 
 [node name="Castle" type="Node2D"]
 
@@ -115,6 +117,14 @@ offset_right = 4310.0
 offset_bottom = 1334.0
 color = Color(0.117647, 0.00784314, 0.00784314, 0.403922)
 
+[node name="Obstacle Hera" type="StaticBody2D" parent="Background"]
+collision_layer = 32
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Obstacle Hera"]
+position = Vector2(1114, 554)
+shape = SubResource("RectangleShape2D_8adyy")
+
 [node name="Main" type="CanvasGroup" parent="."]
 
 [node name="King" parent="Main" instance=ExtResource("14_yvooc")]
@@ -153,7 +163,7 @@ limit_bottom = 0
 position_smoothing_enabled = true
 
 [node name="Hera" parent="Main" instance=ExtResource("2_fonep")]
-position = Vector2(648, 627)
+position = Vector2(714, 470)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Main"]
 
@@ -167,6 +177,3 @@ position = Vector2(32, 908)
 
 [node name="Timer" parent="Foreground/UI" instance=ExtResource("6_5uvbe")]
 position = Vector2(0, 552.031)
-
-[node name="ObstacleHera" parent="." instance=ExtResource("14_5qvi2")]
-position = Vector2(1093, 735)

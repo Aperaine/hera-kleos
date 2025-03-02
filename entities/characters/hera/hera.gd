@@ -96,28 +96,9 @@ func movement():
 		var mouse_direction = (hera_mouse_pos - position).normalized()
 		var prev_mouse_direction = (prev_mouse_pos - position).normalized()
 		
-		# When not able to move, check if mouse direction has changed significantly
 		if not able_to_move:
-			# Increment stuck timer
-			stuck_time += 0.016  # Assuming 60 FPS
-			
-			# After being stuck for a short time
-			if stuck_time > 0.5:
-				is_stuck = true
-				
-				# Check if mouse is now moving away from obstacle
-				var dot_product = mouse_direction.dot(collision_normal)
-				
-				# If mouse is moving away from obstacle or significantly changed direction
-				if dot_product > 0 or mouse_direction.dot(prev_mouse_direction) < 0.7:
-					# Help Hera escape
-					position += collision_normal * 5
-					able_to_move = true
-					is_stuck = false
-					stuck_time = 0.0
+			DataManager.restart_level()
 		else:
-			stuck_time = 0.0
-			is_stuck = false
 			position += (hera_mouse_pos - position) / 10
 	
 	prev_mouse_pos = hera_mouse_pos
