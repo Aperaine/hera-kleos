@@ -33,30 +33,30 @@ position = Vector2(145, 111)
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
-position = Vector2(-18, 59)
+position = Vector2(102, -422)
 collision_layer = 33
 collision_mask = 192
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(1794, 83)
 shape = SubResource("RectangleShape2D_tud7u")
 debug_color = Color(0.461412, 0.488625, 0.878846, 0.42)
 
 [node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
-position = Vector2(-129, -15)
+position = Vector2(327, -426)
 collision_mask = 64
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(1682, 156)
 shape = SubResource("RectangleShape2D_tud7u")
 
 [node name="Obstacle Hera" type="StaticBody2D" parent="Obstacles"]
-position = Vector2(71, -90)
+position = Vector2(561, -425)
 collision_layer = 32
 collision_mask = 128
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(1245, 236)
 shape = SubResource("RectangleShape2D_tud7u")
 debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
 
