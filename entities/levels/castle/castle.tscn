@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5gp1o4puf13w"]
+[gd_scene load_steps=14 format=3 uid="uid://5gp1o4puf13w"]
 
 [ext_resource type="Texture2D" uid="uid://o3ijp34nf626" path="res://assets/scenery/castle/ocean.PNG" id="1_5vv2g"]
 [ext_resource type="Texture2D" uid="uid://4kxebuhrsj7e" path="res://assets/scenery/castle/mountain_right.PNG" id="1_mnupi"]
@@ -13,9 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b66237tlyiirx" path="res://assets/scenery/castle/floor.PNG" id="10_tojyt"]
 [ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="13_v87kl"]
 [ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="14_yvooc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8adyy"]
-size = Vector2(189, 202)
 
 [node name="Castle" type="Node2D"]
 
@@ -116,14 +113,6 @@ offset_top = -95.0
 offset_right = 4310.0
 offset_bottom = 1334.0
 color = Color(0.117647, 0.00784314, 0.00784314, 0.403922)
-
-[node name="Obstacle Hera" type="StaticBody2D" parent="Background"]
-collision_layer = 32
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Obstacle Hera"]
-position = Vector2(1114, 554)
-shape = SubResource("RectangleShape2D_8adyy")
 
 [node name="Main" type="CanvasGroup" parent="."]
 

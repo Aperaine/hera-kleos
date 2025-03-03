@@ -58,6 +58,8 @@ var ram = {
 	"slot": SLOTS.SLOT1,
 	"arrows": 3,
 	"hera_active": true,
+	"hera_safe_pos": Vector2(100, 100),
+	"camera_pos": Vector2(960, 540),
 }
 
 enum Characters {
@@ -343,3 +345,6 @@ deaths:
 		"time": game_stats.play_time,
 		"deaths": game_stats.deaths
 	}))
+
+func hera_safe_pos():
+	Input.warp_mouse(DataManager.ram["hera_safe_pos"])

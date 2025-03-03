@@ -18,7 +18,7 @@ size = Vector2(310, 1365)
 size = Vector2(2554.5, 297)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8h0y"]
-size = Vector2(1920, 205)
+size = Vector2(2255, 205)
 
 [node name="Menu" type="Node2D"]
 position = Vector2(32, 907)
@@ -28,11 +28,11 @@ script = ExtResource("1_twhg7")
 collision_layer = 48
 
 [node name="Left" type="CollisionShape2D" parent="Edges"]
-position = Vector2(-187, -509.5)
+position = Vector2(-332, -509)
 shape = SubResource("RectangleShape2D_rj3i3")
 
 [node name="Right" type="CollisionShape2D" parent="Edges"]
-position = Vector2(2043, -509)
+position = Vector2(2180, -509)
 shape = SubResource("RectangleShape2D_rj3i3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Edges"]
@@ -42,7 +42,7 @@ shape = SubResource("RectangleShape2D_voog5")
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(928, 70.5)
+position = Vector2(930.5, 70.5)
 shape = SubResource("RectangleShape2D_g8h0y")
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
