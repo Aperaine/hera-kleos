@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b7rhygd3lisof" path="res://assets/ui/fonts/Monomakh-Regular.ttf" id="2_k88pe"]
 
 [node name="Slot" type="Container"]
+custom_minimum_size = Vector2(600, 100)
 offset_right = 130.0
 offset_bottom = 77.0
 script = ExtResource("1_n5dgo")
@@ -12,26 +13,24 @@ script = ExtResource("1_n5dgo")
 layout_mode = 2
 
 [node name="New" type="Control" parent="Display"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="NameInput" type="LineEdit" parent="Display/New"]
 layout_mode = 2
-offset_left = 4.0
-offset_top = 8.0
-offset_right = 132.0
-offset_bottom = 64.0
+offset_right = 296.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("2_k88pe")
 theme_override_font_sizes/font_size = 50
 placeholder_text = "AJU"
-max_length = 50
+max_length = 10
 
 [node name="Add" type="Button" parent="Display/New"]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 16.0
-offset_right = 184.0
-offset_bottom = 72.0
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("2_k88pe")
 theme_override_font_sizes/font_size = 30
 text = "+"
