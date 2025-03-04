@@ -141,19 +141,6 @@ room = 6
 position = Vector2(3071, 810)
 room = 7
 
-[node name="Heracle" parent="Main" instance=ExtResource("3_pg7en")]
-position = Vector2(832, 723)
-
-[node name="Camera" type="Camera2D" parent="Main/Heracle"]
-limit_left = 0
-limit_top = 0
-limit_right = 3500
-limit_bottom = 0
-position_smoothing_enabled = true
-
-[node name="Hera" parent="Main" instance=ExtResource("2_fonep")]
-position = Vector2(714, 470)
-
 [node name="CanvasGroup" type="CanvasGroup" parent="Main"]
 
 [node name="Foreground" type="CanvasGroup" parent="."]
@@ -166,3 +153,18 @@ position = Vector2(32, 908)
 
 [node name="Timer" parent="Foreground/UI" instance=ExtResource("6_5uvbe")]
 position = Vector2(0, 552.031)
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(832, 723)
+
+[node name="Heracle" parent="Characters" instance=ExtResource("3_pg7en")]
+
+[node name="Camera" type="Camera2D" parent="Characters/Heracle"]
+limit_left = 0
+limit_top = 0
+limit_right = 3500
+limit_bottom = 0
+position_smoothing_enabled = true
+
+[node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
+position = Vector2(-118, -253)
