@@ -160,5 +160,9 @@ libraries = {
 "": SubResource("AnimationLibrary_j10jm")
 }
 
+[node name="Jumpheight" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
+[connection signal="timeout" from="Jumpheight" to="." method="_on_jumpheight_timeout"]

@@ -2,16 +2,18 @@ extends CharacterBody2D
 
 # Exported Variables
 @export var arrow_scene: PackedScene = preload("res://entities/scenery/arrow/arrow.tscn")
-@export var SPEED: float = 550.0
+@export var SPEED: float = 100.0
 
 # Onready variables
+@onready var jumpheight: Timer = $Jumpheight
 @onready var timer: Timer = $Timer
 @onready var coyote: Timer = $Coyote
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
 # Constants
-const JUMP_VELOCITY: float = -2000.0
+const MAX_SPEED := 600.0
+const JUMP_VELOCITY: float = -2200.0
 const FRICTION: float = 70.0
 const GRAVITY: float = 200.0
 const MAX_GRAVITY: float = 3000.0
@@ -49,7 +51,10 @@ func get_input_direction() -> Vector2:
 # Handle character movement
 func move_character(direction: Vector2) -> void:
 	if direction.x != 0:
-		velocity.x = SPEED * direction.x
+		if velocity.x < MAX_SPEED and direction.x > 0:
+			velocity.x += SPEED
+		if velocity.x > MAX_SPEED * -1 and direction.x < 0:
+			velocity.x -= SPEED
 		last_direction.x = direction.x
 		sprite.flip_h = direction.x < 0
 	else:
@@ -57,7 +62,7 @@ func move_character(direction: Vector2) -> void:
 
 # Apply gravity to the character
 func apply_gravity() -> void:
-	if not is_on_floor() and velocity.y < MAX_GRAVITY:
+	if (not is_on_floor() and velocity.y < MAX_GRAVITY):
 		velocity.y += GRAVITY
 
 # Handle jump logic
@@ -65,6 +70,7 @@ func handle_jump() -> void:
 	# Jump trigger
 	if (Input.is_action_just_pressed("heracle-jump") and jump_count < JUMP_LIMIT) or (jump_buffer == 1 and is_on_floor()):
 		velocity.y = JUMP_VELOCITY
+		jumpheight.start()
 		jump_count = 1
 
 	# Coyote time logic
@@ -97,6 +103,9 @@ func update_animation() -> void:
 			animation.play("Run")
 		else:
 			animation.play("Idle")
+
+func _on_jumpheight_timeout() -> void:
+	pass
 
 # Timer timeout for jump buffer
 func _on_timer_timeout() -> void:
