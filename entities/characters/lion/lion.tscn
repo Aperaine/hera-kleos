@@ -1,35 +1,191 @@
-[gd_scene load_steps=5 format=3 uid="uid://d23gaoq4dfvey"]
+[gd_scene load_steps=35 format=3 uid="uid://d23gaoq4dfvey"]
 
 [ext_resource type="Script" path="res://entities/characters/lion/lion.gd" id="1_4wnfw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtxux"]
-size = Vector2(429, 241)
+[ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="2_l3gad"]
+[ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_segbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxtwf"]
 size = Vector2(196.5, 178.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtxux"]
+size = Vector2(429, 241)
+
+[sub_resource type="Animation" id="Animation_731co"]
+resource_name = "Bite"
+
+[sub_resource type="Animation" id="Animation_kcn35"]
+resource_name = "Death"
+
+[sub_resource type="Animation" id="Animation_2prup"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ym8c8"]
+resource_name = "Jump"
+
+[sub_resource type="Animation" id="Animation_rcogq"]
+resource_name = "Rocks"
+
+[sub_resource type="Animation" id="Animation_yons7"]
+resource_name = "Run"
+
+[sub_resource type="Animation" id="Animation_ej2gp"]
+resource_name = "Scream"
+
+[sub_resource type="Animation" id="Animation_ppqvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhw7r"]
+_data = {
+"Bite": SubResource("Animation_731co"),
+"Death": SubResource("Animation_kcn35"),
+"Idle": SubResource("Animation_2prup"),
+"Jump": SubResource("Animation_ym8c8"),
+"RESET": SubResource("Animation_ppqvr"),
+"Rocks": SubResource("Animation_rcogq"),
+"Run": SubResource("Animation_yons7"),
+"Scream": SubResource("Animation_ej2gp")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a8i3l"]
+animation = &"Bite"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ycc8x"]
+animation = &"Death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_85qhn"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d5x1d"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i4qad"]
+animation = &"Rocks"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h4btx"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lfk3t"]
+animation = &"Scream"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jpsw1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qb0be"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_od0xa"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7tyvx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n14d6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n01vf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mlist"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sxhkh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2n83k"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ldy2f"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dx32q"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wi7og"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4efft"]
-graph_offset = Vector2(53.1451, -3.87752)
+states/Bite/node = SubResource("AnimationNodeAnimation_a8i3l")
+states/Bite/position = Vector2(428.145, 33.81)
+states/Death/node = SubResource("AnimationNodeAnimation_ycc8x")
+states/Death/position = Vector2(676.525, 135.295)
+states/End/position = Vector2(799, 133.613)
+states/Idle/node = SubResource("AnimationNodeAnimation_85qhn")
+states/Idle/position = Vector2(528.145, 131.931)
+states/Jump/node = SubResource("AnimationNodeAnimation_d5x1d")
+states/Jump/position = Vector2(634.145, 32.7475)
+states/Rocks/node = SubResource("AnimationNodeAnimation_i4qad")
+states/Rocks/position = Vector2(622.145, 225.122)
+states/Run/node = SubResource("AnimationNodeAnimation_h4btx")
+states/Run/position = Vector2(442.145, 227.122)
+states/Scream/node = SubResource("AnimationNodeAnimation_lfk3t")
+states/Scream/position = Vector2(377.825, 135.085)
+states/Start/position = Vector2(243.5, 132.94)
+transitions = ["Idle", "Bite", SubResource("AnimationNodeStateMachineTransition_jpsw1"), "Bite", "Idle", SubResource("AnimationNodeStateMachineTransition_qb0be"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_od0xa"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_7tyvx"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n14d6"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_n01vf"), "Idle", "Rocks", SubResource("AnimationNodeStateMachineTransition_mlist"), "Rocks", "Idle", SubResource("AnimationNodeStateMachineTransition_sxhkh"), "Start", "Scream", SubResource("AnimationNodeStateMachineTransition_2n83k"), "Scream", "Idle", SubResource("AnimationNodeStateMachineTransition_ldy2f"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_dx32q"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_wi7og")]
+graph_offset = Vector2(-20.7747, -63.9875)
 
 [node name="Lion" type="Node2D"]
 script = ExtResource("1_4wnfw")
 
-[node name="Damage" type="Area2D" parent="."]
+[node name="Collider" type="StaticBody2D" parent="."]
+collision_layer = 25
+collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
-position = Vector2(8, -64)
-shape = SubResource("RectangleShape2D_dtxux")
-
-[node name="Attack" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
-position = Vector2(-208, -184)
+[node name="Head" type="CollisionShape2D" parent="Collider"]
+position = Vector2(-216, -120)
 shape = SubResource("RectangleShape2D_qxtwf")
+
+[node name="Body" type="CollisionShape2D" parent="Collider"]
+shape = SubResource("RectangleShape2D_dtxux")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mhw7r")
+}
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_4efft")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Trash" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -160)
+metadata/_edit_group_ = true
+
+[node name="Menu" parent="Trash" instance=ExtResource("2_l3gad")]
+position = Vector2(-912, 368)
+
+[node name="Camera2D" type="Camera2D" parent="Trash"]
+
+[node name="Heracle" parent="Trash" instance=ExtResource("3_segbk")]
+position = Vector2(-784, 136)

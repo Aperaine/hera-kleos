@@ -18,7 +18,7 @@ var stuck_time: float = 0.0
 var is_stuck: bool = false
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	DataManager.hera_safe_pos()
 	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
