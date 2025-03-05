@@ -34,15 +34,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_ym8c8"]
 resource_name = "Jump"
 
-[sub_resource type="Animation" id="Animation_rcogq"]
-resource_name = "Rocks"
-
-[sub_resource type="Animation" id="Animation_yons7"]
-resource_name = "Run"
-
-[sub_resource type="Animation" id="Animation_ej2gp"]
-resource_name = "Scream"
-
 [sub_resource type="Animation" id="Animation_ppqvr"]
 length = 0.001
 tracks/0/type = "value"
@@ -57,6 +48,15 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_rcogq"]
+resource_name = "Rocks"
+
+[sub_resource type="Animation" id="Animation_yons7"]
+resource_name = "Run"
+
+[sub_resource type="Animation" id="Animation_ej2gp"]
+resource_name = "Scream"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mhw7r"]
 _data = {
@@ -150,7 +150,7 @@ states/Scream/node = SubResource("AnimationNodeAnimation_lfk3t")
 states/Scream/position = Vector2(377.825, 135.085)
 states/Start/position = Vector2(243.5, 132.94)
 transitions = ["Idle", "Bite", SubResource("AnimationNodeStateMachineTransition_jpsw1"), "Bite", "Idle", SubResource("AnimationNodeStateMachineTransition_qb0be"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_od0xa"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_7tyvx"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n14d6"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_n01vf"), "Idle", "Rocks", SubResource("AnimationNodeStateMachineTransition_mlist"), "Rocks", "Idle", SubResource("AnimationNodeStateMachineTransition_sxhkh"), "Start", "Scream", SubResource("AnimationNodeStateMachineTransition_2n83k"), "Scream", "Idle", SubResource("AnimationNodeStateMachineTransition_ldy2f"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_dx32q"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_wi7og")]
-graph_offset = Vector2(-20.7747, -63.9875)
+graph_offset = Vector2(14.4153, -57.845)
 
 [node name="Lion" type="Node2D"]
 script = ExtResource("1_4wnfw")

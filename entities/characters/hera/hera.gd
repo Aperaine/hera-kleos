@@ -87,13 +87,19 @@ func movement():
 	prev_mouse_pos = hera_mouse_pos
 
 func collision_check():
+	DataManager.ram["hera_at_level_end"] = false
 	for body in area2d_node.get_overlapping_bodies():
 		if body.name == "Heracle":
 			touching_heracle = true
 			print("touching Heracle")
-		
+
 		if body.name == "Obstacle Hera" or body.name == "Obstacle Both":
 			DataManager.hera_safe_pos()
+
+		if body.name == "LevelEnd":
+			DataManager.ram["hera_at_level_end"] = true
+
+	print(DataManager.ram["hera_at_level_end"])
 
 func _physics_process(_delta: float) -> void:
 	hera_mouse_pos = get_global_mouse_position()

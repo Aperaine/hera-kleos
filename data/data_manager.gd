@@ -60,6 +60,7 @@ var ram = {
 	"hera_active": true,
 	"hera_safe_pos": Vector2(100, 100),
 	"camera_pos": Vector2(960, 540),
+	"hera_at_level_end": false,
 }
 
 enum Characters {
@@ -349,7 +350,3 @@ deaths:
 
 func hera_safe_pos() -> void:
 	Input.warp_mouse(ram["hera_safe_pos"])
-	#var hera = get_tree().get_first_node_in_group("hera")
-	#if hera:
-		#print("Hera found")
-		#hera.global_position = ram["hera_safe_pos"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2htxeieu2j1m"]
+[gd_scene load_steps=8 format=3 uid="uid://c2htxeieu2j1m"]
 
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_7rxru"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/levels/screen/screen.tscn" id="2_ner5h"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tud7u"]
 size = Vector2(189, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inkwd"]
+size = Vector2(305, 402)
 
 [node name="LevelTemplate" type="Node2D"]
 
@@ -59,6 +62,15 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 shape = SubResource("RectangleShape2D_tud7u")
 debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
+
+[node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
+collision_layer = 1024
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(1739.5, 677)
+shape = SubResource("RectangleShape2D_inkwd")
+debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
 [node name="Foreground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)

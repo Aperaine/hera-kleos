@@ -75,6 +75,7 @@ heracle-jump={
 2d_physics/layer_6="Obstacle Hera"
 2d_physics/layer_7="Heracle"
 2d_physics/layer_8="Hera"
+2d_physics/layer_11="Level End"
 2d_physics/layer_12="Gate"
 
 [rendering]
