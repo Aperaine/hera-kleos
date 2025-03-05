@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=16 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_hb5yu"]
@@ -21,14 +21,8 @@ size = Vector2(327.5, 561)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_812y1"]
 size = Vector2(139, 13)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwj1b"]
-size = Vector2(143.5, 177)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnycb"]
-size = Vector2(152, 178.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyo5y"]
-size = Vector2(134, 111)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m34og"]
+size = Vector2(161, 163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10vfm"]
 size = Vector2(147.25, 692)
@@ -45,21 +39,21 @@ size = Vector2(117.5, 477.5)
 [node name="Level1" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(3000, 730)
+position = Vector2(2930, 734)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_hb5yu")
 
 [node name="Screens" type="Node2D" parent="."]
 
-[node name="Screen1" parent="Screens" instance=ExtResource("5_8iimk")]
+[node name="Screen0" parent="Screens" instance=ExtResource("5_8iimk")]
 position = Vector2(979, 539)
 
-[node name="Screen2" parent="Screens" instance=ExtResource("5_8iimk")]
-position = Vector2(2977, 541)
+[node name="Screen1" parent="Screens" instance=ExtResource("5_8iimk")]
+position = Vector2(2907, 545)
 
-[node name="Heracle" parent="." instance=ExtResource("2_nx8qt")]
-position = Vector2(259, 750)
+[node name="Screen2" parent="Screens" instance=ExtResource("5_8iimk")]
+position = Vector2(4834, 544)
 
 [node name="Foreground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
@@ -68,113 +62,91 @@ scroll_offset = Vector2(103, -54)
 [node name="Menu" parent="Foreground" instance=ExtResource("1_arrdw")]
 position = Vector2(-70, 967)
 
-[node name="Annotations" type="Node2D" parent="."]
+[node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="Annotations"]
-offset_left = 146.0
-offset_top = 88.0
-offset_right = 698.0
-offset_bottom = 527.0
-text = "Notice that there are three staticbody2d objects, with each being a collider for different type of entity: Hera, Heracle, or both. If you want to add a new collider, just create the shape and add inside of one of the staticbody2d's. I will do the savepoints and everything very soon so hera doesn't \"instantly die\" by flying into the mouse everytime she dies.
-So far, the color-coding as follows:
-Obstacle Hera: Yellow
-Obstacle Heracle: Blue
-Obstacle Both: Purple
-The creation of simple obstacle was a little too hard, so I think just killing off Hera every time isn't a too bad of an idea? But if you'd like a challenge, you can try making it work haha.
-I will soon create a smart camera which will follow when the Heracle will finish the screen; the camera will move to picked locations when needed like in celeste platforming. (static but moves when the screen is done,)"
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Characters" type="Node2D" parent="."]
-
-[node name="Obstacles" type="Node2D" parent="Characters"]
-
-[node name="Obstacle Both" type="StaticBody2D" parent="Characters/Obstacles"]
+[node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(-18, 59)
 collision_layer = 33
 collision_mask = 192
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Both"]
+[node name="Demo" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
 position = Vector2(622, -212)
 shape = SubResource("RectangleShape2D_m5dco")
 debug_color = Color(0.461412, 0.488625, 0.878846, 0.42)
 
-[node name="Obstacle Heracle" type="StaticBody2D" parent="Characters/Obstacles"]
+[node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(-129, -15)
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
+[node name="Demo" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(443, -148)
 shape = SubResource("RectangleShape2D_m5dco")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(590, 828)
+[node name="Screen1_2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(2345, 829.75)
 shape = SubResource("RectangleShape2D_id6nj")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(1077.38, 329.25)
+[node name="Screen1_3" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(2832.38, 331)
 shape = SubResource("RectangleShape2D_ucwns")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(1800, 611)
+[node name="Screen1_4" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(3555, 612.75)
 shape = SubResource("RectangleShape2D_r03my")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(1567, 337)
+[node name="Screen1_5" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(3322, 338.75)
 shape = SubResource("RectangleShape2D_812y1")
 one_way_collision = true
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(1293.5, 529)
+[node name="Screen1_6" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(3048.5, 530.75)
 shape = SubResource("RectangleShape2D_812y1")
 one_way_collision = true
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(1567, 736)
+[node name="Screen1_7" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(3322, 737.75)
 shape = SubResource("RectangleShape2D_812y1")
 one_way_collision = true
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(2586, 105)
-shape = SubResource("RectangleShape2D_uwj1b")
+[node name="Screen2_1" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(4955.5, 819.5)
+shape = SubResource("RectangleShape2D_m34og")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(3133, 814)
-shape = SubResource("RectangleShape2D_jnycb")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Heracle"]
-position = Vector2(3997, 364)
-shape = SubResource("RectangleShape2D_iyo5y")
-
-[node name="Obstacle Hera" type="StaticBody2D" parent="Characters/Obstacles"]
+[node name="Obstacle Hera" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(71, -90)
 collision_layer = 32
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Hera"]
+[node name="Demo" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(390, -66)
 shape = SubResource("RectangleShape2D_m5dco")
 debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Hera"]
-position = Vector2(2388, 617)
+[node name="Screen2_2" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(4212, 628)
 shape = SubResource("RectangleShape2D_10vfm")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Hera"]
-position = Vector2(2932, 446)
+[node name="Screen2_3" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(4756, 457)
 shape = SubResource("RectangleShape2D_jbrfs")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Hera"]
-position = Vector2(3549, 439)
+[node name="Screen2_4" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(5373, 450)
 shape = SubResource("RectangleShape2D_fewob")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Characters/Obstacles/Obstacle Hera"]
-position = Vector2(3425, 731.25)
+[node name="Screen2_5" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(5249, 742.25)
 shape = SubResource("RectangleShape2D_vn1t5")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
+position = Vector2(259, 750)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(209, 547)

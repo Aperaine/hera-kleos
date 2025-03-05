@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5gp1o4puf13w"]
+[gd_scene load_steps=14 format=3 uid="uid://5gp1o4puf13w"]
 
 [ext_resource type="Texture2D" uid="uid://o3ijp34nf626" path="res://assets/scenery/castle/ocean.PNG" id="1_5vv2g"]
 [ext_resource type="Texture2D" uid="uid://4kxebuhrsj7e" path="res://assets/scenery/castle/mountain_right.PNG" id="1_mnupi"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_5uvbe"]
 [ext_resource type="Texture2D" uid="uid://b66237tlyiirx" path="res://assets/scenery/castle/floor.PNG" id="10_tojyt"]
 [ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="13_v87kl"]
-[ext_resource type="PackedScene" uid="uid://d18bjr7ocmug3" path="res://entities/scenery/ability_gain/ability_gain.tscn" id="14_5yv6p"]
 [ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="14_yvooc"]
 
 [node name="Castle" type="Node2D"]
@@ -170,7 +169,3 @@ position_smoothing_enabled = true
 
 [node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
 position = Vector2(649, 477)
-
-[node name="AbilityGain" parent="Characters" instance=ExtResource("14_5yv6p")]
-position = Vector2(1062, 728)
-ability_hera = 1

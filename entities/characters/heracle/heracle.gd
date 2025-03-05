@@ -4,12 +4,13 @@ extends CharacterBody2D
 @export var arrow_scene: PackedScene = preload("res://entities/scenery/arrow/arrow.tscn")
 @export var SPEED: float = 100.0
 
-# Onready variables
+# Onready Variables
 @onready var jumpheight: Timer = $Jumpheight
 @onready var timer: Timer = $Timer
 @onready var coyote: Timer = $Coyote
-@onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var animation: AnimationPlayer = $FlipHelper/AnimationPlayer
+@onready var sprite: Sprite2D = $FlipHelper/Sprite2D
+@onready var flip_helper: Node2D = $FlipHelper
 
 # Constants
 const MAX_SPEED := 600.0
@@ -25,13 +26,6 @@ var jump_buffer: int = 0
 var jump_count: int = 0
 var last_direction: Vector2 = Vector2.RIGHT
 
-# Input handling for ability toggle
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("heracle-toggle"):
-		DataManager.switch_ability(DataManager.Characters.HERACLE)
-		if DataManager.progress["selected_abilities"][DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
-			DataManager.ram["hera_active"] = true
-
 # Main physics process
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = get_input_direction()
@@ -40,15 +34,16 @@ func _physics_process(delta: float) -> void:
 	handle_jump()
 	move_and_slide()
 	update_animation()
+	
 	# Arrow shooting
 	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
 		shoot_arrow()
 
-# Get the input direction for movement
+# Get input direction
 func get_input_direction() -> Vector2:
 	return Vector2(Input.get_axis("heracle-left", "heracle-right"), Input.get_axis("ui_up", "ui_down"))
 
-# Handle character movement
+# Move character
 func move_character(direction: Vector2) -> void:
 	if direction.x != 0:
 		if velocity.x < MAX_SPEED and direction.x > 0:
@@ -56,29 +51,30 @@ func move_character(direction: Vector2) -> void:
 		if velocity.x > MAX_SPEED * -1 and direction.x < 0:
 			velocity.x -= SPEED
 		last_direction.x = direction.x
-		sprite.flip_h = direction.x < 0
+		flip_visuals(direction.x < 0)  # Flip sprite properly
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
-# Apply gravity to the character
+# Flip sprite while keeping collider in place
+func flip_visuals(face_left: bool) -> void:
+	flip_helper.scale.x = -1 if face_left else 1  # Flip only the visual helper node
+
+# Apply gravity
 func apply_gravity() -> void:
-	if (not is_on_floor() and velocity.y < MAX_GRAVITY):
+	if not is_on_floor() and velocity.y < MAX_GRAVITY:
 		velocity.y += GRAVITY
 
 # Handle jump logic
 func handle_jump() -> void:
-	# Jump trigger
 	if (Input.is_action_just_pressed("heracle-jump") and jump_count < JUMP_LIMIT) or (jump_buffer == 1 and is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 		jumpheight.start()
 		jump_count = 1
 
-	# Coyote time logic
 	if not is_on_floor() and jump_count == 0 and coyote_flag == 0:
 		coyote_flag = 1
 		coyote.start()
 
-	# Jump buffer logic
 	if Input.is_action_just_pressed("heracle-jump") and jump_count > 0:
 		jump_buffer = 1
 		timer.start()
@@ -86,12 +82,11 @@ func handle_jump() -> void:
 	if Input.is_action_just_released("heracle-jump"):
 		jump_buffer = 0
 
-	# Reset jump when landing
 	if is_on_floor() and velocity.y >= 0:
 		coyote_flag = 0
 		jump_count = 0
 
-# Update the animation based on movement state
+# Update animation based on state
 func update_animation() -> void:
 	if not is_on_floor():
 		if abs(velocity.x) > 0:
@@ -104,23 +99,22 @@ func update_animation() -> void:
 		else:
 			animation.play("Idle")
 
+# Timer handlers
 func _on_jumpheight_timeout() -> void:
 	pass
 
-# Timer timeout for jump buffer
 func _on_timer_timeout() -> void:
 	jump_buffer = 0
 
-# Coyote timeout for jump count reset
 func _on_coyote_timeout() -> void:
 	jump_count = 1
 
-# Get the shooting direction based on input
+# Get shooting direction
 func get_shoot_direction() -> Vector2:
 	var shoot_dir: Vector2 = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
 	return shoot_dir if shoot_dir != Vector2.ZERO else last_direction.normalized()
 
-# Shoot an arrow in the given direction
+# Shoot an arrow
 func shoot_arrow() -> void:
 	if DataManager.ram["arrows"] <= 0:
 		return

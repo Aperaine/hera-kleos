@@ -1,4 +1,5 @@
 extends Node2D
+
 var touching_heracle: bool = false
 var collision_platform: CollisionShape2D
 var collision_hummingbird: CollisionShape2D
@@ -9,16 +10,12 @@ var hera_bow: bool = false
 var animation_free: bool = true
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-var able_to_move = true
 var last_direction = false
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
-var collision_normal: Vector2 = Vector2.ZERO
-var stuck_time: float = 0.0
-var is_stuck: bool = false
 
 func _ready():
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	add_to_group("hera")
 	DataManager.hera_safe_pos()
 	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
@@ -75,10 +72,6 @@ func collision_manager():
 				collision_platform.disabled = false
 				play_animations("platform")
 				animation_free = false
-			DataManager.HeraAbility.STATE_WEAPON:
-				pass
-			DataManager.HeraAbility.STATE_LEVELIO:
-				pass
 
 func play_animations(animation_name):
 	if animation_free:
@@ -86,47 +79,21 @@ func play_animations(animation_name):
 
 func movement():
 	if animation_free:
-		if hera_mouse_pos.x < position.x:
-			last_direction = false
-			sprite.flip_h = true
-		else:
-			last_direction = true
-			sprite.flip_h = false
+		sprite.flip_h = hera_mouse_pos.x < position.x
 	
 	if DataManager.ram["hera_active"]:
-		var mouse_direction = (hera_mouse_pos - position).normalized()
-		var prev_mouse_direction = (prev_mouse_pos - position).normalized()
-		
-		if not able_to_move:
-			DataManager.restart_level()
-		else:
-			#sprite.velocity.x = Input.get_last_mouse_velocity()
-			pass
-			position += (hera_mouse_pos - position) / 10
+		position += (hera_mouse_pos - position) / 10
 	
 	prev_mouse_pos = hera_mouse_pos
 
 func collision_check():
-	var was_colliding = not able_to_move
-	able_to_move = true
-	collision_normal = Vector2.ZERO
-	
 	for body in area2d_node.get_overlapping_bodies():
 		if body.name == "Heracle":
 			touching_heracle = true
 			print("touching Heracle")
 		
 		if body.name == "Obstacle Hera" or body.name == "Obstacle Both":
-			able_to_move = false
-			print("Obstacle detected!")
-			
-			# Calculate collision normal (direction to push away from obstacle)
-			collision_normal = (position - body.position).normalized()
-			
-			# If we just started colliding, reset stuck timer
-			if not was_colliding:
-				stuck_time = 0.0
-				is_stuck = false
+			DataManager.hera_safe_pos()
 
 func _physics_process(_delta: float) -> void:
 	hera_mouse_pos = get_global_mouse_position()
@@ -137,6 +104,3 @@ func _physics_process(_delta: float) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":
 		touching_heracle = false
-	if body.name == "Obstacle Hera":
-		is_stuck = false
-		stuck_time = 0.0

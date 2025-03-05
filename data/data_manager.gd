@@ -43,7 +43,7 @@ var game_stats = {
 }
 
 var progress = {
-	"unlocked_levels": [ROOMS.castle],
+	"unlocked_levels": [ROOMS.tutorial, ROOMS.castle, ROOMS.level1],
 	"unlocked_abilities": {
 		Characters.HERA: [HeraAbility.STATE_EMPTY],
 		Characters.HERACLE: [HeracleAbility.EMPTY],
@@ -133,7 +133,7 @@ func load_game():
 	game_stats.name = data.get("name", "")
 	
 	# Load progress
-	progress.unlocked_levels = data.get("unlocked_levels", [ROOMS.castle])
+	progress.unlocked_levels = data.get("unlocked_levels", [ROOMS.tutorial, ROOMS.castle, ROOMS.level1])
 	
 	# Load abilities with proper type conversion
 	var loaded_unlocked = data.get("unlocked_abilities", {})
@@ -185,7 +185,7 @@ func reset_game():
 	
 	game_stats.play_time = 0.0
 	game_stats.deaths = 0
-	progress.unlocked_levels = [self.ROOMS.castle]
+	progress.unlocked_levels = [self.ROOMS.tutorial, self.ROOMS.castle, self.ROOMS.level1]
 	progress.unlocked_abilities = {
 		Characters.HERA: [self.HeraAbility.STATE_EMPTY],
 		Characters.HERACLE: [self.HeracleAbility.EMPTY],
@@ -346,5 +346,10 @@ deaths:
 		"deaths": game_stats.deaths
 	}))
 
-func hera_safe_pos():
-	Input.warp_mouse(DataManager.ram["hera_safe_pos"])
+
+func hera_safe_pos() -> void:
+	Input.warp_mouse(ram["hera_safe_pos"])
+	#var hera = get_tree().get_first_node_in_group("hera")
+	#if hera:
+		#print("Hera found")
+		#hera.global_position = ram["hera_safe_pos"]
