@@ -99,8 +99,6 @@ func collision_check():
 		if body.name == "LevelEnd":
 			DataManager.ram["hera_at_level_end"] = true
 
-	print(DataManager.ram["hera_at_level_end"])
-
 func _physics_process(_delta: float) -> void:
 	hera_mouse_pos = get_global_mouse_position()
 	collision_manager()
