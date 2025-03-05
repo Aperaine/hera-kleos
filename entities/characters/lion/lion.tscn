@@ -1,11 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://d23gaoq4dfvey"]
+[gd_scene load_steps=33 format=3 uid="uid://d23gaoq4dfvey"]
 
 [ext_resource type="Script" path="res://entities/characters/lion/lion.gd" id="1_4wnfw"]
-[ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="2_l3gad"]
-[ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_segbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxtwf"]
-size = Vector2(196.5, 178.5)
+size = Vector2(186.25, 178.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtxux"]
 size = Vector2(429, 241)
@@ -176,16 +174,3 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_4efft")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="Trash" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, -160)
-metadata/_edit_group_ = true
-
-[node name="Menu" parent="Trash" instance=ExtResource("2_l3gad")]
-position = Vector2(-912, 368)
-
-[node name="Camera2D" type="Camera2D" parent="Trash"]
-
-[node name="Heracle" parent="Trash" instance=ExtResource("3_segbk")]
-position = Vector2(-784, 136)
