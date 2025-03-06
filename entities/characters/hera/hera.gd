@@ -10,7 +10,6 @@ var hera_bow: bool = false
 var animation_free: bool = true
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-var last_direction = false
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
 

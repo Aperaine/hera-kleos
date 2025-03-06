@@ -60,8 +60,8 @@ var ram = {
 	"hera_active": true,
 	"hera_safe_pos": Vector2(100, 100),
 	"camera_pos": Vector2(960, 540),
+	"camera_default": Vector2(960, 540),
 	"hera_at_level_end": false,
-	"heracles_safe_pos": Vector2(250,750),
 }
 
 enum Characters {

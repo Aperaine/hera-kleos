@@ -29,6 +29,9 @@ var jump_buffer: int = 0
 var jump_count: int = 0
 var last_direction: Vector2 = Vector2.RIGHT
 
+func _ready():
+	pass
+
 # Main physics process
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = get_input_direction()

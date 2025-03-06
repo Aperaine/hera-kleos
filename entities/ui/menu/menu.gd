@@ -102,16 +102,20 @@ func update_buttons_visibility() -> void:
 
 func _on_menu_pressed() -> void:	
 	menu_hidden = !menu_hidden
+	DataManager.ram["hera_active"] = menu_hidden
 	update_buttons_visibility()
 
 func _on_continue_pressed() -> void:
+	DataManager.ram["hera_active"] = true
 	menu_hidden = !menu_hidden
 	update_buttons_visibility()
 
 func _on_castle_pressed() -> void:
+	DataManager.ram["hera_active"] = true
 	DataManager.save_game()
 	DataManager.change_scene(DataManager.ROOMS.castle)
 
 func _on_home_pressed() -> void:
+	DataManager.ram["hera_active"] = true
 	DataManager.save_game()
 	DataManager.change_scene(DataManager.ROOMS.home)

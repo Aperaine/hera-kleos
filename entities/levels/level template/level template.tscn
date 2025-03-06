@@ -15,7 +15,7 @@ size = Vector2(305, 402)
 [node name="LevelTemplate" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(3000, 730)
+position = Vector2(960, 540)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("1_7rxru")
@@ -23,15 +23,15 @@ script = ExtResource("1_7rxru")
 [node name="Screens" type="Node2D" parent="."]
 
 [node name="Screen1" parent="Screens" instance=ExtResource("2_ner5h")]
-position = Vector2(979, 539)
+position = Vector2(960, 540)
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("4_h4umo")]
-position = Vector2(259, 750)
+position = Vector2(240, 751)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_xjjwi")]
-position = Vector2(145, 111)
+position = Vector2(126, 112)
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -68,7 +68,7 @@ collision_layer = 1024
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(1739.5, 677)
+position = Vector2(1720.5, 678)
 shape = SubResource("RectangleShape2D_inkwd")
 debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
@@ -77,4 +77,4 @@ scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
 
 [node name="Menu" parent="Foreground" instance=ExtResource("5_tg4au")]
-position = Vector2(-70, 967)
+position = Vector2(-89, 968)
