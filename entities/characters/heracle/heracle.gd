@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var animation: AnimationPlayer = $FlipHelper/AnimationPlayer
 @onready var sprite: Sprite2D = $FlipHelper/Sprite2D
 @onready var flip_helper: Node2D = $FlipHelper
+@onready var hitbox: CollisionShape2D = $Hitbox
+@onready var hitbox_attack: Area2D = $HitboxAttack
 
 # Constants
 const MAX_SPEED := 600.0
@@ -71,6 +73,8 @@ func move_character(direction: Vector2) -> void:
 # Flip sprite while keeping collider in place
 func flip_visuals(face_left: bool) -> void:
 	flip_helper.scale.x = -1 if face_left else 1
+	hitbox.scale.x = -1 if face_left else 1
+	hitbox_attack.scale.x = -1 if face_left else 1
 
 # Apply gravity
 func apply_gravity() -> void:
