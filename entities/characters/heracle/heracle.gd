@@ -3,6 +3,7 @@ extends CharacterBody2D
 # Exported Variables
 @export var arrow_scene: PackedScene = preload("res://entities/scenery/arrow/arrow.tscn")
 @export var SPEED: float = 100.0
+@export var attacking: bool = false
 
 # Onready Variables
 @onready var jumpheight: Timer = $Jumpheight
@@ -29,15 +30,27 @@ var last_direction: Vector2 = Vector2.RIGHT
 # Main physics process
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = get_input_direction()
-	move_character(input_dir)
-	apply_gravity()
-	handle_jump()
-	move_and_slide()
-	update_animation()
+	if not attacking:
+		move_character(input_dir)
+		apply_gravity()
+		handle_jump()
+		move_and_slide()
+		update_animation()
 	
-	# Arrow shooting
-	if Input.is_action_just_pressed("shoot") and DataManager.progress.selected_abilities[DataManager.Characters.HERACLE] == DataManager.HeracleAbility.BOW:
-		shoot_arrow()
+	if Input.is_action_just_pressed("heracle-toggle"):
+		DataManager.switch_ability(DataManager.Characters.HERACLE)
+	
+	if Input.is_action_just_pressed("heracle-attack"):
+		var ability = DataManager.progress.selected_abilities[DataManager.Characters.HERACLE]
+		match ability:
+			DataManager.HeracleAbility.EMPTY:
+				animation.play("Punch")
+			DataManager.HeracleAbility.CLUB:
+				pass
+			DataManager.HeracleAbility.SWORD:
+				pass
+			DataManager.HeracleAbility.BOW: 
+				shoot_arrow()
 
 # Get input direction
 func get_input_direction() -> Vector2:
@@ -57,7 +70,7 @@ func move_character(direction: Vector2) -> void:
 
 # Flip sprite while keeping collider in place
 func flip_visuals(face_left: bool) -> void:
-	flip_helper.scale.x = -1 if face_left else 1  # Flip only the visual helper node
+	flip_helper.scale.x = -1 if face_left else 1
 
 # Apply gravity
 func apply_gravity() -> void:

@@ -61,6 +61,7 @@ var ram = {
 	"hera_safe_pos": Vector2(100, 100),
 	"camera_pos": Vector2(960, 540),
 	"hera_at_level_end": false,
+	"heracles_safe_pos": Vector2(250,750),
 }
 
 enum Characters {
@@ -350,3 +351,6 @@ deaths:
 
 func hera_safe_pos() -> void:
 	Input.warp_mouse(ram["hera_safe_pos"])
+
+func set_heracles_safe_pos(pos: Vector2) -> void:
+	ram["heracles_safe_pos"] = pos

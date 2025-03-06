@@ -60,7 +60,7 @@ position = Vector2(2907, 539)
 position = Vector2(4834, 544)
 
 [node name="Screen3" parent="Screens" instance=ExtResource("5_8iimk")]
-position = Vector2(6775, 536)
+position = Vector2(6771, 545)
 
 [node name="LevelEnd" type="StaticBody2D" parent="Screens"]
 collision_layer = 1024
@@ -180,7 +180,7 @@ debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-position = Vector2(259, 750)
+position = Vector2(250, 750)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(209, 547)
