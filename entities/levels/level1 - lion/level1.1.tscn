@@ -21,23 +21,6 @@ limit_top = 0
 limit_bottom = 0
 script = ExtResource("1_5db6m")
 
-[node name="Screens" type="Node2D" parent="."]
-
-[node name="CheckPoint" parent="Screens" instance=ExtResource("6_qr2pe")]
-visible = false
-position = Vector2(184, 678)
-
-[node name="Screen1" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(960, 540)
-
-[node name="Characters" type="Node2D" parent="."]
-
-[node name="Heracle" parent="Characters" instance=ExtResource("3_8ulyf")]
-position = Vector2(250, 600)
-
-[node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
-position = Vector2(126, 112)
-
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
@@ -77,9 +60,26 @@ position = Vector2(1720.5, 678)
 shape = SubResource("RectangleShape2D_inkwd")
 debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
+[node name="Screens" type="Node2D" parent="."]
+
+[node name="CheckPoint" parent="Screens" instance=ExtResource("6_qr2pe")]
+visible = false
+position = Vector2(184, 678)
+
+[node name="Screen1" parent="Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(960, 540)
+
 [node name="Foreground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
 
 [node name="Menu" parent="Foreground" instance=ExtResource("5_c500p")]
 position = Vector2(-89, 961)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Heracle" parent="Characters" instance=ExtResource("3_8ulyf")]
+position = Vector2(250, 600)
+
+[node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
+position = Vector2(126, 112)

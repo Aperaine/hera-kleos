@@ -101,7 +101,7 @@ func update_buttons_visibility() -> void:
 
 func _on_menu_pressed() -> void:	
 	menu_hidden = !menu_hidden
-	DataManager.ram["game_paused"] = menu_hidden
+	DataManager.ram["game_paused"] = !DataManager.ram["game_paused"]
 	update_buttons_visibility()
 
 func _on_continue_pressed() -> void:
