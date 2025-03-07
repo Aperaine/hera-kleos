@@ -62,6 +62,8 @@ var ram = {
 	"camera_pos": Vector2(960, 540),
 	"camera_default": Vector2(960, 540),
 	"hera_at_level_end": false,
+	"game_paused": false,
+	"heracle_safe_pos": Vector2(250, 600),
 }
 
 enum Characters {

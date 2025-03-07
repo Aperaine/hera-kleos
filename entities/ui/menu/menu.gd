@@ -87,7 +87,6 @@ func _physics_process(delta: float) -> void:
 			hera_abilities2[hera_ability_key].modulate.a = 0.0
 	
 	# Heracle: Make chosen ability visible
-	#var unlocked_abilities_heracle = DataManager.progress["unlocked_abilities"].get(DataManager.Characters.HERACLE, [])
 	var selected_ability_heracle = DataManager.progress["selected_abilities"].get(DataManager.Characters.HERACLE, DataManager.HeracleAbility.EMPTY)
 	for heracle_ability_key in heracle_abilities2.keys():
 		if heracle_ability_key == selected_ability_heracle:
@@ -102,20 +101,20 @@ func update_buttons_visibility() -> void:
 
 func _on_menu_pressed() -> void:	
 	menu_hidden = !menu_hidden
-	DataManager.ram["hera_active"] = menu_hidden
+	DataManager.ram["game_paused"] = menu_hidden
 	update_buttons_visibility()
 
 func _on_continue_pressed() -> void:
-	DataManager.ram["hera_active"] = true
+	DataManager.ram["game_paused"] = false
 	menu_hidden = !menu_hidden
 	update_buttons_visibility()
 
 func _on_castle_pressed() -> void:
-	DataManager.ram["hera_active"] = true
+	DataManager.ram["game_paused"] = false
 	DataManager.save_game()
 	DataManager.change_scene(DataManager.ROOMS.castle)
 
 func _on_home_pressed() -> void:
-	DataManager.ram["hera_active"] = true
+	DataManager.ram["game_paused"] = false
 	DataManager.save_game()
 	DataManager.change_scene(DataManager.ROOMS.home)

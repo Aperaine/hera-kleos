@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn73qwtxpdnmv"]
+
+[ext_resource type="Script" path="res://entities/scenery/check_point/check_point.gd" id="1_yialk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq2u5"]
+size = Vector2(236.25, 379.25)
+
+[node name="CheckPoint" type="Node2D"]
+script = ExtResource("1_yialk")
+
+[node name="CheckPoint" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoint"]
+shape = SubResource("RectangleShape2D_cq2u5")

@@ -80,7 +80,7 @@ func movement():
 	if animation_free:
 		sprite.flip_h = hera_mouse_pos.x < position.x
 	
-	if DataManager.ram["hera_active"]:
+	if DataManager.ram["hera_active"] and not DataManager.ram["game_paused"]:
 		position += (hera_mouse_pos - position) / 10
 	
 	prev_mouse_pos = hera_mouse_pos
