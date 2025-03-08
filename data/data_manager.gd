@@ -64,6 +64,7 @@ var ram = {
 	"hera_at_level_end": false,
 	"game_paused": false,
 	"heracle_safe_pos": Vector2(250, 600),
+	"heracle_dead": false,
 }
 
 enum Characters {

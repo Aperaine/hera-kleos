@@ -22,6 +22,9 @@ script = ExtResource("1_7rxru")
 
 [node name="Screens" type="Node2D" parent="."]
 
+[node name="Screen2" parent="Screens" instance=ExtResource("2_ner5h")]
+position = Vector2(2894, 547)
+
 [node name="Screen1" parent="Screens" instance=ExtResource("2_ner5h")]
 position = Vector2(960, 540)
 
@@ -66,6 +69,11 @@ debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
 [node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
 collision_layer = 1024
 collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(3648, 680)
+shape = SubResource("RectangleShape2D_inkwd")
+debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(1720.5, 678)

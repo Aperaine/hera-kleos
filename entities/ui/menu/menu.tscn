@@ -100,7 +100,7 @@ debug_color = Color(0.633794, 0.410526, 0.852706, 0.42)
 offset_left = -52.0
 offset_top = -32.0
 offset_right = 1915.0
-offset_bottom = 173.0
+offset_bottom = 178.0
 color = Color(0.124995, 0.0643471, 0.0570807, 1)
 
 [node name="Other" type="VBoxContainer" parent="."]

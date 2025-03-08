@@ -664,7 +664,7 @@ size = Vector2(133, 51)
 
 [node name="Heracle" type="CharacterBody2D"]
 collision_layer = 64
-collision_mask = 2197
+collision_mask = 2205
 script = ExtResource("1_5gu3k")
 
 [node name="FlipHelper" type="Node2D" parent="."]

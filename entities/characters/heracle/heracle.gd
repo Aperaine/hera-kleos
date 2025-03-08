@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		handle_jump()
 		move_and_slide()
 		update_animation()
+		handle_death()
 	
 	if Input.is_action_just_pressed("heracle-toggle"):
 		DataManager.switch_ability(DataManager.Characters.HERACLE)
@@ -147,3 +148,11 @@ func shoot_arrow() -> void:
 	var shoot_dir: Vector2 = get_shoot_direction()
 	var is_hera_arrow: bool = (DataManager.progress.selected_abilities[DataManager.Characters.HERA] == DataManager.HeraAbility.STATE_WEAPON)
 	arrow.initialize(shoot_dir, is_hera_arrow)
+
+func handle_death() -> void:
+	if DataManager.ram["heracle_dead"] == true:
+		DataManager.ram["heracle_dead"] = false
+		heracle_restart()
+
+func heracle_restart() -> void:
+	position = DataManager.ram["heracle_safe_pos"]
