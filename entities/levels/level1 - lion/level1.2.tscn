@@ -1,11 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkok84ugd2lm3"]
+[gd_scene load_steps=8 format=3 uid="uid://bkok84ugd2lm3"]
 
+[ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_04jm3"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_5db6m"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/levels/screen/screen.tscn" id="2_1vyge"]
-[ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_8ulyf"]
-[ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="4_ej5nk"]
-[ext_resource type="PackedScene" uid="uid://d18bjr7ocmug3" path="res://entities/scenery/ability_gain/ability_gain.tscn" id="4_o2pib"]
-[ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_c500p"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="6_qr2pe"]
 [ext_resource type="Script" path="res://entities/levels/level1 - lion/damage.gd" id="7_k5l5l"]
 
@@ -15,28 +12,9 @@ size = Vector2(574, 782)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y4yh"]
 size = Vector2(5880, 40.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_43h0p"]
-size = Vector2(54, 403.375)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qewqe"]
-size = Vector2(54, 408.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf14i"]
-size = Vector2(371, 53)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d7ma"]
-size = Vector2(263, 51)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wey7f"]
-size = Vector2(151, 511.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tud7u"]
-size = Vector2(57.3125, 409)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nc523"]
-size = Vector2(383, 53)
-
 [node name="Level1_1" type="Node2D"]
+
+[node name="Timer" parent="." instance=ExtResource("1_04jm3")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)

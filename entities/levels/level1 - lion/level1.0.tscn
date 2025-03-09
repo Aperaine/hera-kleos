@@ -118,6 +118,9 @@ size = Vector2(108, 206)
 [node name="Level1" type="Node2D"]
 position = Vector2(-19, 1)
 
+[node name="Timer" parent="." instance=ExtResource("6_8rhj6")]
+position = Vector2(-299, 507)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 limit_top = 0
@@ -178,14 +181,11 @@ position = Vector2(11487, 698)
 shape = SubResource("RectangleShape2D_0q5nn")
 debug_color = Color(0.972549, 0, 0.443137, 0.419608)
 
-[node name="Foreground" type="Parallax2D" parent="."]
+[node name="Menu" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
 
-[node name="Timer" parent="Foreground" instance=ExtResource("6_8rhj6")]
-position = Vector2(-402, 561)
-
-[node name="Menu" parent="Foreground" instance=ExtResource("1_arrdw")]
+[node name="Menu" parent="Menu" instance=ExtResource("1_arrdw")]
 position = Vector2(-51, 960)
 
 [node name="Obstacles" type="Node2D" parent="."]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkok84ugd2lm3"]
+[gd_scene load_steps=19 format=3 uid="uid://bkok84ugd2lm3"]
 
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_5db6m"]
+[ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_sikvp"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/levels/screen/screen.tscn" id="2_1vyge"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="3_8ulyf"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="4_ej5nk"]
@@ -37,6 +38,8 @@ size = Vector2(57.3125, 409)
 size = Vector2(383, 53)
 
 [node name="Level1_1" type="Node2D"]
+
+[node name="Timer" parent="." instance=ExtResource("1_sikvp")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -222,11 +225,11 @@ debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
 position = Vector2(1277, 345)
 ability_hera = 1
 
-[node name="Foreground" type="Parallax2D" parent="."]
+[node name="Menu" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(0, -2)
 
-[node name="Menu" parent="Foreground" instance=ExtResource("5_c500p")]
+[node name="Menu" parent="Menu" instance=ExtResource("5_c500p")]
 position = Vector2(32, 906)
 
 [node name="Characters" type="Node2D" parent="."]
