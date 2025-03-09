@@ -19,6 +19,7 @@ enum ROOMS {
 	home,
 	castle,
 	level1,
+	level1_1,
 	level2,
 	level3,
 	level4,
@@ -30,6 +31,7 @@ const ROOM_PATHS = {
 	ROOMS.home: "res://entities/levels/home/home.tscn",
 	ROOMS.castle: "res://entities/levels/castle/castle.tscn",
 	ROOMS.level1: "res://entities/levels/level1 - lion/level1.0.tscn",
+	ROOMS.level1_1: "res://entities/levels/level1 - lion/level1.1.tscn",
 	ROOMS.level2: "res://entities/levels/level2 - hydra/level2.tscn",
 	ROOMS.level3: "res://entities/levels/level3 - hind/level3.tscn",
 	ROOMS.level4: "res://entities/levels/level4 - boar/level4.tscn",
@@ -92,16 +94,18 @@ func debug():
 	self.delete_slot(SLOTS.SLOT3)
 	self.delete_slot(SLOTS.SLOT4)
 	self.game_stats["name"] = "AJU Testing Lands"
-	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
-	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_WEAPON)
-	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_LEVELIO)
-	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_PLATFORM
-	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.CLUB)
-	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.SWORD)
-	self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
-	self.progress.selected_abilities[self.Characters.HERACLE] = self.HeracleAbility.BOW
+	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_EMPTY
+	#self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
+	#self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_WEAPON)
+	#self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_LEVELIO)
+	#self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_PLATFORM
+	#self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.CLUB)
+	#self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.SWORD)
+	#self.unlock_ability(self.Characters.HERACLE, self.HeracleAbility.BOW)
+	#self.progress.selected_abilities[self.Characters.HERACLE] = self.HeracleAbility.BOW
 	self.unlock_level(self.ROOMS.castle)
 	self.unlock_level(self.ROOMS.level1)
+	self.unlock_level(self.ROOMS.level1_1)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	output_data()
 

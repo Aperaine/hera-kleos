@@ -12,6 +12,7 @@ var animation_free: bool = true
 @onready var sprite: Sprite2D = $Sprite2D
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
+@export var platform_time = 1.0
 
 func _ready():
 	add_to_group("hera")
@@ -40,7 +41,7 @@ func _input(event):
 func hera_platform():
 	DataManager.ram["hera_active"] = false
 	static_body.collision_layer = 1
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(platform_time).timeout
 	static_body.collision_layer = 8
 	DataManager.ram["hera_active"] = true
 
@@ -60,9 +61,9 @@ func hera_weapon():
 
 func collision_manager():
 	collision_platform.disabled = true
-	collision_hummingbird.disabled = true
+	#collision_hummingbird.disabled = true
 	if DataManager.ram["hera_active"]:
-		collision_hummingbird.disabled = false
+		#collision_hummingbird.disabled = false
 		play_animations("idle")
 		animation_free = true
 	else:
