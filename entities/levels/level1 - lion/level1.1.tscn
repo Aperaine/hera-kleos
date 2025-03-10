@@ -124,6 +124,9 @@ position = Vector2(8679, 538.75)
 [node name="CheckPoint3" parent="Screens" instance=ExtResource("6_qr2pe")]
 position = Vector2(136, 512)
 
+[node name="CheckPoint6" parent="Screens" instance=ExtResource("6_qr2pe")]
+position = Vector2(2057, 517)
+
 [node name="CheckPoint2" parent="Screens" instance=ExtResource("6_qr2pe")]
 position = Vector2(4002, 635.75)
 
