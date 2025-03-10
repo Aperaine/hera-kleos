@@ -40,7 +40,8 @@ const ROOM_PATHS = {
 
 var game_stats = {
 	"play_time": 0.0,
-	"deaths": 0,
+	"deaths_heracle": 0,
+	"deaths_hera": 0,
 	"name": "",
 }
 
@@ -138,7 +139,8 @@ func load_game():
 	
 	# Load game stats
 	game_stats.play_time = data.get("play_time", 0.0)
-	game_stats.deaths = data.get("deaths", 0)
+	game_stats.deaths_heracle = data.get("deaths_heracle", 0)
+	game_stats.deaths_hera = data.get("deaths_hera", 0)
 	game_stats.name = data.get("name", "")
 	
 	# Load progress
@@ -176,7 +178,8 @@ func save_game():
 	
 	var save_data = {
 		"play_time": game_stats.play_time,
-		"deaths": game_stats.deaths,
+		"deaths_heracle": game_stats.deaths_heracle,
+		"deaths_hera": game_stats.deaths_hera,
 		"name": game_stats.name,
 		"unlocked_levels": progress.unlocked_levels,
 		"unlocked_abilities": progress.unlocked_abilities,
@@ -193,7 +196,8 @@ func reset_game():
 			return
 	
 	game_stats.play_time = 0.0
-	game_stats.deaths = 0
+	game_stats.deaths_heracle = 0
+	game_stats.deaths_hera = 0
 	progress.unlocked_levels = [self.ROOMS.tutorial, self.ROOMS.castle, self.ROOMS.level1]
 	progress.unlocked_abilities = {
 		Characters.HERA: [self.HeraAbility.STATE_EMPTY],
@@ -246,11 +250,12 @@ func unlock_level(level: int):
 		save_game()
 		print("Level " + str(level) + " is unlocked.")
 
-func record_death(deaths: int):
-	game_stats.deaths += deaths
+func record_death(deaths: int, character: Characters):
+	if character == Characters.HERA:
+		game_stats.deaths_heracle += deaths
+	elif character == Characters.HERACLE:
+		game_stats.deaths_hera += deaths
 	save_game()
-	print("Died " + str(deaths) + " times this level.")
-	print("Died " + str(game_stats.deaths) + " times in general.")
 
 func record_time(time: float):
 	game_stats.play_time += time
@@ -272,7 +277,8 @@ func get_game_stats(slot: SLOTS) -> Dictionary:
 	if not FileAccess.file_exists(SLOT_PATHS[slot]):
 		return {
 			"play_time": 0.0,
-			"deaths": 0,
+			"deaths_heracle": 0,
+			"deaths_hera": 0,
 		}
 
 	var file = FileAccess.open(SLOT_PATHS[slot], FileAccess.READ)
@@ -289,7 +295,8 @@ func get_game_stats(slot: SLOTS) -> Dictionary:
 
 	return {
 		"play_time": data.get("play_time", 0.0),
-		"deaths": data.get("deaths", 0),
+		"deaths_heracle": data.get("deaths_heracle", 0),
+		"deaths_hera": data.get("deaths_hera", 0),
 	}
 
 func slot_exists(slot: SLOTS) -> bool:
@@ -345,14 +352,17 @@ selected_abilities:
 play_time:
 {time}
 
-deaths:
-{deaths}
+deaths_hera:
+{deaths_hera}
+deaths_heracle:
+{deaths_heracle}
 --------------------""".format({
 		"levels": progress.unlocked_levels,
 		"abilities": progress.unlocked_abilities,
 		"weapons": progress.selected_abilities,
 		"time": game_stats.play_time,
-		"deaths": game_stats.deaths
+		"deaths_hera": game_stats.deaths_hera,
+		"deaths_heracle": game_stats.deaths_heracle,
 	}))
 
 

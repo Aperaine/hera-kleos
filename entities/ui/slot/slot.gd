@@ -39,10 +39,12 @@ func update_data() -> void:
 		get_node("Display/Time").text = time_string
 		
 		# Format death count
-		get_node("Display/Death").text = str(data["deaths"]) + " 💀"
+		get_node("Display/DeathHeracle").text = str(data["deaths_heracle"]) + " 🕺💀"
+		get_node("Display/DeathHera").text = str(data["deaths_hera"]) + " 🪽💀"
 		
 		get_node("Display/Time").show()
-		get_node("Display/Death").show()
+		get_node("Display/DeathHeracle").show()
+		get_node("Display/DeathHera").show()
 		
 		var slot_name = DataManager.get_slot_name(slot_num)
 		name_label.text = slot_name
@@ -51,7 +53,8 @@ func update_data() -> void:
 		get_node("Display/New").show()
 		get_node("Display/Play").hide()
 		get_node("Display/Delete").hide()
-		get_node("Display/Death").hide()
+		get_node("Display/DeathHeracle").hide()
+		get_node("Display/DeathHera").hide()
 		get_node("Display/Time").hide()
 		name_label.hide()
 

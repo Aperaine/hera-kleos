@@ -871,4 +871,4 @@ ability_hera = 1
 position = Vector2(355, 711)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
-position = Vector2(209, 547)
+position = Vector2(223, 459)

@@ -153,6 +153,9 @@ func handle_death() -> void:
 	if DataManager.ram["heracle_dead"] == true:
 		DataManager.ram["heracle_dead"] = false
 		heracle_restart()
+		attacking = true
+		await get_tree().create_timer(0.1).timeout 
+		attacking = false
 
 func heracle_restart() -> void:
 	position = DataManager.ram["heracle_safe_pos"]

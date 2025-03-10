@@ -12,6 +12,7 @@ var animation_free: bool = true
 @onready var sprite: Sprite2D = $Sprite2D
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
+var is_dead: bool = false
 @export var platform_time = 1.0
 
 func _ready():
@@ -61,9 +62,7 @@ func hera_weapon():
 
 func collision_manager():
 	collision_platform.disabled = true
-	#collision_hummingbird.disabled = true
 	if DataManager.ram["hera_active"]:
-		#collision_hummingbird.disabled = false
 		play_animations("idle")
 		animation_free = true
 	else:
@@ -93,8 +92,12 @@ func collision_check():
 			touching_heracle = true
 			print("touching Heracle")
 
-		if body.name == "Obstacle Hera" or body.name == "Obstacle Both":
+		if (body.name == "Obstacle Hera" or body.name == "Obstacle Both") and not is_dead:
+			is_dead = true
+			DataManager.game_stats["deaths_hera"] += 1
 			DataManager.hera_safe_pos()
+			await get_tree().create_timer(0.5).timeout 
+			is_dead = false
 
 		if body.name == "LevelEnd":
 			DataManager.ram["hera_at_level_end"] = true

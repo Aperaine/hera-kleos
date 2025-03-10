@@ -51,7 +51,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "🗑️"
 
-[node name="Death" type="Label" parent="Display"]
+[node name="DeathHeracle" type="Label" parent="Display"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "💀"
+
+[node name="DeathHera" type="Label" parent="Display"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "💀"
