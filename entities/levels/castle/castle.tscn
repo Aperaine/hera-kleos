@@ -80,7 +80,7 @@ color = Color(0.117647, 0.00784314, 0.00784314, 0.184314)
 [node name="Column_M" type="Parallax2D" parent="Background"]
 
 [node name="CastleFloak" type="Sprite2D" parent="Background/Column_M"]
-position = Vector2(1741, 512)
+position = Vector2(1800, 512)
 scale = Vector2(0.360448, 0.360448)
 texture = ExtResource("6_2dgh0")
 
