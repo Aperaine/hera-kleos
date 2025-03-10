@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=83 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_hb5yu"]
@@ -230,6 +230,9 @@ size = Vector2(274.5, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll35c"]
 size = Vector2(35.5, 135)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qqng"]
+size = Vector2(44, 224.5)
+
 [node name="Level1" type="Node2D"]
 position = Vector2(-19, 1)
 
@@ -457,12 +460,12 @@ shape = SubResource("RectangleShape2D_2yyxj")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(12337, 226)
+position = Vector2(12337, 227)
 shape = SubResource("RectangleShape2D_eqely")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(12077, 455)
+position = Vector2(12077, 443)
 shape = SubResource("RectangleShape2D_abyfw")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
@@ -656,7 +659,7 @@ position = Vector2(12260, 860)
 shape = SubResource("RectangleShape2D_suyi2")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(11899, 414)
+position = Vector2(11899, 384)
 shape = SubResource("RectangleShape2D_p2upp")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -768,11 +771,6 @@ position = Vector2(10679.5, 700)
 shape = SubResource("RectangleShape2D_bo14a")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(12247.5, 197.25)
-shape = SubResource("RectangleShape2D_11yhy")
-debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
-
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(10566.8, 788.25)
 shape = SubResource("RectangleShape2D_7j8ai")
@@ -814,12 +812,12 @@ shape = SubResource("RectangleShape2D_tcvb6")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(12020.5, 489)
+position = Vector2(12020.5, 459)
 shape = SubResource("RectangleShape2D_tcvb6")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(11726.3, 604)
+position = Vector2(11726.3, 592)
 shape = SubResource("RectangleShape2D_r5b5x")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -856,6 +854,11 @@ debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(12982, 152)
 shape = SubResource("RectangleShape2D_ll35c")
+debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(12248, 196.75)
+shape = SubResource("RectangleShape2D_5qqng")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="AbilityGain" parent="Obstacles" instance=ExtResource("5_e1e8q")]
