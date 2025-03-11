@@ -658,7 +658,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwid3"]
-size = Vector2(56, 205)
+size = Vector2(56, 196.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aad6f"]
 size = Vector2(133, 51)
@@ -685,7 +685,7 @@ libraries = {
 movie_quit_on_finish = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(4, 1)
+position = Vector2(4, 5.25)
 shape = SubResource("RectangleShape2D_kwid3")
 
 [node name="Timer" type="Timer" parent="."]

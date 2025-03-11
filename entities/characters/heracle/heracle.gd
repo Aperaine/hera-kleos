@@ -19,7 +19,7 @@ extends CharacterBody2D
 const MAX_SPEED := 600.0
 const JUMP_VELOCITY: float = -2200.0
 const FRICTION: float = 70.0
-const GRAVITY: float = 200.0
+const GRAVITY: float = 190.0
 const MAX_GRAVITY: float = 3000.0
 const JUMP_LIMIT: int = 1
 
