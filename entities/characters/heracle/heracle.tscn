@@ -7,6 +7,7 @@
 [sub_resource type="Animation" id="Animation_n73ib"]
 resource_name = "Idle"
 length = 0.5
+step = 0.1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -657,7 +658,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwid3"]
-size = Vector2(46, 205)
+size = Vector2(56, 205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aad6f"]
 size = Vector2(133, 51)
@@ -684,7 +685,7 @@ libraries = {
 movie_quit_on_finish = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(7, 8.5)
+position = Vector2(4, 1)
 shape = SubResource("RectangleShape2D_kwid3")
 
 [node name="Timer" type="Timer" parent="."]

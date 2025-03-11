@@ -77,8 +77,12 @@ func move_character(direction: Vector2) -> void:
 # Flip sprite while keeping collider in place
 func flip_visuals(face_left: bool) -> void:
 	flip_helper.scale.x = -1 if face_left else 1
-	hitbox.scale.x = -1 if face_left else 1
 	hitbox_attack.scale.x = -1 if face_left else 1
+	var offset = hitbox.position.x
+	if face_left:
+		hitbox.position.x = -abs(offset)
+	else:
+		hitbox.position.x = abs(offset)
 
 # Apply gravity
 func apply_gravity() -> void:
