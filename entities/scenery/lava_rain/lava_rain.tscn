@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://jewufo1b1h2d"]
+
+[ext_resource type="Script" path="res://entities/scenery/lava_rain/lava_rain.gd" id="1_kxmes"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb5aw"]
+size = Vector2(255, 98)
+
+[node name="LavaRain" type="Node2D"]
+script = ExtResource("1_kxmes")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_vb5aw")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, 37.5)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
