@@ -1,73 +1,164 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw7ncwcpgjdb3"]
+[gd_scene load_steps=7 format=3 uid="uid://dw7ncwcpgjdb3"]
 
 [ext_resource type="Script" path="res://entities/ui/slot/slot.gd" id="1_n5dgo"]
 [ext_resource type="FontFile" uid="uid://b7rhygd3lisof" path="res://assets/ui/fonts/Monomakh-Regular.ttf" id="2_k88pe"]
+[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="3_fi36c"]
 
-[node name="Slot" type="Container"]
-custom_minimum_size = Vector2(600, 100)
-offset_right = 130.0
-offset_bottom = 77.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgpa8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_god16"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ric2a"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(900, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 128.0
 script = ExtResource("1_n5dgo")
 
-[node name="Display" type="HBoxContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.243137, 0.0941176, 0.0235294, 0.305882)
+
+[node name="Empty" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="SpacerLeft" type="MarginContainer" parent="Empty"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="New" type="Control" parent="Display"]
-custom_minimum_size = Vector2(300, 0)
+[node name="NameInput" type="LineEdit" parent="Empty"]
+custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
-
-[node name="NameInput" type="LineEdit" parent="Display/New"]
-layout_mode = 2
-offset_right = 296.0
-offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("2_k88pe")
 theme_override_font_sizes/font_size = 50
-placeholder_text = "AJU"
-max_length = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgpa8")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_god16")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ric2a")
+placeholder_text = "Jaunty Games"
+max_length = 14
+flat = true
 
-[node name="Add" type="Button" parent="Display/New"]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 8.0
-offset_right = 288.0
-offset_bottom = 64.0
+[node name="Add" type="Button" parent="Empty"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k88pe")
-theme_override_font_sizes/font_size = 30
-text = "+"
+icon = ExtResource("3_fi36c")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
-[node name="Name" type="Label" parent="Display"]
+[node name="SpacerRight" type="MarginContainer" parent="Empty"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Created" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpacerLeft" type="MarginContainer" parent="Created"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Info" type="VBoxContainer" parent="Created"]
+layout_mode = 2
+
+[node name="SpacerLeft" type="MarginContainer" parent="Created/Info"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Created/Info"]
+clip_contents = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k88pe")
 theme_override_font_sizes/font_size = 50
-text = "ALU"
+text = "Jaunty Games"
 
-[node name="Play" type="Button" parent="Display"]
+[node name="Stats" type="HBoxContainer" parent="Created/Info"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="Created/Info/Stats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k88pe")
+theme_override_font_sizes/font_size = 24
+text = "00:00"
+
+[node name="Spacer1" type="MarginContainer" parent="Created/Info/Stats"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="DeathHeracle" type="Label" parent="Created/Info/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "💀"
+
+[node name="DeathHeracleImage" type="Label" parent="Created/Info/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🕺"
+
+[node name="Spacer2" type="MarginContainer" parent="Created/Info/Stats"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="DeathHera" type="Label" parent="Created/Info/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "💀"
+
+[node name="DeathHeraImage" type="Label" parent="Created/Info/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🪽"
+
+[node name="SpacerMiddle" type="Control" parent="Created"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Play" type="Button" parent="Created"]
+clip_contents = true
+custom_minimum_size = Vector2(96, 128)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "🎮"
+flat = true
 
-[node name="Delete" type="Button" parent="Display"]
+[node name="Delete" type="Button" parent="Created"]
+clip_contents = true
+custom_minimum_size = Vector2(96, 128)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "🗑️"
+flat = true
 
-[node name="DeathHeracle" type="Label" parent="Display"]
+[node name="SpacerRight" type="MarginContainer" parent="Created"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "💀"
 
-[node name="DeathHera" type="Label" parent="Display"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "💀"
-
-[node name="Time" type="Label" parent="Display"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_k88pe")
-theme_override_font_sizes/font_size = 50
-text = "Xh"
-
-[connection signal="text_changed" from="Display/New/NameInput" to="." method="_on_name_input_text_changed"]
-[connection signal="pressed" from="Display/New/Add" to="." method="_on_add_pressed"]
-[connection signal="pressed" from="Display/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Display/Delete" to="." method="_on_delete_pressed"]
+[connection signal="text_changed" from="Empty/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="Empty/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Created/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Created/Delete" to="." method="_on_delete_pressed"]

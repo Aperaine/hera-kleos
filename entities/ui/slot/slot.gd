@@ -1,17 +1,39 @@
-extends Container
+extends Control
 
 @export var slot_num: DataManager.SLOTS
-@onready var name_input = $Display/New/NameInput
-@onready var add_button = $Display/New/Add
-@onready var name_label = $Display/Name
+@onready var empty_container = $Empty
+@onready var created_container = $Created
+@onready var name_input = $Empty/NameInput
+@onready var add_button = $Empty/Add
+@onready var name_label = $Created/Info/Name
 
 func _ready() -> void:
-	if not name_input:
-		push_error("NameInput node not found in path: " + str(get_path()))
-		return
-	
-	update_data()
+	empty_container.hide()
+	created_container.hide()
 	add_button.hide()
+	update_data()
+
+func update_data() -> void:
+	if DataManager.slot_exists(slot_num):
+		empty_container.hide()
+		created_container.show()
+		
+		var data = DataManager.get_game_stats(slot_num)
+		
+		var time = data["play_time"]
+		var minutes = int(time / 60)
+		var seconds = int(time) % 60
+		var time_string = "%02d:%02d" % [minutes, seconds]
+		get_node("Created/Info/Stats/Time").text = time_string
+		
+		get_node("Created/Info/Stats/DeathHeracle").text = str(data["deaths_heracle"])
+		get_node("Created/Info/Stats/DeathHera").text = str(data["deaths_hera"])
+		
+		var slot_name = DataManager.get_slot_name(slot_num)
+		name_label.text = slot_name
+	else:
+		empty_container.show()
+		created_container.hide()
 
 func _on_play_pressed() -> void:
 	DataManager.ram["slot"] = slot_num
@@ -23,40 +45,11 @@ func _on_delete_pressed() -> void:
 	DataManager.delete_slot(slot_num)
 	update_data()
 
-func update_data() -> void:
-	if DataManager.slot_exists(slot_num):
-		get_node("Display/New").hide()
-		get_node("Display/Play").show()
-		get_node("Display/Delete").show()
-		
-		var data = DataManager.get_game_stats(slot_num)
-		
-		# Format time nicely
-		var time = data["play_time"]
-		var minutes = int(time / 60)
-		var seconds = int(time) % 60
-		var time_string = "%02d:%02d" % [minutes, seconds]
-		get_node("Display/Time").text = time_string
-		
-		# Format death count
-		get_node("Display/DeathHeracle").text = str(data["deaths_heracle"]) + " 🕺💀"
-		get_node("Display/DeathHera").text = str(data["deaths_hera"]) + " 🪽💀"
-		
-		get_node("Display/Time").show()
-		get_node("Display/DeathHeracle").show()
-		get_node("Display/DeathHera").show()
-		
-		var slot_name = DataManager.get_slot_name(slot_num)
-		name_label.text = slot_name
-		name_label.show()
+func _on_name_input_text_changed(new_text: String) -> void:
+	if new_text.length() > 0:
+		add_button.visible = true
 	else:
-		get_node("Display/New").show()
-		get_node("Display/Play").hide()
-		get_node("Display/Delete").hide()
-		get_node("Display/DeathHeracle").hide()
-		get_node("Display/DeathHera").hide()
-		get_node("Display/Time").hide()
-		name_label.hide()
+		add_button.visible = false
 
 func _on_add_pressed() -> void:
 	if name_input.text.length() > 0:
@@ -67,5 +60,11 @@ func _on_add_pressed() -> void:
 		name_input.text = ""
 		update_data()
 
-func _on_name_input_text_changed(new_text: String) -> void:
-	add_button.visible = new_text.length() > 0
+func button_add_visibility():
+	if name_input.text.length() > 0:
+		DataManager.ram["slot"] = slot_num
+		DataManager.game_stats["name"] = name_input.text
+		DataManager.reset_game()
+		DataManager.save_game()
+		name_input.text = ""
+		update_data()

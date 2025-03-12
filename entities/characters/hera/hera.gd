@@ -107,7 +107,14 @@ func _physics_process(_delta: float) -> void:
 	collision_manager()
 	collision_check()
 	movement()
+	mouse_visibility()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":
 		touching_heracle = false
+
+func mouse_visibility():
+	if not DataManager.ram["game_paused"]:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
