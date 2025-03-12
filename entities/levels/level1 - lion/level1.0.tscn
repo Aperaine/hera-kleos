@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=102 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_hb5yu"]
@@ -172,6 +172,12 @@ size = Vector2(24, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ursav"]
 size = Vector2(19, 417)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0it"]
+size = Vector2(40.5, 229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2feoo"]
+size = Vector2(178.25, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10vfm"]
 size = Vector2(147.25, 692)
@@ -803,6 +809,18 @@ shape = SubResource("RectangleShape2D_6vnqb")
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(14410.5, 677.5)
 shape = SubResource("RectangleShape2D_ursav")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(15940.8, 774.5)
+shape = SubResource("RectangleShape2D_rt0it")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(15943, 128)
+shape = SubResource("RectangleShape2D_rt0it")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(15737, 234)
+shape = SubResource("RectangleShape2D_2feoo")
 
 [node name="Obstacle Hera" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(71, -90)
