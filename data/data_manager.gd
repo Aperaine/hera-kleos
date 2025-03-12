@@ -96,9 +96,11 @@ func debug():
 	self.delete_slot(SLOTS.SLOT4)
 	self.game_stats["name"] = "AJU Testing Lands"
 	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_EMPTY
+	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
 	self.unlock_level(self.ROOMS.castle)
 	self.unlock_level(self.ROOMS.level1)
 	self.unlock_level(self.ROOMS.level1_1)
+	self.unlock_level(self.ROOMS.level2)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	output_data()
 
