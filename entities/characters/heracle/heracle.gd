@@ -64,6 +64,8 @@ func get_input_direction() -> Vector2:
 
 # Move character
 func move_character(direction: Vector2) -> void:
+	if is_on_floor() and test_move(global_transform, Vector2(0, -4)):  # Try moving up slightly
+		position.y -= 4  # Lift player manually
 	if direction.x != 0:
 		if velocity.x < MAX_SPEED and direction.x > 0:
 			velocity.x += SPEED
