@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cava423x286u4"]
+[gd_scene load_steps=5 format=3 uid="uid://cava423x286u4"]
 
 [ext_resource type="PackedScene" uid="uid://dw7ncwcpgjdb3" path="res://entities/ui/slot/slot.tscn" id="1_8ypcq"]
-[ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="2_3ry2x"]
-[ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="2_3vtc1"]
+[ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_4ig60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrclj"]
+size = Vector2(810, 108.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn8hd"]
+size = Vector2(77, 686.125)
 
 [node name="Home" type="Node2D"]
 
@@ -41,9 +46,42 @@ layout_mode = 2
 slot_num = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="King" parent="." instance=ExtResource("2_3ry2x")]
-position = Vector2(-601, 62)
-scale = Vector2(2.5, 2.5)
+[node name="Heracle" parent="." instance=ExtResource("2_4ig60")]
+position = Vector2(-799, 110)
 
-[node name="Hera" parent="." instance=ExtResource("2_3vtc1")]
-position = Vector2(-321, -208)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-630, 274)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(77, 209.125)
+shape = SubResource("RectangleShape2D_jrclj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(76, -578)
+shape = SubResource("RectangleShape2D_jrclj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(-294.5, -184.062)
+shape = SubResource("RectangleShape2D_sn8hd")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(209, 265)
+shape = SubResource("RectangleShape2D_sn8hd")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(89, 327)
+shape = SubResource("RectangleShape2D_sn8hd")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(-30, 377)
+shape = SubResource("RectangleShape2D_sn8hd")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(330, 171)
+shape = SubResource("RectangleShape2D_sn8hd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(440, -190)
+shape = SubResource("RectangleShape2D_sn8hd")

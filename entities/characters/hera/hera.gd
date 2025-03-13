@@ -118,3 +118,8 @@ func mouse_visibility():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func is_hera_on_screen() -> bool:
+	var pos = get_viewport().get_mouse_position()
+	var size = get_viewport().get_visible_rect().size
+	return pos.x >= 0 and pos.y >= 0 and pos.x <= size.x and pos.y <= size.y
