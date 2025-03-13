@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btudoiq2txe7f"]
+[gd_scene load_steps=11 format=3 uid="uid://btudoiq2txe7f"]
 
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_qwe7r"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_ftewu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="5_up26g"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="6_vdoos"]
 [ext_resource type="PackedScene" uid="uid://jewufo1b1h2d" path="res://entities/scenery/lava_rain/lava_rain.tscn" id="7_wxhqe"]
+[ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="8_a05r5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tud7u"]
 size = Vector2(189, 202)
@@ -93,3 +94,6 @@ position = Vector2(240, 751)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_vdoos")]
 position = Vector2(126, 112)
+
+[node name="CheckPoint" parent="." instance=ExtResource("8_a05r5")]
+position = Vector2(209, 676)
