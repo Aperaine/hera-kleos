@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 func get_input_direction() -> Vector2:
 	return Vector2(Input.get_axis("heracle-left", "heracle-right"), Input.get_axis("ui_up", "ui_down"))
 
-# Move character
+# Move characterw
 func move_character(direction: Vector2) -> void:
 	if is_on_floor() and test_move(global_transform, Vector2(0, -4)):  # Try moving up slightly
 		position.y -= 4  # Lift player manually
