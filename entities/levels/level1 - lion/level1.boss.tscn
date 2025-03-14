@@ -12,7 +12,7 @@ size = Vector2(1920, 178)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Setting" type="CanvasGroup" parent="."]
+[node name="Setting" type="Node2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="Setting"]
 
@@ -22,15 +22,17 @@ size = Vector2(1920, 178)
 position = Vector2(0, 451)
 shape = SubResource("RectangleShape2D_wvwup")
 
-[node name="Characters" type="CanvasGroup" parent="."]
+[node name="Menu" parent="." instance=ExtResource("1_ox5k8")]
+position = Vector2(-928, 374)
+
+[node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_7qvbd")]
 position = Vector2(-862, 246)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
-position = Vector2(-751, 99)
+position = Vector2(-727, -202)
 
-[node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
-
-[node name="Menu" parent="." instance=ExtResource("1_ox5k8")]
-position = Vector2(-928, 374)
+[node name="Lion" parent="." instance=ExtResource("4_7kodv")]
+position = Vector2(0, 133)
+scale = Vector2(0.75, 0.75)

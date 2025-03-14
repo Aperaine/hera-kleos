@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://6gk8vruer8d3"]
+
+[ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
+[ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_27mve"]
+[ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/levels/screen/screen.tscn" id="3_0afg3"]
+[ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="4_l16er"]
+[ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="5_v4ti5"]
+[ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="6_sblwk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tud7u"]
+size = Vector2(189, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inkwd"]
+size = Vector2(305, 402)
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="Timer" parent="." instance=ExtResource("1_cbafq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+limit_top = 0
+limit_bottom = 0
+script = ExtResource("2_27mve")
+
+[node name="Screens" type="Node2D" parent="."]
+
+[node name="Screen2" parent="Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(2894, 547)
+
+[node name="Screen1" parent="Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(960, 540)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(102, -422)
+collision_layer = 33
+collision_mask = 192
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
+shape = SubResource("RectangleShape2D_tud7u")
+debug_color = Color(0.461412, 0.488625, 0.878846, 0.42)
+
+[node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(327, -426)
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+shape = SubResource("RectangleShape2D_tud7u")
+
+[node name="Obstacle Hera" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(561, -425)
+collision_layer = 32
+collision_mask = 128
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+shape = SubResource("RectangleShape2D_tud7u")
+debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
+
+[node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
+collision_layer = 1024
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(3648, 680)
+shape = SubResource("RectangleShape2D_inkwd")
+debug_color = Color(0.972413, 0, 0.441219, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(1720.5, 678)
+shape = SubResource("RectangleShape2D_inkwd")
+debug_color = Color(0.972413, 0, 0.441219, 0.42)
+
+[node name="Menu" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(103, -54)
+
+[node name="Menu" parent="Menu" instance=ExtResource("4_l16er")]
+position = Vector2(-89, 968)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Heracle" parent="Characters" instance=ExtResource("5_v4ti5")]
+position = Vector2(240, 751)
+
+[node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
+position = Vector2(126, 112)

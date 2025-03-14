@@ -20,6 +20,8 @@ enum ROOMS {
 	castle,
 	level1,
 	level1_1,
+	level1_2,
+	level1_boss,
 	level2,
 	level3,
 	level4,
@@ -32,6 +34,8 @@ const ROOM_PATHS = {
 	ROOMS.castle: "res://entities/levels/castle/castle.tscn",
 	ROOMS.level1: "res://entities/levels/level1 - lion/level1.0.tscn",
 	ROOMS.level1_1: "res://entities/levels/level1 - lion/level1.1.tscn",
+	ROOMS.level1_2: "res://entities/levels/level1 - lion/level1.2.tscn",
+	ROOMS.level1_boss: "res://entities/levels/level1 - lion/level1.boss.tscn",
 	ROOMS.level2: "res://entities/levels/level2 - hydra/level2.tscn",
 	ROOMS.level3: "res://entities/levels/level3 - hind/level3.tscn",
 	ROOMS.level4: "res://entities/levels/level4 - boar/level4.tscn",
@@ -100,6 +104,8 @@ func debug():
 	self.unlock_level(self.ROOMS.castle)
 	self.unlock_level(self.ROOMS.level1)
 	self.unlock_level(self.ROOMS.level1_1)
+	self.unlock_level(self.ROOMS.level1_2)
+	self.unlock_level(self.ROOMS.level1_boss)
 	self.unlock_level(self.ROOMS.level2)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	output_data()
