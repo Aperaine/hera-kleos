@@ -79,8 +79,8 @@ size = Vector2(288, 29.0391)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wdpa"]
 size = Vector2(178.947, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrh4i"]
-size = Vector2(86.5002, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgiw2"]
+size = Vector2(86.5002, 168)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43h0p"]
 size = Vector2(54, 566.688)
@@ -604,8 +604,8 @@ debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(14070, -538)
-shape = SubResource("RectangleShape2D_qrh4i")
+position = Vector2(14070, -598)
+shape = SubResource("RectangleShape2D_dgiw2")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
