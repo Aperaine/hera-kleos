@@ -2,11 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_ox5k8"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_7qvbd"]
+[ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="2_nxkkw"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_gv865"]
 [ext_resource type="PackedScene" uid="uid://d23gaoq4dfvey" path="res://entities/characters/lion/lion.tscn" id="4_7kodv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvwup"]
-size = Vector2(1920, 178)
 
 [node name="Level1_boss" type="Node2D"]
 
@@ -14,16 +12,13 @@ size = Vector2(1920, 178)
 
 [node name="Setting" type="Node2D" parent="."]
 
-[node name="Floor" type="StaticBody2D" parent="Setting"]
+[node name="UI" type="Node2D" parent="."]
 
-[node name="FloorSprite" type="Sprite2D" parent="Setting/Floor"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Setting/Floor"]
-position = Vector2(0, 451)
-shape = SubResource("RectangleShape2D_wvwup")
-
-[node name="Menu" parent="." instance=ExtResource("1_ox5k8")]
+[node name="Menu" parent="UI" instance=ExtResource("1_ox5k8")]
 position = Vector2(-928, 374)
+
+[node name="Timer" parent="UI" instance=ExtResource("2_nxkkw")]
+position = Vector2(-73, 712)
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -33,6 +28,6 @@ position = Vector2(-862, 246)
 [node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
 position = Vector2(-727, -202)
 
-[node name="Lion" parent="." instance=ExtResource("4_7kodv")]
+[node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
 position = Vector2(0, 133)
 scale = Vector2(0.75, 0.75)

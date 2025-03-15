@@ -139,7 +139,7 @@ room = 6
 
 [node name="Gate5" parent="Main/Gates" instance=ExtResource("4_i18ad")]
 position = Vector2(3071, 810)
-room = 7
+room = 2
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Main"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2htxeieu2j1m"]
+[gd_scene load_steps=9 format=3 uid="uid://h1rh7afs0mkb"]
 
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_7rxru"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_fodve"]

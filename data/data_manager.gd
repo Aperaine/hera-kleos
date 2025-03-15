@@ -18,28 +18,20 @@ enum ROOMS {
 	tutorial,
 	home,
 	castle,
-	level1,
+	level1_0,
 	level1_1,
 	level1_2,
 	level1_boss,
-	level2,
-	level3,
-	level4,
-	level5,
 }
 
 const ROOM_PATHS = {
 	ROOMS.tutorial: "res://entities/levels/tutorial/tutorial.tscn",
 	ROOMS.home: "res://entities/levels/home/home.tscn",
 	ROOMS.castle: "res://entities/levels/castle/castle.tscn",
-	ROOMS.level1: "res://entities/levels/level1 - lion/level1.0.tscn",
+	ROOMS.level1_0: "res://entities/levels/level1 - lion/level1.0.tscn",
 	ROOMS.level1_1: "res://entities/levels/level1 - lion/level1.1.tscn",
 	ROOMS.level1_2: "res://entities/levels/level1 - lion/level1.2.tscn",
 	ROOMS.level1_boss: "res://entities/levels/level1 - lion/level1.boss.tscn",
-	ROOMS.level2: "res://entities/levels/level2 - hydra/level2.tscn",
-	ROOMS.level3: "res://entities/levels/level3 - hind/level3.tscn",
-	ROOMS.level4: "res://entities/levels/level4 - boar/level4.tscn",
-	ROOMS.level5: "res://entities/levels/level5 - stables/level5.tscn",
 }
 
 var game_stats = {
@@ -50,7 +42,7 @@ var game_stats = {
 }
 
 var progress = {
-	"unlocked_levels": [ROOMS.tutorial, ROOMS.castle, ROOMS.level1],
+	"unlocked_levels": [ROOMS.tutorial, ROOMS.castle, ROOMS.level1_0],
 	"unlocked_abilities": {
 		Characters.HERA: [HeraAbility.STATE_EMPTY],
 		Characters.HERACLE: [HeracleAbility.EMPTY],
@@ -102,11 +94,10 @@ func debug():
 	self.progress.selected_abilities[self.Characters.HERA] = self.HeraAbility.STATE_EMPTY
 	self.unlock_ability(self.Characters.HERA, self.HeraAbility.STATE_PLATFORM)
 	self.unlock_level(self.ROOMS.castle)
-	self.unlock_level(self.ROOMS.level1)
+	self.unlock_level(self.ROOMS.level1_0)
 	self.unlock_level(self.ROOMS.level1_1)
 	self.unlock_level(self.ROOMS.level1_2)
 	self.unlock_level(self.ROOMS.level1_boss)
-	self.unlock_level(self.ROOMS.level2)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	output_data()
 
@@ -144,7 +135,7 @@ func load_game():
 	game_stats.name = data.get("name", "")
 	
 	# Load progress
-	progress.unlocked_levels = data.get("unlocked_levels", [ROOMS.tutorial, ROOMS.castle, ROOMS.level1])
+	progress.unlocked_levels = data.get("unlocked_levels", [ROOMS.tutorial, ROOMS.castle, ROOMS.level1_0])
 	
 	# Load abilities with proper type conversion
 	var loaded_unlocked = data.get("unlocked_abilities", {})
@@ -198,7 +189,7 @@ func reset_game():
 	game_stats.play_time = 0.0
 	game_stats.deaths_heracle = 0
 	game_stats.deaths_hera = 0
-	progress.unlocked_levels = [self.ROOMS.tutorial, self.ROOMS.castle, self.ROOMS.level1]
+	progress.unlocked_levels = [self.ROOMS.tutorial, self.ROOMS.castle, self.ROOMS.level1_0]
 	progress.unlocked_abilities = {
 		Characters.HERA: [self.HeraAbility.STATE_EMPTY],
 		Characters.HERACLE: [self.HeracleAbility.EMPTY],
