@@ -96,7 +96,7 @@ func collision_check():
 			is_dead = true
 			DataManager.game_stats["deaths_hera"] += 1
 			DataManager.hera_safe_pos()
-			await get_tree().create_timer(0.5).timeout 
+			await get_tree().create_timer(0.5).timeout
 			is_dead = false
 
 		if body.name == "LevelEnd":
@@ -114,7 +114,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		touching_heracle = false
 
 func mouse_visibility():
-	if not DataManager.ram["game_paused"]:
+	if not DataManager.ram["game_paused"] and is_hera_on_screen():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
