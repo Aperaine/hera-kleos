@@ -18,36 +18,32 @@ size = Vector2(189, 202)
 
 [node name="LevelTemplate" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
-limit_top = 0
-limit_bottom = 0
-script = ExtResource("2_27mve")
+[node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Screens" type="Node2D" parent="."]
+[node name="CheckPoints" type="Node2D" parent="Obstacles"]
 
-[node name="Screen2" parent="Screens" instance=ExtResource("3_0afg3")]
-position = Vector2(2894, 547)
-
-[node name="Screen1" parent="Screens" instance=ExtResource("3_0afg3")]
-position = Vector2(960, 540)
-
-[node name="CheckPoint" parent="Screens" instance=ExtResource("3_u2yap")]
+[node name="CheckPoint1" parent="Obstacles/CheckPoints" instance=ExtResource("3_u2yap")]
 position = Vector2(209, 676)
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="Screens" type="Node2D" parent="Obstacles"]
+
+[node name="Screen1" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(960, 540)
+
+[node name="Screen2" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(2894, 547)
 
 [node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
 collision_layer = 1024
 collision_mask = 128
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(3648, 680)
+[node name="LevelEnd1" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(1720.5, 678)
 shape = SubResource("RectangleShape2D_inkwd")
 debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(1720.5, 678)
+[node name="LevelEnd2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(3648, 680)
 shape = SubResource("RectangleShape2D_inkwd")
 debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
@@ -93,6 +89,12 @@ speed = 0.5
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
+
+[node name="Camera2D" type="Camera2D" parent="UI"]
+position = Vector2(857, 594)
+limit_top = 0
+limit_bottom = 0
+script = ExtResource("2_27mve")
 
 [node name="Timer" parent="UI" instance=ExtResource("1_cbafq")]
 position = Vector2(-103, 54)

@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="6_qr2pe"]
 [ext_resource type="Script" path="res://entities/levels/damage.gd" id="7_k5l5l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_inkwd"]
-size = Vector2(574, 782)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjug"]
 size = Vector2(795, 782)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inkwd"]
+size = Vector2(574, 782)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o3wd"]
 size = Vector2(182.5, 338)
@@ -339,118 +339,114 @@ size = Vector2(86.5002, 168)
 
 [node name="Level1_1" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
-limit_top = 0
-limit_bottom = 0
-script = ExtResource("1_5db6m")
+[node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Screens" type="Node2D" parent="."]
+[node name="CheckPoints" type="Node2D" parent="Obstacles"]
 
-[node name="Screen0" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(960, 540)
-
-[node name="Screen1" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(2881, 540.75)
-
-[node name="Screen2" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(4831, 538.75)
-
-[node name="Screen3" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(6756, 538.75)
-
-[node name="Screen4" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(8679, 538.75)
-
-[node name="Screen5" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(10627, 539)
-
-[node name="CheckPoint3" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint1" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(136, 512)
 
-[node name="CheckPoint6" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint2" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(2057, 517)
 
-[node name="CheckPoint2" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint3" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(4002, 635.75)
 
-[node name="CheckPoint4" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint4" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(5916, 618)
 
-[node name="CheckPoint5" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint5" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(7845, 677)
 
-[node name="Screen6" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(12567, 552)
-
-[node name="Screen7" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(14533, 550)
-
-[node name="Screen8" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(16496, 550)
-
-[node name="Screen9" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(18441, 541)
-
-[node name="CheckPoint7" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint6" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(9785, 769)
 
-[node name="CheckPoint8" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint7" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(11726, 696)
 
-[node name="CheckPoint9" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint8" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(13653, 693)
 
-[node name="CheckPoint10" parent="Screens" instance=ExtResource("6_qr2pe")]
+[node name="CheckPoint9" parent="Obstacles/CheckPoints" instance=ExtResource("6_qr2pe")]
 position = Vector2(15654, 695)
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="Screens" type="Node2D" parent="Obstacles"]
+
+[node name="Screen0" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(960, 540)
+
+[node name="Screen1" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(2881, 540.75)
+
+[node name="Screen2" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(4831, 538.75)
+
+[node name="Screen3" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(6756, 538.75)
+
+[node name="Screen4" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(8679, 538.75)
+
+[node name="Screen5" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(10627, 539)
+
+[node name="Screen6" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(12567, 552)
+
+[node name="Screen7" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(14533, 550)
+
+[node name="Screen8" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(16496, 550)
+
+[node name="Screen9" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
+position = Vector2(18441, 541)
 
 [node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
 collision_layer = 1024
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(3553, 427.75)
-shape = SubResource("RectangleShape2D_inkwd")
-debug_color = Color(0.894361, 0.0533945, 0.763645, 0.42)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd1" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(1521.5, 458)
 shape = SubResource("RectangleShape2D_0fjug")
 debug_color = Color(0.894361, 0.0533945, 0.763645, 0.42)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(7428, 427.75)
+[node name="LevelEnd2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(3553, 427.75)
 shape = SubResource("RectangleShape2D_inkwd")
 debug_color = Color(0.894361, 0.0533945, 0.763645, 0.42)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd3" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(5702.25, 662.75)
 shape = SubResource("RectangleShape2D_4o3wd")
 debug_color = Color(0.894118, 0.054902, 0.764706, 0.419608)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd4" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(7428, 427.75)
+shape = SubResource("RectangleShape2D_inkwd")
+debug_color = Color(0.894361, 0.0533945, 0.763645, 0.42)
+
+[node name="LevelEnd5" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(9546, 760)
 shape = SubResource("RectangleShape2D_jjk5g")
 debug_color = Color(0.894118, 0.054902, 0.764706, 0.419608)
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd6" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(11482, 763)
 shape = SubResource("RectangleShape2D_mi1kj")
 debug_color = Color(0.894118, 0.054902, 0.764706, 0.419608)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd7" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(13457.6, 779)
 shape = SubResource("RectangleShape2D_kkdd2")
 debug_color = Color(0.894118, 0.054902, 0.764706, 0.419608)
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd8" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(15420.4, 777)
 shape = SubResource("RectangleShape2D_ivrpw")
 debug_color = Color(0.894118, 0.054902, 0.764706, 0.419608)
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+[node name="LevelEnd9" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(17338.8, 709.5)
 shape = SubResource("RectangleShape2D_j4pg7")
 debug_color = Color(0.894118, 0.054902, 0.764706, 0.419608)
@@ -1151,6 +1147,12 @@ ability_hera = 1
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(0, -2)
+
+[node name="Camera2D" type="Camera2D" parent="UI"]
+position = Vector2(960, 542)
+limit_top = 0
+limit_bottom = 0
+script = ExtResource("1_5db6m")
 
 [node name="Timer" parent="UI" instance=ExtResource("1_sikvp")]
 position = Vector2(0, 2)
