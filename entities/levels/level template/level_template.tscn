@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://6gk8vruer8d3"]
+[gd_scene load_steps=13 format=3 uid="uid://6gk8vruer8d3"]
 
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_5b1wp"]
-[ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/levels/screen/screen.tscn" id="2_8mytl"]
+[ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="2_8mytl"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="3_j2vrs"]
 [ext_resource type="Script" path="res://entities/levels/damage.gd" id="3_xu2tm"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="4_0lm6q"]
+[ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="5_5ki1j"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_undqn"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="6_wo5tk"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="7_mn1dl"]
@@ -19,6 +20,12 @@ size = Vector2(189, 202)
 size = Vector2(228, 182.125)
 
 [node name="LevelTemplate" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+limit_top = 0
+limit_bottom = 0
+script = ExtResource("1_5b1wp")
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -95,11 +102,7 @@ metadata/_edit_group_ = true
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
 
-[node name="Camera2D" type="Camera2D" parent="UI"]
-position = Vector2(857, 594)
-limit_top = 0
-limit_bottom = 0
-script = ExtResource("1_5b1wp")
+[node name="MouseSensitivityController" parent="UI" instance=ExtResource("5_5ki1j")]
 
 [node name="Timer" parent="UI" instance=ExtResource("4_0lm6q")]
 position = Vector2(-103, 54)

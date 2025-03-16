@@ -82,7 +82,7 @@ func movement():
 	
 	if DataManager.ram["hera_active"] and not DataManager.ram["game_paused"]:
 		position += (hera_mouse_pos - position) / 10
-	
+
 	prev_mouse_pos = hera_mouse_pos
 
 func collision_check():
@@ -107,7 +107,13 @@ func _physics_process(_delta: float) -> void:
 	collision_manager()
 	collision_check()
 	movement()
+	speed_limit()
 	mouse_visibility()
+
+func speed_limit():
+	if DataManager.ram["hera_too_fast"]:
+		DataManager.hera_safe_pos()
+		DataManager.ram["hera_too_fast"] = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":
