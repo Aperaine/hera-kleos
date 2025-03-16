@@ -446,11 +446,6 @@ position = Vector2(1691, 684)
 shape = SubResource("RectangleShape2D_lf2f2")
 debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
-[node name="level_end12" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(195, 247)
-shape = SubResource("RectangleShape2D_lf2f2")
-debug_color = Color(0.972413, 0, 0.441219, 0.42)
-
 [node name="level_end2" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(3731, 700)
 shape = SubResource("RectangleShape2D_lf2f2")
@@ -1414,7 +1409,7 @@ position = Vector2(-51, 960)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-position = Vector2(15587, -121)
+position = Vector2(243, 639)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(226, 174)
