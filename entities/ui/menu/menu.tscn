@@ -71,6 +71,16 @@ position = Vector2(932, -927)
 shape = SubResource("RectangleShape2D_o7qxl")
 debug_color = Color(0.60119, 0.536285, 0.243622, 0.42)
 
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Obstacle Hera"]
+position = Vector2(2129, -977)
+shape = SubResource("RectangleShape2D_xr83m")
+debug_color = Color(0.620458, 0.530908, 0.167526, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle Hera"]
+position = Vector2(-258, -982.75)
+shape = SubResource("RectangleShape2D_xr83m")
+debug_color = Color(0.620458, 0.530908, 0.167526, 0.42)
+
 [node name="Obstacle Both" type="StaticBody2D" parent="."]
 collision_layer = 49
 
@@ -102,16 +112,6 @@ debug_color = Color(0.633794, 0.410526, 0.852706, 0.42)
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacle Both"]
 position = Vector2(2002, -785)
 shape = SubResource("RectangleShape2D_n3ng5")
-debug_color = Color(0.633794, 0.410526, 0.852706, 0.42)
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Obstacle Both"]
-position = Vector2(2129, -977)
-shape = SubResource("RectangleShape2D_xr83m")
-debug_color = Color(0.633794, 0.410526, 0.852706, 0.42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle Both"]
-position = Vector2(-258, -982.75)
-shape = SubResource("RectangleShape2D_xr83m")
 debug_color = Color(0.633794, 0.410526, 0.852706, 0.42)
 
 [node name="ColorRect" type="ColorRect" parent="."]
