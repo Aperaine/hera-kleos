@@ -98,7 +98,6 @@ func collision_check():
 			is_dead = true
 			DataManager.game_stats["deaths_hera"] += 1
 			DataManager.hera_safe_pos()
-			DataManager.ram["heracle_dead"] = true
 			await get_tree().create_timer(0.5).timeout
 			is_dead = false
 
