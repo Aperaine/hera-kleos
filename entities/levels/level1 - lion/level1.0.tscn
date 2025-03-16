@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=126 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_hb5yu"]
@@ -122,9 +122,6 @@ size = Vector2(27.9063, 727)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4cag"]
 size = Vector2(28.5938, 27)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5dco"]
-size = Vector2(76.75, 79.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10vfm"]
 size = Vector2(147.25, 692)
@@ -762,11 +759,6 @@ position = Vector2(71, -90)
 collision_layer = 32
 collision_mask = 128
 
-[node name="Demo" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(377, -71)
-shape = SubResource("RectangleShape2D_m5dco")
-debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
-
 [node name="Screen2_2" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(4212, 628)
 shape = SubResource("RectangleShape2D_10vfm")
@@ -1115,10 +1107,6 @@ debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 [node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(-129, -15)
 collision_mask = 64
-
-[node name="Demo" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(443, -148)
-shape = SubResource("RectangleShape2D_m5dco")
 
 [node name="Screen1_2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(2345, 829.75)

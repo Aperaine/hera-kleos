@@ -405,6 +405,12 @@ size = Vector2(143.25, 27.75)
 
 [node name="Level1_1" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+limit_top = 0
+limit_bottom = 0
+script = ExtResource("1_5db6m")
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Screens" type="Node2D" parent="Obstacles"]
@@ -413,7 +419,7 @@ size = Vector2(143.25, 27.75)
 position = Vector2(960, 540)
 
 [node name="Screen1" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(2893, 541)
+position = Vector2(2900, 541)
 
 [node name="Screen2" parent="Obstacles/Screens" instance=ExtResource("2_1vyge")]
 position = Vector2(4831, 538.75)
@@ -1165,7 +1171,6 @@ collision_mask = 64
 position = Vector2(3156, 167.25)
 shape = SubResource("RectangleShape2D_1y4yh")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
 position = Vector2(7420.5, -76)
@@ -1354,12 +1359,6 @@ ability_hera = 1
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(0, -2)
-
-[node name="Camera2D" type="Camera2D" parent="UI"]
-position = Vector2(960, 542)
-limit_top = 0
-limit_bottom = 0
-script = ExtResource("1_5db6m")
 
 [node name="Timer" parent="UI" instance=ExtResource("1_sikvp")]
 position = Vector2(0, 2)

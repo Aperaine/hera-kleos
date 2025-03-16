@@ -18,6 +18,12 @@ size = Vector2(189, 202)
 
 [node name="LevelTemplate" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+limit_top = 0
+limit_bottom = 0
+script = ExtResource("2_27mve")
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="CheckPoints" type="Node2D" parent="Obstacles"]
@@ -89,12 +95,6 @@ speed = 0.5
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
-
-[node name="Camera2D" type="Camera2D" parent="UI"]
-position = Vector2(857, 594)
-limit_top = 0
-limit_bottom = 0
-script = ExtResource("2_27mve")
 
 [node name="Timer" parent="UI" instance=ExtResource("1_cbafq")]
 position = Vector2(-103, 54)
