@@ -10,6 +10,8 @@ var hera_bow: bool = false
 var animation_free: bool = true
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var area_2d: Area2D = $Area2D
+
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
 var is_dead: bool = false
@@ -96,6 +98,7 @@ func collision_check():
 			is_dead = true
 			DataManager.game_stats["deaths_hera"] += 1
 			DataManager.hera_safe_pos()
+			DataManager.ram["heracle_dead"] = true
 			await get_tree().create_timer(0.5).timeout
 			is_dead = false
 
@@ -109,15 +112,17 @@ func _physics_process(_delta: float) -> void:
 	movement()
 	speed_limit()
 	mouse_visibility()
+	
 
 func speed_limit():
 	if DataManager.ram["hera_too_fast"]:
 		DataManager.hera_safe_pos()
 		DataManager.ram["hera_too_fast"] = false
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_Area2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":
 		touching_heracle = false
+		print("not touching Heracle")
 
 func mouse_visibility():
 	if not DataManager.ram["game_paused"] and is_hera_on_screen():
