@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="5_8iimk"]
 [ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="5_meb5y"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_8rhj6"]
+[ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="8_mv43i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf2f2"]
 size = Vector2(227.5, 353)
@@ -22,9 +23,6 @@ size = Vector2(173, 168.688)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6tki"]
 size = Vector2(173, 319.375)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q5nn"]
-size = Vector2(230, 354)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18t6d"]
 size = Vector2(96, 416)
@@ -93,7 +91,7 @@ size = Vector2(40, 40)
 size = Vector2(760, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntsol"]
-size = Vector2(48, 200)
+size = Vector2(48, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tmda"]
 size = Vector2(48, 208)
@@ -266,7 +264,7 @@ size = Vector2(32, 568)
 size = Vector2(32, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6nj"]
-size = Vector2(120, 128)
+size = Vector2(104, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucwns"]
 size = Vector2(296, 632)
@@ -305,7 +303,7 @@ size = Vector2(200, 528)
 size = Vector2(96, 206)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbfr"]
-size = Vector2(108, 195.25)
+size = Vector2(108, 203.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seosi"]
 size = Vector2(101.5, 877)
@@ -356,7 +354,7 @@ size = Vector2(40, 368)
 size = Vector2(48.125, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mfxb"]
-size = Vector2(48.125, 248)
+size = Vector2(48.125, 232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpdmm"]
 size = Vector2(48.125, 248)
@@ -488,11 +486,6 @@ debug_color = Color(0.972549, 0, 0.443137, 0.419608)
 [node name="level_end10" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(19176, 716)
 shape = SubResource("RectangleShape2D_d6tki")
-debug_color = Color(0.972549, 0, 0.443137, 0.419608)
-
-[node name="level_end11" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
-position = Vector2(21087.2, 696.75)
-shape = SubResource("RectangleShape2D_0q5nn")
 debug_color = Color(0.972549, 0, 0.443137, 0.419608)
 
 [node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
@@ -683,7 +676,7 @@ shape = SubResource("RectangleShape2D_hnx6b")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D27" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(15738, 473)
+position = Vector2(15738, 481)
 shape = SubResource("RectangleShape2D_ntsol")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
@@ -776,6 +769,11 @@ collision_mask = 128
 
 [node name="Screen2_2" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(4193, 626)
+shape = SubResource("RectangleShape2D_10vfm")
+debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
+
+[node name="Screen2_6" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(1329, 612)
 shape = SubResource("RectangleShape2D_10vfm")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -1030,7 +1028,7 @@ shape = SubResource("RectangleShape2D_1v4kd")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="CollisionShape2D39" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(15805, 722)
+position = Vector2(15805, 762)
 shape = SubResource("RectangleShape2D_206hd")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -1114,7 +1112,7 @@ position = Vector2(-129, -15)
 collision_mask = 64
 
 [node name="Screen1_21" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(2325, 823)
+position = Vector2(2317, 827)
 shape = SubResource("RectangleShape2D_id6nj")
 
 [node name="Screen1_22" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1219,7 +1217,7 @@ position = Vector2(19873.2, 87)
 shape = SubResource("RectangleShape2D_kjbfr")
 
 [node name="Screen5_2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(20368.2, 789.375)
+position = Vector2(20368.2, 793.375)
 shape = SubResource("RectangleShape2D_kjbfr")
 
 [node name="Screen5_1_1" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1265,7 +1263,7 @@ shape = SubResource("RectangleShape2D_skemj")
 one_way_collision = true
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(12173, 871)
+position = Vector2(12089, 871)
 shape = SubResource("RectangleShape2D_0p1nj")
 
 [node name="CollisionShape2D38" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1315,7 +1313,7 @@ position = Vector2(15848.9, 127)
 shape = SubResource("RectangleShape2D_tsq0a")
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(15849.1, 771)
+position = Vector2(15849.1, 779)
 shape = SubResource("RectangleShape2D_8mfxb")
 
 [node name="CollisionShape2D46" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1335,7 +1333,7 @@ position = Vector2(17105, 559)
 shape = SubResource("RectangleShape2D_1yw8n")
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(15689, 647)
+position = Vector2(15689, 687)
 shape = SubResource("RectangleShape2D_tv6ed")
 one_way_collision = true
 
@@ -1393,6 +1391,13 @@ position = Vector2(18305, 479)
 shape = SubResource("RectangleShape2D_tmcpu")
 one_way_collision = true
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CastleVase" type="Sprite2D" parent="Node2D"]
+position = Vector2(2188, 810.766)
+scale = Vector2(0.151603, 0.130403)
+texture = ExtResource("8_mv43i")
+
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
@@ -1409,7 +1414,7 @@ position = Vector2(-63, 960)
 position = Vector2(19, 0)
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-position = Vector2(205, 728)
+position = Vector2(251, 690)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
-position = Vector2(293, 432)
+position = Vector2(261, 292)

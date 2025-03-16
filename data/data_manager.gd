@@ -57,7 +57,7 @@ var ram = {
 	"slot": SLOTS.SLOT1,
 	"arrows": 3,
 	"hera_active": true,
-	"hera_safe_pos": Vector2(100, 100),
+	"hera_safe_pos": Vector2(150, 150),
 	"camera_pos": Vector2(960, 540),
 	"camera_default": Vector2(960, 540),
 	"hera_at_level_end": false,

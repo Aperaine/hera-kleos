@@ -224,7 +224,7 @@ position = Vector2(3267, 36)
 [node name="Moving Platforms" type="Node2D" parent="Obstacles"]
 
 [node name="MovingPlatform" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
-position = Vector2(1304, -768)
+position = Vector2(692, -676)
 speed = 0.5
 
 [node name="Damage" type="Node2D" parent="."]

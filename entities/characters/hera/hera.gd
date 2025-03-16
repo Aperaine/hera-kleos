@@ -64,7 +64,9 @@ func hera_weapon():
 
 func collision_manager():
 	collision_platform.disabled = true
-	if DataManager.ram["hera_active"]:
+	if is_dead:
+		pass
+	elif DataManager.ram["hera_active"]:
 		play_animations("idle")
 		animation_free = true
 	else:
@@ -95,23 +97,28 @@ func collision_check():
 			print("touching Heracle")
 
 		if (body.name == "Obstacle Hera" or body.name == "Obstacle Both") and not is_dead:
+			DataManager.ram["hera_active"] = false
+			collision_hummingbird.disabled = true
+			play_animations("death")
 			is_dead = true
 			DataManager.game_stats["deaths_hera"] += 1
-			DataManager.hera_safe_pos()
 			await get_tree().create_timer(0.5).timeout
+			DataManager.hera_safe_pos()
+			position = DataManager.ram["hera_safe_pos"]
 			is_dead = false
+			DataManager.ram["hera_active"] = true
+			collision_hummingbird.disabled = false
 
 		if body.name == "LevelEnd":
 			DataManager.ram["hera_at_level_end"] = true
 
 func _physics_process(_delta: float) -> void:
 	hera_mouse_pos = get_global_mouse_position()
-	collision_manager()
 	collision_check()
+	collision_manager()
 	movement()
 	speed_limit()
 	mouse_visibility()
-	
 
 func speed_limit():
 	if DataManager.ram["hera_too_fast"]:
