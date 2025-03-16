@@ -85,12 +85,12 @@ shape = SubResource("RectangleShape2D_tud7u")
 [node name="Lavas" type="Node2D" parent="Obstacles"]
 
 [node name="LavaRain" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
-position = Vector2(1287, 350)
+position = Vector2(960, 88)
 
 [node name="Moving Platforms" type="Node2D" parent="Obstacles"]
 
 [node name="MovingPlatform" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
-position = Vector2(951, 786)
+position = Vector2(704, 540)
 speed = 0.5
 
 [node name="UI" type="Parallax2D" parent="."]
