@@ -21,11 +21,10 @@ offset_bottom = 32.0
 color = Color(1, 0.4, 0, 0.8)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -16.0
+offset_left = -32.0
 offset_top = 32.0
-offset_right = 16.0
+offset_right = 32.0
 offset_bottom = 48.0
 color = Color(0.498039, 0.184314, 0, 0.8)
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
