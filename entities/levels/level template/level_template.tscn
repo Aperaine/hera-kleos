@@ -129,6 +129,14 @@ position = Vector2(240, 751)
 
 [node name="Hera" parent="Characters" instance=ExtResource("7_mn1dl")]
 position = Vector2(126, 112)
+<<<<<<< Updated upstream
 platform_time = 1
+=======
+<<<<<<< HEAD
+platform_time = 1.0
+=======
+platform_time = 1
+>>>>>>> ea85ea26e69b1848bcf5879c3dad74672332c9f5
+>>>>>>> Stashed changes
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]

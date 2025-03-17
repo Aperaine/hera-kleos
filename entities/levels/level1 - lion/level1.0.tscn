@@ -1410,7 +1410,7 @@ position = Vector2(19, 0)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
-platform_time = null
+platform_time = 1.0
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
 position = Vector2(251, 690)
