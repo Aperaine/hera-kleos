@@ -10,4 +10,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Heracle" and DataManager.ram["hera_at_level_end"]:
 		if self.position != DataManager.ram["camera_pos"]:
 			DataManager.ram["camera_pos"] = self.position
-			DataManager.hera_safe_pos()
+			DataManager.ram["hera_dead"] = true

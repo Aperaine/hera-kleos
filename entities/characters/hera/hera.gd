@@ -10,16 +10,13 @@ var hera_bow: bool = false
 var animation_free: bool = true
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var area_2d: Area2D = $Area2D
-
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
-var is_dead: bool = false
 @export var platform_time = 1.0
 
 func _ready():
 	add_to_group("hera")
-	#DataManager.hera_safe_pos()
+	DataManager.hera_safe_pos()
 	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 	static_body = $StaticBody2D
@@ -64,9 +61,7 @@ func hera_weapon():
 
 func collision_manager():
 	collision_platform.disabled = true
-	if is_dead:
-		pass
-	elif DataManager.ram["hera_active"]:
+	if DataManager.ram["hera_active"]:
 		play_animations("idle")
 		animation_free = true
 	else:
@@ -86,7 +81,7 @@ func movement():
 	
 	if DataManager.ram["hera_active"] and not DataManager.ram["game_paused"]:
 		position += (hera_mouse_pos - position) / 10
-
+	
 	prev_mouse_pos = hera_mouse_pos
 
 func collision_check():
@@ -96,45 +91,40 @@ func collision_check():
 			touching_heracle = true
 			print("touching Heracle")
 
-		if (body.name == "Obstacle Hera" or body.name == "Obstacle Both") and not is_dead:
-			DataManager.ram["hera_active"] = false
-			collision_hummingbird.disabled = true
-			play_animations("death")
-			is_dead = true
+		if (body.name == "Obstacle Hera" or body.name == "Obstacle Both"):
 			DataManager.game_stats["deaths_hera"] += 1
-			await get_tree().create_timer(0.5).timeout
-			DataManager.hera_safe_pos()
-			position = DataManager.ram["hera_safe_pos"]
-			is_dead = false
-			DataManager.ram["hera_active"] = true
-			collision_hummingbird.disabled = false
-			queue_free()
+			DataManager.ram["hera_dead"] = true
+
 		if body.name == "LevelEnd":
 			DataManager.ram["hera_at_level_end"] = true
 
 func _physics_process(_delta: float) -> void:
-	hera_mouse_pos = get_global_mouse_position()
-	collision_check()
-	collision_manager()
-	movement()
-	speed_limit()
-	mouse_visibility()
+	if not DataManager.ram["hera_dead"]:
+		hera_mouse_pos = get_global_mouse_position()
+		collision_manager()
+		collision_check()
+		movement()
+		mouse_visibility()
+		speed_limit()
+	else:
+		hera_spawn()
 
-func speed_limit():
-	if DataManager.ram["hera_too_fast"]:
-		DataManager.hera_safe_pos()
-		DataManager.ram["hera_too_fast"] = false
-		queue_free()
+func hera_spawn():
+	collision_hummingbird.disabled = true
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
+	DataManager.hera_safe_pos()
+	DataManager.ram["hera_dead"] = false
+	await get_tree().create_timer(1).timeout
+	collision_hummingbird.disabled = false
 
-func _on_Area2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":
 		touching_heracle = false
-		print("not touching Heracle")
 
 func mouse_visibility():
-	if not DataManager.ram["game_paused"] and is_hera_on_screen():
-		#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		pass
+	if (not DataManager.ram["game_paused"]) and is_hera_on_screen():
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -142,3 +132,8 @@ func is_hera_on_screen() -> bool:
 	var pos = get_viewport().get_mouse_position()
 	var size = get_viewport().get_visible_rect().size
 	return pos.x >= 0 and pos.y >= 0 and pos.x <= size.x and pos.y <= size.y
+
+func speed_limit():
+	if DataManager.ram["hera_too_fast"]:
+		hera_spawn()
+		DataManager.ram["hera_too_fast"] = false

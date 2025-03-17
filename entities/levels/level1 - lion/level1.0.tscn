@@ -772,11 +772,6 @@ position = Vector2(4193, 626)
 shape = SubResource("RectangleShape2D_10vfm")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
-[node name="Screen2_6" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(1329, 612)
-shape = SubResource("RectangleShape2D_10vfm")
-debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
-
 [node name="Screen2_3" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(4737, 434)
 shape = SubResource("RectangleShape2D_10vfm")
@@ -1415,6 +1410,7 @@ position = Vector2(19, 0)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
+platform_time = null
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
 position = Vector2(251, 690)
