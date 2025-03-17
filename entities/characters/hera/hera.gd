@@ -19,7 +19,7 @@ var is_dead: bool = false
 
 func _ready():
 	add_to_group("hera")
-	DataManager.hera_safe_pos()
+	#DataManager.hera_safe_pos()
 	if DataManager.progress.selected_abilities[DataManager.Characters.HERA]:
 		ability = DataManager.progress.selected_abilities[DataManager.Characters.HERA]
 	static_body = $StaticBody2D
@@ -108,7 +108,7 @@ func collision_check():
 			is_dead = false
 			DataManager.ram["hera_active"] = true
 			collision_hummingbird.disabled = false
-
+			queue_free()
 		if body.name == "LevelEnd":
 			DataManager.ram["hera_at_level_end"] = true
 
@@ -124,6 +124,7 @@ func speed_limit():
 	if DataManager.ram["hera_too_fast"]:
 		DataManager.hera_safe_pos()
 		DataManager.ram["hera_too_fast"] = false
+		queue_free()
 
 func _on_Area2d_body_exited(body: Node2D) -> void:
 	if body.name == "Heracle":
