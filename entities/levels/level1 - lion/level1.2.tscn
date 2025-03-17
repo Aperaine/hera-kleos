@@ -61,7 +61,7 @@ size = Vector2(64, 336)
 size = Vector2(432, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bu0u"]
-size = Vector2(447.75, 24)
+size = Vector2(447.745, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m6oi"]
 size = Vector2(256, 128)
@@ -434,14 +434,8 @@ position = Vector2(-103, 54)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("5_v4ti5")]
-position = Vector2(5240, 738)
+position = Vector2(200, 715)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
-<<<<<<< HEAD
-position = Vector2(168, 136)
-=======
-position = Vector2(4926, 352)
-platform_time = 1
->>>>>>> ea85ea26e69b1848bcf5879c3dad74672332c9f5
 
 [connection signal="body_entered" from="Damage/DamageCollider" to="Damage" method="_on_damage_collider_body_entered"]

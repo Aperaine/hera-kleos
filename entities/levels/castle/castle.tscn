@@ -158,7 +158,6 @@ position = Vector2(-3, 0)
 
 [node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
 position = Vector2(649, 477)
-platform_time = 1.0
 
 [node name="Heracle" parent="Characters" instance=ExtResource("3_pg7en")]
 position = Vector2(777, 719)

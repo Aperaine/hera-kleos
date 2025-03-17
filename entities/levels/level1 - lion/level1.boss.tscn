@@ -62,4 +62,3 @@ position = Vector2(-828, 152)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
 position = Vector2(-727, -202)
-platform_time = 1.0
