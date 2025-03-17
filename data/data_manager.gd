@@ -67,6 +67,7 @@ var ram = {
 	"hera_too_fast": false,
 	"heracle_hearts": 6, # only for the boss battle
 	"boss_health": 0, # only for the boss battle
+	"hera_dead": false,
 }
 
 enum Characters {
@@ -359,12 +360,15 @@ deaths_heracle:
 		"deaths_heracle": game_stats.deaths_heracle,
 	}))
 
-@export var hera_scene: PackedScene = preload("res://entities/characters/hera/hera.tscn")
 func hera_safe_pos() -> void:
 	Input.warp_mouse(ram["hera_safe_pos"])
-	var hera_instance = hera_scene.instantiate()
-	hera_instance.position = ram["hera_safe_pos"]
-	get_tree().current_scene.add_child(hera_instance)
 
 func set_heracles_safe_pos(pos: Vector2) -> void:
 	ram["heracles_safe_pos"] = pos
+
+@export var hera_scene: PackedScene = preload("res://entities/characters/hera/hera.tscn")
+func new_hera():
+	hera_safe_pos()
+	var hera_instance = hera_scene.instantiate()
+	hera_instance.position = ram["hera_safe_pos"]
+	get_tree().current_scene.add_child(hera_instance)
