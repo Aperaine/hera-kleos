@@ -109,10 +109,10 @@ size = Vector2(256, 24)
 size = Vector2(256, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6pgn"]
-size = Vector2(704, 24)
+size = Vector2(320, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dlq6"]
-size = Vector2(656, 24)
+size = Vector2(464, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecnk5"]
 size = Vector2(256, 24)
@@ -370,12 +370,12 @@ shape = SubResource("RectangleShape2D_rqi2c")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(4825, 694)
+position = Vector2(4633, 694)
 shape = SubResource("RectangleShape2D_m6pgn")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(5121, 942)
+position = Vector2(5217, 942)
 shape = SubResource("RectangleShape2D_5dlq6")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
