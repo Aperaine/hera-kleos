@@ -65,7 +65,8 @@ var ram = {
 	"heracle_safe_pos": Vector2(250, 600),
 	"heracle_dead": false,
 	"hera_too_fast": false,
-	"heracle_hearts": 3, # only for the boss battle
+	"heracle_hearts": 6, # only for the boss battle
+	"boss_health": 0, # only for the boss battle
 }
 
 enum Characters {

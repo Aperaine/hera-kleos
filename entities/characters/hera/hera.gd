@@ -132,7 +132,8 @@ func _on_Area2d_body_exited(body: Node2D) -> void:
 
 func mouse_visibility():
 	if not DataManager.ram["game_paused"] and is_hera_on_screen():
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		pass
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

@@ -1413,8 +1413,8 @@ position = Vector2(-103, 54)
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(19, 0)
 
-[node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-position = Vector2(251, 690)
-
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
+
+[node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
+position = Vector2(251, 690)

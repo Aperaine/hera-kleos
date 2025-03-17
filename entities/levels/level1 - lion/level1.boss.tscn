@@ -11,30 +11,10 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="UI" type="Node2D" parent="."]
-
-[node name="Menu" parent="UI" instance=ExtResource("1_ox5k8")]
-position = Vector2(-960, -540)
-
-[node name="Timer" parent="UI" instance=ExtResource("2_nxkkw")]
-position = Vector2(-73, 712)
-
-[node name="Characters" type="Node2D" parent="."]
-
-[node name="Heracle" parent="Characters" instance=ExtResource("2_7qvbd")]
-position = Vector2(-828, 152)
-
-[node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
-position = Vector2(-727, -202)
-
-[node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
-position = Vector2(0, 128)
-scale = Vector2(0.75, 0.75)
-
 [node name="Hearts" type="HBoxContainer" parent="."]
 offset_left = -933.0
 offset_top = -507.0
-offset_right = -541.0
+offset_right = -485.0
 offset_bottom = -378.0
 theme_override_constants/separation = 32
 metadata/_edit_group_ = true
@@ -50,3 +30,35 @@ heart_num = 2
 [node name="Heart3" parent="Hearts" instance=ExtResource("6_4u1km")]
 layout_mode = 2
 heart_num = 3
+
+[node name="Heart4" parent="Hearts" instance=ExtResource("6_4u1km")]
+layout_mode = 2
+heart_num = 4
+
+[node name="Heart5" parent="Hearts" instance=ExtResource("6_4u1km")]
+layout_mode = 2
+heart_num = 5
+
+[node name="Heart6" parent="Hearts" instance=ExtResource("6_4u1km")]
+layout_mode = 2
+heart_num = 6
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Menu" parent="UI" instance=ExtResource("1_ox5k8")]
+position = Vector2(-960, -540)
+
+[node name="Timer" parent="UI" instance=ExtResource("2_nxkkw")]
+position = Vector2(-73, 712)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
+position = Vector2(0, 128)
+scale = Vector2(0.75, 0.75)
+
+[node name="Heracle" parent="Characters" instance=ExtResource("2_7qvbd")]
+position = Vector2(-828, 152)
+
+[node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
+position = Vector2(-727, -202)

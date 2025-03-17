@@ -149,13 +149,15 @@ room = 2
 scroll_scale = Vector2(0, 0)
 
 [node name="Menu" parent="Foreground/UI" instance=ExtResource("5_2a5iv")]
-position = Vector2(32, 908)
 
 [node name="Timer" parent="Foreground/UI" instance=ExtResource("6_5uvbe")]
 position = Vector2(0, 552.031)
 
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(-3, 0)
+
+[node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
+position = Vector2(649, 477)
 
 [node name="Heracle" parent="Characters" instance=ExtResource("3_pg7en")]
 position = Vector2(777, 719)
@@ -166,6 +168,3 @@ limit_top = 0
 limit_right = 3500
 limit_bottom = 0
 position_smoothing_enabled = true
-
-[node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
-position = Vector2(649, 477)

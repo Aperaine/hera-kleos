@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $FlipHelper/Sprite2D
 @onready var flip_helper: Node2D = $FlipHelper
 @onready var hitbox: CollisionShape2D = $Hitbox
+@onready var hitbox_damage: Area2D = $FlipHelper/HitboxDamage
 @onready var hitbox_attack: Area2D = $HitboxAttack
 
 const MAX_SPEED := 600.0
@@ -19,11 +20,14 @@ const FRICTION: float = 70.0
 const GRAVITY: float = 190.0
 const MAX_GRAVITY: float = 3000.0
 const JUMP_LIMIT: int = 1
+const damage_cooldown = 100
 
 var coyote_flag: int = 0
 var jump_buffer: int = 0
 var jump_count: int = 0
 var last_direction: Vector2 = Vector2.RIGHT
+var just_got_damage_counter = 0
+var just_got_damage: bool = false
 
 func _ready():
 	pass
@@ -37,6 +41,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		update_animation()
 		handle_death()
+	
+	collision_manager()
+	damage_manager()
 	
 	if Input.is_action_just_pressed("heracle-toggle"):
 		DataManager.switch_ability(DataManager.Characters.HERACLE)
@@ -52,6 +59,26 @@ func _physics_process(delta: float) -> void:
 				pass
 			DataManager.HeracleAbility.BOW: 
 				shoot_arrow()
+
+func collision_manager():
+	for body in hitbox_attack.get_overlapping_areas():
+		if body.collision_layer & 10:
+			DataManager.ram["boss_health"] -= 1
+			print(DataManager.ram["boss_health"])
+	for body in hitbox_damage.get_overlapping_areas():
+		if body.collision_layer & 10 and (not just_got_damage):
+			DataManager.ram["heracle_hearts"] -= 1
+			just_got_damage = true
+			sprite.modulate.a = 0.5
+
+func damage_manager():
+	if just_got_damage == true:
+		if just_got_damage_counter > damage_cooldown:
+			just_got_damage = false
+			just_got_damage_counter = 0
+			sprite.modulate.a = 1.0
+		else:
+			just_got_damage_counter += 1
 
 func get_input_direction() -> Vector2:
 	return Vector2(Input.get_axis("heracle-left", "heracle-right"), Input.get_axis("ui_up", "ui_down"))
