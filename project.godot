@@ -79,6 +79,7 @@ heracle-jump={
 2d_physics/layer_10="Boss"
 2d_physics/layer_11="Level End"
 2d_physics/layer_12="Gate"
+2d_physics/layer_13="Lava Stop"
 
 [rendering]
 

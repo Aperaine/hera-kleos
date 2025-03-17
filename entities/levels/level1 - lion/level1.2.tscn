@@ -456,6 +456,11 @@ position = Vector2(-103, 54)
 position = Vector2(192, 688)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
+<<<<<<< HEAD
 position = Vector2(168, 136)
+=======
+position = Vector2(4926, 352)
+platform_time = 1
+>>>>>>> ea85ea26e69b1848bcf5879c3dad74672332c9f5
 
 [connection signal="body_entered" from="Damage/DamageCollider" to="Damage" method="_on_damage_collider_body_entered"]

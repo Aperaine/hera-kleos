@@ -12,7 +12,7 @@ var animation_free: bool = true
 @onready var sprite: Sprite2D = $Sprite2D
 var hera_mouse_pos: Vector2
 var prev_mouse_pos: Vector2
-@export var platform_time = 1.0
+@export var platform_time = 1
 
 func _ready():
 	add_to_group("hera")
