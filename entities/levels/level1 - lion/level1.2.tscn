@@ -448,7 +448,7 @@ scroll_offset = Vector2(103, -54)
 position = Vector2(-103, 54)
 
 [node name="Menu" parent="UI" instance=ExtResource("4_l16er")]
-position = Vector2(-89, 968)
+position = Vector2(-103, 54)
 
 [node name="Characters" type="Node2D" parent="."]
 

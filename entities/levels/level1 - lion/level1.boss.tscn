@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://crrutmxfjrwdl"]
+[gd_scene load_steps=7 format=3 uid="uid://crrutmxfjrwdl"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_ox5k8"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_7qvbd"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="2_nxkkw"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_gv865"]
 [ext_resource type="PackedScene" uid="uid://d23gaoq4dfvey" path="res://entities/characters/lion/lion.tscn" id="4_7kodv"]
+[ext_resource type="PackedScene" uid="uid://d0425mtiogum2" path="res://entities/scenery/heart/heart.tscn" id="6_4u1km"]
 
 [node name="Level1_boss" type="Node2D"]
 
@@ -13,7 +14,7 @@
 [node name="UI" type="Node2D" parent="."]
 
 [node name="Menu" parent="UI" instance=ExtResource("1_ox5k8")]
-position = Vector2(-928, 374)
+position = Vector2(-960, -540)
 
 [node name="Timer" parent="UI" instance=ExtResource("2_nxkkw")]
 position = Vector2(-73, 712)
@@ -21,11 +22,31 @@ position = Vector2(-73, 712)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_7qvbd")]
-position = Vector2(-862, 246)
+position = Vector2(-828, 152)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
 position = Vector2(-727, -202)
 
 [node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
-position = Vector2(0, 133)
+position = Vector2(0, 128)
 scale = Vector2(0.75, 0.75)
+
+[node name="Hearts" type="HBoxContainer" parent="."]
+offset_left = -933.0
+offset_top = -507.0
+offset_right = -541.0
+offset_bottom = -378.0
+theme_override_constants/separation = 32
+metadata/_edit_group_ = true
+
+[node name="Heart" parent="Hearts" instance=ExtResource("6_4u1km")]
+layout_mode = 2
+heart_num = 1
+
+[node name="Heart2" parent="Hearts" instance=ExtResource("6_4u1km")]
+layout_mode = 2
+heart_num = 2
+
+[node name="Heart3" parent="Hearts" instance=ExtResource("6_4u1km")]
+layout_mode = 2
+heart_num = 3

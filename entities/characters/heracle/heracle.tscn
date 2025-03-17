@@ -664,8 +664,8 @@ size = Vector2(56, 196.5)
 size = Vector2(133, 51)
 
 [node name="Heracle" type="CharacterBody2D"]
-collision_layer = 64
-collision_mask = 2205
+collision_layer = 320
+collision_mask = 2717
 script = ExtResource("1_5gu3k")
 
 [node name="FlipHelper" type="Node2D" parent="."]
@@ -698,6 +698,8 @@ wait_time = 0.075
 wait_time = 5.0
 
 [node name="HitboxAttack" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxAttack"]
 position = Vector2(53.5, -35.5)

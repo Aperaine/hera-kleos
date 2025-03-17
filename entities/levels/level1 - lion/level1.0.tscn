@@ -1406,7 +1406,7 @@ scroll_offset = Vector2(103, -54)
 position = Vector2(-402, 561)
 
 [node name="Menu" parent="UI" instance=ExtResource("1_arrdw")]
-position = Vector2(-63, 960)
+position = Vector2(-103, 54)
 
 [node name="MouseSensitivityController" parent="UI" instance=ExtResource("5_meb5y")]
 
