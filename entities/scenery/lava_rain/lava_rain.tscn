@@ -7,6 +7,7 @@ size = Vector2(64, 80)
 
 [node name="LavaRain" type="Node2D"]
 script = ExtResource("1_kxmes")
+lava_thickness = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0

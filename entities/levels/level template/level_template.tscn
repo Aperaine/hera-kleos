@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6gk8vruer8d3"]
+[gd_scene load_steps=14 format=3 uid="uid://6gk8vruer8d3"]
 
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_5b1wp"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="2_8mytl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_undqn"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="6_wo5tk"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="7_mn1dl"]
+[ext_resource type="PackedScene" uid="uid://jewufo1b1h2d" path="res://entities/scenery/lava_rain/lava_rain.tscn" id="8_wq776"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inkwd"]
 size = Vector2(305, 402)
@@ -110,6 +111,17 @@ position = Vector2(-103, 54)
 [node name="Menu" parent="UI" instance=ExtResource("5_undqn")]
 position = Vector2(-103, 54)
 
+[node name="LavaRain" parent="UI" instance=ExtResource("8_wq776")]
+position = Vector2(552, 289)
+
+[node name="LavaRain2" parent="UI" instance=ExtResource("8_wq776")]
+position = Vector2(889, 268)
+lava_thickness = 1
+
+[node name="LavaRain3" parent="UI" instance=ExtResource("8_wq776")]
+position = Vector2(1250, 268)
+lava_thickness = 2
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("6_wo5tk")]
@@ -117,5 +129,6 @@ position = Vector2(240, 751)
 
 [node name="Hera" parent="Characters" instance=ExtResource("7_mn1dl")]
 position = Vector2(126, 112)
+platform_time = 1
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]
