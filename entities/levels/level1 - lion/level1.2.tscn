@@ -453,9 +453,9 @@ position = Vector2(-103, 54)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("5_v4ti5")]
-position = Vector2(2024, 688)
+position = Vector2(192, 688)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
-position = Vector2(4926, 352)
+position = Vector2(168, 136)
 
 [connection signal="body_entered" from="Damage/DamageCollider" to="Damage" method="_on_damage_collider_body_entered"]
