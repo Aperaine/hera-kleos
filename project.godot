@@ -13,7 +13,7 @@ config_version=5
 config/name="Hera-Kleos"
 run/main_scene="res://entities/levels/home/home.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/ui/icons/Icon.png"
 
 [autoload]
 

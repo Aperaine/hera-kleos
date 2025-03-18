@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iy61osx7x7lm"
-path="res://.godot/imported/castle_vase.PNG-5062357d560877a0dccd5ecd6deaca04.ctex"
+uid="uid://ci2066qs01ga6"
+path="res://.godot/imported/torch.PNG-44dd9ba6fd3feb4c66862cca091e8cbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/castle_vase.PNG"
-dest_files=["res://.godot/imported/castle_vase.PNG-5062357d560877a0dccd5ecd6deaca04.ctex"]
+source_file="res://assets/scenery/platforming/torch.PNG"
+dest_files=["res://.godot/imported/torch.PNG-44dd9ba6fd3feb4c66862cca091e8cbc.ctex"]
 
 [params]
 

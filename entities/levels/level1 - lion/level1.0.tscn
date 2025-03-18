@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=137 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" path="res://entities/levels/level_scene.gd" id="1_xfhhf"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="5_8iimk"]
 [ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="5_meb5y"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_8rhj6"]
-[ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="8_mv43i"]
+[ext_resource type="Texture2D" uid="uid://cir7dwx7g1d8w" path="res://assets/scenery/level1/background1_0.PNG" id="10_uua3p"]
+[ext_resource type="Texture2D" uid="uid://cvohdfhqjwtyv" path="res://assets/scenery/platforming/wooden_box.PNG" id="10_yf4v2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf2f2"]
 size = Vector2(227.5, 353)
@@ -265,7 +266,7 @@ size = Vector2(32, 568)
 size = Vector2(32, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6nj"]
-size = Vector2(104, 136)
+size = Vector2(136, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucwns"]
 size = Vector2(296, 632)
@@ -395,6 +396,23 @@ position = Vector2(979, 535)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_hb5yu")
+
+[node name="Backgrounds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sky" type="ColorRect" parent="Backgrounds"]
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(0.724407, 0.592461, 0.492853, 1)
+
+[node name="Background" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(960, 540)
+texture = ExtResource("10_uua3p")
+
+[node name="DarkenFilter" type="ColorRect" parent="Backgrounds"]
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(0.0935965, 0.0324378, 0.0268307, 0.431373)
 
 [node name="Screens" type="Node2D" parent="."]
 
@@ -1109,7 +1127,7 @@ position = Vector2(-129, -15)
 collision_mask = 64
 
 [node name="Screen1_21" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(2317, 827)
+position = Vector2(2333, 827)
 shape = SubResource("RectangleShape2D_id6nj")
 
 [node name="Screen1_22" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1388,12 +1406,16 @@ position = Vector2(18305, 479)
 shape = SubResource("RectangleShape2D_tmcpu")
 one_way_collision = true
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
 
-[node name="CastleVase" type="Sprite2D" parent="Node2D"]
-position = Vector2(2188, 810.766)
-scale = Vector2(0.151603, 0.130403)
-texture = ExtResource("8_mv43i")
+[node name="Screen2" type="Node2D" parent="Sprites"]
+
+[node name="WoodenBox" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2204.5, 811.643)
+scale = Vector2(0.141213, 0.141213)
+texture = ExtResource("10_yf4v2")
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)

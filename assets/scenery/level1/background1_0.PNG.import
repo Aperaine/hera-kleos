@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci2066qs01ga6"
-path="res://.godot/imported/catle_torch.PNG-50268361fc3c218e4a0e77408c446341.ctex"
+uid="uid://cir7dwx7g1d8w"
+path="res://.godot/imported/background1_0.PNG-9794edb69f47c039f8b9eaa52e1f2f7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/catle_torch.PNG"
-dest_files=["res://.godot/imported/catle_torch.PNG-50268361fc3c218e4a0e77408c446341.ctex"]
+source_file="res://assets/scenery/level1/background1_0.PNG"
+dest_files=["res://.godot/imported/background1_0.PNG-9794edb69f47c039f8b9eaa52e1f2f7a.ctex"]
 
 [params]
 

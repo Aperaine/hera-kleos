@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbr2kmyiq4dfp"
-path="res://.godot/imported/catle_columns_front.PNG-a4bdbe8166d8505434bdaf2a4a6ff369.ctex"
+uid="uid://cvohdfhqjwtyv"
+path="res://.godot/imported/wooden_box.PNG-b4beb89eaaceb31c3164e88f7a390789.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scenery/castle/catle_columns_front.PNG"
-dest_files=["res://.godot/imported/catle_columns_front.PNG-a4bdbe8166d8505434bdaf2a4a6ff369.ctex"]
+source_file="res://assets/scenery/platforming/wooden_box.PNG"
+dest_files=["res://.godot/imported/wooden_box.PNG-b4beb89eaaceb31c3164e88f7a390789.ctex"]
 
 [params]
 

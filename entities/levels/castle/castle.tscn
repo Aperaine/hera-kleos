@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://kqd4u6ko12pl" path="res://assets/scenery/castle/castle_floak.PNG" id="6_2dgh0"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_5uvbe"]
 [ext_resource type="Texture2D" uid="uid://b66237tlyiirx" path="res://assets/scenery/castle/floor.PNG" id="10_tojyt"]
-[ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/castle/castle_vase.PNG" id="13_v87kl"]
+[ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/platforming/vase_1.PNG" id="13_v87kl"]
 [ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="14_yvooc"]
 
 [node name="Castle" type="Node2D"]
