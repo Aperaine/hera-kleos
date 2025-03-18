@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/scenery/lava_rain/lava_rain.gd" id="1_kxmes"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vb5aw"]
-size = Vector2(64, 80)
+size = Vector2(32, 32)
 
 [node name="LavaRain" type="Node2D"]
 script = ExtResource("1_kxmes")
@@ -17,7 +17,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_vb5aw")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 16)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
