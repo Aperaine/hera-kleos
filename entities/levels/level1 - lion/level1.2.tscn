@@ -1,5 +1,6 @@
-[gd_scene load_steps=65 format=3 uid="uid://btudoiq2txe7f"]
+[gd_scene load_steps=66 format=3 uid="uid://btudoiq2txe7f"]
 
+[ext_resource type="Script" path="res://entities/levels/level_scene.gd" id="1_8ubry"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
 [ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_27mve"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="3_0afg3"]
@@ -171,7 +172,8 @@ size = Vector2(256, 72)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1xub"]
 size = Vector2(64, 32)
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="Level1_2" type="Node2D"]
+script = ExtResource("1_8ubry")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
