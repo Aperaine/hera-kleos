@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://btudoiq2txe7f"]
+[gd_scene load_steps=70 format=3 uid="uid://btudoiq2txe7f"]
 
 [ext_resource type="Script" path="res://entities/levels/level_scene.gd" id="1_8ubry"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
@@ -24,6 +24,9 @@ size = Vector2(256, 232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tv8i3"]
 size = Vector2(216, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n6vo"]
+size = Vector2(224, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tud7u"]
 size = Vector2(189, 202)
@@ -51,6 +54,9 @@ size = Vector2(256, 616)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea5gq"]
 size = Vector2(680, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmeaw"]
+size = Vector2(64, 564)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vah2r"]
 size = Vector2(185, 16)
@@ -110,7 +116,10 @@ size = Vector2(448, 64)
 size = Vector2(128, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5voh"]
-size = Vector2(60, 200)
+size = Vector2(64, 702)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpd82"]
+size = Vector2(1568, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ikhj"]
 size = Vector2(776, 32)
@@ -177,6 +186,7 @@ size = Vector2(64, 32)
 
 [node name="Level1_2" type="Node2D"]
 script = ExtResource("1_8ubry")
+hera_safe_pos = Vector2(100, 100)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -202,6 +212,7 @@ position = Vector2(6744, 540)
 
 [node name="Screen5" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
 position = Vector2(8672, 540)
+rotation = 0.00315953
 
 [node name="Screen6" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
 position = Vector2(10600, 540)
@@ -229,6 +240,9 @@ position = Vector2(3976, 688)
 [node name="CheckPoint4" parent="Obstacles/CheckPoints" instance=ExtResource("3_u2yap")]
 position = Vector2(5904, 680)
 
+[node name="CheckPoint5" parent="Obstacles/CheckPoints" instance=ExtResource("3_u2yap")]
+position = Vector2(7832, 685)
+
 [node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
 collision_layer = 1024
 collision_mask = 128
@@ -251,6 +265,11 @@ debug_color = Color(0.972413, 0, 0.441219, 0.42)
 [node name="LevelEnd4" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
 position = Vector2(7596, 758)
 shape = SubResource("RectangleShape2D_tv8i3")
+debug_color = Color(0.972413, 0, 0.441219, 0.42)
+
+[node name="LevelEnd5" type="CollisionShape2D" parent="Obstacles/LevelEnd"]
+position = Vector2(9520, 790)
+shape = SubResource("RectangleShape2D_3n6vo")
 debug_color = Color(0.972413, 0, 0.441219, 0.42)
 
 [node name="Obstacle Both" type="StaticBody2D" parent="Obstacles"]
@@ -302,6 +321,11 @@ debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
 position = Vector2(6022, 922)
 shape = SubResource("RectangleShape2D_ea5gq")
+debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
+position = Vector2(9786, 894)
+shape = SubResource("RectangleShape2D_dmeaw")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="Obstacle Hera" type="StaticBody2D" parent="Obstacles"]
@@ -424,8 +448,13 @@ shape = SubResource("RectangleShape2D_4a21h")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="CollisionShape2D33" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(8343, 257)
+position = Vector2(7471, 777)
 shape = SubResource("RectangleShape2D_p5voh")
+debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(8287, 1097)
+shape = SubResource("RectangleShape2D_vpd82")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
@@ -433,7 +462,7 @@ position = Vector2(327, -426)
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(5585, 266)
+position = Vector2(7281, 274)
 shape = SubResource("RectangleShape2D_tud7u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -558,13 +587,18 @@ lava_thickness = 1
 position = Vector2(6208, 552)
 
 [node name="LavaRain9" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
-position = Vector2(8208, 16)
+position = Vector2(8496, 16)
+lava_thickness = 2
+
+[node name="LavaRain10" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
+position = Vector2(9104, 16)
+spawn_interval = 5.0
 lava_thickness = 2
 
 [node name="Moving Platforms" type="Node2D" parent="Obstacles"]
 
 [node name="MovingPlatform" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
-position = Vector2(692, -676)
+position = Vector2(8248, 112)
 speed = 0.5
 
 [node name="Damage" type="Node2D" parent="."]
@@ -608,7 +642,7 @@ position = Vector2(-103, 54)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("5_v4ti5")]
-position = Vector2(184, 708)
+position = Vector2(7596, -400)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
 
