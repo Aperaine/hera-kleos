@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://btudoiq2txe7f"]
+[gd_scene load_steps=67 format=3 uid="uid://btudoiq2txe7f"]
 
 [ext_resource type="Script" path="res://entities/levels/level_scene.gd" id="1_8ubry"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
@@ -109,6 +109,9 @@ size = Vector2(448, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a21h"]
 size = Vector2(128, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5voh"]
+size = Vector2(60, 200)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ikhj"]
 size = Vector2(776, 32)
 
@@ -196,6 +199,21 @@ position = Vector2(4816, 540)
 
 [node name="Screen4" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
 position = Vector2(6744, 540)
+
+[node name="Screen5" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(8672, 540)
+
+[node name="Screen6" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(10600, 540)
+
+[node name="Screen7" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(12528, 540)
+
+[node name="Screen8" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(14456, 540)
+
+[node name="Screen9" parent="Obstacles/Screens" instance=ExtResource("3_0afg3")]
+position = Vector2(16384, 540)
 
 [node name="CheckPoints" type="Node2D" parent="Obstacles"]
 
@@ -405,6 +423,11 @@ position = Vector2(6479, 441)
 shape = SubResource("RectangleShape2D_4a21h")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
+position = Vector2(8343, 257)
+shape = SubResource("RectangleShape2D_p5voh")
+debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
+
 [node name="Obstacle Heracle" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(327, -426)
 collision_mask = 64
@@ -533,6 +556,10 @@ lava_thickness = 1
 
 [node name="LavaRain8" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
 position = Vector2(6208, 552)
+
+[node name="LavaRain9" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
+position = Vector2(8208, 16)
+lava_thickness = 2
 
 [node name="Moving Platforms" type="Node2D" parent="Obstacles"]
 
