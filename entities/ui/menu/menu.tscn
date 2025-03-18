@@ -137,6 +137,7 @@ metadata/_edit_group_ = true
 [node name="Home" type="Button" parent="Other"]
 custom_minimum_size = Vector2(145, 145)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("8_vf5gm")
 flat = true
@@ -145,6 +146,7 @@ expand_icon = true
 [node name="Castle" type="Button" parent="Other"]
 custom_minimum_size = Vector2(145, 145)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("7_wuk3m")
 flat = true
@@ -154,6 +156,7 @@ expand_icon = true
 [node name="Continue" type="Button" parent="Other"]
 custom_minimum_size = Vector2(145, 145)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("4_2v7si")
 flat = true
@@ -254,6 +257,8 @@ theme_override_constants/separation = 25
 [node name="Menu" type="Button" parent="UI2"]
 custom_minimum_size = Vector2(145, 145)
 layout_mode = 2
+focus_mode = 0
+action_mode = 0
 icon = ExtResource("12_aah85")
 flat = true
 icon_alignment = 1

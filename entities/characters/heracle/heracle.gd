@@ -33,32 +33,33 @@ func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
-	var input_dir: Vector2 = get_input_direction()
-	if not attacking:
-		move_character(input_dir)
-		apply_gravity()
-		handle_jump()
-		move_and_slide()
-		update_animation()
-		handle_death()
-	
-	collision_manager()
-	damage_manager()
-	
-	if Input.is_action_just_pressed("heracle-toggle"):
-		DataManager.switch_ability(DataManager.Characters.HERACLE)
-	
-	if Input.is_action_just_pressed("heracle-attack"):
-		var ability = DataManager.progress.selected_abilities[DataManager.Characters.HERACLE]
-		match ability:
-			DataManager.HeracleAbility.EMPTY:
-				animation.play("Punch")
-			DataManager.HeracleAbility.CLUB:
-				pass
-			DataManager.HeracleAbility.SWORD:
-				pass
-			DataManager.HeracleAbility.BOW: 
-				shoot_arrow()
+	if not DataManager.ram["game_paused"]:
+		var input_dir: Vector2 = get_input_direction()
+		if not attacking:
+			apply_gravity()
+			move_and_slide()
+			move_character(input_dir)
+			handle_jump()
+			update_animation()
+			handle_death()
+		
+		collision_manager()
+		damage_manager()
+		
+		if Input.is_action_just_pressed("heracle-toggle"):
+			DataManager.switch_ability(DataManager.Characters.HERACLE)
+		
+		if Input.is_action_just_pressed("heracle-attack"):
+			var ability = DataManager.progress.selected_abilities[DataManager.Characters.HERACLE]
+			match ability:
+				DataManager.HeracleAbility.EMPTY:
+					animation.play("Punch")
+				DataManager.HeracleAbility.CLUB:
+					pass
+				DataManager.HeracleAbility.SWORD:
+					pass
+				DataManager.HeracleAbility.BOW: 
+					shoot_arrow()
 
 func collision_manager():
 	for body in hitbox_attack.get_overlapping_areas():
