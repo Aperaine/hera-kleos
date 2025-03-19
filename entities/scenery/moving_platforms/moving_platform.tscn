@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://70iain5by00m"]
+[gd_scene load_steps=6 format=3 uid="uid://70iain5by00m"]
 
 [ext_resource type="Script" uid="uid://b0uykbdogsbgv" path="res://entities/scenery/moving_platforms/moving_platform.gd" id="1_svvnl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_11nux"]
-size = Vector2(152.5, 26.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v50kf"]
-size = Vector2(147.5, 29.5)
+size = Vector2(144, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyc5t"]
+size = Vector2(32, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abf7o"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olika"]
+size = Vector2(8, 8)
 
 [node name="MovingPlatform" type="Node2D"]
 script = ExtResource("1_svvnl")
@@ -14,10 +20,28 @@ script = ExtResource("1_svvnl")
 [node name="Obstacle Heracle" type="StaticBody2D" parent="."]
 collision_mask = 64
 
-[node name="Jumpable" type="CollisionShape2D" parent="Obstacle Heracle"]
-visible = false
-shape = SubResource("RectangleShape2D_11nux")
-one_way_collision = true
-
-[node name="NotJumpable" type="CollisionShape2D" parent="Obstacle Heracle"]
+[node name="Horizontal" type="CollisionShape2D" parent="Obstacle Heracle"]
 shape = SubResource("RectangleShape2D_v50kf")
+
+[node name="Vertical" type="CollisionShape2D" parent="Obstacle Heracle"]
+shape = SubResource("RectangleShape2D_wyc5t")
+
+[node name="HolderLeft" type="CollisionShape2D" parent="Obstacle Heracle"]
+position = Vector2(-68, -20)
+shape = SubResource("RectangleShape2D_abf7o")
+
+[node name="HolderRight" type="CollisionShape2D" parent="Obstacle Heracle"]
+position = Vector2(68, -20)
+shape = SubResource("RectangleShape2D_olika")
+
+[node name="Obstacle Hera" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 128
+
+[node name="Horizontal" type="CollisionShape2D" parent="Obstacle Hera"]
+shape = SubResource("RectangleShape2D_v50kf")
+debug_color = Color(0.687199, 0.494158, 0.208971, 0.42)
+
+[node name="Vertical" type="CollisionShape2D" parent="Obstacle Hera"]
+shape = SubResource("RectangleShape2D_wyc5t")
+debug_color = Color(0.619542, 0.526824, 0.261239, 0.42)

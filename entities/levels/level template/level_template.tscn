@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://6gk8vruer8d3"]
 
-[ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="1_5b1wp"]
+[ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/smart_camera.gd" id="1_5b1wp"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="2_8mytl"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="3_j2vrs"]
-[ext_resource type="Script" path="res://entities/levels/damage.gd" id="3_xu2tm"]
+[ext_resource type="Script" uid="uid://ba0of5vkrmkb" path="res://entities/levels/damage.gd" id="3_xu2tm"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="4_0lm6q"]
 [ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="5_5ki1j"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_undqn"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="6_wo5tk"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="7_mn1dl"]
-[ext_resource type="PackedScene" uid="uid://jewufo1b1h2d" path="res://entities/scenery/lava_rain/lava_rain.tscn" id="8_wq776"]
+[ext_resource type="PackedScene" uid="uid://70iain5by00m" path="res://entities/scenery/moving_platforms/moving_platform.tscn" id="10_m7xht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inkwd"]
 size = Vector2(305, 402)
@@ -111,56 +111,23 @@ position = Vector2(-103, 54)
 [node name="Menu" parent="UI" instance=ExtResource("5_undqn")]
 position = Vector2(-103, 54)
 
-[node name="LavaRain" parent="UI" instance=ExtResource("8_wq776")]
-position = Vector2(552, 289)
-
-[node name="LavaRain2" parent="UI" instance=ExtResource("8_wq776")]
-position = Vector2(889, 268)
-lava_thickness = 1
-
-[node name="LavaRain3" parent="UI" instance=ExtResource("8_wq776")]
-position = Vector2(1250, 268)
-lava_thickness = 2
-
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("6_wo5tk")]
 position = Vector2(240, 751)
 
 [node name="Hera" parent="Characters" instance=ExtResource("7_mn1dl")]
-position = Vector2(126, 112)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-platform_time = 1
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-platform_time = 1.0
-=======
-platform_time = 1
->>>>>>> ea85ea26e69b1848bcf5879c3dad74672332c9f5
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
+[node name="RAM" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="RAM" instance=ExtResource("10_m7xht")]
+position = Vector2(581, 680)
+
+[node name="MovingPlatform2" parent="RAM" instance=ExtResource("10_m7xht")]
+position = Vector2(925, 680)
+movement_direction = 1
+shape = 1
+damages_heracles = false
+damages_hera = true
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]
