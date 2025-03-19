@@ -794,5 +794,6 @@ position = Vector2(-103, 54)
 position = Vector2(9728, -256)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
+position = Vector2(88, 64)
 
 [connection signal="body_entered" from="Damage/DamageCollider" to="Damage" method="_on_damage_collider_body_entered"]
