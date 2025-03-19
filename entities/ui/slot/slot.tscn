@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dw7ncwcpgjdb3"]
 
-[ext_resource type="Script" path="res://entities/ui/slot/slot.gd" id="1_n5dgo"]
+[ext_resource type="Script" uid="uid://6vjjbhcqnppm" path="res://entities/ui/slot/slot.gd" id="1_n5dgo"]
 [ext_resource type="FontFile" uid="uid://b7rhygd3lisof" path="res://assets/ui/fonts/Monomakh-Regular.ttf" id="2_k88pe"]
-[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="3_fi36c"]
+[ext_resource type="Texture2D" uid="uid://d1iryhx4e01g5" path="res://icon.svg" id="3_fi36c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgpa8"]
 

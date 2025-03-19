@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhy60m2n1c6up"]
 
-[ext_resource type="Script" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.gd" id="1_02xtn"]
+[ext_resource type="Script" uid="uid://dtde158fwerkj" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.gd" id="1_02xtn"]
 
 [node name="MouseSensitivityController" type="Node2D"]
 script = ExtResource("1_02xtn")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://keoqw036preq"]
 
-[ext_resource type="Script" path="res://entities/characters/hera/hera.gd" id="1_kh3xf"]
+[ext_resource type="Script" uid="uid://coia1xkw47amw" path="res://entities/characters/hera/hera.gd" id="1_kh3xf"]
 [ext_resource type="Texture2D" uid="uid://q4xcb7extd2x" path="res://assets/spritesheets/hera/spritesheet_hera_main.png" id="2_1n1r1"]
 [ext_resource type="Texture2D" uid="uid://0jgy1w1l2lki" path="res://assets/spritesheets/hera/spritesheet_hera_death.png" id="3_do06f"]
 
@@ -366,10 +366,10 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ualr6"]
 _data = {
-"RESET": SubResource("Animation_w7qqc"),
-"death": SubResource("Animation_3v5un"),
-"idle": SubResource("Animation_rmlny"),
-"platform": SubResource("Animation_rj3n8")
+&"RESET": SubResource("Animation_w7qqc"),
+&"death": SubResource("Animation_3v5un"),
+&"idle": SubResource("Animation_rmlny"),
+&"platform": SubResource("Animation_rj3n8")
 }
 
 [node name="Hera" type="Node2D"]

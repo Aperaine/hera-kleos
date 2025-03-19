@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://be83omqxhq1ex"]
 
-[ext_resource type="Script" path="res://entities/characters/heracle/heracle.gd" id="1_5gu3k"]
+[ext_resource type="Script" uid="uid://b8u6y6l0timy0" path="res://entities/characters/heracle/heracle.gd" id="1_5gu3k"]
 [ext_resource type="Texture2D" uid="uid://b5h6y086gvd71" path="res://assets/spritesheets/heracle/spritesheet_heracle_move.png" id="2_6haaj"]
 [ext_resource type="Texture2D" uid="uid://dm5mgl6k54i1h" path="res://assets/spritesheets/heracle/spritesheet_heracle_punch.png" id="3_cwsqo"]
 
@@ -652,12 +652,12 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j10jm"]
 _data = {
-"Idle": SubResource("Animation_n73ib"),
-"IdleJump": SubResource("Animation_ndger"),
-"Punch": SubResource("Animation_kl02d"),
-"RESET": SubResource("Animation_qfa3c"),
-"Run": SubResource("Animation_anwv6"),
-"RunJump": SubResource("Animation_r8i30")
+&"Idle": SubResource("Animation_n73ib"),
+&"IdleJump": SubResource("Animation_ndger"),
+&"Punch": SubResource("Animation_kl02d"),
+&"RESET": SubResource("Animation_qfa3c"),
+&"Run": SubResource("Animation_anwv6"),
+&"RunJump": SubResource("Animation_r8i30")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwid3"]

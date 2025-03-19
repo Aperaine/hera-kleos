@@ -1,15 +1,15 @@
 [gd_scene load_steps=85 format=3 uid="uid://btudoiq2txe7f"]
 
-[ext_resource type="Script" path="res://entities/levels/level_scene.gd" id="1_8ubry"]
+[ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scene.gd" id="1_8ubry"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
-[ext_resource type="Script" path="res://entities/levels/smart_camera.gd" id="2_27mve"]
+[ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/smart_camera.gd" id="2_27mve"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="3_0afg3"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="3_u2yap"]
 [ext_resource type="PackedScene" uid="uid://jewufo1b1h2d" path="res://entities/scenery/lava_rain/lava_rain.tscn" id="4_0u3nl"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="4_l16er"]
 [ext_resource type="PackedScene" uid="uid://70iain5by00m" path="res://entities/scenery/moving_platforms/moving_platform.tscn" id="5_ivl2x"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="5_v4ti5"]
-[ext_resource type="Script" path="res://entities/levels/damage.gd" id="6_63wwy"]
+[ext_resource type="Script" uid="uid://ba0of5vkrmkb" path="res://entities/levels/damage.gd" id="6_63wwy"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="6_sblwk"]
 [ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="6_ss548"]
 

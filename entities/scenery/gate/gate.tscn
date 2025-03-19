@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://5i7i8hwawflb"]
 
-[ext_resource type="Script" path="res://entities/scenery/gate/gate.gd" id="1_iw1ko"]
+[ext_resource type="Script" uid="uid://msy1i4d2owk6" path="res://entities/scenery/gate/gate.gd" id="1_iw1ko"]
 [ext_resource type="Texture2D" uid="uid://bt3ebkw3h0ojb" path="res://assets/scenery/castle/castle_gate.PNG" id="2_rqlr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m67g0"]

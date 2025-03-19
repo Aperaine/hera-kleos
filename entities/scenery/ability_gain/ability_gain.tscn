@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d18bjr7ocmug3"]
 
-[ext_resource type="Script" path="res://entities/scenery/ability_gain/ability_gain.gd" id="1_ge3gg"]
+[ext_resource type="Script" uid="uid://bip20btdctrov" path="res://entities/scenery/ability_gain/ability_gain.gd" id="1_ge3gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pom04"]
 size = Vector2(16, 16)

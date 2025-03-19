@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxvsmqf7d4b88"]
 
-[ext_resource type="Script" path="res://entities/characters/king/king.gd" id="1_5k5iq"]
+[ext_resource type="Script" uid="uid://bxx8vmp7w86gk" path="res://entities/characters/king/king.gd" id="1_5k5iq"]
 [ext_resource type="Texture2D" uid="uid://c4w4qn1qt7v88" path="res://assets/spritesheets/king/spritesheet_king.png" id="1_j5wub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqdkx"]
@@ -324,10 +324,10 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_76m6a"]
 _data = {
-"RESET": SubResource("Animation_owpy4"),
-"angry": SubResource("Animation_5uhfo"),
-"idle": SubResource("Animation_kfqxu"),
-"surprised": SubResource("Animation_67rn1")
+&"RESET": SubResource("Animation_owpy4"),
+&"angry": SubResource("Animation_5uhfo"),
+&"idle": SubResource("Animation_kfqxu"),
+&"surprised": SubResource("Animation_67rn1")
 }
 
 [node name="King" type="Node2D"]

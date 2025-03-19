@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkwcwup01wpre"]
 
-[ext_resource type="Script" path="res://entities/scenery/moving_platforms/moving_platform.gd" id="1_1oehq"]
+[ext_resource type="Script" uid="uid://b0uykbdogsbgv" path="res://entities/scenery/moving_platforms/moving_platform.gd" id="1_1oehq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11nux"]
 size = Vector2(152.5, 26.5)

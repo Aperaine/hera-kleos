@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0425mtiogum2"]
 
-[ext_resource type="Script" path="res://entities/scenery/heart/heart.gd" id="1_a2x8t"]
-[ext_resource type="Texture2D" uid="uid://dm85ijxv5odu5" path="res://icon.svg" id="2_s2lxt"]
+[ext_resource type="Script" uid="uid://bate1w4ulk0xs" path="res://entities/scenery/heart/heart.gd" id="1_a2x8t"]
+[ext_resource type="Texture2D" uid="uid://d1iryhx4e01g5" path="res://icon.svg" id="2_s2lxt"]
 
 [node name="Heart" type="Control"]
 custom_minimum_size = Vector2(128, 129)

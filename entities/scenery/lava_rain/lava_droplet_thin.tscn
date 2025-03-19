@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qiaow7332751"]
 
-[ext_resource type="Script" path="res://entities/scenery/lava_rain/lava_droplet.gd" id="1_0j5ia"]
+[ext_resource type="Script" uid="uid://ojyf18fqubar" path="res://entities/scenery/lava_rain/lava_droplet.gd" id="1_0j5ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6th11"]
 size = Vector2(32, 96)
