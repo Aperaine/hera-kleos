@@ -23,6 +23,7 @@ enum ContainerShape {
 @export var shape: ContainerShape = ContainerShape.Brick
 @export var damages_heracles: bool = true
 @export var damages_hera: bool = false
+@export var start_with_right: bool = true
 
 var start_position: Vector2 
 
@@ -33,8 +34,8 @@ func _ready() -> void:
 			$"Obstacle Hera/Horizontal".disabled = false
 			$"Obstacle Hera/Vertical".disabled = true
 		else:
-			$"Obstacle Hera/Horizontal".disabled = false
-			$"Obstacle Hera/Vertical".disabled = true
+			$"Obstacle Hera/Horizontal".disabled = true
+			$"Obstacle Hera/Vertical".disabled = false
 	else:
 		$"Obstacle Hera/Horizontal".disabled = true
 		$"Obstacle Hera/Vertical".disabled = true
@@ -64,11 +65,14 @@ func _process(delta: float) -> void:
 	var t = Time.get_ticks_msec() / 1000.0 * speed
 	
 	var offset := 0.0
-
+	
 	if movement == MovementStyle.sin:
 		offset = sin(t * PI * 2) * (distance / 2)
 	elif movement == MovementStyle.linear:
 		offset = pingpong(t * distance, distance) - (distance / 2)
+	
+	if not start_with_right:
+		offset = -offset
 	
 	if movement_direction == MovementDirection.horizontal:
 		position.x = start_position.x + offset
