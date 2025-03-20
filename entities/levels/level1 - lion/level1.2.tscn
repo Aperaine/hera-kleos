@@ -843,6 +843,7 @@ distance = 275.0
 movement = 1
 damages_heracles = false
 damages_hera = true
+start_with_right = false
 
 [node name="MovingPlatform5" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
 position = Vector2(9840, 704)

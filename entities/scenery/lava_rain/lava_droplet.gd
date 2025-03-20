@@ -1,10 +1,11 @@
 extends Area2D
 
-const FALL_SPEED = 500
+var fall_speed: float = 500
 var active: bool = true
 
 func _physics_process(delta: float) -> void:
-	if active: position.y += FALL_SPEED * delta
+	if active: 
+		position.y += fall_speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Heracle":

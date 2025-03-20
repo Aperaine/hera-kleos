@@ -45,3 +45,5 @@ debug_color = Color(0.687199, 0.494158, 0.208971, 0.42)
 [node name="Vertical" type="CollisionShape2D" parent="Obstacle Hera"]
 shape = SubResource("RectangleShape2D_wyc5t")
 debug_color = Color(0.619542, 0.526824, 0.261239, 0.42)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

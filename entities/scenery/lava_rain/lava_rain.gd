@@ -1,3 +1,4 @@
+# lava_rain.gd
 extends Node2D
 
 enum lava_type {
@@ -6,8 +7,9 @@ enum lava_type {
 	thin,
 }
 
-@export var spawn_interval: float = .2
+@export var spawn_interval: float = 0.2
 @export var lava_thickness: lava_type = lava_type.medium
+@export var droplet_fall_speed: float = 500
 
 var droplet_scene_thick = preload("res://entities/scenery/lava_rain/lava_droplet_thick.tscn")
 var droplet_scene_medium = preload("res://entities/scenery/lava_rain/lava_droplet_medium.tscn")
@@ -34,4 +36,6 @@ func spawn_droplet() -> void:
 			droplet = droplet_scene_medium.instantiate()
 		lava_type.thin:
 			droplet = droplet_scene_thin.instantiate()
+	
+	droplet.fall_speed = droplet_fall_speed
 	add_child(droplet)
