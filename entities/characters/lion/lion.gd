@@ -10,5 +10,14 @@ func _ready() -> void:
 	$FlipHelper.scale.x = -1
 
 func _process(delta: float) -> void:
-	if DataManager.ram["boss_health"] < 0:
+	if 99 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 100:
+		$AnimationPlayer.play("Scream")
+	elif 90 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 99:
+		$AnimationPlayer.play("Walk")
+		position.x += 10
+	elif 40 <DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 90:
+		$AnimationPlayer.play("Idle")
+	elif 0 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 40:
+		pass
+	else:
 		$FlipHelper/Sprite.modulate.a = 0.5
