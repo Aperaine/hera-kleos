@@ -122,7 +122,7 @@ position = Vector2(240, 751)
 
 [node name="MovingPlatform" parent="RAM" instance=ExtResource("10_m7xht")]
 position = Vector2(581, 680)
-damages_heracles = false
+shape = 1
 
 [node name="MovingPlatform2" parent="RAM" instance=ExtResource("10_m7xht")]
 position = Vector2(925, 680)
