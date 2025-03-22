@@ -19,11 +19,6 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
-<<<<<<< HEAD
-[gd_scene load_steps=148 format=3 uid="uid://b8myray4kapxq"]
-=======
-[gd_scene load_steps=138 format=3 uid="uid://b8myray4kapxq"]
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1528,40 +1523,6 @@ position = Vector2(19, 0)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-position = Vector2(21669, 1704)
-=======
->>>>>>> Stashed changes
 position = Vector2(251, 690)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
