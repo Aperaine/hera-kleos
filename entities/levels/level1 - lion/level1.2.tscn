@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://btudoiq2txe7f"]
+[gd_scene load_steps=148 format=3 uid="uid://btudoiq2txe7f"]
 
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scene.gd" id="1_8ubry"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
@@ -414,6 +414,9 @@ size = Vector2(760, 31.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uooh"]
 size = Vector2(776, 31.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljf2k"]
+size = Vector2(924, 31.5)
 
 [node name="Level1_2" type="Node2D"]
 script = ExtResource("1_8ubry")
@@ -971,7 +974,7 @@ position = Vector2(327, -426)
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(16329, 378)
+position = Vector2(18833, 346)
 shape = SubResource("RectangleShape2D_tud7u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1262,6 +1265,9 @@ lava_thickness = 2
 [node name="LavaRain14" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
 position = Vector2(16720, 48)
 
+[node name="LavaRain15" parent="Obstacles/Lavas" instance=ExtResource("4_0u3nl")]
+position = Vector2(20800, 30)
+
 [node name="Moving Platforms" type="Node2D" parent="Obstacles"]
 
 [node name="MovingPlatform" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
@@ -1449,6 +1455,120 @@ movement = 1
 damages_heracles = false
 damages_hera = true
 
+[node name="MovingPlatform26" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19464, 184)
+distance = 100.0
+movement = 1
+damages_heracles = false
+damages_hera = true
+
+[node name="MovingPlatform27" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19464, 392)
+distance = 100.0
+movement = 1
+damages_heracles = false
+damages_hera = true
+start_with_right = false
+
+[node name="MovingPlatform28" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19464, 600)
+distance = 100.0
+movement = 1
+damages_heracles = false
+damages_hera = true
+
+[node name="MovingPlatform29" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19664, 96)
+speed = 0.5
+distance = 50.0
+movement = 1
+movement_direction = 1
+shape = 1
+damages_heracles = false
+damages_hera = true
+
+[node name="MovingPlatform30" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19664, 272)
+speed = 0.5
+distance = 50.0
+movement = 1
+movement_direction = 1
+shape = 1
+damages_heracles = false
+damages_hera = true
+
+[node name="MovingPlatform31" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19664, 648)
+distance = 300.0
+movement = 1
+movement_direction = 1
+shape = 1
+damages_hera = true
+
+[node name="MovingPlatform32" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(19848, 776)
+speed = 0.5
+movement = 1
+movement_direction = 1
+damages_hera = true
+
+[node name="MovingPlatform33" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20048, 448)
+distance = 200.0
+movement = 1
+damages_heracles = false
+damages_hera = true
+
+[node name="MovingPlatform34" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20226, 446)
+speed = 0.5
+movement = 1
+movement_direction = 1
+shape = 1
+
+[node name="MovingPlatform35" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20224, 256)
+distance = 250.0
+movement = 1
+
+[node name="MovingPlatform36" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20496, 344)
+speed = 0.5
+distance = 50.0
+movement = 1
+movement_direction = 1
+shape = 1
+
+[node name="MovingPlatform37" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20496, 544)
+speed = 0.5
+distance = 50.0
+movement = 1
+movement_direction = 1
+shape = 1
+damages_hera = true
+
+[node name="MovingPlatform38" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20496, 738)
+speed = 0.5
+distance = 50.0
+movement = 1
+movement_direction = 1
+shape = 1
+damages_hera = true
+
+[node name="MovingPlatform39" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20048, 448)
+distance = 200.0
+movement = 1
+damages_heracles = false
+damages_hera = true
+
+[node name="MovingPlatform40" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
+position = Vector2(20800, 446)
+speed = 0.5
+movement = 1
+
 [node name="Damage" type="Node2D" parent="."]
 position = Vector2(1050, 265)
 script = ExtResource("6_63wwy")
@@ -1547,6 +1667,12 @@ shape = SubResource("RectangleShape2D_7uooh")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Damage/DamageCollider"]
+position = Vector2(19416, 591)
+shape = SubResource("RectangleShape2D_ljf2k")
+debug_color = Color(0.990211, 0, 0.281134, 0.42)
+metadata/_edit_group_ = true
+
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
@@ -1562,7 +1688,7 @@ position = Vector2(-103, 54)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Heracle" parent="Characters" instance=ExtResource("5_v4ti5")]
-position = Vector2(16640, -208)
+position = Vector2(19136, -272)
 
 [node name="Hera" parent="Characters" instance=ExtResource("6_sblwk")]
 position = Vector2(112, 88)
