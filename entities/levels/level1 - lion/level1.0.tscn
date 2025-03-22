@@ -1,11 +1,17 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=138 format=3 uid="uid://b8myray4kapxq"]
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 [gd_scene load_steps=148 format=3 uid="uid://b8myray4kapxq"]
 =======
 [gd_scene load_steps=138 format=3 uid="uid://b8myray4kapxq"]
 >>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
@@ -1485,6 +1491,12 @@ position = Vector2(19, 0)
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+position = Vector2(21669, 1704)
+=======
+>>>>>>> Stashed changes
 =======
 <<<<<<< HEAD
 position = Vector2(21669, 1704)
@@ -1495,6 +1507,10 @@ position = Vector2(251, 690)
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
+>>>>>>> Stashed changes
 =======
 >>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
 >>>>>>> Stashed changes
