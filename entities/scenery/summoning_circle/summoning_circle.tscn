@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2ls6e45t2i5"]
+
+[ext_resource type="Texture2D" uid="uid://b6vfng4cfb1ik" path="res://assets/scenery/power-ups/summoning_circle.PNG" id="1_jb7lw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jb7lw"]
+radius = 88.0
+
+[node name="SummoningCircle" type="CollisionShape2D"]
+shape = SubResource("CircleShape2D_jb7lw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.52588e-05, 1.52588e-05)
+scale = Vector2(0.130952, 0.130952)
+texture = ExtResource("1_jb7lw")
