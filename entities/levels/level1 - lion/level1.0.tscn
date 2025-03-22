@@ -1,43 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 [gd_scene load_steps=138 format=3 uid="uid://b8myray4kapxq"]
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scene.gd" id="1_xfhhf"]
@@ -1515,43 +1476,7 @@ position = Vector2(-103, 54)
 position = Vector2(19, 0)
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 position = Vector2(251, 690)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
-=======
->>>>>>> f6978abebd50d6267f7f8f7c4bf0708acb5eaceb
->>>>>>> Stashed changes
