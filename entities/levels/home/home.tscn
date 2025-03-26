@@ -1,40 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://cava423x286u4"]
+[gd_scene load_steps=4 format=3 uid="uid://cava423x286u4"]
 
 [ext_resource type="PackedScene" uid="uid://dw7ncwcpgjdb3" path="res://entities/ui/slot/slot.tscn" id="1_8ypcq"]
+[ext_resource type="Texture2D" uid="uid://bppeq6nkadanp" path="res://assets/scenery/level1/sky1_0.PNG" id="1_e60si"]
+[ext_resource type="Texture2D" uid="uid://ba1cutmn1hv2" path="res://assets/scenery/level1/background1_2.PNG" id="1_pwm5x"]
 
 [node name="Home" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Slots" type="VBoxContainer" parent="."]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -408.0
-offset_right = 866.0
-offset_bottom = 404.0
+[node name="Sky10" type="Sprite2D" parent="."]
+position = Vector2(3, 1)
+scale = Vector2(1.00556, 1.00556)
+texture = ExtResource("1_e60si")
+
+[node name="Background12" type="Sprite2D" parent="."]
+position = Vector2(-53, 45)
+scale = Vector2(1.22326, 1.22326)
+texture = ExtResource("1_pwm5x")
+
+[node name="DarkenFilter2" type="ColorRect" parent="."]
+offset_left = -983.0
+offset_top = -558.0
+offset_right = 987.0
+offset_bottom = 550.0
+color = Color(0.219608, 0.168627, 0.160784, 0.341176)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Spacer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+
+[node name="Slots" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/separation = 90
+theme_override_constants/separation = 50
 alignment = 1
 metadata/_edit_group_ = true
 
-[node name="Slot1" parent="Slots" instance=ExtResource("1_8ypcq")]
+[node name="Slot1" parent="HBoxContainer/Slots" instance=ExtResource("1_8ypcq")]
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot2" parent="Slots" instance=ExtResource("1_8ypcq")]
+[node name="Slot2" parent="HBoxContainer/Slots" instance=ExtResource("1_8ypcq")]
 layout_mode = 2
 slot_num = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot3" parent="Slots" instance=ExtResource("1_8ypcq")]
+[node name="Slot3" parent="HBoxContainer/Slots" instance=ExtResource("1_8ypcq")]
 layout_mode = 2
 slot_num = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot4" parent="Slots" instance=ExtResource("1_8ypcq")]
+[node name="Slot4" parent="HBoxContainer/Slots" instance=ExtResource("1_8ypcq")]
 layout_mode = 2
 slot_num = 3
 metadata/_edit_use_anchors_ = true

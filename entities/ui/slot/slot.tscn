@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw7ncwcpgjdb3"]
+[gd_scene load_steps=10 format=3 uid="uid://dw7ncwcpgjdb3"]
 
 [ext_resource type="Script" uid="uid://6vjjbhcqnppm" path="res://entities/ui/slot/slot.gd" id="1_n5dgo"]
 [ext_resource type="FontFile" uid="uid://b7rhygd3lisof" path="res://assets/ui/fonts/Monomakh-Regular.ttf" id="2_k88pe"]
-[ext_resource type="Texture2D" uid="uid://d1iryhx4e01g5" path="res://icon.svg" id="3_fi36c"]
+[ext_resource type="Texture2D" uid="uid://cu8fpmfy721sn" path="res://assets/ui/slot/HeraDeath.PNG" id="4_dnks5"]
+[ext_resource type="Texture2D" uid="uid://qr2dkvqnmi04" path="res://assets/ui/slot/HeracleDeath.PNG" id="4_h3d86"]
+[ext_resource type="Texture2D" uid="uid://wsn3m8jf62xp" path="res://assets/ui/slot/Play.PNG" id="4_hcgwb"]
+[ext_resource type="Texture2D" uid="uid://cx8xyawagtf4h" path="res://assets/ui/slot/Trash.PNG" id="5_dnks5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgpa8"]
 
@@ -11,7 +14,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ric2a"]
 
 [node name="Slot" type="Control"]
-custom_minimum_size = Vector2(900, 128)
+custom_minimum_size = Vector2(900, 170)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
@@ -26,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.243137, 0.0941176, 0.0235294, 0.305882)
+color = Color(0.219608, 0.168627, 0.156863, 1)
 
 [node name="Empty" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -44,14 +47,14 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="NameInput" type="LineEdit" parent="Empty"]
-custom_minimum_size = Vector2(750, 0)
+custom_minimum_size = Vector2(720, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k88pe")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sgpa8")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_god16")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ric2a")
-max_length = 14
+max_length = 12
 flat = true
 
 [node name="Add" type="Button" parent="Empty"]
@@ -59,13 +62,13 @@ clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k88pe")
-icon = ExtResource("3_fi36c")
+icon = ExtResource("4_hcgwb")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
 [node name="SpacerRight" type="MarginContainer" parent="Empty"]
-custom_minimum_size = Vector2(32, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="Created" type="HBoxContainer" parent="."]
@@ -83,6 +86,10 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="Info" type="VBoxContainer" parent="Created"]
+layout_mode = 2
+
+[node name="SpaceTop" type="MarginContainer" parent="Created/Info"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="SpacerLeft" type="MarginContainer" parent="Created/Info"]
@@ -112,12 +119,19 @@ layout_mode = 2
 [node name="DeathHeracle" type="Label" parent="Created/Info/Stats"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "💀"
+text = "X"
 
-[node name="DeathHeracleImage" type="Label" parent="Created/Info/Stats"]
+[node name="Spacer" type="MarginContainer" parent="Created/Info/Stats"]
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "🕺"
+
+[node name="DeathHeracleImage" type="TextureRect" parent="Created/Info/Stats"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+texture = ExtResource("4_h3d86")
+expand_mode = 3
+stretch_mode = 4
+flip_h = true
 
 [node name="Spacer2" type="MarginContainer" parent="Created/Info/Stats"]
 custom_minimum_size = Vector2(32, 0)
@@ -126,12 +140,17 @@ layout_mode = 2
 [node name="DeathHera" type="Label" parent="Created/Info/Stats"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "💀"
+text = "X"
 
-[node name="DeathHeraImage" type="Label" parent="Created/Info/Stats"]
+[node name="SpacerLeft" type="MarginContainer" parent="Created/Info/Stats"]
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "🪽"
+
+[node name="DeathHeraImage" type="TextureRect" parent="Created/Info/Stats"]
+layout_mode = 2
+texture = ExtResource("4_dnks5")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="SpacerMiddle" type="Control" parent="Created"]
 layout_mode = 2
@@ -143,8 +162,10 @@ custom_minimum_size = Vector2(96, 128)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
-text = "🎮"
+icon = ExtResource("4_hcgwb")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Delete" type="Button" parent="Created"]
 clip_contents = true
@@ -152,8 +173,10 @@ custom_minimum_size = Vector2(96, 128)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
-text = "🗑️"
+icon = ExtResource("5_dnks5")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="SpacerRight" type="MarginContainer" parent="Created"]
 custom_minimum_size = Vector2(32, 0)
