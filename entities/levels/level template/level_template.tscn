@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://6gk8vruer8d3"]
+[gd_scene load_steps=16 format=3 uid="uid://6gk8vruer8d3"]
 
-[ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/smart_camera.gd" id="1_5b1wp"]
+[ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/level_scripts/smart_camera.gd" id="1_5b1wp"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="2_8mytl"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="3_j2vrs"]
-[ext_resource type="Script" uid="uid://ba0of5vkrmkb" path="res://entities/levels/damage.gd" id="3_xu2tm"]
+[ext_resource type="Script" uid="uid://ba0of5vkrmkb" path="res://entities/levels/level_scripts/damage.gd" id="3_xu2tm"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="4_0lm6q"]
 [ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="5_5ki1j"]
+[ext_resource type="Script" uid="uid://j2i0omechlt0" path="res://entities/levels/level_scripts/teleporter.gd" id="5_kn0he"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_undqn"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="6_wo5tk"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="7_mn1dl"]
@@ -19,6 +20,9 @@ size = Vector2(189, 202)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgluk"]
 size = Vector2(228, 182.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn0he"]
+size = Vector2(154, 140)
 
 [node name="LevelTemplate" type="Node2D"]
 
@@ -98,6 +102,18 @@ position = Vector2(-245, -684)
 shape = SubResource("RectangleShape2D_hgluk")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
+
+[node name="Teleporter" type="Node2D" parent="Obstacles"]
+position = Vector2(0, 625)
+script = ExtResource("5_kn0he")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Obstacles/Teleporter"]
+collision_layer = 2048
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Teleporter/Area2D"]
+shape = SubResource("RectangleShape2D_kn0he")
 
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)

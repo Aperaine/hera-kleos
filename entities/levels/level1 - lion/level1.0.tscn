@@ -1,8 +1,8 @@
-[gd_scene load_steps=159 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=162 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
-[ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scene.gd" id="1_xfhhf"]
-[ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/smart_camera.gd" id="2_hb5yu"]
+[ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_xfhhf"]
+[ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/level_scripts/smart_camera.gd" id="2_hb5yu"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_nx8qt"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_leplu"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="5_8iimk"]
@@ -11,10 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://dt2ls6e45t2i5" path="res://entities/scenery/summoning_circle/summoning_circle.tscn" id="7_coipd"]
 [ext_resource type="Texture2D" uid="uid://freyvbpp2cqk" path="res://assets/scenery/platforming/column_short_1.PNG" id="8_1eock"]
 [ext_resource type="Texture2D" uid="uid://b1e12u3sbgs5h" path="res://assets/scenery/platforming/column_large_1_hera.PNG" id="8_eyc8h"]
+[ext_resource type="Texture2D" uid="uid://4waync37ip4k" path="res://assets/scenery/platforming/fence_hera.PNG" id="10_usren"]
 [ext_resource type="Texture2D" uid="uid://cir7dwx7g1d8w" path="res://assets/scenery/level1/background1_0.PNG" id="10_uua3p"]
 [ext_resource type="Texture2D" uid="uid://cvohdfhqjwtyv" path="res://assets/scenery/platforming/wooden_box.PNG" id="10_yf4v2"]
+[ext_resource type="Texture2D" uid="uid://b0pwwpnol4kii" path="res://assets/scenery/platforming/platform.PNG" id="11_6ej7y"]
+[ext_resource type="Script" uid="uid://j2i0omechlt0" path="res://entities/levels/level_scripts/teleporter.gd" id="11_eyc8h"]
 [ext_resource type="Texture2D" uid="uid://bppeq6nkadanp" path="res://assets/scenery/level1/sky1_0.PNG" id="11_puo1r"]
 [ext_resource type="Texture2D" uid="uid://fnrl4g0qefvi" path="res://assets/scenery/level1/background1_1.PNG" id="12_c2o3m"]
+[ext_resource type="Texture2D" uid="uid://c85f7sian7kwb" path="res://assets/scenery/platforming/fence.PNG" id="15_jeq5a"]
+[ext_resource type="Texture2D" uid="uid://bbr2kmyiq4dfp" path="res://assets/scenery/platforming/column_large_1.PNG" id="18_6ej7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18t6d"]
 size = Vector2(96, 416)
@@ -142,13 +147,13 @@ size = Vector2(128, 688)
 size = Vector2(128, 688)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fewob"]
-size = Vector2(384, 120)
+size = Vector2(272, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn1t5"]
-size = Vector2(120, 464)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6jvd"]
+size = Vector2(120, 576)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_602dq"]
-size = Vector2(160, 648)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq6y5"]
+size = Vector2(128, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkchi"]
 size = Vector2(104, 696)
@@ -159,20 +164,20 @@ size = Vector2(800, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74hnc"]
 size = Vector2(800, 120)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hewbu"]
-size = Vector2(192, 432)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slmc4"]
+size = Vector2(280, 432)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnuo5"]
-size = Vector2(312, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bqnq"]
+size = Vector2(312, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1b3hw"]
-size = Vector2(320, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebw0e"]
+size = Vector2(320, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvhpb"]
-size = Vector2(32, 496)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijtb1"]
+size = Vector2(16, 496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74g8s"]
-size = Vector2(32, 488)
+size = Vector2(16, 488)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk2gf"]
 size = Vector2(108, 217)
@@ -300,8 +305,8 @@ size = Vector2(32, 704)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6nj"]
 size = Vector2(136, 136)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucwns"]
-size = Vector2(296, 632)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huewr"]
+size = Vector2(288, 632)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r03my"]
 size = Vector2(328, 560)
@@ -313,7 +318,7 @@ size = Vector2(168, 32)
 size = Vector2(168, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmh2c"]
-size = Vector2(232, 24)
+size = Vector2(152, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ofpg"]
 size = Vector2(168, 24)
@@ -322,13 +327,13 @@ size = Vector2(168, 24)
 size = Vector2(200, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvh3k"]
-size = Vector2(256, 32)
+size = Vector2(278, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scfwr"]
-size = Vector2(320, 32)
+size = Vector2(128, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlhuo"]
-size = Vector2(344, 32)
+size = Vector2(320, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nit42"]
 size = Vector2(208, 192)
@@ -336,11 +341,11 @@ size = Vector2(208, 192)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fxdl"]
 size = Vector2(144, 184)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdpjj"]
-size = Vector2(397, 33.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sotej"]
+size = Vector2(200, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6i00"]
-size = Vector2(200, 528)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq351"]
+size = Vector2(120, 432)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6xtl"]
 size = Vector2(96, 206)
@@ -348,20 +353,11 @@ size = Vector2(96, 206)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbfr"]
 size = Vector2(108, 203.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_seosi"]
-size = Vector2(101.5, 877)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_smnrj"]
-size = Vector2(495, 22)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02puo"]
-size = Vector2(1012, 19.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jev1y"]
 size = Vector2(47.9995, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l3gq"]
-size = Vector2(1088, 24)
+size = Vector2(1152, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skemj"]
 size = Vector2(376, 40)
@@ -444,16 +440,23 @@ size = Vector2(136, 328)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmcpu"]
 size = Vector2(240, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v22b"]
+size = Vector2(904, 208)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_xfhhf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(979, 535)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_hb5yu")
+metadata/_edit_lock_ = true
 
 [node name="Screens" type="Node2D" parent="."]
+visible = false
+metadata/_edit_lock_ = true
 
 [node name="Screen0" parent="Screens" instance=ExtResource("5_8iimk")]
 position = Vector2(960, 540)
@@ -488,10 +491,8 @@ position = Vector2(18304, 540)
 [node name="Screen10" parent="Screens" instance=ExtResource("5_8iimk")]
 position = Vector2(20240.2, 540.75)
 
-[node name="Screen11" parent="Screens" instance=ExtResource("5_8iimk")]
-position = Vector2(20344, 1686.75)
-
 [node name="Backgrounds" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Pernament_back" type="Parallax2D" parent="Backgrounds"]
 scroll_scale = Vector2(0, 0)
@@ -506,44 +507,44 @@ texture = ExtResource("11_puo1r")
 position = Vector2(960, 540)
 texture = ExtResource("10_uua3p")
 
-[node name="Background11" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(2888, 516)
-texture = ExtResource("12_c2o3m")
-
 [node name="Background2" type="Sprite2D" parent="Backgrounds/Temporary"]
+position = Vector2(2888, 540)
+texture = ExtResource("10_uua3p")
+
+[node name="Background3" type="Sprite2D" parent="Backgrounds/Temporary"]
 position = Vector2(4816, 540)
 texture = ExtResource("10_uua3p")
 
-[node name="Background12" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(6744, 516)
-texture = ExtResource("12_c2o3m")
+[node name="Background4" type="Sprite2D" parent="Backgrounds/Temporary"]
+position = Vector2(6744, 540)
+texture = ExtResource("10_uua3p")
 
-[node name="Background3" type="Sprite2D" parent="Backgrounds/Temporary"]
+[node name="Background5" type="Sprite2D" parent="Backgrounds/Temporary"]
 position = Vector2(8672, 540)
 texture = ExtResource("10_uua3p")
 
-[node name="Background13" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(10600, 516)
+[node name="Background11" type="Sprite2D" parent="Backgrounds/Temporary"]
+position = Vector2(10600, 536)
 texture = ExtResource("12_c2o3m")
 
-[node name="Background4" type="Sprite2D" parent="Backgrounds/Temporary"]
+[node name="Background12" type="Sprite2D" parent="Backgrounds/Temporary"]
 position = Vector2(12528, 540)
-texture = ExtResource("10_uua3p")
+texture = ExtResource("12_c2o3m")
+
+[node name="Background13" type="Sprite2D" parent="Backgrounds/Temporary"]
+position = Vector2(14456, 540)
+texture = ExtResource("12_c2o3m")
 
 [node name="Background14" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(14456, 504)
+position = Vector2(16384, 540)
 texture = ExtResource("12_c2o3m")
 
-[node name="Background5" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(16384, 540)
-texture = ExtResource("10_uua3p")
-
 [node name="Background15" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(18312, 516)
+position = Vector2(18305, 540)
 texture = ExtResource("12_c2o3m")
 
 [node name="Background16" type="Sprite2D" parent="Backgrounds/Temporary"]
-position = Vector2(20240, 516)
+position = Vector2(20241, 540)
 texture = ExtResource("12_c2o3m")
 
 [node name="Pernament_front" type="Parallax2D" parent="Backgrounds"]
@@ -553,51 +554,6 @@ scroll_scale = Vector2(0, 0)
 offset_right = 1920.0
 offset_bottom = 1081.0
 color = Color(0.0935965, 0.0324378, 0.0268307, 0.431373)
-
-[node name="Sprites" type="Node2D" parent="."]
-
-[node name="Screen2" type="Node2D" parent="Sprites"]
-
-[node name="WoodenBox" type="Sprite2D" parent="Sprites/Screen2"]
-position = Vector2(2204.5, 811.643)
-scale = Vector2(0.141213, 0.141213)
-texture = ExtResource("10_yf4v2")
-
-[node name="Screen3" type="Node2D" parent="Sprites"]
-
-[node name="ColumnLarge1Hera2" type="Sprite2D" parent="Sprites/Screen3"]
-position = Vector2(5310.75, 596.104)
-scale = Vector2(0.494542, 0.459607)
-texture = ExtResource("8_eyc8h")
-
-[node name="ColumnLarge1Hera" type="Sprite2D" parent="Sprites/Screen3"]
-position = Vector2(4812, 355)
-scale = Vector2(0.541485, 0.541485)
-texture = ExtResource("8_eyc8h")
-
-[node name="ColumnLarge1Hera3" type="Sprite2D" parent="Sprites/Screen3"]
-position = Vector2(4256, 544)
-scale = Vector2(0.541485, 0.541485)
-texture = ExtResource("8_eyc8h")
-
-[node name="ColumnShort1" type="Sprite2D" parent="Sprites/Screen3"]
-position = Vector2(4808, 784)
-scale = Vector2(0.368959, 0.368959)
-texture = ExtResource("8_1eock")
-
-[node name="Screen4" type="Node2D" parent="Sprites"]
-
-[node name="ColumnLarge1Hera" type="Sprite2D" parent="Sprites/Screen4"]
-position = Vector2(6244, 358.226)
-scale = Vector2(0.471615, 0.554409)
-texture = ExtResource("8_eyc8h")
-
-[node name="ColumnShort1" type="Sprite2D" parent="Sprites/Screen4"]
-position = Vector2(6240, 791.25)
-scale = Vector2(0.272025, 0.354089)
-texture = ExtResource("8_1eock")
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -925,18 +881,18 @@ shape = SubResource("RectangleShape2D_eyc8h")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen2_4" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(5369, 446)
+position = Vector2(5425, 510)
 shape = SubResource("RectangleShape2D_fewob")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen2_5" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(5237, 738)
-shape = SubResource("RectangleShape2D_vn1t5")
+position = Vector2(5237, 682)
+shape = SubResource("RectangleShape2D_s6jvd")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen3_1" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(7321, 646)
-shape = SubResource("RectangleShape2D_602dq")
+position = Vector2(7305, 646)
+shape = SubResource("RectangleShape2D_dq6y5")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen3_2" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
@@ -955,27 +911,27 @@ shape = SubResource("RectangleShape2D_74hnc")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen4_1" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(8601, 754)
-shape = SubResource("RectangleShape2D_hewbu")
+position = Vector2(8605, 754)
+shape = SubResource("RectangleShape2D_slmc4")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen4_2" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(8085, 570)
-shape = SubResource("RectangleShape2D_fnuo5")
+position = Vector2(8085, 562)
+shape = SubResource("RectangleShape2D_7bqnq")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen4_6" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
 position = Vector2(9113, 554)
-shape = SubResource("RectangleShape2D_1b3hw")
+shape = SubResource("RectangleShape2D_ebw0e")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen4_3" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(7913, 338)
-shape = SubResource("RectangleShape2D_fvhpb")
+position = Vector2(7921, 338)
+shape = SubResource("RectangleShape2D_ijtb1")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen4_5" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(9289, 326)
+position = Vector2(9265, 326)
 shape = SubResource("RectangleShape2D_74g8s")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -1258,8 +1214,8 @@ position = Vector2(2333, 827)
 shape = SubResource("RectangleShape2D_id6nj")
 
 [node name="Screen1_22" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(2757, 331)
-shape = SubResource("RectangleShape2D_ucwns")
+position = Vector2(2753, 331)
+shape = SubResource("RectangleShape2D_huewr")
 
 [node name="Screen1_23" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(3477, 615)
@@ -1281,7 +1237,7 @@ shape = SubResource("RectangleShape2D_wx7ea")
 one_way_collision = true
 
 [node name="Screen1_9" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(6029, 539)
+position = Vector2(6069, 539)
 shape = SubResource("RectangleShape2D_xmh2c")
 one_way_collision = true
 
@@ -1292,6 +1248,16 @@ one_way_collision = true
 
 [node name="Screen1_11" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(6541, 351)
+shape = SubResource("RectangleShape2D_ajm55")
+one_way_collision = true
+
+[node name="Screen1_25" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(6801, 231)
+shape = SubResource("RectangleShape2D_ajm55")
+one_way_collision = true
+
+[node name="Screen1_26" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(7137, 231)
 shape = SubResource("RectangleShape2D_ajm55")
 one_way_collision = true
 
@@ -1311,22 +1277,22 @@ shape = SubResource("RectangleShape2D_gvh3k")
 one_way_collision = true
 
 [node name="Screen1_17" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(9313, 287)
+position = Vector2(9217, 287)
 shape = SubResource("RectangleShape2D_scfwr")
 one_way_collision = true
 
 [node name="Screen1_18" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(9325, 703)
+position = Vector2(9313, 703)
 shape = SubResource("RectangleShape2D_hlhuo")
 one_way_collision = true
 
 [node name="Screen1_19" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(9633, 479)
+position = Vector2(9613, 479)
 shape = SubResource("RectangleShape2D_gvh3k")
 one_way_collision = true
 
 [node name="Screen1_20" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(9897, 383)
+position = Vector2(9906, 383)
 shape = SubResource("RectangleShape2D_gvh3k")
 one_way_collision = true
 
@@ -1338,13 +1304,17 @@ shape = SubResource("RectangleShape2D_nit42")
 position = Vector2(6369, 803)
 shape = SubResource("RectangleShape2D_4fxdl")
 
-[node name="Screen3_6" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(6839.5, 246.125)
-shape = SubResource("RectangleShape2D_hdpjj")
-
 [node name="Screen3_7" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(7341, 631)
-shape = SubResource("RectangleShape2D_q6i00")
+position = Vector2(7341, 415)
+shape = SubResource("RectangleShape2D_sotej")
+
+[node name="Screen3_8" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(7341, 679)
+shape = SubResource("RectangleShape2D_uq351")
+
+[node name="Screen3_9" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(7341, 679)
+shape = SubResource("RectangleShape2D_uq351")
 
 [node name="Screen4_1" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(8489, 790)
@@ -1362,30 +1332,6 @@ shape = SubResource("RectangleShape2D_kjbfr")
 position = Vector2(20368.2, 793.375)
 shape = SubResource("RectangleShape2D_kjbfr")
 
-[node name="Screen5_1_1" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(21196, 1596.25)
-shape = SubResource("RectangleShape2D_seosi")
-
-[node name="Screen5_1_2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(21046, 1503.75)
-shape = SubResource("RectangleShape2D_roqtr")
-one_way_collision = true
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Screen5_1_3" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(21049, 1871.75)
-shape = SubResource("RectangleShape2D_roqtr")
-one_way_collision = true
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(21190.5, 1169.75)
-shape = SubResource("RectangleShape2D_smnrj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(20013, 1171)
-shape = SubResource("RectangleShape2D_02puo")
-
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(9969, 787)
 shape = SubResource("RectangleShape2D_jev1y")
@@ -1395,7 +1341,7 @@ position = Vector2(10841, 331)
 shape = SubResource("RectangleShape2D_jev1y")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(10721, 163)
+position = Vector2(10689, 163)
 shape = SubResource("RectangleShape2D_8l3gq")
 one_way_collision = true
 
@@ -1533,9 +1479,549 @@ position = Vector2(18305, 479)
 shape = SubResource("RectangleShape2D_tmcpu")
 one_way_collision = true
 
+[node name="Teleporter" type="Node2D" parent="Obstacles"]
+position = Vector2(20777, 778)
+script = ExtResource("11_eyc8h")
+teleport_to = 4
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Obstacles/Teleporter"]
+collision_layer = 2048
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Teleporter/Area2D"]
+position = Vector2(-29, -2)
+shape = SubResource("RectangleShape2D_4v22b")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Screen2" type="Node2D" parent="Sprites"]
+
+[node name="WoodenBox" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2204.5, 811.643)
+scale = Vector2(0.141213, 0.141213)
+texture = ExtResource("10_yf4v2")
+
+[node name="Fence" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2491, 143)
+scale = Vector2(0.25, 0.242)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence3" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2494, 466)
+rotation = -3.14159
+scale = Vector2(0.25, 0.242)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence5" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2622, 620)
+rotation = 1.5708
+scale = Vector2(0.229132, 0.2218)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence2" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2757, 143)
+rotation = 0.000206824
+scale = Vector2(0.25, 0.246)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence4" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2758, 465)
+rotation = -3.14159
+scale = Vector2(0.25, 0.242)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence6" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3194.75, 487.929)
+scale = Vector2(0.25, 0.242)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence7" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3197.75, 810.929)
+rotation = -3.14159
+scale = Vector2(0.25, 0.242)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence8" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3347, 327)
+rotation = 1.5708
+scale = Vector2(0.248134, 0.240194)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence9" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3498.79, 490.929)
+rotation = 0.000206824
+scale = Vector2(0.25, 0.246)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence10" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3499.79, 812.929)
+rotation = -3.14159
+scale = Vector2(0.25, 0.242)
+texture = ExtResource("15_jeq5a")
+
+[node name="Platform" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(2858, 524)
+scale = Vector2(0.097912, 0.097912)
+texture = ExtResource("11_6ej7y")
+
+[node name="Platform2" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3101, 331)
+scale = Vector2(0.097912, 0.097912)
+texture = ExtResource("11_6ej7y")
+
+[node name="Platform3" type="Sprite2D" parent="Sprites/Screen2"]
+position = Vector2(3095, 715)
+scale = Vector2(0.097912, 0.097912)
+texture = ExtResource("11_6ej7y")
+
+[node name="Screen3" type="Node2D" parent="Sprites"]
+
+[node name="ColumnLarge1Hera2" type="Sprite2D" parent="Sprites/Screen3"]
+position = Vector2(5310.75, 596.104)
+scale = Vector2(0.494542, 0.459607)
+texture = ExtResource("8_eyc8h")
+
+[node name="ColumnLarge1Hera" type="Sprite2D" parent="Sprites/Screen3"]
+position = Vector2(4812, 355)
+scale = Vector2(0.541485, 0.541485)
+texture = ExtResource("8_eyc8h")
+
+[node name="ColumnLarge1Hera3" type="Sprite2D" parent="Sprites/Screen3"]
+position = Vector2(4256, 544)
+scale = Vector2(0.541485, 0.541485)
+texture = ExtResource("8_eyc8h")
+
+[node name="ColumnShort1" type="Sprite2D" parent="Sprites/Screen3"]
+position = Vector2(4808, 788)
+scale = Vector2(0.368959, 0.3829)
+texture = ExtResource("8_1eock")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen3"]
+position = Vector2(5496, 416)
+rotation = -1.5708
+scale = Vector2(0.250001, 0.196584)
+texture = ExtResource("10_usren")
+
+[node name="Screen4" type="Node2D" parent="Sprites"]
+
+[node name="ColumnLarge1Hera" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6244, 358.226)
+scale = Vector2(0.471615, 0.554409)
+texture = ExtResource("8_eyc8h")
+
+[node name="ColumnShort1" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6240, 791.25)
+scale = Vector2(0.272025, 0.354089)
+texture = ExtResource("8_1eock")
+
+[node name="Platform" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6088, 329)
+scale = Vector2(0.0933973, 0.0933973)
+texture = ExtResource("11_6ej7y")
+
+[node name="Platform2" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(5939.87, 520)
+scale = Vector2(0.0896991, 0.0933973)
+texture = ExtResource("11_6ej7y")
+
+[node name="Platform3" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6416, 330)
+scale = Vector2(0.100875, 0.100875)
+texture = ExtResource("11_6ej7y")
+
+[node name="Platform4" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6672, 211)
+scale = Vector2(0.100875, 0.100875)
+texture = ExtResource("11_6ej7y")
+
+[node name="ColumnLarge1" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7216, 680)
+rotation = -0.00872665
+scale = Vector2(0.50571, 0.50571)
+texture = ExtResource("18_6ej7y")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7071.67, 337.603)
+rotation = 1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera3" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6703.67, 337.603)
+rotation = -1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera2" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7071.67, 249.603)
+rotation = 1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera4" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6703.67, 249.603)
+rotation = -1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera9" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7328, 424)
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera10" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7424, 792)
+rotation = -3.14159
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera11" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7424, 424)
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera12" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7328, 792)
+rotation = -3.14159
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera5" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6919.67, 681.603)
+rotation = 1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera6" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6551.67, 681.603)
+rotation = -1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera7" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6919.67, 593.603)
+rotation = 1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera8" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(6551.67, 593.603)
+rotation = -1.5708
+scale = Vector2(0.27634, 0.27634)
+texture = ExtResource("10_usren")
+
+[node name="Platform5" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(7008, 210)
+scale = Vector2(0.100875, 0.100875)
+texture = ExtResource("11_6ej7y")
+
+[node name="Screen5" type="Node2D" parent="Sprites"]
+
+[node name="Fence3" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8173, 681)
+rotation = 1.5708
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence8" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8176, 264)
+rotation = 1.5708
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence10" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8456, 264)
+rotation = -1.5708
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence11" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8728, 264)
+rotation = 1.5708
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence12" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9008, 264)
+rotation = -1.5708
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence5" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9185, 689)
+rotation = -1.5708
+scale = Vector2(0.226577, 0.226577)
+texture = ExtResource("15_jeq5a")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8150, 475)
+rotation = 1.5708
+scale = Vector2(0.200858, 0.230881)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera6" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9184, 464)
+rotation = -1.5708
+scale = Vector2(0.200858, 0.230881)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera2" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(7997, 320)
+scale = Vector2(0.200858, 0.230881)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera3" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(7994, 2.00001)
+rotation = -3.14159
+scale = Vector2(0.200858, 0.230881)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera4" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9335.05, 315.507)
+scale = Vector2(0.200858, 0.230881)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera5" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9332.05, -2.49265)
+rotation = -3.14159
+scale = Vector2(0.200858, 0.230881)
+texture = ExtResource("10_usren")
+
+[node name="Fence6" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9480, 464)
+rotation = 1.5708
+scale = Vector2(0.226577, 0.226577)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence2" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(7857, 475)
+rotation = -1.5708
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence7" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8320, 672)
+rotation = -3.14159
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence9" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8320, 400)
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence13" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9020.67, 673.812)
+rotation = -3.14159
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence14" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9020.67, 401.812)
+scale = Vector2(0.206241, 0.206241)
+texture = ExtResource("15_jeq5a")
+
+[node name="FenceHera7" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8399, 521)
+rotation = -3.14159
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera14" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8544, 624)
+rotation = -3.14159
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera15" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8808, 624)
+rotation = -3.14159
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera16" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8546.11, 901.177)
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera17" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8810.11, 901.177)
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera11" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8319, 564)
+rotation = -3.14159
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera12" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9022, 560)
+rotation = -3.14159
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera8" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8935, 519)
+rotation = -3.14159
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera9" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8527.18, 338.11)
+rotation = 1.5708
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera13" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8674, 454)
+rotation = 1.5708
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera10" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8806.18, 336.11)
+rotation = -1.5708
+scale = Vector2(0.201167, 0.201167)
+texture = ExtResource("10_usren")
+
+[node name="ColumnLarge1" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8360, 944)
+scale = Vector2(0.420988, 0.420988)
+texture = ExtResource("18_6ej7y")
+
+[node name="ColumnLarge2" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8976, 944)
+scale = Vector2(0.420988, 0.420988)
+texture = ExtResource("18_6ej7y")
+
+[node name="Screen6" type="Node2D" parent="Sprites"]
+
+[node name="Fence4" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(9833, 831.811)
+scale = Vector2(0.29946, 0.24072)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10173, 147)
+rotation = 1.5708
+scale = Vector2(0.274869, 0.274869)
+texture = ExtResource("15_jeq5a")
+
+[node name="WoodenBox4" type="Sprite2D" parent="Sprites/Screen6"]
+top_level = true
+clip_children = 1
+position = Vector2(10552, 148)
+scale = Vector2(0.395397, 0.0462312)
+texture = ExtResource("10_yf4v2")
+
+[node name="Fence4" type="Sprite2D" parent="Sprites/Screen6/WoodenBox4"]
+position = Vector2(2.1607, 12.7302)
+rotation = 1.5708
+scale = Vector2(6.50396, 1.11778)
+texture = ExtResource("15_jeq5a")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10277, 805)
+rotation = -3.14159
+scale = Vector2(0.224482, 0.224482)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10564.4, 359.104)
+scale = Vector2(0.215305, 0.215305)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera3" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10679, 546.678)
+rotation = 1.5708
+scale = Vector2(0.210843, 0.184782)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera4" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10903.1, 755)
+rotation = -1.5708
+scale = Vector2(0.210843, 0.193738)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera5" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10523, 757)
+rotation = 1.5708
+scale = Vector2(0.2125, 0.178582)
+texture = ExtResource("10_usren")
+
+[node name="FenceHera6" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10522.6, 636)
+rotation = 1.5708
+scale = Vector2(0.2125, 0.177979)
+texture = ExtResource("10_usren")
+
+[node name="WoodenBox" type="Sprite2D" parent="Sprites/Screen6"]
+top_level = true
+clip_children = 1
+position = Vector2(10790, 651.5)
+scale = Vector2(0.0261509, 0.18794)
+texture = ExtResource("10_yf4v2")
+
+[node name="FenceHera7" type="Sprite2D" parent="Sprites/Screen6/WoodenBox"]
+position = Vector2(0, -56.6404)
+scale = Vector2(8.20957, 1.018)
+texture = ExtResource("10_usren")
+
+[node name="WoodenBox3" type="Sprite2D" parent="Sprites/Screen6"]
+top_level = true
+clip_children = 1
+position = Vector2(10413, 513.25)
+scale = Vector2(0.069037, 0.196482)
+texture = ExtResource("10_yf4v2")
+
+[node name="FenceHera8" type="Sprite2D" parent="Sprites/Screen6/WoodenBox3"]
+position = Vector2(-14.4844, -220.121)
+scale = Vector2(3.10974, 0.973742)
+texture = ExtResource("10_usren")
+
+[node name="WoodenBox5" type="Sprite2D" parent="Sprites/Screen6"]
+top_level = true
+clip_children = 1
+position = Vector2(9794, 366)
+scale = Vector2(0.328452, 0.100503)
+texture = ExtResource("10_yf4v2")
+
+[node name="Fence5" type="Sprite2D" parent="Sprites/Screen6/WoodenBox5"]
+position = Vector2(-176.586, 9.9502)
+rotation = -1.5708
+scale = Vector2(2.73494, 0.836861)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(11367, 372)
+rotation = 1.5708
+scale = Vector2(0.274869, 0.274869)
+texture = ExtResource("15_jeq5a")
+
+[node name="Fence3" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10933, 150)
+rotation = -1.5708
+scale = Vector2(0.274869, 0.274869)
+texture = ExtResource("15_jeq5a")
+
+[node name="WoodenBox2" type="Sprite2D" parent="Sprites/Screen6"]
+top_level = true
+clip_children = 1
+position = Vector2(10628.7, 695)
+scale = Vector2(0.0256286, 0.0964824)
+texture = ExtResource("10_yf4v2")
+
+[node name="FenceHera7" type="Sprite2D" parent="Sprites/Screen6/WoodenBox2"]
+position = Vector2(0, -56.6404)
+scale = Vector2(8.20957, 1.018)
+texture = ExtResource("10_usren")
+
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
+metadata/_edit_lock_ = true
 
 [node name="Timer" parent="UI" instance=ExtResource("6_8rhj6")]
 position = Vector2(-402, 561)
@@ -1547,6 +2033,7 @@ position = Vector2(-103, 54)
 
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(19, 0)
+metadata/_edit_lock_ = true
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
 position = Vector2(229, 728)
