@@ -225,7 +225,7 @@ size = Vector2(151, 511.5)
 size = Vector2(41.25, 511.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca56g"]
-size = Vector2(240.5, 498.75)
+size = Vector2(260.5, 498.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylyn7"]
 size = Vector2(676.5, 20)
@@ -524,7 +524,6 @@ scale = Vector2(0.421296, 0.421296)
 texture = ExtResource("14_mle80")
 
 [node name="Obstacles" type="Node2D" parent="."]
-metadata/_edit_group_ = true
 
 [node name="CheckPoints" type="Node2D" parent="Obstacles"]
 
@@ -991,7 +990,7 @@ position = Vector2(2040, 969)
 shape = SubResource("RectangleShape2D_wey7f")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(1795.75, 737.375)
+position = Vector2(1805.75, 737.375)
 shape = SubResource("RectangleShape2D_ca56g")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
