@@ -56,11 +56,11 @@ position = Vector2(-73, 712)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Lion" parent="Characters" instance=ExtResource("4_7kodv")]
-position = Vector2(0, 128)
+position = Vector2(712, 128)
 scale = Vector2(0.75, 0.75)
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_7qvbd")]
-position = Vector2(-828, 152)
+position = Vector2(-736, 200)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_gv865")]
 position = Vector2(-727, -202)

@@ -1,6 +1,7 @@
 extends Node2D
 
 var area2d_node: Area2D
+var segment: int
 
 func _ready() -> void:
 	area2d_node = $FlipHelper/Collider
@@ -12,16 +13,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if DataManager.ram["boss_health"] > 100:
-		$AnimationPlayer.speed_scale = 0.3
-		$AnimationPlayer.play("Scream")
+		$AnimationPlayer.play("Scream", -1.0, 0.2)
 		await $AnimationPlayer.animation_finished
+		$AnimationPlayer.play("Idle", -1.0, 1)
 		DataManager.ram["boss_health"] = 100
-	if 99 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 100:
-		$AnimationPlayer.speed_scale = 0.6
-		$AnimationPlayer.play("Idle")
-	elif 70 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 99:
-		$AnimationPlayer.play("Walk")
-		position.x += 1
+	elif 70 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 100:
+		position.x -= 1
 	elif 40 <DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 70:
 		$AnimationPlayer.play("Idle")
 	elif 0 < DataManager.ram["boss_health"] and DataManager.ram["boss_health"] <= 40:
