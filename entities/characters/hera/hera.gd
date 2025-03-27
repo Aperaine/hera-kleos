@@ -89,7 +89,6 @@ func collision_check():
 	for body in area2d_node.get_overlapping_bodies():
 		if body.name == "Heracle":
 			touching_heracle = true
-			print("touching Heracle")
 
 		if (body.name == "Obstacle Hera" or body.name == "Obstacle Both"):
 			DataManager.game_stats["deaths_hera"] += 1

@@ -9,13 +9,13 @@ enum attack_patterns {
 }
 
 var area2d_node: Area2D
-var segment: int
-var lion_ram = { # these values are all random; adjust whatever you need Jafar
-	left_boundary = 0,
-	right_boundary = 1920,
-	init_pos = Vector2(500,500),
-	jump_locations = [Vector2(500,500), Vector2(200,200)] # maybe there'll be two locations into which he's jumping?
-}
+var segment: int = 1
+# these values are all random; adjust whatever you need Jafar
+const left_boundary = -655
+const right_boundary = 712
+const init_pos = Vector2(500,500)
+const jump_locations = [Vector2(500,500), Vector2(200,200)] # maybe there'll be two locations into which he's jumping?
+
 
 func _ready() -> void:
 	area2d_node = $FlipHelper/Collider
@@ -23,18 +23,20 @@ func _ready() -> void:
 	print("Boss health set to:")
 	print(DataManager.ram["boss_health"])
 	$FlipHelper.scale.x = -1
-	$AnimationPlayer.speed_scale = 0.6
+	scream()
+	DataManager.ram["boss_health"] = 100
+	segment = 1
 
 func _process(delta: float) -> void:
 	handle_phases()
 
 func handle_phases():
 	var health = DataManager.ram["boss_health"]
-	if health in range(70,100):
+	if health in range(70,101):
 		phase1()
-	elif health in range(40,69):
+	elif health in range(40,70):
 		phase2()
-	elif health in range(1,39):
+	elif health in range(1,40):
 		phase3()
 	elif health <= 0:
 		phased()
@@ -45,19 +47,10 @@ func stage0():
 
 func phase1():
 	if segment == 1:
-		if not $AnimationPlayer.is_playing():
-			$AnimationPlayer.play("Walk")
-		position.x -= 10
-		if position.x <= -655:
-			$AnimationPlayer.play("Idle")
-			await get_tree().create_timer(0.5).timeout
-			$FlipHelper.scale.x = 1
-			await get_tree().create_timer(0.5).timeout
-			$AnimationPlayer.stop()
-			segment = 2
+		walk()
 	elif segment == 2:
 		$AnimationPlayer.play("Walk")
-		position.x += 10
+		position.x += 1
 	
 func phase2():
 	$AnimationPlayer.play("Idle")
@@ -81,11 +74,17 @@ func scream():
 	$AnimationPlayer.play("Idle", -1.0, 1)
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.stop()
-	DataManager.ram["boss_health"] = 100
-	segment = 1
 
 func walk():
-	pass
+	$AnimationPlayer.play("Walk")
+	while position.x > left_boundary:
+		position.x -= 1
+		await get_tree().process_frame 
+	$AnimationPlayer.play("Idle")
+	await get_tree().create_timer(0.5).timeout
+	$FlipHelper.scale.x = 1
+	await get_tree().create_timer(0.5).timeout
+	$AnimationPlayer.stop()
 
 func rocks():
 	var rock_prefab = preload("res://entities/characters/lion/falling_rock.tscn")
