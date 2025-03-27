@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=3 uid="uid://bkok84ugd2lm3"]
+[gd_scene load_steps=156 format=3 uid="uid://bkok84ugd2lm3"]
 
 [ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/level_scripts/smart_camera.gd" id="1_5db6m"]
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_aigiw"]
@@ -232,8 +232,8 @@ size = Vector2(41.25, 511.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca56g"]
 size = Vector2(156.5, 498.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylyn7"]
-size = Vector2(676.5, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tid6e"]
+size = Vector2(483, 37.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifmmv"]
 size = Vector2(51.75, 194)
@@ -243,6 +243,9 @@ size = Vector2(182.5, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u1fx"]
 size = Vector2(56, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylyn7"]
+size = Vector2(676.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0ljc"]
 size = Vector2(192, 21.75)
@@ -356,7 +359,7 @@ size = Vector2(115, 32.3125)
 size = Vector2(119.156, 32.3125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lp2y"]
-size = Vector2(94, 32.3125)
+size = Vector2(83, 26.1562)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ankix"]
 size = Vector2(214.578, 55.1562)
@@ -924,8 +927,8 @@ position = Vector2(382, 1018)
 shape = SubResource("RectangleShape2D_wey7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(4107, 822.75)
-shape = SubResource("RectangleShape2D_ylyn7")
+position = Vector2(4108.5, 813.875)
+shape = SubResource("RectangleShape2D_tid6e")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(4324.13, 715.75)
@@ -961,7 +964,7 @@ position = Vector2(5274, 457.25)
 shape = SubResource("RectangleShape2D_2u1fx")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(5638.75, 827.75)
+position = Vector2(5640, 817)
 shape = SubResource("RectangleShape2D_ylyn7")
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1182,19 +1185,19 @@ debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(7457, -449)
+position = Vector2(7458.5, -445.922)
 shape = SubResource("RectangleShape2D_0lp2y")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(7743, -448)
+position = Vector2(7743, -443)
 shape = SubResource("RectangleShape2D_0lp2y")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(8382, -448)
+position = Vector2(8378, -448)
 shape = SubResource("RectangleShape2D_0lp2y")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
@@ -1355,6 +1358,11 @@ shape = SubResource("RectangleShape2D_fs32q")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
+[node name="Spike3" type="Sprite2D" parent="Obstacles/Damage/DamageCollider"]
+position = Vector2(7743.78, -449.75)
+scale = Vector2(0.125736, 0.150391)
+texture = ExtResource("24_tid6e")
+
 [node name="AbilityGain" parent="Obstacles" instance=ExtResource("4_o2pib")]
 position = Vector2(1193, 294)
 ability_hera = 1
@@ -1408,6 +1416,16 @@ position = Vector2(17232, 632)
 position = Vector2(19072, 672)
 
 [node name="Sprites" type="Node2D" parent="."]
+
+[node name="Spikes" type="TextureRect" parent="Sprites"]
+offset_left = -24.0
+offset_top = 805.0
+offset_right = 25773.0
+offset_bottom = 1045.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("24_tid6e")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Screen1" type="Node2D" parent="Sprites"]
 
@@ -1626,6 +1644,12 @@ rotation = 1.57952
 scale = Vector2(0.128974, 0.133137)
 texture = ExtResource("7_h68c8")
 
+[node name="Fence4" type="Sprite2D" parent="Sprites/Screen4"]
+position = Vector2(5886, 810)
+rotation = -1.5708
+scale = Vector2(0.128974, 0.133137)
+texture = ExtResource("7_h68c8")
+
 [node name="MaskBox2" type="Sprite2D" parent="Sprites/Screen4"]
 clip_children = 1
 position = Vector2(6930, 566.5)
@@ -1702,6 +1726,38 @@ scale = Vector2(0.589152, 0.285875)
 texture = ExtResource("16_jndx4")
 
 [node name="Screen5" type="Node2D" parent="Sprites"]
+
+[node name="Fence3" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(4103, 814)
+rotation = -1.5708
+scale = Vector2(0.355387, 0.355387)
+texture = ExtResource("7_h68c8")
+
+[node name="Fence4" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(5513, 818)
+rotation = 1.5708
+scale = Vector2(0.365295, 0.399898)
+texture = ExtResource("7_h68c8")
+
+[node name="Spike6" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(9103, 242.25)
+scale = Vector2(0.128906, 0.158203)
+texture = ExtResource("24_tid6e")
+
+[node name="Spike5" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8181, 245)
+scale = Vector2(0.127441, 0.127441)
+texture = ExtResource("24_tid6e")
+
+[node name="Spike7" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(7780.01, 426.656)
+scale = Vector2(0.161377, 0.161377)
+texture = ExtResource("24_tid6e")
+
+[node name="Spike8" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8143, 610)
+scale = Vector2(0.161377, 0.161377)
+texture = ExtResource("24_tid6e")
 
 [node name="FenceHeraExtra3" type="Sprite2D" parent="Sprites/Screen5"]
 position = Vector2(8217, 108)
@@ -1804,7 +1860,7 @@ texture = ExtResource("18_t7yck")
 
 [node name="Fence3" type="Sprite2D" parent="Sprites/Screen5/MaskBox"]
 position = Vector2(48.6835, 5)
-rotation = 1.5708
+rotation = -1.56409
 scale = Vector2(0.247794, 0.135545)
 texture = ExtResource("7_h68c8")
 
@@ -1816,7 +1872,7 @@ texture = ExtResource("18_t7yck")
 
 [node name="Fence" type="Sprite2D" parent="Sprites/Screen5/MaskBox2"]
 position = Vector2(-41.143, 20)
-rotation = 1.5708
+rotation = -1.56409
 scale = Vector2(0.247794, 0.135545)
 texture = ExtResource("7_h68c8")
 
