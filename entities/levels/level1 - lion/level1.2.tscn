@@ -1,11 +1,13 @@
-[gd_scene load_steps=150 format=3 uid="uid://btudoiq2txe7f"]
+[gd_scene load_steps=152 format=3 uid="uid://btudoiq2txe7f"]
 
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_8ubry"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="1_cbafq"]
 [ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/level_scripts/smart_camera.gd" id="2_27mve"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="3_0afg3"]
+[ext_resource type="Texture2D" uid="uid://bppeq6nkadanp" path="res://assets/scenery/level1/sky1_0.PNG" id="3_awuml"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="3_u2yap"]
 [ext_resource type="PackedScene" uid="uid://jewufo1b1h2d" path="res://entities/scenery/lava_rain/lava_rain.tscn" id="4_0u3nl"]
+[ext_resource type="Texture2D" uid="uid://nqqfmyq2fdyn" path="res://assets/scenery/level1/background1_3.PNG" id="4_awuml"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="4_l16er"]
 [ext_resource type="PackedScene" uid="uid://70iain5by00m" path="res://entities/scenery/moving_platforms/moving_platform.tscn" id="5_ivl2x"]
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="5_v4ti5"]
@@ -433,6 +435,22 @@ position = Vector2(960, 540)
 limit_top = 0
 limit_bottom = 0
 script = ExtResource("2_27mve")
+
+[node name="Backgrounds" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sky10" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(960, 540)
+texture = ExtResource("3_awuml")
+
+[node name="Background12" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(960, 536)
+texture = ExtResource("4_awuml")
+
+[node name="DarkenFilter2" type="ColorRect" parent="Backgrounds"]
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(0.0543073, 0.0524444, 0.0414918, 0.431373)
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -1611,16 +1629,6 @@ shape = 1
 damages_heracles = false
 damages_hera = true
 start_with_right = false
-
-[node name="MovingPlatform45" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
-position = Vector2(20096, 440)
-speed = 0.7
-distance = 700.0
-movement = 1
-movement_direction = 1
-shape = 1
-damages_heracles = false
-damages_hera = true
 
 [node name="MovingPlatform42" parent="Obstacles/Moving Platforms" instance=ExtResource("5_ivl2x")]
 position = Vector2(20496, 304)

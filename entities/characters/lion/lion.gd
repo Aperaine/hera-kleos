@@ -5,7 +5,6 @@ enum attack_patterns {
 	SCREAM,
 	WALK,
 	ROCKS,
-	JUMP,
 	DASH,
 }
 

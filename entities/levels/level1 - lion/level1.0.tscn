@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=170 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_xfhhf"]
@@ -19,7 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://bppeq6nkadanp" path="res://assets/scenery/level1/sky1_0.PNG" id="11_puo1r"]
 [ext_resource type="Texture2D" uid="uid://fnrl4g0qefvi" path="res://assets/scenery/level1/background1_1.PNG" id="12_c2o3m"]
 [ext_resource type="Texture2D" uid="uid://c85f7sian7kwb" path="res://assets/scenery/platforming/fence.PNG" id="15_jeq5a"]
+[ext_resource type="Texture2D" uid="uid://btv6rbyi76xp" path="res://assets/scenery/platforming/fence_hera_extra.PNG" id="16_c1icb"]
+[ext_resource type="Texture2D" uid="uid://drwouj5ny51ci" path="res://assets/scenery/platforming/fence_extra.PNG" id="17_7urw1"]
 [ext_resource type="Texture2D" uid="uid://bbr2kmyiq4dfp" path="res://assets/scenery/platforming/column_large_1.PNG" id="18_6ej7y"]
+[ext_resource type="Texture2D" uid="uid://3umkllu7lsnq" path="res://assets/scenery/platforming/gate_hera.png" id="21_c1icb"]
+[ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="22_tkdi5"]
+[ext_resource type="Texture2D" uid="uid://dk8q35bngwyy2" path="res://assets/scenery/platforming/fence_both.PNG" id="23_p3tef"]
+[ext_resource type="Texture2D" uid="uid://cq2b5c6gxklgv" path="res://assets/scenery/platforming/mask_box.png" id="24_p3tef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18t6d"]
 size = Vector2(96, 416)
@@ -37,19 +43,25 @@ size = Vector2(193, 7)
 size = Vector2(108.75, 202)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxf4f"]
-size = Vector2(224, 48)
+size = Vector2(263, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hgxi"]
-size = Vector2(55.9995, 256)
+size = Vector2(24.9999, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2ngq"]
-size = Vector2(55.9999, 256)
+size = Vector2(18, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3xa0"]
+size = Vector2(270, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgvww"]
+size = Vector2(224, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_522tk"]
 size = Vector2(312, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ot3v"]
-size = Vector2(55.9999, 224)
+size = Vector2(24, 233)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5g0kj"]
 size = Vector2(56, 279)
@@ -165,7 +177,7 @@ size = Vector2(800, 120)
 size = Vector2(800, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slmc4"]
-size = Vector2(280, 432)
+size = Vector2(240, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bqnq"]
 size = Vector2(312, 16)
@@ -210,7 +222,7 @@ size = Vector2(55.75, 208)
 size = Vector2(352, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6i4"]
-size = Vector2(424, 48)
+size = Vector2(424, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gamo"]
 size = Vector2(288, 32)
@@ -354,7 +366,7 @@ size = Vector2(96, 206)
 size = Vector2(108, 203.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jev1y"]
-size = Vector2(47.9995, 216)
+size = Vector2(14.9998, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l3gq"]
 size = Vector2(1152, 24)
@@ -454,6 +466,7 @@ script = ExtResource("2_hb5yu")
 metadata/_edit_lock_ = true
 
 [node name="Screens" type="Node2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="Screen0" parent="Screens" instance=ExtResource("5_8iimk")]
@@ -653,7 +666,7 @@ shape = SubResource("RectangleShape2D_cxf4f")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(11146, 573)
+position = Vector2(11126.5, 578)
 shape = SubResource("RectangleShape2D_cxf4f")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
@@ -663,18 +676,23 @@ shape = SubResource("RectangleShape2D_8hgxi")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(11006, 469)
+position = Vector2(10987, 478)
 shape = SubResource("RectangleShape2D_s2ngq")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(10274, 373)
-shape = SubResource("RectangleShape2D_cxf4f")
+position = Vector2(10282, 373)
+shape = SubResource("RectangleShape2D_c3xa0")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D30" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(10866, 365)
-shape = SubResource("RectangleShape2D_cxf4f")
+position = Vector2(10866, 369)
+shape = SubResource("RectangleShape2D_xgvww")
+debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
+position = Vector2(10866, 369)
+shape = SubResource("RectangleShape2D_xgvww")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
@@ -683,12 +701,12 @@ shape = SubResource("RectangleShape2D_522tk")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(10414, 229)
+position = Vector2(10429.5, 229)
 shape = SubResource("RectangleShape2D_8hgxi")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(11230, 709)
+position = Vector2(11214, 704.5)
 shape = SubResource("RectangleShape2D_6ot3v")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
@@ -909,7 +927,7 @@ shape = SubResource("RectangleShape2D_74hnc")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="Screen4_1" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(8605, 754)
+position = Vector2(8593, 762)
 shape = SubResource("RectangleShape2D_slmc4")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -1004,7 +1022,7 @@ shape = SubResource("RectangleShape2D_32jfm")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="CollisionShape2D58" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(11941, 458)
+position = Vector2(11941, 446.5)
 shape = SubResource("RectangleShape2D_cd6i4")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -1335,7 +1353,7 @@ position = Vector2(9969, 787)
 shape = SubResource("RectangleShape2D_jev1y")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(10841, 331)
+position = Vector2(10857.5, 331)
 shape = SubResource("RectangleShape2D_jev1y")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1826,28 +1844,6 @@ rotation = -3.14159
 scale = Vector2(0.201167, 0.201167)
 texture = ExtResource("10_usren")
 
-[node name="FenceHera14" type="Sprite2D" parent="Sprites/Screen5"]
-position = Vector2(8544, 624)
-rotation = -3.14159
-scale = Vector2(0.201167, 0.201167)
-texture = ExtResource("10_usren")
-
-[node name="FenceHera15" type="Sprite2D" parent="Sprites/Screen5"]
-position = Vector2(8808, 624)
-rotation = -3.14159
-scale = Vector2(0.201167, 0.201167)
-texture = ExtResource("10_usren")
-
-[node name="FenceHera16" type="Sprite2D" parent="Sprites/Screen5"]
-position = Vector2(8546.11, 901.177)
-scale = Vector2(0.201167, 0.201167)
-texture = ExtResource("10_usren")
-
-[node name="FenceHera17" type="Sprite2D" parent="Sprites/Screen5"]
-position = Vector2(8810.11, 901.177)
-scale = Vector2(0.201167, 0.201167)
-texture = ExtResource("10_usren")
-
 [node name="FenceHera11" type="Sprite2D" parent="Sprites/Screen5"]
 position = Vector2(8319, 564)
 rotation = -3.14159
@@ -1872,12 +1868,6 @@ rotation = 1.5708
 scale = Vector2(0.201167, 0.201167)
 texture = ExtResource("10_usren")
 
-[node name="FenceHera13" type="Sprite2D" parent="Sprites/Screen5"]
-position = Vector2(8674, 454)
-rotation = 1.5708
-scale = Vector2(0.201167, 0.201167)
-texture = ExtResource("10_usren")
-
 [node name="FenceHera10" type="Sprite2D" parent="Sprites/Screen5"]
 position = Vector2(8806.18, 336.11)
 rotation = -1.5708
@@ -1893,6 +1883,11 @@ texture = ExtResource("18_6ej7y")
 position = Vector2(8976, 944)
 scale = Vector2(0.420988, 0.420988)
 texture = ExtResource("18_6ej7y")
+
+[node name="GateHera" type="Sprite2D" parent="Sprites/Screen5"]
+position = Vector2(8664, 656)
+scale = Vector2(0.260426, 0.260426)
+texture = ExtResource("21_c1icb")
 
 [node name="Screen6" type="Node2D" parent="Sprites"]
 
@@ -2014,6 +2009,130 @@ texture = ExtResource("10_yf4v2")
 [node name="FenceHera7" type="Sprite2D" parent="Sprites/Screen6/WoodenBox2"]
 position = Vector2(0, -56.6404)
 scale = Vector2(8.20957, 1.018)
+texture = ExtResource("10_usren")
+
+[node name="FenceExtra" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10730, 308)
+scale = Vector2(0.205882, 0.228464)
+texture = ExtResource("17_7urw1")
+
+[node name="FenceBothExtra" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10409, 278)
+scale = Vector2(0.215685, 0.297942)
+texture = ExtResource("22_tkdi5")
+
+[node name="FenceBoth" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10579, 201)
+rotation = -1.5708
+scale = Vector2(0.207248, 0.230185)
+texture = ExtResource("23_p3tef")
+
+[node name="MaskBox2" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(11119, 645.5)
+scale = Vector2(2.375, 0.460937)
+texture = ExtResource("24_p3tef")
+
+[node name="FenceBoth3" type="Sprite2D" parent="Sprites/Screen6/MaskBox2"]
+position = Vector2(-15.5791, -16.2712)
+rotation = -1.5708
+scale = Vector2(0.449623, 0.0969199)
+texture = ExtResource("23_p3tef")
+
+[node name="MaskBox" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(10968, 542.5)
+scale = Vector2(0.593748, 1.88281)
+texture = ExtResource("24_p3tef")
+
+[node name="FenceBoth3" type="Sprite2D" parent="Sprites/Screen6/MaskBox"]
+position = Vector2(3.36914, -17.2209)
+scale = Vector2(0.367795, 0.112258)
+texture = ExtResource("23_p3tef")
+
+[node name="FenceBoth2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10875.4, 426)
+rotation = -1.5708
+scale = Vector2(0.218378, 0.222)
+texture = ExtResource("23_p3tef")
+
+[node name="FenceBothExtra2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(11196.5, 780.5)
+scale = Vector2(0.225489, 0.293608)
+texture = ExtResource("22_tkdi5")
+
+[node name="Screen7" type="Node2D" parent="Sprites"]
+
+[node name="FenceHeraExtra3" type="Sprite2D" parent="Sprites/Screen7"]
+position = Vector2(11747.5, 226)
+rotation = 1.5708
+scale = Vector2(0.316569, 0.383339)
+texture = ExtResource("16_c1icb")
+
+[node name="FenceHeraExtra4" type="Sprite2D" parent="Sprites/Screen7"]
+position = Vector2(11711.2, 513.986)
+rotation = 1.5708
+scale = Vector2(0.339627, 0.307191)
+texture = ExtResource("16_c1icb")
+
+[node name="FenceBothExtra" type="Sprite2D" parent="Sprites/Screen7"]
+position = Vector2(13065.7, 318.052)
+rotation = 1.5708
+scale = Vector2(0.329205, 0.254166)
+texture = ExtResource("22_tkdi5")
+
+[node name="FenceHeraExtra" type="Sprite2D" parent="Sprites/Screen7"]
+position = Vector2(12011.1, 359.485)
+rotation = 1.5708
+scale = Vector2(0.34176, 0.452214)
+texture = ExtResource("16_c1icb")
+
+[node name="FenceHeraExtra2" type="Sprite2D" parent="Sprites/Screen7"]
+position = Vector2(12011.1, 359.485)
+rotation = 1.5708
+scale = Vector2(0.34176, 0.452214)
+texture = ExtResource("16_c1icb")
+
+[node name="MaskBox2" type="Sprite2D" parent="Sprites/Screen7"]
+clip_children = 1
+position = Vector2(12070.5, 223)
+scale = Vector2(2.39844, 1)
+texture = ExtResource("24_p3tef")
+
+[node name="Fence" type="Sprite2D" parent="Sprites/Screen7/MaskBox2"]
+position = Vector2(18.1368, -4)
+rotation = 1.5708
+scale = Vector2(0.278503, 0.116119)
+texture = ExtResource("15_jeq5a")
+
+[node name="MaskBox3" type="Sprite2D" parent="Sprites/Screen7"]
+clip_children = 1
+position = Vector2(11693, 358)
+scale = Vector2(1.98438, 1)
+texture = ExtResource("24_p3tef")
+
+[node name="Fence2" type="Sprite2D" parent="Sprites/Screen7/MaskBox3"]
+position = Vector2(-38.8027, 3.05176e-05)
+rotation = -1.5708
+scale = Vector2(0.278503, 0.140348)
+texture = ExtResource("15_jeq5a")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen7"]
+position = Vector2(12953, -46)
+scale = Vector2(0.342272, 0.342272)
+texture = ExtResource("10_usren")
+
+[node name="MaskBox" type="Sprite2D" parent="Sprites/Screen7"]
+clip_children = 1
+position = Vector2(12795, 315)
+scale = Vector2(2.40625, 1)
+texture = ExtResource("24_p3tef")
+
+[node name="FenceHera2" type="Sprite2D" parent="Sprites/Screen7/MaskBox"]
+position = Vector2(41.1426, 6)
+rotation = 1.57442
+scale = Vector2(0.342261, 0.142269)
+skew = 0.0173692
 texture = ExtResource("10_usren")
 
 [node name="UI" type="Parallax2D" parent="."]
