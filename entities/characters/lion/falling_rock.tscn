@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbogs1itp87lh"]
+
+[ext_resource type="Script" uid="uid://waopt71ahoqu" path="res://entities/characters/lion/falling_rock.gd" id="1_6jkj4"]
+
+[node name="FallingRock" type="Node2D"]
+script = ExtResource("1_6jkj4")
