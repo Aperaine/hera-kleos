@@ -79,7 +79,7 @@ size = Vector2(240, 32)
 size = Vector2(240, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n31eh"]
-size = Vector2(240, 48)
+size = Vector2(240, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytjb4"]
 size = Vector2(280, 47.75)
@@ -234,7 +234,7 @@ size = Vector2(288, 32)
 size = Vector2(184, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwes4"]
-size = Vector2(528, 48)
+size = Vector2(528, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80a8e"]
 size = Vector2(41, 208)
@@ -733,7 +733,7 @@ shape = SubResource("RectangleShape2D_me6r3")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D46" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(12346, 589)
+position = Vector2(12346, 579)
 shape = SubResource("RectangleShape2D_n31eh")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
@@ -1039,7 +1039,7 @@ shape = SubResource("RectangleShape2D_o05hd")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(11873, 738)
+position = Vector2(11873, 728.5)
 shape = SubResource("RectangleShape2D_kwes4")
 debug_color = Color(0.552941, 0.556863, 0.215686, 0.419608)
 
@@ -2228,4 +2228,22 @@ texture = ExtResource("16_c1icb")
 [node name="Fence2" type="Sprite2D" parent="."]
 position = Vector2(12475.4, 513)
 scale = Vector2(0.304855, 0.251252)
+texture = ExtResource("23_p3tef")
+
+[node name="FenceHeraExtra2" type="Sprite2D" parent="."]
+position = Vector2(12612, 483)
+rotation = 1.5708
+scale = Vector2(0.323911, 0.26526)
+texture = ExtResource("16_c1icb")
+
+[node name="MaskBox" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(12874.5, 484)
+scale = Vector2(2.16406, 1)
+texture = ExtResource("24_p3tef")
+
+[node name="FenceBoth" type="Sprite2D" parent="MaskBox"]
+position = Vector2(-49.2132, -5.00001)
+rotation = -1.5708
+scale = Vector2(0.312401, 0.14971)
 texture = ExtResource("23_p3tef")
