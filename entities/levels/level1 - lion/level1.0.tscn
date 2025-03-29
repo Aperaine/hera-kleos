@@ -3082,7 +3082,7 @@ position = Vector2(19, 0)
 metadata/_edit_lock_ = true
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-position = Vector2(13748, -229)
+position = Vector2(283, 648)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
