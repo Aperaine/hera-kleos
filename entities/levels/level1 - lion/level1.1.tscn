@@ -1939,4 +1939,9 @@ position = Vector2(128, -112)
 [node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
 position = Vector2(352, 112)
 
+[node name="FenceHera" type="Sprite2D" parent="."]
+position = Vector2(9758.25, 13.2639)
+scale = Vector2(0.410864, 0.410863)
+texture = ExtResource("18_11abe")
+
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]
