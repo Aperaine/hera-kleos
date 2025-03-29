@@ -1252,19 +1252,19 @@ debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(9355.93, -495.078)
+position = Vector2(9355.93, -498.078)
 shape = SubResource("RectangleShape2D_h13i2")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(9806.5, -495)
+position = Vector2(9806.5, -498)
 shape = SubResource("RectangleShape2D_h13i2")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="Obstacles/Damage/DamageCollider"]
-position = Vector2(10260, -495)
+position = Vector2(10260, -498)
 shape = SubResource("RectangleShape2D_h13i2")
 debug_color = Color(0.990211, 0, 0.281134, 0.42)
 metadata/_edit_group_ = true
@@ -1920,6 +1920,63 @@ rotation = 1.5708
 scale = Vector2(0.40214, 0.130496)
 texture = ExtResource("7_h68c8")
 
+[node name="Screen6" type="Node2D" parent="Sprites"]
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(9823.63, 171.201)
+scale = Vector2(0.252781, 0.252781)
+texture = ExtResource("18_11abe")
+
+[node name="Spike1" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(9903, 867)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10289, 867)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike3" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10710, 867)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike4" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(11102, 867)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike5" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10925, 525)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike6" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10487, 525)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike7" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10091, 527)
+scale = Vector2(0.076772, 0.076772)
+texture = ExtResource("25_dq3ei")
+
+[node name="Spike8" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10079, 189)
+scale = Vector2(0.128906, 0.128906)
+texture = ExtResource("24_tid6e")
+
+[node name="Spike9" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10529, 189)
+scale = Vector2(0.128906, 0.128906)
+texture = ExtResource("24_tid6e")
+
+[node name="Spike10" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10983, 189)
+scale = Vector2(0.128906, 0.128906)
+texture = ExtResource("24_tid6e")
+
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(0, -2)
@@ -1939,15 +1996,5 @@ position = Vector2(128, -112)
 
 [node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
 position = Vector2(352, 112)
-
-[node name="FenceHera" type="Sprite2D" parent="."]
-position = Vector2(9752, -416)
-scale = Vector2(0.410864, 0.410863)
-texture = ExtResource("18_11abe")
-
-[node name="Spike1" type="Sprite2D" parent="."]
-position = Vector2(9904, 867)
-scale = Vector2(0.076772, 0.076772)
-texture = ExtResource("25_dq3ei")
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]
