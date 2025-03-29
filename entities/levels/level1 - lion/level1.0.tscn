@@ -2316,8 +2316,13 @@ texture = ExtResource("10_usren")
 
 [node name="FenceBothExtra" type="Sprite2D" parent="Sprites/Screen1"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 position = Vector2(13877, 457.5)
 scale = Vector2(0.351411, 0.505959)
+=======
+position = Vector2(13877, 456.5)
+scale = Vector2(0.351411, 0.503792)
+>>>>>>> Stashed changes
 =======
 position = Vector2(13877, 456.5)
 scale = Vector2(0.351411, 0.503792)
@@ -3094,11 +3099,14 @@ position = Vector2(261, 292)
 
 [node name="FenceExtra" type="Sprite2D" parent="."]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 position = Vector2(13770.8, 468)
 rotation = -1.57079
 scale = Vector2(0.360603, 0.188722)
 texture = ExtResource("17_7urw1")
 =======
+=======
+>>>>>>> Stashed changes
 position = Vector2(20198, 782)
 scale = Vector2(0.248752, 0.223026)
 texture = ExtResource("17_7urw1")
@@ -3117,4 +3125,7 @@ texture = ExtResource("16_c1icb")
 position = Vector2(20282, 55)
 scale = Vector2(0.273169, 0.273169)
 texture = ExtResource("16_c1icb")
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
