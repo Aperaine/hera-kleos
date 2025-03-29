@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://b8myray4kapxq"]
+[gd_scene load_steps=174 format=3 uid="uid://b8myray4kapxq"]
 
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="1_arrdw"]
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_xfhhf"]
@@ -439,6 +439,9 @@ size = Vector2(272.125, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e65vm"]
 size = Vector2(416.062, 24.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ae1w"]
+size = Vector2(159.031, 24.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnfye"]
 size = Vector2(272.125, 24.125)
@@ -1480,8 +1483,13 @@ shape = SubResource("RectangleShape2D_e65vm")
 one_way_collision = true
 
 [node name="CollisionShape2D51" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(18017, 315)
-shape = SubResource("RectangleShape2D_e65vm")
+position = Vector2(17888.5, 315)
+shape = SubResource("RectangleShape2D_5ae1w")
+one_way_collision = true
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
+position = Vector2(18139, 314)
+shape = SubResource("RectangleShape2D_5ae1w")
 one_way_collision = true
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -2331,6 +2339,19 @@ rotation = 1.5708
 scale = Vector2(0.276978, 0.147722)
 texture = ExtResource("23_p3tef")
 
+[node name="MaskBox14" type="Sprite2D" parent="Sprites/Screen1"]
+clip_children = 1
+position = Vector2(13741.5, 240)
+scale = Vector2(1.83594, 1)
+texture = ExtResource("24_p3tef")
+metadata/_edit_group_ = true
+
+[node name="FenceBoth" type="Sprite2D" parent="Sprites/Screen1/MaskBox14"]
+position = Vector2(66.7232, -4)
+rotation = 1.5708
+scale = Vector2(0.276978, 0.147722)
+texture = ExtResource("23_p3tef")
+
 [node name="MaskBox3" type="Sprite2D" parent="Sprites/Screen1"]
 clip_children = 1
 position = Vector2(13760, 680)
@@ -2347,6 +2368,12 @@ texture = ExtResource("23_p3tef")
 position = Vector2(13960, 240)
 rotation = -1.56237
 scale = Vector2(0.335681, 0.133834)
+texture = ExtResource("17_7urw1")
+
+[node name="FenceExtra8" type="Sprite2D" parent="Sprites/Screen1"]
+position = Vector2(13770.7, 468.225)
+rotation = -1.56237
+scale = Vector2(0.335681, 0.189753)
 texture = ExtResource("17_7urw1")
 
 [node name="FenceExtra2" type="Sprite2D" parent="Sprites/Screen1"]
@@ -2852,13 +2879,13 @@ scale = Vector2(0.266917, 0.230217)
 texture = ExtResource("23_p3tef")
 
 [node name="Platform" type="Sprite2D" parent="Sprites/Screen9"]
-position = Vector2(17784.7, 296)
-scale = Vector2(0.0996896, 0.0761146)
+position = Vector2(17763.7, 296)
+scale = Vector2(0.0796106, 0.0761146)
 texture = ExtResource("11_6ej7y")
 
 [node name="Platform2" type="Sprite2D" parent="Sprites/Screen9"]
-position = Vector2(18000.9, 296.359)
-scale = Vector2(0.107924, 0.0783719)
+position = Vector2(18012, 296)
+scale = Vector2(0.0783761, 0.0783719)
 texture = ExtResource("11_6ej7y")
 
 [node name="MaskBox4" type="Sprite2D" parent="Sprites/Screen9"]
@@ -3088,8 +3115,7 @@ position = Vector2(283, 648)
 position = Vector2(261, 292)
 
 [node name="FenceExtra" type="Sprite2D" parent="."]
-position = Vector2(20198, 782)
-rotation = -1.57079
+position = Vector2(20197, 783)
 scale = Vector2(0.248752, 0.223026)
 texture = ExtResource("17_7urw1")
 
