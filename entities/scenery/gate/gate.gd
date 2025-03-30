@@ -10,6 +10,14 @@ var area2d_node: Area2D
 func _ready():
 	add_to_group("gates")
 	area2d_node = $Area2D
+	var room_unlocked = false
+	for room_num in DataManager.progress["unlocked_levels"]:
+		if room_num == room:
+			room_unlocked = true
+	if room_unlocked:
+		$Area2D/Gate.modulate.a = 1.0
+	else:
+		$Area2D/Gate.modulate.a = 0.7
 
 func _process(_delta):
 	var was_in_area = player_in_area

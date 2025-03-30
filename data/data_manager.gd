@@ -107,7 +107,7 @@ func debug():
 
 func _ready():
 	Engine.max_fps = 60
-	debug()
+	#debug()
 
 func change_scene(room: ROOMS):
 	save_game()

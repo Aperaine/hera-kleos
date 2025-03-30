@@ -3134,3 +3134,8 @@ position = Vector2(283, 648)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
+
+[node name="FenceBothExtra" type="Sprite2D" parent="."]
+position = Vector2(19042, 800.888)
+scale = Vector2(0.34068, 0.502951)
+texture = ExtResource("22_tkdi5")
