@@ -446,7 +446,7 @@ position = Vector2(6756, 538.75)
 position = Vector2(8679, 538.75)
 
 [node name="Screen5" parent="Screens" instance=ExtResource("2_1vyge")]
-position = Vector2(10607.5, 540)
+position = Vector2(10608, 540)
 
 [node name="Screen6" parent="Screens" instance=ExtResource("2_1vyge")]
 position = Vector2(12536.4, 539.625)
@@ -475,6 +475,7 @@ texture = ExtResource("5_j1grr")
 offset_right = 1920.0
 offset_bottom = 1081.0
 color = Color(0.0108085, 0.0642837, 0.0568583, 0.431373)
+metadata/_edit_use_anchors_ = true
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -1427,6 +1428,7 @@ scale = Vector2(0.29, 0.29)
 texture = ExtResource("24_tid6e")
 expand_mode = 1
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Screen1" type="Node2D" parent="Sprites"]
 
@@ -1922,9 +1924,17 @@ texture = ExtResource("7_h68c8")
 
 [node name="Screen6" type="Node2D" parent="Sprites"]
 
-[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6"]
-position = Vector2(9823.63, 171.201)
-scale = Vector2(0.252781, 0.252781)
+[node name="MaskBox4" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(9716, 684)
+scale = Vector2(1.1875, 0.5)
+texture = ExtResource("18_t7yck")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6/MaskBox4"]
+position = Vector2(14.9731, 0.608887)
+rotation = -1.56894
+scale = Vector2(0.246714, 0.103885)
+skew = 0.00860715
 texture = ExtResource("18_11abe")
 
 [node name="Spike1" type="Sprite2D" parent="Sprites/Screen6"]
@@ -1976,6 +1986,94 @@ texture = ExtResource("24_tid6e")
 position = Vector2(10983, 189)
 scale = Vector2(0.128906, 0.128906)
 texture = ExtResource("24_tid6e")
+
+[node name="MaskBox" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(9824, 100.5)
+scale = Vector2(1, 2.32031)
+texture = ExtResource("18_t7yck")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6/MaskBox"]
+position = Vector2(-0.370117, 30.4705)
+scale = Vector2(0.252781, 0.108943)
+texture = ExtResource("18_11abe")
+
+[node name="MaskBox3" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(11336, 85)
+scale = Vector2(0.875, 1.75)
+texture = ExtResource("18_t7yck")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6/MaskBox3"]
+position = Vector2(2.92871, 46.7008)
+scale = Vector2(0.270194, 0.135097)
+texture = ExtResource("18_11abe")
+
+[node name="FenceHeraExtra" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(9825, 389.219)
+rotation = 0.0128876
+scale = Vector2(0.247108, 0.29739)
+texture = ExtResource("10_qkus7")
+
+[node name="FenceBothExtra" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10471.2, 535.577)
+rotation = -1.57079
+scale = Vector2(0.129851, 1.43287)
+texture = ExtResource("23_joyba")
+
+[node name="MaskBox2" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(9718, 537)
+scale = Vector2(1.4375, 0.367188)
+texture = ExtResource("18_t7yck")
+
+[node name="Fence" type="Sprite2D" parent="Sprites/Screen6/MaskBox2"]
+position = Vector2(23.6519, -2.72339)
+rotation = -1.57079
+scale = Vector2(0.396588, 0.101302)
+skew = 2.28882e-05
+texture = ExtResource("7_h68c8")
+
+[node name="FenceHeraExtra2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(11229.3, 534.804)
+rotation = -1.5658
+scale = Vector2(0.129018, 0.205156)
+texture = ExtResource("10_qkus7")
+
+[node name="FenceHeraExtra3" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10558.1, 683.378)
+rotation = -1.57079
+scale = Vector2(0.11533, 1.62513)
+texture = ExtResource("10_qkus7")
+
+[node name="MaskBox5" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(11336, 778)
+scale = Vector2(0.625002, 1.54688)
+texture = ExtResource("18_t7yck")
+
+[node name="FenceBoth" type="Sprite2D" parent="Sprites/Screen6/MaskBox5"]
+position = Vector2(4.09375, -39.358)
+rotation = 3.14159
+scale = Vector2(0.358211, 0.144732)
+texture = ExtResource("16_jndx4")
+
+[node name="FenceExtra" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(10580.4, 204.127)
+rotation = -1.57079
+scale = Vector2(0.128494, 1.55911)
+texture = ExtResource("21_bkaga")
+
+[node name="FenceExtra2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(11336.3, 604.092)
+rotation = -3.14159
+scale = Vector2(0.210784, 0.156711)
+texture = ExtResource("21_bkaga")
+
+[node name="FenceBothExtra2" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(11337.5, 363.5)
+scale = Vector2(0.245097, 0.36078)
+texture = ExtResource("23_joyba")
 
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
