@@ -3116,7 +3116,7 @@ position = Vector2(19, 0)
 metadata/_edit_lock_ = true
 
 [node name="Heracle" parent="Characters" instance=ExtResource("2_nx8qt")]
-position = Vector2(283, 648)
+position = Vector2(192, 569)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
@@ -3136,7 +3136,6 @@ position = Vector2(-29, -2)
 shape = SubResource("RectangleShape2D_4v22b")
 
 [node name="ColorRect" type="ColorRect" parent="Teleporter"]
-visible = false
 offset_left = -1499.0
 offset_top = -922.0
 offset_right = 442.0

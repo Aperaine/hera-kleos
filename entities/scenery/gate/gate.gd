@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var room: DataManager.ROOMS
-@export var mark: Texture2D
+@export var mark_indicator: DataManager.ROOMS
 
 var player_in_area = false
 var can_transition = true
@@ -18,6 +18,10 @@ func _ready():
 		$Area2D/Gate.modulate.a = 1.0
 	else:
 		$Area2D/Gate.modulate.a = 0.7
+	if mark_indicator in DataManager.progress["unlocked_levels"]:
+		$Area2D/Mark.modulate.a = 1.0
+	else:
+		$Area2D/Mark.modulate.a = 0.0
 
 func _process(_delta):
 	var was_in_area = player_in_area
