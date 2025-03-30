@@ -82,7 +82,7 @@ size = Vector2(187, 196)
 size = Vector2(174.5, 350.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m02dj"]
-size = Vector2(136, 779.5)
+size = Vector2(136, 786)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uamtj"]
 size = Vector2(62.8907, 620)
@@ -172,7 +172,7 @@ size = Vector2(177.6, 731.688)
 size = Vector2(187.5, 555)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78mut"]
-size = Vector2(187.5, 273.5)
+size = Vector2(187.5, 276.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2ou8"]
 size = Vector2(174, 390)
@@ -295,7 +295,7 @@ size = Vector2(288, 25.3438)
 size = Vector2(149, 638)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cka5c"]
-size = Vector2(173.563, 134)
+size = Vector2(173.563, 140)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwt82"]
 size = Vector2(175.781, 402.5)
@@ -304,16 +304,16 @@ size = Vector2(175.781, 402.5)
 size = Vector2(183.781, 127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8as1"]
-size = Vector2(179.781, 397.25)
+size = Vector2(179.781, 404.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iym1r"]
-size = Vector2(184.781, 125.313)
+size = Vector2(184.781, 132.656)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ae0d5"]
-size = Vector2(180.781, 228.25)
+size = Vector2(180.781, 237.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58c8j"]
-size = Vector2(101.782, 138.125)
+size = Vector2(101.782, 146.063)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ku3o"]
 size = Vector2(200.99, 123)
@@ -614,7 +614,7 @@ shape = SubResource("RectangleShape2D_eiypa")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="Obstacles/Obstacle Both"]
-position = Vector2(15046, 905.75)
+position = Vector2(15046, 909)
 shape = SubResource("RectangleShape2D_m02dj")
 debug_color = Color(0.462745, 0.490196, 0.878431, 0.419608)
 
@@ -785,7 +785,7 @@ shape = SubResource("RectangleShape2D_bkdaf")
 debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
 
 [node name="CollisionShape2D28" type="CollisionShape2D" parent="Obstacles/Obstacle Hera"]
-position = Vector2(8295, 245.5)
+position = Vector2(8295, 247)
 shape = SubResource("RectangleShape2D_78mut")
 debug_color = Color(0.553482, 0.557541, 0.214305, 0.42)
 
@@ -1054,7 +1054,7 @@ position = Vector2(15005.5, 557)
 shape = SubResource("RectangleShape2D_ytxx4")
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(14843.8, 807)
+position = Vector2(14843.8, 810)
 shape = SubResource("RectangleShape2D_cka5c")
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -1066,19 +1066,19 @@ position = Vector2(14485.9, 539.5)
 shape = SubResource("RectangleShape2D_8a863")
 
 [node name="CollisionShape2D45" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(14303.9, 674.375)
+position = Vector2(14303.9, 677.875)
 shape = SubResource("RectangleShape2D_u8as1")
 
 [node name="CollisionShape2D46" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(14121, 810)
+position = Vector2(14121, 813.672)
 shape = SubResource("RectangleShape2D_iym1r")
 
 [node name="CollisionShape2D47" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(13936.4, 757)
+position = Vector2(13936.4, 761.438)
 shape = SubResource("RectangleShape2D_ae0d5")
 
 [node name="CollisionShape2D48" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(13794.9, 803)
+position = Vector2(13794.9, 806.969)
 shape = SubResource("RectangleShape2D_58c8j")
 
 [node name="CollisionShape2D49" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
@@ -2162,6 +2162,12 @@ rotation = -1.55898
 scale = Vector2(0.24095, 0.0450936)
 texture = ExtResource("21_bkaga")
 
+[node name="FenceHeraExtra4" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(12282.1, 123)
+rotation = -1.57079
+scale = Vector2(0.233011, 0.708328)
+texture = ExtResource("10_qkus7")
+
 [node name="Spike13" type="Sprite2D" parent="Sprites/Screen6"]
 position = Vector2(12632.7, 609.5)
 scale = Vector2(0.160156, 0.160156)
@@ -2204,6 +2210,38 @@ position = Vector2(12488.7, 127.375)
 scale = Vector2(0.319882, 0.319882)
 texture = ExtResource("25_dq3ei")
 
+[node name="MaskBox10" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(11938, 52)
+scale = Vector2(0.656247, 1.3125)
+texture = ExtResource("18_t7yck")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6/MaskBox10"]
+position = Vector2(3.04883, 79.2381)
+scale = Vector2(0.338507, 0.169253)
+texture = ExtResource("18_11abe")
+
+[node name="ColumnShort1Hera" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(13156.8, 794.25)
+scale = Vector2(0.179656, 0.179656)
+texture = ExtResource("29_rae25")
+
+[node name="ColumnLarge2Hera" type="Sprite2D" parent="Sprites/Screen6"]
+position = Vector2(13159, 431)
+scale = Vector2(0.424999, 0.424999)
+texture = ExtResource("28_4e46j")
+
+[node name="MaskBox11" type="Sprite2D" parent="Sprites/Screen6"]
+clip_children = 1
+position = Vector2(12625, 52)
+scale = Vector2(0.656247, 1.3125)
+texture = ExtResource("18_t7yck")
+
+[node name="FenceHera" type="Sprite2D" parent="Sprites/Screen6/MaskBox11"]
+position = Vector2(3.04883, 79.2381)
+scale = Vector2(0.338507, 0.169253)
+texture = ExtResource("18_11abe")
+
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(0, -2)
@@ -2226,14 +2264,14 @@ position = Vector2(128, -112)
 [node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
 position = Vector2(352, 112)
 
-[node name="ColumnLarge2Hera" type="Sprite2D" parent="."]
-position = Vector2(13159, 431)
-scale = Vector2(0.424999, 0.424999)
-texture = ExtResource("28_4e46j")
+[node name="ColumnShort1" type="Sprite2D" parent="."]
+position = Vector2(13790, 771)
+scale = Vector2(0.144981, 0.144981)
+texture = ExtResource("26_l1b31")
 
-[node name="ColumnShort1Hera" type="Sprite2D" parent="."]
-position = Vector2(13156.8, 794.25)
-scale = Vector2(0.179656, 0.179656)
-texture = ExtResource("29_rae25")
+[node name="ColumnShort2" type="Sprite2D" parent="."]
+position = Vector2(13789, 845)
+scale = Vector2(0.139405, 0.139405)
+texture = ExtResource("26_l1b31")
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]
