@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://4waync37ip4k" path="res://assets/scenery/platforming/fence_hera.PNG" id="18_11abe"]
 [ext_resource type="Texture2D" uid="uid://cq2b5c6gxklgv" path="res://assets/scenery/platforming/mask_box.png" id="18_t7yck"]
 [ext_resource type="Texture2D" uid="uid://drwouj5ny51ci" path="res://assets/scenery/platforming/fence_extra.PNG" id="21_bkaga"]
-[ext_resource type="AudioStream" uid="uid://kt7j2ob101ex" path="res://sounds/music/city_choir.mp3" id="23_dq3ei"]
+[ext_resource type="AudioStream" uid="uid://teubfa1gl4em" path="res://sounds/music/city.mp3" id="23_dq3ei"]
 [ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="23_joyba"]
 [ext_resource type="Texture2D" uid="uid://cvrnxgtfeflc4" path="res://assets/scenery/platforming/spike3.PNG" id="24_tid6e"]
 [ext_resource type="Texture2D" uid="uid://ccr2o12kkebop" path="res://assets/scenery/platforming/spike1.PNG" id="25_dq3ei"]

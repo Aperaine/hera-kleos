@@ -3110,6 +3110,11 @@ rotation = -1.57079
 scale = Vector2(0.152432, 0.139037)
 texture = ExtResource("23_p3tef")
 
+[node name="FenceBothExtra" type="Sprite2D" parent="Sprites"]
+position = Vector2(19042, 800.888)
+scale = Vector2(0.34068, 0.502951)
+texture = ExtResource("22_tkdi5")
+
 [node name="UI" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
@@ -3134,8 +3139,3 @@ position = Vector2(283, 648)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
-
-[node name="FenceBothExtra" type="Sprite2D" parent="."]
-position = Vector2(19042, 800.888)
-scale = Vector2(0.34068, 0.502951)
-texture = ExtResource("22_tkdi5")
