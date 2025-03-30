@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=3 uid="uid://bkok84ugd2lm3"]
+[gd_scene load_steps=158 format=3 uid="uid://bkok84ugd2lm3"]
 
 [ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/level_scripts/smart_camera.gd" id="1_5db6m"]
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_aigiw"]
@@ -21,10 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://4waync37ip4k" path="res://assets/scenery/platforming/fence_hera.PNG" id="18_11abe"]
 [ext_resource type="Texture2D" uid="uid://cq2b5c6gxklgv" path="res://assets/scenery/platforming/mask_box.png" id="18_t7yck"]
 [ext_resource type="Texture2D" uid="uid://drwouj5ny51ci" path="res://assets/scenery/platforming/fence_extra.PNG" id="21_bkaga"]
-[ext_resource type="AudioStream" uid="uid://teubfa1gl4em" path="res://sounds/music/city.mp3" id="23_dq3ei"]
+[ext_resource type="AudioStream" uid="uid://kt7j2ob101ex" path="res://sounds/music/city_choir.mp3" id="23_dq3ei"]
 [ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="23_joyba"]
 [ext_resource type="Texture2D" uid="uid://cvrnxgtfeflc4" path="res://assets/scenery/platforming/spike3.PNG" id="24_tid6e"]
 [ext_resource type="Texture2D" uid="uid://ccr2o12kkebop" path="res://assets/scenery/platforming/spike1.PNG" id="25_dq3ei"]
+[ext_resource type="Texture2D" uid="uid://freyvbpp2cqk" path="res://assets/scenery/platforming/column_short_1.PNG" id="26_l1b31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qewqe"]
 size = Vector2(54, 331)
@@ -2096,5 +2097,10 @@ position = Vector2(128, -112)
 
 [node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
 position = Vector2(352, 112)
+
+[node name="ColumnShort1" type="Sprite2D" parent="."]
+position = Vector2(12208.3, 778.75)
+scale = Vector2(0.363383, 0.363383)
+texture = ExtResource("26_l1b31")
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]
