@@ -130,10 +130,6 @@ room = 3
 position = Vector2(1998, 814)
 room = 4
 
-[node name="Gate3" parent="Main/Gates" instance=ExtResource("4_i18ad")]
-position = Vector2(2356, 810)
-room = 5
-
 [node name="CanvasGroup" type="CanvasGroup" parent="Main"]
 
 [node name="Foreground" type="CanvasGroup" parent="."]
@@ -159,7 +155,7 @@ position = Vector2(777, 719)
 [node name="Camera" type="Camera2D" parent="Characters/Heracle"]
 limit_left = 0
 limit_top = 0
-limit_right = 3500
+limit_right = 2500
 limit_bottom = 0
 position_smoothing_enabled = true
 
