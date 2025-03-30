@@ -452,9 +452,6 @@ size = Vector2(136, 328)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmcpu"]
 size = Vector2(240, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v22b"]
-size = Vector2(904, 208)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6wbie"]
 load_path = "res://.godot/imported/fence_hera.PNG-eb4eead0cffdf35c3a8626a0a72f0efa.ctex"
 
@@ -466,6 +463,9 @@ load_path = "res://.godot/imported/fence_hera_extra.PNG-49067592dcb087cfc63acdcd
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w8glc"]
 load_path = "res://.godot/imported/fence_hera_extra.PNG-49067592dcb087cfc63acdcde92bcfb2.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v22b"]
+size = Vector2(904, 208)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_xfhhf")
@@ -1504,20 +1504,6 @@ shape = SubResource("RectangleShape2D_dxy3o")
 position = Vector2(18305, 479)
 shape = SubResource("RectangleShape2D_tmcpu")
 one_way_collision = true
-
-[node name="Teleporter" type="Node2D" parent="Obstacles"]
-position = Vector2(20776, 918)
-script = ExtResource("11_eyc8h")
-teleport_to = 4
-metadata/_edit_group_ = true
-
-[node name="Area2D" type="Area2D" parent="Obstacles/Teleporter"]
-collision_layer = 2048
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Teleporter/Area2D"]
-position = Vector2(-29, -2)
-shape = SubResource("RectangleShape2D_4v22b")
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -3134,6 +3120,46 @@ position = Vector2(283, 648)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
+
+[node name="Teleporter" type="Node2D" parent="."]
+position = Vector2(20776, 918)
+script = ExtResource("11_eyc8h")
+teleport_to = 2
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Teleporter"]
+collision_layer = 2048
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter/Area2D"]
+position = Vector2(-29, -2)
+shape = SubResource("RectangleShape2D_4v22b")
+
+[node name="ColorRect" type="ColorRect" parent="Teleporter"]
+offset_left = -1499.0
+offset_top = -922.0
+offset_right = 424.0
+offset_bottom = 178.0
+
+[node name="Teleporter2" type="Node2D" parent="."]
+position = Vector2(1503, 916)
+script = ExtResource("11_eyc8h")
+teleport_to = 2
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Teleporter2"]
+collision_layer = 2048
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2/Area2D"]
+position = Vector2(-29, -2)
+shape = SubResource("RectangleShape2D_4v22b")
+
+[node name="ColorRect" type="ColorRect" parent="Teleporter2"]
+offset_left = -1499.0
+offset_top = -922.0
+offset_right = 424.0
+offset_bottom = 178.0
 
 [node name="FenceBothExtra" type="Sprite2D" parent="."]
 position = Vector2(19042, 800.888)
