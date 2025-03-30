@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="2_nx8qt"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="3_leplu"]
 [ext_resource type="PackedScene" uid="uid://b402owj7dgdax" path="res://entities/scenery/screen/screen.tscn" id="5_8iimk"]
-[ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="5_meb5y"]
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_8rhj6"]
 [ext_resource type="PackedScene" uid="uid://dt2ls6e45t2i5" path="res://entities/scenery/summoning_circle/summoning_circle.tscn" id="7_coipd"]
 [ext_resource type="Texture2D" uid="uid://freyvbpp2cqk" path="res://assets/scenery/platforming/column_short_1.PNG" id="8_1eock"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://3umkllu7lsnq" path="res://assets/scenery/platforming/gate_hera.png" id="21_c1icb"]
 [ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="22_tkdi5"]
 [ext_resource type="Texture2D" uid="uid://dk8q35bngwyy2" path="res://assets/scenery/platforming/fence_both.PNG" id="23_p3tef"]
+[ext_resource type="AudioStream" uid="uid://teubfa1gl4em" path="res://sounds/music/city.mp3" id="24_6wbie"]
 [ext_resource type="Texture2D" uid="uid://cq2b5c6gxklgv" path="res://assets/scenery/platforming/mask_box.png" id="24_p3tef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18t6d"]
@@ -478,7 +478,6 @@ script = ExtResource("2_hb5yu")
 metadata/_edit_lock_ = true
 
 [node name="Screens" type="Node2D" parent="."]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="Screen0" parent="Screens" instance=ExtResource("5_8iimk")]
@@ -3085,6 +3084,26 @@ rotation = 3.14159
 scale = Vector2(0.25, 0.20696)
 texture = ExtResource("23_p3tef")
 
+[node name="FenceExtra" type="Sprite2D" parent="Sprites/Screen10"]
+position = Vector2(20197, 783)
+scale = Vector2(0.248752, 0.223026)
+texture = ExtResource("17_7urw1")
+
+[node name="FenceExtra2" type="Sprite2D" parent="Sprites/Screen10"]
+position = Vector2(20284, 782)
+scale = Vector2(0.248752, 0.223026)
+texture = ExtResource("17_7urw1")
+
+[node name="FenceHeraExtra3" type="Sprite2D" parent="Sprites/Screen10"]
+position = Vector2(20197.6, 56.0047)
+scale = Vector2(0.273169, 0.273169)
+texture = ExtResource("16_c1icb")
+
+[node name="FenceHeraExtra4" type="Sprite2D" parent="Sprites/Screen10"]
+position = Vector2(20282, 55)
+scale = Vector2(0.273169, 0.273169)
+texture = ExtResource("16_c1icb")
+
 [node name="FenceBoth7" type="Sprite2D" parent="Sprites/Screen10"]
 position = Vector2(19896, 690)
 rotation = -1.57079
@@ -3102,7 +3121,9 @@ position = Vector2(-402, 561)
 [node name="Menu" parent="UI" instance=ExtResource("1_arrdw")]
 position = Vector2(-103, 54)
 
-[node name="MouseSensitivityController" parent="UI" instance=ExtResource("5_meb5y")]
+[node name="Music" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("24_6wbie")
+autoplay = true
 
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(19, 0)
@@ -3113,23 +3134,3 @@ position = Vector2(283, 648)
 
 [node name="Hera" parent="Characters" instance=ExtResource("3_leplu")]
 position = Vector2(261, 292)
-
-[node name="FenceExtra" type="Sprite2D" parent="."]
-position = Vector2(20197, 783)
-scale = Vector2(0.248752, 0.223026)
-texture = ExtResource("17_7urw1")
-
-[node name="FenceExtra2" type="Sprite2D" parent="."]
-position = Vector2(20284, 782)
-scale = Vector2(0.248752, 0.223026)
-texture = ExtResource("17_7urw1")
-
-[node name="FenceHeraExtra" type="Sprite2D" parent="."]
-position = Vector2(20197.6, 56.0047)
-scale = Vector2(0.273169, 0.273169)
-texture = ExtResource("16_c1icb")
-
-[node name="FenceHeraExtra2" type="Sprite2D" parent="."]
-position = Vector2(20282, 55)
-scale = Vector2(0.273169, 0.273169)
-texture = ExtResource("16_c1icb")

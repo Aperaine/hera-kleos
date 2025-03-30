@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://be83omqxhq1ex" path="res://entities/characters/heracle/heracle.tscn" id="5_v4ti5"]
 [ext_resource type="Script" uid="uid://ba0of5vkrmkb" path="res://entities/levels/level_scripts/damage.gd" id="6_63wwy"]
 [ext_resource type="PackedScene" uid="uid://keoqw036preq" path="res://entities/characters/hera/hera.tscn" id="6_sblwk"]
-[ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="6_ss548"]
+[ext_resource type="AudioStream" uid="uid://c8685pos53v5p" path="res://sounds/music/cave.mp3" id="12_awuml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kyh"]
 size = Vector2(305, 269)
@@ -1752,13 +1752,15 @@ metadata/_edit_group_ = true
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(103, -54)
 
-[node name="MouseSensitivityController" parent="UI" instance=ExtResource("6_ss548")]
-
 [node name="Timer" parent="UI" instance=ExtResource("1_cbafq")]
 position = Vector2(-103, 54)
 
 [node name="Menu" parent="UI" instance=ExtResource("4_l16er")]
 position = Vector2(-103, 54)
+
+[node name="Music" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("12_awuml")
+autoplay = true
 
 [node name="Characters" type="Node2D" parent="."]
 

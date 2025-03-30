@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d18bjr7ocmug3" path="res://entities/scenery/ability_gain/ability_gain.tscn" id="4_o2pib"]
 [ext_resource type="PackedScene" uid="uid://bpkrji6xdmocs" path="res://entities/ui/menu/menu.tscn" id="5_c500p"]
 [ext_resource type="Texture2D" uid="uid://ba1cutmn1hv2" path="res://assets/scenery/level1/background1_2.PNG" id="5_j1grr"]
-[ext_resource type="PackedScene" uid="uid://bhy60m2n1c6up" path="res://entities/ui/mouse_sensitivity_controller/mouse_sensitivity_controller.tscn" id="6_5r5oo"]
 [ext_resource type="PackedScene" uid="uid://dn73qwtxpdnmv" path="res://entities/scenery/check_point/check_point.tscn" id="6_qr2pe"]
 [ext_resource type="Texture2D" uid="uid://c85f7sian7kwb" path="res://assets/scenery/platforming/fence.PNG" id="7_h68c8"]
 [ext_resource type="Script" uid="uid://ba0of5vkrmkb" path="res://entities/levels/level_scripts/damage.gd" id="7_k5l5l"]
@@ -22,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://4waync37ip4k" path="res://assets/scenery/platforming/fence_hera.PNG" id="18_11abe"]
 [ext_resource type="Texture2D" uid="uid://cq2b5c6gxklgv" path="res://assets/scenery/platforming/mask_box.png" id="18_t7yck"]
 [ext_resource type="Texture2D" uid="uid://drwouj5ny51ci" path="res://assets/scenery/platforming/fence_extra.PNG" id="21_bkaga"]
+[ext_resource type="AudioStream" uid="uid://kt7j2ob101ex" path="res://sounds/music/city_choir.mp3" id="23_dq3ei"]
 [ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="23_joyba"]
 [ext_resource type="Texture2D" uid="uid://cvrnxgtfeflc4" path="res://assets/scenery/platforming/spike3.PNG" id="24_tid6e"]
 [ext_resource type="Texture2D" uid="uid://ccr2o12kkebop" path="res://assets/scenery/platforming/spike1.PNG" id="25_dq3ei"]
@@ -2079,13 +2079,15 @@ texture = ExtResource("23_joyba")
 scroll_scale = Vector2(0, 0)
 scroll_offset = Vector2(0, -2)
 
-[node name="MouseSensitivityController" parent="UI" instance=ExtResource("6_5r5oo")]
-
 [node name="Timer" parent="UI" instance=ExtResource("1_sikvp")]
 position = Vector2(0, 2)
 
 [node name="Menu" parent="UI" instance=ExtResource("5_c500p")]
 position = Vector2(0, 2)
+
+[node name="Music" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("23_dq3ei")
+autoplay = true
 
 [node name="Characters" type="Node2D" parent="."]
 

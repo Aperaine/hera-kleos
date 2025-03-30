@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5gp1o4puf13w"]
+[gd_scene load_steps=15 format=3 uid="uid://5gp1o4puf13w"]
 
 [ext_resource type="Texture2D" uid="uid://o3ijp34nf626" path="res://assets/scenery/castle/ocean.PNG" id="1_5vv2g"]
 [ext_resource type="Texture2D" uid="uid://4kxebuhrsj7e" path="res://assets/scenery/castle/mountain_right.PNG" id="1_mnupi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bjc50otxawp57" path="res://entities/ui/timer/timer.tscn" id="6_5uvbe"]
 [ext_resource type="Texture2D" uid="uid://b66237tlyiirx" path="res://assets/scenery/castle/floor.PNG" id="10_tojyt"]
 [ext_resource type="Texture2D" uid="uid://iy61osx7x7lm" path="res://assets/scenery/platforming/vase_1.PNG" id="13_v87kl"]
+[ext_resource type="AudioStream" uid="uid://denn8so6uswwd" path="res://sounds/music/intro2.mp3" id="14_rgt1h"]
 [ext_resource type="PackedScene" uid="uid://bxvsmqf7d4b88" path="res://entities/characters/king/king.tscn" id="14_yvooc"]
 
 [node name="Castle" type="Node2D"]
@@ -148,6 +149,10 @@ room = 2
 [node name="UI" type="Parallax2D" parent="Foreground"]
 scroll_scale = Vector2(0, 0)
 
+[node name="Music" type="AudioStreamPlayer" parent="Foreground/UI"]
+stream = ExtResource("14_rgt1h")
+autoplay = true
+
 [node name="Menu" parent="Foreground/UI" instance=ExtResource("5_2a5iv")]
 
 [node name="Timer" parent="Foreground/UI" instance=ExtResource("6_5uvbe")]
@@ -155,9 +160,6 @@ position = Vector2(0, 552.031)
 
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(-3, 0)
-
-[node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
-position = Vector2(649, 477)
 
 [node name="Heracle" parent="Characters" instance=ExtResource("3_pg7en")]
 position = Vector2(777, 719)
@@ -168,3 +170,6 @@ limit_top = 0
 limit_right = 3500
 limit_bottom = 0
 position_smoothing_enabled = true
+
+[node name="Hera" parent="Characters" instance=ExtResource("2_fonep")]
+position = Vector2(649, 477)

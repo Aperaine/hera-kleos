@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cava423x286u4"]
+[gd_scene load_steps=5 format=3 uid="uid://cava423x286u4"]
 
 [ext_resource type="PackedScene" uid="uid://dw7ncwcpgjdb3" path="res://entities/ui/slot/slot.tscn" id="1_8ypcq"]
 [ext_resource type="Texture2D" uid="uid://bppeq6nkadanp" path="res://assets/scenery/level1/sky1_0.PNG" id="1_e60si"]
+[ext_resource type="AudioStream" uid="uid://denn8so6uswwd" path="res://sounds/music/intro2.mp3" id="1_id1i3"]
 [ext_resource type="Texture2D" uid="uid://ba1cutmn1hv2" path="res://assets/scenery/level1/background1_2.PNG" id="1_pwm5x"]
 
 [node name="Home" type="Node2D"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_id1i3")
+autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
