@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://qiaow7332751"]
+[gd_scene load_steps=4 format=3 uid="uid://qiaow7332751"]
 
 [ext_resource type="Script" uid="uid://ojyf18fqubar" path="res://entities/scenery/lava_rain/lava_droplet.gd" id="1_0j5ia"]
+[ext_resource type="Texture2D" uid="uid://b2l4bl3xrcx3t" path="res://assets/scenery/platforming/lava_thin.PNG" id="2_3332r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6th11"]
 size = Vector2(32, 96)
@@ -26,5 +27,15 @@ offset_top = 32.0
 offset_right = 16.0
 offset_bottom = 48.0
 color = Color(0.498039, 0.184314, 0, 0.8)
+
+[node name="LavaThin" type="Sprite2D" parent="."]
+position = Vector2(-0.75, 20.5)
+scale = Vector2(0.0657407, 0.103236)
+texture = ExtResource("2_3332r")
+
+[node name="LavaThin2" type="Sprite2D" parent="."]
+position = Vector2(2.98023e-08, -16)
+scale = Vector2(0.0675926, 0.104777)
+texture = ExtResource("2_3332r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
