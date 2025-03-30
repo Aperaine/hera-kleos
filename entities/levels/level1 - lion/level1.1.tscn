@@ -1373,25 +1373,6 @@ texture = ExtResource("24_tid6e")
 position = Vector2(1193, 294)
 ability_hera = 1
 
-[node name="Teleporter" type="Node2D" parent="Obstacles"]
-position = Vector2(19280, 696)
-script = ExtResource("11_bacrg")
-teleport_to = 4
-
-[node name="Area2D" type="Area2D" parent="Obstacles/Teleporter"]
-collision_layer = 2048
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Teleporter/Area2D"]
-position = Vector2(-12, 12)
-shape = SubResource("RectangleShape2D_bacrg")
-
-[node name="ColorRect" type="ColorRect" parent="Obstacles/Teleporter"]
-offset_left = -1925.0
-offset_top = -698.0
-offset_right = 6.0
-offset_bottom = 388.0
-
 [node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
 collision_layer = 1024
 collision_mask = 128
@@ -2302,5 +2283,27 @@ position = Vector2(128, -112)
 
 [node name="Hera" parent="Characters" instance=ExtResource("4_ej5nk")]
 position = Vector2(352, 112)
+
+[node name="Teleporter" type="Node2D" parent="."]
+position = Vector2(19280, 696)
+script = ExtResource("11_bacrg")
+teleport_to = 2
+unlock = 5
+
+[node name="Area2D" type="Area2D" parent="Teleporter"]
+collision_layer = 2048
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter/Area2D"]
+position = Vector2(-12, 12)
+shape = SubResource("RectangleShape2D_bacrg")
+
+[node name="ColorRect" type="ColorRect" parent="Teleporter"]
+visible = false
+offset_left = -1925.0
+offset_top = -698.0
+offset_right = 6.0
+offset_bottom = 388.0
+color = Color(0.188235, 0.196078, 0.164706, 1)
 
 [connection signal="body_entered" from="Obstacles/Damage/DamageCollider" to="Obstacles/Damage" method="_on_damage_collider_body_entered"]

@@ -3136,30 +3136,12 @@ position = Vector2(-29, -2)
 shape = SubResource("RectangleShape2D_4v22b")
 
 [node name="ColorRect" type="ColorRect" parent="Teleporter"]
+visible = false
 offset_left = -1499.0
 offset_top = -922.0
-offset_right = 424.0
+offset_right = 442.0
 offset_bottom = 178.0
-
-[node name="Teleporter2" type="Node2D" parent="."]
-position = Vector2(1503, 916)
-script = ExtResource("11_eyc8h")
-teleport_to = 2
-metadata/_edit_group_ = true
-
-[node name="Area2D" type="Area2D" parent="Teleporter2"]
-collision_layer = 2048
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2/Area2D"]
-position = Vector2(-29, -2)
-shape = SubResource("RectangleShape2D_4v22b")
-
-[node name="ColorRect" type="ColorRect" parent="Teleporter2"]
-offset_left = -1499.0
-offset_top = -922.0
-offset_right = 424.0
-offset_bottom = 178.0
+color = Color(0.372549, 0.313726, 0.258824, 1)
 
 [node name="FenceBothExtra" type="Sprite2D" parent="."]
 position = Vector2(19042, 800.888)
