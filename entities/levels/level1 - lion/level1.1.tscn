@@ -21,11 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://4waync37ip4k" path="res://assets/scenery/platforming/fence_hera.PNG" id="18_11abe"]
 [ext_resource type="Texture2D" uid="uid://cq2b5c6gxklgv" path="res://assets/scenery/platforming/mask_box.png" id="18_t7yck"]
 [ext_resource type="Texture2D" uid="uid://drwouj5ny51ci" path="res://assets/scenery/platforming/fence_extra.PNG" id="21_bkaga"]
-[ext_resource type="AudioStream" uid="uid://kt7j2ob101ex" path="res://sounds/music/city_choir.mp3" id="23_dq3ei"]
 [ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="23_joyba"]
 [ext_resource type="Texture2D" uid="uid://cvrnxgtfeflc4" path="res://assets/scenery/platforming/spike3.PNG" id="24_tid6e"]
 [ext_resource type="Texture2D" uid="uid://ccr2o12kkebop" path="res://assets/scenery/platforming/spike1.PNG" id="25_dq3ei"]
 [ext_resource type="Texture2D" uid="uid://freyvbpp2cqk" path="res://assets/scenery/platforming/column_short_1.PNG" id="26_l1b31"]
+[ext_resource type="AudioStream" uid="uid://teubfa1gl4em" path="res://sounds/music/city.mp3" id="27_4e46j"]
 [ext_resource type="Texture2D" uid="uid://cvohdfhqjwtyv" path="res://assets/scenery/platforming/wooden_box.PNG" id="27_m5eee"]
 [ext_resource type="Texture2D" uid="uid://3xv2pkwupvy0" path="res://assets/scenery/platforming/column_large_2_hera.PNG" id="28_4e46j"]
 [ext_resource type="Texture2D" uid="uid://dfsee1cqsbf4e" path="res://assets/scenery/platforming/column_short_1_hera.PNG" id="29_rae25"]
@@ -1377,7 +1377,6 @@ ability_hera = 1
 position = Vector2(19280, 696)
 script = ExtResource("11_bacrg")
 teleport_to = 4
-metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="Obstacles/Teleporter"]
 collision_layer = 2048
@@ -1386,6 +1385,12 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Teleporter/Area2D"]
 position = Vector2(-12, 12)
 shape = SubResource("RectangleShape2D_bacrg")
+
+[node name="ColorRect" type="ColorRect" parent="Obstacles/Teleporter"]
+offset_left = -1925.0
+offset_top = -698.0
+offset_right = 6.0
+offset_bottom = 388.0
 
 [node name="LevelEnd" type="StaticBody2D" parent="Obstacles"]
 collision_layer = 1024
@@ -2253,7 +2258,7 @@ position = Vector2(0, 2)
 position = Vector2(0, 2)
 
 [node name="Music" type="AudioStreamPlayer" parent="UI"]
-stream = ExtResource("23_dq3ei")
+stream = ExtResource("27_4e46j")
 autoplay = true
 
 [node name="Characters" type="Node2D" parent="."]
