@@ -1,17 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cava423x286u4"]
+[gd_scene load_steps=6 format=3 uid="uid://cava423x286u4"]
 
 [ext_resource type="PackedScene" uid="uid://dw7ncwcpgjdb3" path="res://entities/ui/slot/slot.tscn" id="1_8ypcq"]
 [ext_resource type="Texture2D" uid="uid://bppeq6nkadanp" path="res://assets/scenery/level1/sky1_0.PNG" id="1_e60si"]
 [ext_resource type="AudioStream" uid="uid://denn8so6uswwd" path="res://sounds/music/intro2.mp3" id="1_id1i3"]
 [ext_resource type="Texture2D" uid="uid://ba1cutmn1hv2" path="res://assets/scenery/level1/background1_2.PNG" id="1_pwm5x"]
+[ext_resource type="FontFile" uid="uid://b7rhygd3lisof" path="res://assets/ui/fonts/Monomakh-Regular.ttf" id="5_w3hko"]
 
 [node name="Home" type="Node2D"]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_id1i3")
 autoplay = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sky10" type="Sprite2D" parent="."]
 position = Vector2(3, 1)
@@ -66,3 +65,15 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 slot_num = 3
 metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Version" type="Label" parent="."]
+clip_contents = true
+offset_left = 796.0
+offset_top = 447.0
+offset_right = 915.0
+offset_bottom = 512.0
+theme_override_fonts/font = ExtResource("5_w3hko")
+theme_override_font_sizes/font_size = 50
+text = "v2.0"

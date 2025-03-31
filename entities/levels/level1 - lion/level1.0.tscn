@@ -3125,6 +3125,7 @@ position = Vector2(261, 292)
 position = Vector2(20776, 918)
 script = ExtResource("11_eyc8h")
 teleport_to = 2
+unlock = 4
 metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="Teleporter"]

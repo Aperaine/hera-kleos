@@ -40,7 +40,7 @@ func _process(_delta):
 		can_transition = true
 
 
-	if player_in_area and Input.is_action_just_pressed("ui_down") and can_transition:
+	if player_in_area and Input.is_action_just_pressed("gate-down") and can_transition:
 		print("Unlocked levels: ", DataManager.progress["unlocked_levels"])
 		print("Current room enum value: ", room)
 

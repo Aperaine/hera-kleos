@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://bkok84ugd2lm3"]
+[gd_scene load_steps=159 format=3 uid="uid://bkok84ugd2lm3"]
 
 [ext_resource type="Script" uid="uid://c330i8jlynlkf" path="res://entities/levels/level_scripts/smart_camera.gd" id="1_5db6m"]
 [ext_resource type="Script" uid="uid://c6nlrcq0frc5t" path="res://entities/levels/level_scripts/level_scene.gd" id="1_aigiw"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dmhx23vlalr7p" path="res://assets/scenery/platforming/fence_both_extra.PNG" id="23_joyba"]
 [ext_resource type="Texture2D" uid="uid://cvrnxgtfeflc4" path="res://assets/scenery/platforming/spike3.PNG" id="24_tid6e"]
 [ext_resource type="Texture2D" uid="uid://ccr2o12kkebop" path="res://assets/scenery/platforming/spike1.PNG" id="25_dq3ei"]
-[ext_resource type="Texture2D" uid="uid://freyvbpp2cqk" path="res://assets/scenery/platforming/column_short_1.PNG" id="26_l1b31"]
 [ext_resource type="AudioStream" uid="uid://teubfa1gl4em" path="res://sounds/music/city.mp3" id="27_4e46j"]
 [ext_resource type="Texture2D" uid="uid://cvohdfhqjwtyv" path="res://assets/scenery/platforming/wooden_box.PNG" id="27_m5eee"]
 [ext_resource type="Texture2D" uid="uid://3xv2pkwupvy0" path="res://assets/scenery/platforming/column_large_2_hera.PNG" id="28_4e46j"]
@@ -278,9 +277,6 @@ size = Vector2(163, 13.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epi7w"]
 size = Vector2(51.25, 49)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u73qd"]
-size = Vector2(271.125, 191)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2d44d"]
 size = Vector2(119.625, 10.5)
@@ -1026,10 +1022,6 @@ shape = SubResource("RectangleShape2D_epi7w")
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(12170.4, 293.625)
 shape = SubResource("RectangleShape2D_epi7w")
-
-[node name="CollisionShape2D35" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
-position = Vector2(12226.8, 777.125)
-shape = SubResource("RectangleShape2D_u73qd")
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="Obstacles/Obstacle Heracle"]
 position = Vector2(11636.6, 488.875)
@@ -2073,11 +2065,6 @@ position = Vector2(-4.14893, 44.5714)
 rotation = 3.14159
 scale = Vector2(0.27413, 0.13217)
 texture = ExtResource("7_h68c8")
-
-[node name="ColumnShort1" type="Sprite2D" parent="Sprites/Screen7"]
-position = Vector2(12227.5, 778.75)
-scale = Vector2(0.431223, 0.363383)
-texture = ExtResource("26_l1b31")
 
 [node name="WoodenBox" type="Sprite2D" parent="Sprites/Screen7"]
 position = Vector2(11970.3, 293.342)

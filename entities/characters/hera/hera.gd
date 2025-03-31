@@ -114,7 +114,7 @@ func hera_spawn():
 	await $AnimationPlayer.animation_finished
 	DataManager.hera_safe_pos()
 	DataManager.ram["hera_dead"] = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.3).timeout
 	collision_hummingbird.disabled = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
