@@ -19,7 +19,7 @@ Player 2 (Mouse)
 
 ## 🚀 Meet the Crew
 - 👾 Umarbek – Project Lead & Programmer
-- 🎨 Allie – Artist & Writer
+- 💫 Allie – Artist & Writer
 - 🧑🏻‍💻 Jafar – Level Designer & Programmer
 - 🎼 Nay – Composer
 
