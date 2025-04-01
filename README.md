@@ -1,11 +1,26 @@
-# hera-kleos
- 
-Hera Kleos is a game developed by Jaunty games team for the juice gamejam. After working on it for some time, we have decided to build this into a bigger project over the larget timespan, which will incorporate all 12 labours and more enriched player experience.
+# Hera Kleos 🏛️
+Step into the sandals of Heracles and take on the legendary 12 Labors in this action-packed 2D platformer! Battle mythical beasts, solve ancient challenges, and uncover the power of the gods.
 
-More content will be added.
+[Play the game!](https://umarik.itch.io/hera-kleos)
 
-People who were involved in creation of this game:
-- Umarbek
-- Allie
-- Jafar
-- Nay
+## 🎮 Unique Gameplay
+Two-Player Co-op: One player controls Heracles, the other controls Hera to assist with divine abilities.
+Dynamic Puzzles & Combat: Master movement, strategy, and godly powers to overcome trials.
+
+## 🕹️ Controls
+Player 1 (Keyboard)
+- WAD / Arrow Keys – Move
+- D / Down Arrow – Enter gates
+
+Player 2 (Mouse)
+- Move Mouse – Guide Hera
+- Left Click – Activate ability
+- Right Click – Switch ability
+
+## 🚀 Meet the Crew
+- 👾 Umarbek – Project Lead & Programmer
+- 🎨 Allie – Artist & Writer
+- 🧑🏻‍💻 Jafar – Level Designer & Programmer
+- 🎼 Nay – Composer
+
+🔥 More Content Coming Soon! Stay tuned for new levels, abilities, and challenges!
