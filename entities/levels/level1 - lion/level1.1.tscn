@@ -2897,6 +2897,11 @@ position = Vector2(18587.9, 647)
 scale = Vector2(0.195313, 0.195313)
 texture = ExtResource("24_tid6e")
 
+[node name="Spike9" type="Sprite2D" parent="Sprites/Screen10"]
+position = Vector2(18129.1, 853)
+scale = Vector2(0.223028, 0.203125)
+texture = ExtResource("24_tid6e")
+
 [node name="Spike5" type="Sprite2D" parent="Sprites/Screen10"]
 position = Vector2(18873, 311)
 scale = Vector2(0.19149, 0.195313)
